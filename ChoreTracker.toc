@@ -1,0 +1,19 @@
+## Interface: 100105
+## Title: ChoreTracker
+## Notes: Keep track of your chores
+## Version: 0.0.1
+## Author: Freddie
+## SavedVariables: ChoreTrackerDB
+
+libs\LibStub\LibStub.lua
+libs\AceAddon-3.0\AceAddon-3.0.xml
+libs\AceBucket-3.0\AceBucket-3.0.xml
+libs\AceConfig-3.0\AceConfig-3.0.xml
+libs\AceDB-3.0\AceDB-3.0.xml
+libs\AceDBOptions-3.0\AceDBOptions-3.0.xml
+libs\AceEvent-3.0\AceEvent-3.0.xml
+libs\AceHook-3.0\AceHook-3.0.xml
+libs\AceTimer-3.0\AceTimer-3.0.xml
+
+ChoreTracker.lua
+Modules\Options.lua
