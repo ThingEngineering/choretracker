@@ -1,6 +1,8 @@
 local Addon = LibStub('AceAddon-3.0'):NewAddon('ChoreTracker', 'AceEvent-3.0')
 Addon:SetDefaultModuleLibraries('AceBucket-3.0', 'AceEvent-3.0', 'AceTimer-3.0')
 
+local ADB = LibStub('AceDB-3.0')
+
 local ModulePrototype = {
     UniqueTimer = function(self, name, seconds, callback, ...)
         self.__timers = self.__timers or {}
@@ -22,13 +24,77 @@ local defaultDb = {
             ['**'] = {
                 enabled = true,
             }
-        }
+        },
+        professions = {
+            alchemy = {
+                dropForbiddenReach = false,
+                dropMob = true,
+                dropTreasure = true,
+                questCraft = true,
+                questGather = true,
+            },
+            blacksmithing = {
+                dropForbiddenReach = false,
+                dropMob = true,
+                dropTreasure = true,
+                questCraft = true,
+                questGather = true,
+                questOrder = true,
+            },
+            enchanting = {
+                dropForbiddenReach = false,
+                dropMob = true,
+                dropTreasure = true,
+                questCraft = true,
+                questGather = true,
+            },
+            engineering = {
+                dropForbiddenReach = false,
+                dropMob = true,
+                dropTreasure = true,
+                questCraft = true,
+                questGather = true,
+                questOrder = true,
+            },
+            inscription = {
+                dropForbiddenReach = false,
+                dropMob = true,
+                dropTreasure = true,
+                questCraft = true,
+                questGather = true,
+                questOrder = true,
+            },
+            jewelcrafting = {
+                dropForbiddenReach = false,
+                dropMob = true,
+                dropTreasure = true,
+                questCraft = true,
+                questGather = true,
+                questOrder = true,
+            },
+            leatherworking = {
+                dropForbiddenReach = false,
+                dropMob = true,
+                dropTreasure = true,
+                questCraft = true,
+                questGather = true,
+                questOrder = true,
+            },
+            tailoring = {
+                dropForbiddenReach = false,
+                dropMob = true,
+                dropTreasure = true,
+                questCraft = true,
+                questGather = true,
+                questOrder = true,
+            },
+        },
     }
 }
 
 
 function Addon:OnInitialize()
-    self.db = LibStub('AceDB-3.0'):New('ChoreTrackerDB', defaultDb, true) -- default global profile
+    self.db = ADB:New('ChoreTrackerDB', defaultDb, true) -- default global profile
 
     -- register events, etc
     self:RegisterEvent('PLAYER_ENTERING_WORLD')
