@@ -18,3 +18,5 @@ libs\AceTimer-3.0\AceTimer-3.0.xml
 
 ChoreTracker.lua
 Modules\Options.lua
+
+Data\Professions\Alchemy.lua

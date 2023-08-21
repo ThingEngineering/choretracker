@@ -18,6 +18,11 @@ local ModulePrototype = {
 Addon:SetDefaultModulePrototype(ModulePrototype)
 
 
+Addon.data = {
+    professions = {},
+}
+
+
 local defaultDb = {
     profile = {
         modules = {

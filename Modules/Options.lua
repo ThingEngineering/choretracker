@@ -54,7 +54,7 @@ function Module:CreateOptions()
                 type = 'group',
                 order = newOrder(),
                 args = {
-                    alchemy = self:GetProfessionOptions('Alchemy', 'craft'),
+                    alchemy = self:GetProfessionOptions2('alchemy'),
                     blacksmithing = self:GetProfessionOptions('Blacksmithing', 'craft', true),
                     enchanting = self:GetProfessionOptions('Enchanting', 'craft'),
                     engineering = self:GetProfessionOptions('Engineering', 'craft', true),
@@ -66,6 +66,82 @@ function Module:CreateOptions()
             }
         }
     }
+end
+
+function Module:GetProfessionOptions2(key)
+    local data = Addon.data.professions[key]
+    local options = {
+        name = C_TradeSkillUI.GetTradeSkillDisplayName(data.skillLineId),
+        type = 'group',
+        order = newOrder(),
+        inline = true,
+        args = {},
+    }
+
+    if data.quests.dropGather ~= nil then
+        options.args.dropGather = {
+            name = 'Drops (gather)',
+            desc = 'wibbly wobbly',
+            type = 'toggle',
+            order = newOrder(),
+        }
+    end
+
+    if data.quests.dropMob ~= nil then
+        options.args.dropMob = {
+            name = 'Drops (mobs)',
+            desc = 'wibbly wobbly',
+            type = 'toggle',
+            order = newOrder(),
+        }
+    end
+
+    if data.quests.dropTreasure ~= nil then
+        options.args.dropTreasure = {
+            name = 'Drops (treasures)',
+            desc = 'Make sure you have some shovels!',
+            type = 'toggle',
+            order = newOrder(),
+        }
+    end
+
+    if data.quests.dropForbiddenReach ~= nil then
+        options.args.dropForbiddenReach = {
+            name = 'Drop (Forbidden Reach)',
+            desc = 'Drop from the summonable profession rare',
+            type = 'toggle',
+            order = newOrder(),
+        }
+    end
+
+    if data.quests.craft ~= nil then
+        options.args.questCraft = {
+            name = 'Craft quest',
+            desc = 'Craft N thingies',
+            type = 'toggle',
+            order = newOrder(),
+        }
+    end
+
+    if data.quests.gather ~= nil then
+        options.args.questGather = {
+            name = 'Gather quest',
+            desc = 'Gather N widgets',
+            type = 'toggle',
+            order = newOrder(),
+        }
+    end
+
+    if data.quests.order ~= nil then
+        options.args.questOrder = {
+            name = 'Orders quest',
+            desc = 'Complete N crafting orders',
+            type = 'toggle',
+            order = newOrder(),
+        }
+    end
+
+    return options
 end
 
 function Module:GetProfessionOptions(name, type, hasOrders)
