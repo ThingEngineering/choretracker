@@ -34,4 +34,5 @@ Data\Professions\Mining.lua
 Data\Professions\Skinning.lua
 Data\Professions\Tailoring.lua
 
+Modules\Display.lua
 Modules\Options.lua
