@@ -55,7 +55,7 @@ Addon.data.professions.blacksmithing = {
                 {
                     key = 'orders',
                     entries = {
-                        { quest=70589 }, -- Blacksmithing Orders Requested
+                        { quest=70589 }, -- Blacksmithing Services Requested
                     },
                 },
                 {

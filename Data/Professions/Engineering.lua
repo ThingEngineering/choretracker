@@ -55,7 +55,7 @@ Addon.data.professions.engineering = {
                 {
                     key = 'orders',
                     entries = {
-                        { quest=70591 }, -- Engineering Orders Requested
+                        { quest=70591 }, -- Engineering Services Requested
                     },
                 },
                 {
