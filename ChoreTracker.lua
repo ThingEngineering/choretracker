@@ -1,26 +1,29 @@
-local Addon = LibStub('AceAddon-3.0'):NewAddon('ChoreTracker', 'AceEvent-3.0')
-Addon:SetDefaultModuleLibraries('AceBucket-3.0', 'AceEvent-3.0', 'AceTimer-3.0')
+local addonName, addonTable = ...
+local Addon = LibStub('AceAddon-3.0'):NewAddon(addonTable, addonName, 'AceEvent-3.0')
 
-local ADB = LibStub('AceDB-3.0')
-
-local ModulePrototype = {
-    UniqueTimer = function(self, name, seconds, callback, ...)
-        self.__timers = self.__timers or {}
-        
-        if self.__timers[name] and self:TimeLeft(self.__timers[name]) > 0 then
-            -- print('Timer '..name..' already exists')
-            return
-        end
-
-        self.__timers[name] = self:ScheduleTimer(callback, seconds, ...)
-    end
-}
-Addon:SetDefaultModulePrototype(ModulePrototype)
-
-
+Addon.L = LibStub('AceLocale-3.0'):GetLocale(addonName)
 Addon.data = {
     professions = {},
 }
+
+Addon:SetDefaultModuleLibraries('AceBucket-3.0', 'AceEvent-3.0')--, 'AceTimer-3.0')
+
+local ADB = LibStub('AceDB-3.0')
+
+-- local ModulePrototype = {
+--     UniqueTimer = function(self, name, seconds, callback, ...)
+--         self.__timers = self.__timers or {}
+        
+--         if self.__timers[name] and self:TimeLeft(self.__timers[name]) > 0 then
+--             -- print('Timer '..name..' already exists')
+--             return
+--         end
+
+--         self.__timers[name] = self:ScheduleTimer(callback, seconds, ...)
+--     end
+-- }
+-- Addon:SetDefaultModulePrototype(ModulePrototype)
+
 
 
 local defaultDb = {
@@ -30,75 +33,38 @@ local defaultDb = {
                 enabled = true,
             }
         },
-        professions = {
-            alchemy = {
-                dropForbiddenReach = false,
-                dropMob = true,
-                dropTreasure = true,
-                questCraft = true,
-                questGather = true,
-            },
-            blacksmithing = {
-                dropForbiddenReach = false,
-                dropMob = true,
-                dropTreasure = true,
-                questCraft = true,
-                questGather = true,
-                questOrder = true,
-            },
-            enchanting = {
-                dropForbiddenReach = false,
-                dropMob = true,
-                dropTreasure = true,
-                questCraft = true,
-                questGather = true,
-            },
-            engineering = {
-                dropForbiddenReach = false,
-                dropMob = true,
-                dropTreasure = true,
-                questCraft = true,
-                questGather = true,
-                questOrder = true,
-            },
-            inscription = {
-                dropForbiddenReach = false,
-                dropMob = true,
-                dropTreasure = true,
-                questCraft = true,
-                questGather = true,
-                questOrder = true,
-            },
-            jewelcrafting = {
-                dropForbiddenReach = false,
-                dropMob = true,
-                dropTreasure = true,
-                questCraft = true,
-                questGather = true,
-                questOrder = true,
-            },
-            leatherworking = {
-                dropForbiddenReach = false,
-                dropMob = true,
-                dropTreasure = true,
-                questCraft = true,
-                questGather = true,
-                questOrder = true,
-            },
-            tailoring = {
-                dropForbiddenReach = false,
-                dropMob = true,
-                dropTreasure = true,
-                questCraft = true,
-                questGather = true,
-                questOrder = true,
-            },
-        },
+        professions = {},
     }
 }
 
 
 function Addon:OnInitialize()
+    for profKey, profData in pairs(self.data.professions) do
+        defaultDb.profile.professions[profKey] = {}
+        
+        for expKey, expData in pairs(profData.expansions) do
+            defaultDb.profile.professions[profKey][expKey] = {}
+
+            if #expData.drops > 0 then
+                local drops = {}
+                for _, dropData in ipairs(expData.drops) do
+                    drops[dropData.key] = dropData.defaultEnabled ~= false
+                end
+                defaultDb.profile.professions[profKey][expKey].drops = drops
+            end
+
+            if #expData.quests > 0 then
+                local quests = {}
+                for _, questData in ipairs(expData.quests) do
+                    quests[questData.key] = questData.defaultEnabled ~= false
+                end
+                defaultDb.profile.professions[profKey][expKey].quests = quests
+            end
+        end
+    end
+
+    DevTools_Dump(defaultDb)
+
     self.db = ADB:New('ChoreTrackerDB', defaultDb, true) -- default global profile
 
     -- register events, etc
@@ -111,4 +77,12 @@ function Addon:PLAYER_ENTERING_WORLD()
             module:OnEnteringWorld()
         end
     end
+end
+
+function Addon:TableKeys(tbl)
+    local keys = {}
+    for key in pairs(tbl) do
+        keys[#keys + 1] = key
+    end
+    return keys
 end

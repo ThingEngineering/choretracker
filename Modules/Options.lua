@@ -1,4 +1,5 @@
-local Addon = LibStub('AceAddon-3.0'):GetAddon('ChoreTracker')
+local addonName, Addon = ...
+local L = Addon.L
 local Module = Addon:NewModule('Options')
 
 local AC = LibStub('AceConfig-3.0')
@@ -17,34 +18,41 @@ end
 function Module:OnInitialize()
     self:CreateOptions()
 
-    AC:RegisterOptionsTable('ChoreTracker', self.options)
-    self.optionsFrame = ACD:AddToBlizOptions('ChoreTracker', 'ChoreTracker')
+    AC:RegisterOptionsTable(addonName, self.options)
+    self.optionsFrame = ACD:AddToBlizOptions(addonName, addonName)
 end
 
 function Module:CreateOptions()
     self.options = {
-        name = 'ChoreTracker',
+        name = addonName,
         type = 'group',
         childGroups = 'tab',
         get = function(info)
             local sigh = Addon.db.profile[info[1]]
             for i = 2, #info do
                 if sigh == nil then break end
-                sigh = sigh[info[i]]
+                
+                local parts = { strsplit('_', info[i]) }
+                for _, part in ipairs(parts) do
+                    sigh = sigh[part]
+                    if sigh == nil then break end
+                end
             end
             return sigh
         end,
         set = function(info, value)
-            print('-- SET --')
-            DevTools_Dump(info)
-
             local sigh = Addon.db.profile[info[1]]
             for i = 2, #info do
                 if sigh == nil then break end
-                if i == #info then
-                    sigh[info[i]] = value
-                else
-                    sigh = sigh[info[i]]
+
+                local parts = { strsplit('_', info[i]) }
+                for j, part in ipairs(parts) do
+                    if i == #info and j == #parts then
+                        sigh[part] = value
+                    else
+                        sigh = sigh[part]
+                    end
+                    if sigh == nil then break end
                 end
             end
         end,
@@ -52,150 +60,67 @@ function Module:CreateOptions()
             professions = {
                 name = 'Professions',
                 type = 'group',
+                childGroups = 'tab',
                 order = newOrder(),
                 args = {
-                    alchemy = self:GetProfessionOptions2('alchemy'),
-                    blacksmithing = self:GetProfessionOptions('Blacksmithing', 'craft', true),
-                    enchanting = self:GetProfessionOptions('Enchanting', 'craft'),
-                    engineering = self:GetProfessionOptions('Engineering', 'craft', true),
-                    inscription = self:GetProfessionOptions('Inscription', 'craft', true),
-                    jewelcrafting = self:GetProfessionOptions('Jewelcrafting', 'craft', true),
-                    leatherworking = self:GetProfessionOptions('Leatherworking', 'craft', true),
-                    tailoring = self:GetProfessionOptions('Tailoring', 'craft', true),
+                    alchemy = self:GetProfessionOptions('alchemy'),
+                    blacksmithing = self:GetProfessionOptions('blacksmithing'),
+                    -- enchanting = self:GetProfessionOptions('Enchanting', 'craft'),
+                    -- engineering = self:GetProfessionOptions('Engineering', 'craft', true),
+                    -- inscription = self:GetProfessionOptions('Inscription', 'craft', true),
+                    -- jewelcrafting = self:GetProfessionOptions('Jewelcrafting', 'craft', true),
+                    -- leatherworking = self:GetProfessionOptions('Leatherworking', 'craft', true),
+                    -- tailoring = self:GetProfessionOptions('Tailoring', 'craft', true),
+                    herbalism = self:GetProfessionOptions('herbalism'),
                 }
             }
         }
     }
 end
 
-function Module:GetProfessionOptions2(key)
+function Module:GetProfessionOptions(key)
     local data = Addon.data.professions[key]
     local options = {
         name = C_TradeSkillUI.GetTradeSkillDisplayName(data.skillLineId),
         type = 'group',
         order = newOrder(),
-        inline = true,
         args = {},
     }
 
-    if data.quests.dropGather ~= nil then
-        options.args.dropGather = {
-            name = 'Drops (gather)',
-            desc = 'wibbly wobbly',
-            type = 'toggle',
+    for expansionKey, expansionData in pairs(data.expansions) do
+        local expansionOptions = {
+            name = expansionData.name,
+            type = 'group',
             order = newOrder(),
+            inline = true,
+            args = {},
         }
-    end
-
-    if data.quests.dropMob ~= nil then
-        options.args.dropMob = {
-            name = 'Drops (mobs)',
-            desc = 'wibbly wobbly',
-            type = 'toggle',
-            order = newOrder(),
-        }
-    end
-
-    if data.quests.dropTreasure ~= nil then
-        options.args.dropTreasure = {
-            name = 'Drops (treasures)',
-            desc = 'Make sure you have some shovels!',
-            type = 'toggle',
-            order = newOrder(),
-        }
-    end
-
-    if data.quests.dropForbiddenReach ~= nil then
-        options.args.dropForbiddenReach = {
-            name = 'Drop (Forbidden Reach)',
-            desc = 'Drop from the summonable profession rare',
-            type = 'toggle',
-            order = newOrder(),
-        }
-    end
-
-    if data.quests.craft ~= nil then
-        options.args.questCraft = {
-            name = 'Craft quest',
-            desc = 'Craft N thingies',
-            type = 'toggle',
-            order = newOrder(),
-        }
-    end
-
-    if data.quests.gather ~= nil then
-        options.args.questGather = {
-            name = 'Gather quest',
-            desc = 'Gather N widgets',
-            type = 'toggle',
-            order = newOrder(),
-        }
-    end
-
-    if data.quests.order ~= nil then
-        options.args.questOrder = {
-            name = 'Orders quest',
-            desc = 'Complete N crafting orders',
-            type = 'toggle',
-            order = newOrder(),
-        }
+        
+        self:AddProfessionSubOptions(expansionOptions, 'drops', expansionData.drops)
+        self:AddProfessionSubOptions(expansionOptions, 'quests', expansionData.quests)
+    
+        options.args[expansionKey] = expansionOptions
     end
 
     return options
 end
 
-function Module:GetProfessionOptions(name, type, hasOrders)
-    local options = {
-        name = name,
-        type = 'group',
+function Module:AddProfessionSubOptions(optionsTable, key, data)
+    if #data == 0 then return end
+
+    optionsTable.args[key] = {
+        name = L['section_' .. key],
+        type = 'header',
         order = newOrder(),
-        inline = true,
-        args = {},
     }
 
-    if type == 'craft' then
-        options.args = {
-            dropTreasure = {
-                name = 'Drops (treasures)',
-                desc = 'Make sure you have some shovels!',
-                type = 'toggle',
-                order = newOrder(),
-            },
-            dropMob = {
-                name = 'Drops (mobs)',
-                desc = 'wibbly wobbly',
-                type = 'toggle',
-                order = newOrder(),
-            },
-            dropForbiddenReach = {
-                name = 'Drop (Forbidden Reach)',
-                desc = 'Drop from the summonable profession rare',
-                type = 'toggle',
-                order = newOrder(),
-            },
-            questCraft = {
-                name = 'Craft quest',
-                desc = 'Craft N thingies',
-                type = 'toggle',
-                order = newOrder(),
-            },
-            questGather = {
-                name = 'Gather quest',
-                desc = 'Gather N widgets',
-                type = 'toggle',
-                order = newOrder(),
-            },
+    for _, subData in ipairs(data) do
+        local subKey = key .. '_' .. subData.key
+        optionsTable.args[subKey] = {
+            name = L['section_' .. subKey],
+            type = 'toggle',
+            order = newOrder(),
+            width = 0.8,
         }
-
-        if hasOrders == true then
-            options.args.questOrder = {
-                name = 'Orders quest',
-                desc = 'Complete N crafting orders',
-                type = 'toggle',
-                order = newOrder(),
-            }
-        end
     end
-
-    return options
 end
