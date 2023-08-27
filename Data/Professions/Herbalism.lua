@@ -12,12 +12,12 @@ Addon.data.professions.herbalism = {
                 {
                     key = 'gather',
                     entries = {
-                        { quest=71857, item=200677, desc='Drops from gathering herbs' }, -- Dreambloom Petal
-                        { quest=71858, item=200677, desc='Drops from gathering herbs' }, -- Dreambloom Petal
-                        { quest=71859, item=200677, desc='Drops from gathering herbs' }, -- Dreambloom Petal
-                        { quest=71860, item=200677, desc='Drops from gathering herbs' }, -- Dreambloom Petal
-                        { quest=71861, item=200677, desc='Drops from gathering herbs' }, -- Dreambloom Petal
-                        { quest=71864, item=200678, desc='Drops from gathering herbs' }, -- Dreambloom
+                        { quest=71857, item=200677, desc='Drops from herbing things' }, -- Dreambloom Petal
+                        { quest=71858, item=200677, desc='Drops from herbing things' }, -- Dreambloom Petal
+                        { quest=71859, item=200677, desc='Drops from herbing things' }, -- Dreambloom Petal
+                        { quest=71860, item=200677, desc='Drops from herbing things' }, -- Dreambloom Petal
+                        { quest=71861, item=200677, desc='Drops from herbing things' }, -- Dreambloom Petal
+                        { quest=71864, item=200678, desc='Drops from herbing things' }, -- Dreambloom
                     },
                 },
                 {
