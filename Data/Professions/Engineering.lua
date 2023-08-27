@@ -1,0 +1,70 @@
+local _, Addon = ...
+
+
+Addon.data.professions.engineering = {
+    skillLineId = 202,
+    expansions = {
+        -- Dragon Isles
+        dragonflight = {
+            name = EXPANSION_NAME9,
+            skillLineId = 2827,
+            drops = {
+                {
+                    key = 'mob',
+                    entries = {
+                        { quest=70516, item=198969, desc='Drops from Keeper mobs' }, -- Keeper's Mark
+                        { quest=70517, item=198970, desc='Drops from Dragonkin mobs' }, -- Infinitely Attachable Pair o' Docks
+                    },
+                },
+                {
+                    key = 'treasure',
+                    entries = {
+                        { quest=66379, item=193902 }, -- Eroded Titan Gizmo
+                        { quest=66380, item=193903 }, -- Watcher Power Core
+                    },
+                },
+                {
+                    key = 'forbiddenReach',
+                    defaultEnabled = false,
+                    entries = {
+                        { quest=74934, item=204227, level=70, desc='Drops from Fimbol' }, -- Everflowing Antifreeze
+                    },
+                },
+            },
+            quests = {
+                {
+                    key = 'craft',
+                    entries = {
+                        { quest=70539 }, -- And You Thought They Did Nothing
+                        { quest=70540 }, -- An Engineer's Best Friend
+                        { quest=70545 }, -- Blingtron 8000...?
+                        { quest=70557 }, -- No Scopes
+                    },
+                },
+                {
+                    key = 'gather',
+                    entries = {
+                        { quest=66890 }, -- Stolen Tools
+                        { quest=66891 }, -- Explosive Ash
+                        { quest=66942 }, -- Enemy Engineering
+                        { quest=72396 }, -- Horns of Plenty
+                        { quest=75575, level=70 }, -- Ballistae Bits [ZC]
+                        { quest=75608, level=70 }, -- Titan Trash or Titan Treasure [ZC]
+                    },
+                },
+                {
+                    key = 'orders',
+                    entries = {
+                        { quest=70591 }, -- Engineering Orders Requested
+                    },
+                },
+                {
+                    key = 'treatise',
+                    entries = {
+                        { quest=74111, item=198510 }, -- Draconic Treatise on Engineering
+                    },
+                },
+            },
+        },
+    },
+}
