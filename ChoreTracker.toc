@@ -24,6 +24,14 @@ ChoreTracker.lua
 
 Data\Professions\Alchemy.lua
 Data\Professions\Blacksmithing.lua
+Data\Professions\Enchanting.lua
+Data\Professions\Engineering.lua
 Data\Professions\Herbalism.lua
+Data\Professions\Inscription.lua
+Data\Professions\Jewelcrafting.lua
+Data\Professions\Leatherworking.lua
+Data\Professions\Mining.lua
+Data\Professions\Skinning.lua
+Data\Professions\Tailoring.lua
 
 Modules\Options.lua

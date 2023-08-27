@@ -65,13 +65,15 @@ function Module:CreateOptions()
                 args = {
                     alchemy = self:GetProfessionOptions('alchemy'),
                     blacksmithing = self:GetProfessionOptions('blacksmithing'),
-                    -- enchanting = self:GetProfessionOptions('Enchanting', 'craft'),
-                    -- engineering = self:GetProfessionOptions('Engineering', 'craft', true),
-                    -- inscription = self:GetProfessionOptions('Inscription', 'craft', true),
-                    -- jewelcrafting = self:GetProfessionOptions('Jewelcrafting', 'craft', true),
-                    -- leatherworking = self:GetProfessionOptions('Leatherworking', 'craft', true),
-                    -- tailoring = self:GetProfessionOptions('Tailoring', 'craft', true),
+                    enchanting = self:GetProfessionOptions('enchanting'),
+                    engineering = self:GetProfessionOptions('engineering'),
+                    inscription = self:GetProfessionOptions('inscription'),
+                    jewelcrafting = self:GetProfessionOptions('jewelcrafting'),
+                    leatherworking = self:GetProfessionOptions('leatherworking'),
+                    tailoring = self:GetProfessionOptions('tailoring'),
                     herbalism = self:GetProfessionOptions('herbalism'),
+                    mining = self:GetProfessionOptions('mining'),
+                    skinning = self:GetProfessionOptions('skinning'),
                 }
             }
         }
