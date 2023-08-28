@@ -3,6 +3,7 @@ local _, Addon = ...
 
 Addon.data.professions.alchemy = {
     skillLineId = 171,
+    texture = GetSpellTexture(2259),
     expansions = {
         -- Dragon Isles
         dragonflight = {
@@ -12,8 +13,8 @@ Addon.data.professions.alchemy = {
                 {
                     key = 'mob',
                     entries = {
-                        { quest=70504, item=198963, desc='Drops from Decayed mobs' }, -- Decaying Phlegm
-                        { quest=70511, item=198964, desc='Drops from Elemental mobs' }, -- Elementious Splinter
+                        { quest=70504, item=198963, desc='Decayed' }, -- Decaying Phlegm
+                        { quest=70511, item=198964, desc='Elemental' }, -- Elementious Splinter
                     },
                 },
                 {
@@ -27,7 +28,7 @@ Addon.data.professions.alchemy = {
                     key = 'forbiddenReach',
                     defaultEnabled = false,
                     entries = {
-                        { quest=74935, item=204226, level=70, desc='Drops from Agni Blazehoof' }, -- Blazehoof Ashes
+                        { quest=74935, item=204226, level=70, desc='Agni Blazehoof' }, -- Blazehoof Ashes
                     },
                 },
             },

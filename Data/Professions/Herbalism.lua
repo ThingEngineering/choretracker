@@ -3,6 +3,7 @@ local _, Addon = ...
 
 Addon.data.professions.herbalism = {
     skillLineId = 182,
+    texture = GetSpellTexture(2366),
     expansions = {
         -- Dragon Isles
         dragonflight = {
@@ -12,19 +13,19 @@ Addon.data.professions.herbalism = {
                 {
                     key = 'gather',
                     entries = {
-                        { quest=71857, item=200677, desc='Drops from herbing things' }, -- Dreambloom Petal
-                        { quest=71858, item=200677, desc='Drops from herbing things' }, -- Dreambloom Petal
-                        { quest=71859, item=200677, desc='Drops from herbing things' }, -- Dreambloom Petal
-                        { quest=71860, item=200677, desc='Drops from herbing things' }, -- Dreambloom Petal
-                        { quest=71861, item=200677, desc='Drops from herbing things' }, -- Dreambloom Petal
-                        { quest=71864, item=200678, desc='Drops from herbing things' }, -- Dreambloom
+                        { quest=71857, item=200677 }, -- Dreambloom Petal
+                        { quest=71858, item=200677 }, -- Dreambloom Petal
+                        { quest=71859, item=200677 }, -- Dreambloom Petal
+                        { quest=71860, item=200677 }, -- Dreambloom Petal
+                        { quest=71861, item=200677 }, -- Dreambloom Petal
+                        { quest=71864, item=200678 }, -- Dreambloom
                     },
                 },
                 {
                     key = 'forbiddenReach',
                     defaultEnabled = false,
                     entries = {
-                        { quest=74933, item=204228, level=70, desc='Drops from Kangalo' }, -- Undigested Hochenblume Petal
+                        { quest=74933, item=204228, level=70, desc='Kangalo' }, -- Undigested Hochenblume Petal
                     },
                 },
             },

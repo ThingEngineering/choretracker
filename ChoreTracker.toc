@@ -36,3 +36,4 @@ Data\Professions\Tailoring.lua
 
 Modules\Display.lua
 Modules\Options.lua
+Modules\Quests.lua

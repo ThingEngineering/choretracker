@@ -33,6 +33,9 @@ local defaultDb = {
                 enabled = true,
             }
         },
+        general = {
+            showCompleted = true,
+        },
         professions = {},
     }
 }

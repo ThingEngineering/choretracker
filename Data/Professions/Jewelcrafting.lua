@@ -3,6 +3,7 @@ local _, Addon = ...
 
 Addon.data.professions.jewelcrafting = {
     skillLineId = 755,
+    texture = GetSpellTexture(25229),
     expansions = {
         -- Dragon Isles
         dragonflight = {
@@ -12,8 +13,8 @@ Addon.data.professions.jewelcrafting = {
                 {
                     key = 'mob',
                     entries = {
-                        { quest=70520, item=198973, desc='Drops from Elemental mobs' }, -- Incandescent Curio
-                        { quest=70521, item=198974, desc='Drops from Dragonkin mobs' }, -- Elegantly Engraved Embellishment
+                        { quest=70520, item=198973, desc='Elemental' }, -- Incandescent Curio
+                        { quest=70521, item=198974, desc='Dragonkin' }, -- Elegantly Engraved Embellishment
                     },
                 },
                 {
@@ -27,7 +28,7 @@ Addon.data.professions.jewelcrafting = {
                     key = 'forbiddenReach',
                     defaultEnabled = false,
                     entries = {
-                        { quest=74936, item=204222, level=70, desc='Drops from Amephyst' }, -- Conductive Ametrine Shard
+                        { quest=74936, item=204222, level=70, desc='Amephyst' }, -- Conductive Ametrine Shard
                     },
                 },
             },

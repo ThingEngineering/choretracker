@@ -3,6 +3,7 @@ local _, Addon = ...
 
 Addon.data.professions.blacksmithing = {
     skillLineId = 164,
+    texture = GetSpellTexture(2018),
     expansions = {
         -- Dragon Isles
         dragonflight = {
@@ -12,8 +13,8 @@ Addon.data.professions.blacksmithing = {
                 {
                     key = 'mob',
                     entries = {
-                        { quest=70513, item=198966, desc='Drops from Decayed mobs' }, -- Molten Globule
-                        { quest=70512, item=198965, desc='Drops from Elemental mobs' }, -- Primeval Earth Fragment
+                        { quest=70513, item=198966, desc='Decayed' }, -- Molten Globule
+                        { quest=70512, item=198965, desc='Elemental' }, -- Primeval Earth Fragment
                     },
                 },
                 {
@@ -27,7 +28,7 @@ Addon.data.professions.blacksmithing = {
                     key = 'forbiddenReach',
                     defaultEnabled = false,
                     entries = {
-                        { quest=74931, item=204230, level=70, desc='Drops from Tidesmith Zarviss' }, -- Dense Seaforged Javelin
+                        { quest=74931, item=204230, level=70, desc='Tidesmith Zarviss' }, -- Dense Seaforged Javelin
                     },
                 },
             },

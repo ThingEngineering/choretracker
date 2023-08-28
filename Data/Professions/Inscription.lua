@@ -3,6 +3,7 @@ local _, Addon = ...
 
 Addon.data.professions.inscription = {
     skillLineId = 773,
+    texture = GetSpellTexture(45357),
     expansions = {
         -- Dragon Isles
         dragonflight = {
@@ -12,8 +13,8 @@ Addon.data.professions.inscription = {
                 {
                     key = 'mob',
                     entries = {
-                        { quest=70518, item=198971, desc='Drops from Djaradin mobs' }, -- Curious Djaradin Rune
-                        { quest=70519, item=198972, desc='Drops from Dragonkin mobs' }, -- Draconic Glamour
+                        { quest=70518, item=198971, desc='Djaradin' }, -- Curious Djaradin Rune
+                        { quest=70519, item=198972, desc='Dragonkin' }, -- Draconic Glamour
                     },
                 },
                 {
@@ -27,7 +28,7 @@ Addon.data.professions.inscription = {
                     key = 'forbiddenReach',
                     defaultEnabled = false,
                     entries = {
-                        { quest=74932, item=204229, level=70, desc='Drops from Arcantrix' }, -- Glimmering Rune of Arcantrix
+                        { quest=74932, item=204229, level=70, desc='Arcantrix' }, -- Glimmering Rune of Arcantrix
                     },
                 },
             },

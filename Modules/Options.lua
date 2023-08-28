@@ -55,8 +55,22 @@ function Module:CreateOptions()
                     if sigh == nil then break end
                 end
             end
+            self:SendMessage('ChoreTracker_Config_Changed')
         end,
         args = {
+            general = {
+                name = 'General',
+                type = 'group',
+                order = newOrder(),
+                args = {
+                    showCompleted = {
+                        name = L['section_general_showCompleted'],
+                        type = 'toggle',
+                        order = newOrder(),
+                        -- width = 0.8,
+                    }
+                }
+            },
             professions = {
                 name = 'Professions',
                 type = 'group',

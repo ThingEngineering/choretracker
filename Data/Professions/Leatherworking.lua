@@ -3,6 +3,7 @@ local _, Addon = ...
 
 Addon.data.professions.leatherworking = {
     skillLineId = 165,
+    texture = GetSpellTexture(2108),
     expansions = {
         -- Dragon Isles
         dragonflight = {
@@ -12,8 +13,8 @@ Addon.data.professions.leatherworking = {
                 {
                     key = 'mob',
                     entries = {
-                        { quest=70522, item=198975, desc='Drops from Proto-Drake mobs' }, -- Ossified Hide
-                        { quest=70523, item=198976, desc='Drops from Slyvern & Vorquin mobs' }, -- Exceedingly Soft Skin
+                        { quest=70522, item=198975, desc='Proto-Drake' }, -- Ossified Hide
+                        { quest=70523, item=198976, desc='Slyvern & Vorquin' }, -- Exceedingly Soft Skin
                     },
                 },
                 {
@@ -27,7 +28,7 @@ Addon.data.professions.leatherworking = {
                     key = 'forbiddenReach',
                     defaultEnabled = false,
                     entries = {
-                        { quest=74928, item=204232, level=70, desc='Drops from Snarfang' }, -- Slyvern Alpha Claw
+                        { quest=74928, item=204232, level=70, desc='Snarfang' }, -- Slyvern Alpha Claw
                     },
                 },
             },

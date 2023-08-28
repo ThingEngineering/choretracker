@@ -3,6 +3,7 @@ local _, Addon = ...
 
 Addon.data.professions.skinning = {
     skillLineId = 393,
+    texture = GetSpellTexture(8613),
     expansions = {
         -- Dragon Isles
         dragonflight = {
@@ -12,19 +13,19 @@ Addon.data.professions.skinning = {
                 {
                     key = 'gather',
                     entries = {
-                        { quest=70381, item=198837, desc='Drops from skinning things' }, -- Curious Hide Scraps
-                        { quest=70383, item=198837, desc='Drops from skinning things' }, -- Curious Hide Scraps
-                        { quest=70384, item=198837, desc='Drops from skinning things' }, -- Curious Hide Scraps
-                        { quest=70385, item=198837, desc='Drops from skinning things' }, -- Curious Hide Scraps
-                        { quest=70386, item=198837, desc='Drops from skinning things' }, -- Curious Hide Scraps
-                        { quest=70389, item=198841, desc='Drops from skinning things' }, -- Large Sample of Curious Hide
+                        { quest=70381, item=198837 }, -- Curious Hide Scraps
+                        { quest=70383, item=198837 }, -- Curious Hide Scraps
+                        { quest=70384, item=198837 }, -- Curious Hide Scraps
+                        { quest=70385, item=198837 }, -- Curious Hide Scraps
+                        { quest=70386, item=198837 }, -- Curious Hide Scraps
+                        { quest=70389, item=198841 }, -- Large Sample of Curious Hide
                     },
                 },
                 {
                     key = 'forbiddenReach',
                     defaultEnabled = false,
                     entries = {
-                        { quest=74930, item=204231, level=70, desc='Drops from Faunos' }, -- Kingly Sheepskin Pelt
+                        { quest=74930, item=204231, level=70, desc='Faunos' }, -- Kingly Sheepskin Pelt
                     },
                 },
             },

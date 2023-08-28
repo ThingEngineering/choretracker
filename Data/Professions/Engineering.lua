@@ -3,6 +3,7 @@ local _, Addon = ...
 
 Addon.data.professions.engineering = {
     skillLineId = 202,
+    texture = GetSpellTexture(4036),
     expansions = {
         -- Dragon Isles
         dragonflight = {
@@ -12,8 +13,8 @@ Addon.data.professions.engineering = {
                 {
                     key = 'mob',
                     entries = {
-                        { quest=70516, item=198969, desc='Drops from Keeper mobs' }, -- Keeper's Mark
-                        { quest=70517, item=198970, desc='Drops from Dragonkin mobs' }, -- Infinitely Attachable Pair o' Docks
+                        { quest=70516, item=198969, desc='Keeper' }, -- Keeper's Mark
+                        { quest=70517, item=198970, desc='Dragonkin' }, -- Infinitely Attachable Pair o' Docks
                     },
                 },
                 {
@@ -27,7 +28,7 @@ Addon.data.professions.engineering = {
                     key = 'forbiddenReach',
                     defaultEnabled = false,
                     entries = {
-                        { quest=74934, item=204227, level=70, desc='Drops from Fimbol' }, -- Everflowing Antifreeze
+                        { quest=74934, item=204227, level=70, desc='Fimbol' }, -- Everflowing Antifreeze
                     },
                 },
             },

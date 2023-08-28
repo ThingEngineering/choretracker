@@ -3,6 +3,7 @@ local _, Addon = ...
 
 Addon.data.professions.enchanting = {
     skillLineId = 333,
+    texture = GetSpellTexture(7411),
     expansions = {
         -- Dragon Isles
         dragonflight = {
@@ -12,8 +13,8 @@ Addon.data.professions.enchanting = {
                 {
                     key = 'mob',
                     entries = {
-                        { quest=70514, item=198967, desc='Drops from Arcane mobs' }, -- Primordial Aether
-                        { quest=70515, item=198968, desc='Drops from Primalist mobs' }, -- Primalist Charm
+                        { quest=70514, item=198967, desc='Arcane' }, -- Primordial Aether
+                        { quest=70515, item=198968, desc='Primalist' }, -- Primalist Charm
                     },
                 },
                 {
@@ -27,7 +28,7 @@ Addon.data.professions.enchanting = {
                     key = 'forbiddenReach',
                     defaultEnabled = false,
                     entries = {
-                        { quest=74927, item=204224, level=70, desc='Drops from Manathema' }, -- Speck of Arcane Awareness
+                        { quest=74927, item=204224, level=70, desc='Manathema' }, -- Speck of Arcane Awareness
                     },
                 },
             },

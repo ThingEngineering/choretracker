@@ -3,6 +3,7 @@ local _, Addon = ...
 
 Addon.data.professions.tailoring = {
     skillLineId = 197,
+    texture = GetSpellTexture(3908),
     expansions = {
         -- Dragon Isles
         dragonflight = {
@@ -12,8 +13,8 @@ Addon.data.professions.tailoring = {
                 {
                     key = 'mob',
                     entries = {
-                        { quest=70524, item=198977, desc='Drops from Centaur mobs' }, -- Ohn'arhan Weave
-                        { quest=70525, item=198978, desc='Drops from Gnoll mobs' }, -- Stupidly Effective Stitchery
+                        { quest=70524, item=198977, desc='Centaur' }, -- Ohn'arhan Weave
+                        { quest=70525, item=198978, desc='Gnoll' }, -- Stupidly Effective Stitchery
                     },
                 },
                 {
@@ -27,7 +28,7 @@ Addon.data.professions.tailoring = {
                     key = 'forbiddenReach',
                     defaultEnabled = false,
                     entries = {
-                        { quest=74931, item=204225, level=70, desc='Drops from Gareed' }, -- Perfect Windfeather
+                        { quest=74931, item=204225, level=70, desc='Gareed' }, -- Perfect Windfeather
                     },
                 },
             },

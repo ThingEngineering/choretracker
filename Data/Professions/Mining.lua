@@ -3,6 +3,7 @@ local _, Addon = ...
 
 Addon.data.professions.mining = {
     skillLineId = 186,
+    texture = GetSpellTexture(2575),
     expansions = {
         -- Dragon Isles
         dragonflight = {
@@ -12,19 +13,19 @@ Addon.data.professions.mining = {
                 {
                     key = 'gather',
                     entries = {
-                        { quest=72160, item=201300, desc='Drops from mining things' }, -- Iridescent Ore Fragments
-                        { quest=72161, item=201300, desc='Drops from mining things' }, -- Iridescent Ore Fragments
-                        { quest=72162, item=201300, desc='Drops from mining things' }, -- Iridescent Ore Fragments
-                        { quest=72163, item=201300, desc='Drops from mining things' }, -- Iridescent Ore Fragments
-                        { quest=72164, item=201300, desc='Drops from mining things' }, -- Iridescent Ore Fragments
-                        { quest=72165, item=201301, desc='Drops from mining things' }, -- Iridescent Ore
+                        { quest=72160, item=201300 }, -- Iridescent Ore Fragments
+                        { quest=72161, item=201300 }, -- Iridescent Ore Fragments
+                        { quest=72162, item=201300 }, -- Iridescent Ore Fragments
+                        { quest=72163, item=201300 }, -- Iridescent Ore Fragments
+                        { quest=72164, item=201300 }, -- Iridescent Ore Fragments
+                        { quest=72165, item=201301 }, -- Iridescent Ore
                     },
                 },
                 {
                     key = 'forbiddenReach',
                     defaultEnabled = false,
                     entries = {
-                        { quest=74926, item=204233, level=70, desc='Drops from Tectonus' }, -- 
+                        { quest=74926, item=204233, level=70, desc='Tectonus' }, -- 
                     },
                 },
             },
