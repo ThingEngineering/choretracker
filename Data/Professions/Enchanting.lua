@@ -56,7 +56,7 @@ Addon.data.professions.enchanting = {
                 {
                     key = 'treatise',
                     entries = {
-                        { quest=74110, item=184702 }, -- Draconic Treatise on Enchanting
+                        { quest=74110, item=194702 }, -- Draconic Treatise on Enchanting
                     },
                 },
             },
