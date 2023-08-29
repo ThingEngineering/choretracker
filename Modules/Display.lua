@@ -77,12 +77,11 @@ function Module:ItemsLoaded(data)
     local weCare = false
     for itemId, _ in pairs(data) do
         if self.itemRequested[itemId] == true then
-            print('we care! '..itemId)
             weCare = true
             break
         end
     end
-    
+
     if weCare then
         self:Redraw()
     end
@@ -223,21 +222,11 @@ end
 function Module:GetEntryText(translated, entry, state)
     local thingString = ''
     if entry.item ~= nil then
-        local itemInfo = self.itemCache[entry.item] or {}
-
-        if itemInfo.name == nil then
-            itemInfo.name = C_Item.GetItemNameByID(entry.item)
-        end
-        if itemInfo.quality == nil then
-            itemInfo.quality = C_Item.GetItemQualityByID(entry.item)
-        end
-        if itemInfo.texture == nil then
-            itemInfo.texture = C_Item.GetItemIconByID(entry.item)
-        end
-
-        self.itemCache[entry.item] = itemInfo
+        local itemInfo = self:GetCachedItem(entry.item)
 
         if itemInfo.name ~= nil and itemInfo.quality ~= nil and itemInfo.texture ~= nil then
+            table.remove(self.itemRequested, entry.item)
+
             thingString = '|T' .. itemInfo.texture .. ':0|t ' ..
                 ITEM_QUALITY_COLORS[itemInfo.quality].hex .. itemInfo.name
         else
@@ -282,4 +271,22 @@ function Module:AddLine(text)
     fontString:Show()
 
     table.insert(self.fontStrings, fontString)
+end
+
+function Module:GetCachedItem(itemId)
+    local itemInfo = self.itemCache[itemId] or {}
+
+    if itemInfo.name == nil then
+        itemInfo.name = C_Item.GetItemNameByID(itemId)
+    end
+    if itemInfo.quality == nil then
+        itemInfo.quality = C_Item.GetItemQualityByID(itemId)
+    end
+    if itemInfo.texture == nil then
+        itemInfo.texture = C_Item.GetItemIconByID(itemId)
+    end
+
+    self.itemCache[itemId] = itemInfo
+
+    return itemInfo
 end
