@@ -1,0 +1,62 @@
+name: Release Addon
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    environment: release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          path: 'ChoreTracker'
+
+      - name: Mangle
+        id: mangle
+        working-directory: 'ChoreTracker'
+        run: |
+          RELEASE_VERSION=$(
+            echo '${{ github.ref }}' |\
+            sed -E -e 's#^refs/tags/v(.*?)$#\1#'
+          )
+          echo "RELEASE_VERSION=$RELEASE_VERSION" >> $GITHUB_ENV
+
+          SHORT_VERSION=$(
+            echo $RELEASE_VERSION |\
+            sed -E 's#-.*?$##'
+          )
+          RELEASE_HISTORY=$( awk '/^v'$SHORT_VERSION'$/,/^$/' VERSIONS.txt )
+          RELEASE_HISTORY="${RELEASE_HISTORY//'%'/'%25'}"
+          RELEASE_HISTORY="${RELEASE_HISTORY//$'\n'/'%0A'}"
+          RELEASE_HISTORY="${RELEASE_HISTORY//$'\r'/'%0D'}"
+          echo "::set-output name=release-history::$RELEASE_HISTORY"
+
+          GAME_VERSION=$( echo $SHORT_VERSION | sed -E 's/^([0-9]+\.[0-9]+\.[0-9]+).*?$/\1/' )
+          echo "GAME_VERSION=$GAME_VERSION" >> $GITHUB_ENV
+
+      - name: Zip
+        run: |
+          zip -r ChoreTracker-${{ env.RELEASE_VERSION }}.zip ChoreTracker/ -x ChoreTracker/README.md -x 'ChoreTracker/.git*'
+
+      - uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          body: ${{ steps.mangle.outputs.release-history }}
+          files: '*.zip'
+          prerelease: ${{ contains(env.RELEASE_VERSION, '-') }}
+
+      - uses: itsmeow/curseforge-upload@master
+        with:
+          changelog: ${{ steps.mangle.outputs.release-history }}
+          changelog_type: 'markdown'
+          display_name: 'v${{ env.RELEASE_VERSION }}'
+          file_path: 'ChoreTracker-${{ env.RELEASE_VERSION }}.zip'
+          game_endpoint: wow
+          game_versions: ${{ env.GAME_VERSION }}
+          project_id: 93397
+          release_type: ${{ contains(env.RELEASE_VERSION, '-') && 'alpha' || 'release' }}
+          token: ${{ secrets.CURSEFORGE_TOKEN }}
