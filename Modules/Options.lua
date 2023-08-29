@@ -4,6 +4,7 @@ local Module = Addon:NewModule('Options')
 
 local AC = LibStub('AceConfig-3.0')
 local ACD = LibStub('AceConfigDialog-3.0')
+local ADBO = LibStub('AceDBOptions-3.0')
 
 
 local newOrder
@@ -20,6 +21,10 @@ function Module:OnInitialize()
 
     AC:RegisterOptionsTable(addonName, self.options)
     self.optionsFrame = ACD:AddToBlizOptions(addonName, addonName)
+
+    local profileOptions = ADBO:GetOptionsTable(Addon.db)
+    AC:RegisterOptionsTable(addonName .. '_Profiles', profileOptions)
+    ACD:AddToBlizOptions(addonName .. '_Profiles', 'Profiles', addonName)
 end
 
 function Module:CreateOptions()
