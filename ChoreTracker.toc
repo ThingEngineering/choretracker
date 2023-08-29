@@ -1,7 +1,7 @@
 ## Interface: 100105
 ## Title: ChoreTracker
 ## Notes: Keep track of your chores
-## Version: 0.0.1
+## Version: 0.0.1-alpha1
 ## Author: Freddie
 ## SavedVariables: ChoreTrackerDB
 
