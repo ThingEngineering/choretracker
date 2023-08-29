@@ -57,6 +57,6 @@ jobs:
           file_path: 'ChoreTracker-${{ env.RELEASE_VERSION }}.zip'
           game_endpoint: wow
           game_versions: ${{ env.GAME_VERSION }}
-          project_id: 93397
+          project_id: 907782
           release_type: ${{ contains(env.RELEASE_VERSION, '-') && 'alpha' || 'release' }}
           token: ${{ secrets.CURSEFORGE_TOKEN }}
