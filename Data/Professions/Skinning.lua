@@ -32,6 +32,7 @@ Addon.data.professions.skinning = {
             quests = {
                 {
                     key = 'gather',
+                    skill = 45,
                     entries = {
                         { quest=70619 }, -- A Study of Leather
                         { quest=70620 }, -- Scaling Up

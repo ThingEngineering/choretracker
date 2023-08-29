@@ -32,6 +32,7 @@ Addon.data.professions.herbalism = {
             quests = {
                 {
                     key = 'gather',
+                    skill = 45,
                     entries = {
                         { quest=70613 }, -- Get Their Bark Before They Bite
                         { quest=70614 }, -- Bubble Craze

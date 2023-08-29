@@ -32,6 +32,7 @@ Addon.data.professions.mining = {
             quests = {
                 {
                     key = 'gather',
+                    skill = 45,
                     entries = {
                         { quest=70617 }, -- All Mine, Mine, Mine
                         { quest=70618 }, -- The Call of the Forge

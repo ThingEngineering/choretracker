@@ -35,6 +35,7 @@ Addon.data.professions.alchemy = {
             quests = {
                 {
                     key = 'craft',
+                    skill = 50,
                     entries = {
                         { quest=70530 }, -- Examination Week
                         { quest=70531 }, -- Mana Markets
@@ -44,6 +45,7 @@ Addon.data.professions.alchemy = {
                 },
                 {
                     key = 'gather',
+                    skill = 25,
                     entries = {
                         { quest=66937 }, -- Decaying News
                         { quest=66938 }, -- Mammoth Marrow
