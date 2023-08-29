@@ -3,10 +3,10 @@ local L = Addon.L
 local Module = Addon:NewModule('Display')
 
 
-local CHORE_PREFIX = {
-    [0] = '- |cFFFF0000',
-    [1] = '- |cFFFFFF00',
-    [2] = '- |cFF00FF00',
+local STATUS_COLOR = {
+    [0] = '|cFFFF2222',
+    [1] = '|cFFFFFF00',
+    [2] = '|cFF00FF00',
 }
 local PADDING_OUTER = 8
 
@@ -18,8 +18,14 @@ function Module:OnEnable()
 
     self:CreateFrame()
 
-    self:RegisterMessage('ChoreTracker_Config_Changed', 'Redraw')
-    self:RegisterMessage('ChoreTracker_Quests_Updated', 'Redraw')
+    self:RegisterBucketMessage(
+        {
+            'ChoreTracker_Config_Changed',
+            'ChoreTracker_Quests_Updated',
+        },
+        0.5,
+        'Redraw'
+    )
     
     self:RegisterBucketEvent({ 'ITEM_DATA_LOAD_RESULT' }, 1, 'ItemsLoaded')
 end
@@ -37,11 +43,11 @@ function Module:CreateFrame()
         tile = true,
         tileSize = 16,
     })
-    frame:SetBackdropColor(0, 0, 0, 0.6)
-    frame:SetBackdropBorderColor(63/255, 63/255, 63/255, 0.6)
+    frame:SetBackdropColor(0, 0, 0, 0.7)
+    frame:SetBackdropBorderColor(63/255, 63/255, 63/255, 0.7)
     -- frame:SetFrameStrata('MEDIUM')
-    frame:SetHeight(300)
-    frame:SetWidth(280)
+    frame:SetHeight(1)
+    frame:SetWidth(1)
     frame:SetPoint('TOPLEFT', 100, -100)
 
     frame:SetClampedToScreen(true)
@@ -85,61 +91,26 @@ end
 function Module:Redraw()
     print('redraw')
 
-    local questsModule = Addon:GetModule('Quests')
-
+    -- Hide text and return to pool
     for _, fontString in ipairs(self.fontStrings) do
         fontString:Hide()
         table.insert(self.fsPool, fontString)
     end
-
     self.fontStrings = {}
 
-    for profKey, profData in pairs(Addon.data.professions) do
-        if questsModule.skillLines[profData.skillLineId] == true then
-            -- Add profession icon and name
-            local profInfo = C_TradeSkillUI.GetProfessionInfoBySkillLineID(profData.skillLineId)
-            self:AddLine('|T' .. profData.texture .. ':0|t |cFFFFFFFF' .. profInfo.professionName .. '|r')
+    -- Get categories and add them
+    local categories = self:GetEntryCategories()
+    for _, category in ipairs(categories) do
+        local prefix = self:GetPercentColor(category.completed, category.total)
+        local headerText = category.header .. ' - ' .. prefix .. category.completed ..
+            '|r|cFF888888/|r' .. prefix .. category.total .. '|r'
+        self:AddLine(headerText)
 
-            -- Quests
-            for _, catKey in ipairs({ 'quests', 'drops' }) do
-                for _, choreData in ipairs(profData.expansions.dragonflight[catKey]) do
-                    if Addon.db.profile.professions[profKey].dragonflight[catKey][choreData.key] == true then
-                        local translated = L['section_' .. catKey .. '_' .. choreData.key]
-
-                        if catKey == 'drops' then
-                            for _, choreEntry in ipairs(choreData.entries) do
-                                local choreState = questsModule.quests[choreEntry.quest]
-                                if Addon.db.profile.general.showCompleted or choreState.status < 2 then
-                                    local entryTranslated = translated
-                                    if choreEntry.desc ~= nil then
-                                        entryTranslated = entryTranslated .. ' (' .. choreEntry.desc .. ')'
-                                    end
-
-                                    self:AddEntry(entryTranslated, choreEntry, questsModule.quests[choreEntry.quest])
-                                end
-                            end
-                        else
-                            local bestState = nil
-                            local bestEntry
-
-                            for _, choreEntry in ipairs(choreData.entries) do
-                                local entryState = questsModule.quests[choreEntry.quest]
-                                if bestState == nil or bestState.status < entryState.status then
-                                    bestEntry = choreEntry
-                                    bestState = entryState
-                                end
-                            end
-
-                            if Addon.db.profile.general.showCompleted or bestState.status < 2 then
-                                self:AddEntry(translated, bestEntry, bestState)
-                            end
-                        end
-                    end
-                end
-            end
+        for _, entry in ipairs(category.entries) do
+            self:AddLine(entry)
         end
     end
-    
+
     -- Now we can resize I guess?
     local maxWidth = 0
     local totalHeight = 0
@@ -155,8 +126,101 @@ function Module:Redraw()
     self.frame:SetWidth(maxWidth + (PADDING_OUTER * 2))
 end
 
-function Module:AddEntry(translated, entry, state)
+function Module:GetEntryCategories()
+    local categories = {}
+    local questsModule = Addon:GetModule('Quests')
+    
+    for profKey, profData in pairs(Addon.data.professions) do
+        if questsModule.skillLines[profData.skillLineId] == true then
+            local profInfo = C_TradeSkillUI.GetProfessionInfoBySkillLineID(profData.skillLineId)
 
+            local category = {
+                header = '|T' .. profData.texture .. ':0|t |cFFFFFFFF' .. profInfo.professionName .. '|r',
+                entries = {},
+                completed = 0,
+                total = 0,
+            }
+
+            -- Quests
+            for _, catKey in ipairs({ 'quests', 'drops' }) do
+                for _, choreData in ipairs(profData.expansions.dragonflight[catKey]) do
+                    if Addon.db.profile.professions[profKey].dragonflight[catKey][choreData.key] == true then
+                        local translated = L['section_' .. catKey .. '_' .. choreData.key]
+
+                        if catKey == 'drops' then
+                            for _, choreEntry in ipairs(choreData.entries) do
+                                category.total = category.total + 1
+
+                                local choreState = questsModule.quests[choreEntry.quest]
+                                if choreState.status == 2 then
+                                    category.completed = category.completed + 1
+                                end
+
+                                if Addon.db.profile.general.showCompleted or choreState.status < 2 then
+                                    local entryTranslated = translated
+                                    if choreEntry.desc ~= nil then
+                                        entryTranslated = entryTranslated .. ' (' .. choreEntry.desc .. ')'
+                                    end
+
+                                    table.insert(
+                                        category.entries,
+                                        self:GetEntryText(entryTranslated, choreEntry, choreState)
+                                    )
+                                end
+                            end
+                        else
+                            category.total = category.total + 1
+
+                            local bestState = nil
+                            local bestEntry
+                            for _, choreEntry in ipairs(choreData.entries) do
+                                local entryState = questsModule.quests[choreEntry.quest]
+                                if bestState == nil or bestState.status < entryState.status then
+                                    bestEntry = choreEntry
+                                    bestState = entryState
+                                end
+                            end
+
+                            if bestState.status == 2 then
+                                category.completed = category.completed + 1
+                            end
+
+                            if Addon.db.profile.general.showCompleted or bestState.status < 2 then
+                                table.insert(
+                                    category.entries,
+                                    self:GetEntryText(translated, bestEntry, bestState)
+                                )
+
+                                if bestState.status == 1 and bestState.objectives ~= nil and #bestState.objectives > 1 then
+                                    for _, objective in ipairs(bestState.objectives) do
+                                        local objText = '    * '
+
+                                        if objective.type == 'item' then
+                                            objText = objText ..
+                                                self:GetPercentColor(objective.have, objective.need) ..
+                                                objective.text
+                                        else
+                                            objText = objText .. objective.type .. '|' .. objective.text ..
+                                            '|' .. objective.have .. '|' .. objective.need
+                                        end
+
+                                        table.insert(category.entries, objText)
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+
+            table.insert(categories, category)
+        end
+    end
+
+    return categories
+end
+
+function Module:GetEntryText(translated, entry, state)
     local thingString = ''
     if entry.item ~= nil then
         local itemInfo = self.itemCache[entry.item] or {}
@@ -175,19 +239,33 @@ function Module:AddEntry(translated, entry, state)
 
         if itemInfo.name ~= nil and itemInfo.quality ~= nil and itemInfo.texture ~= nil then
             thingString = '|T' .. itemInfo.texture .. ':0|t ' ..
-                ITEM_QUALITY_COLORS[itemInfo.quality].hex .. itemInfo.name .. '|r'
+                ITEM_QUALITY_COLORS[itemInfo.quality].hex .. itemInfo.name
         else
             C_Item.RequestLoadItemDataByID(entry.item)
             self.itemRequested[entry.item] = true
 
-            thingString = '|cFFFFFFFFItem #' .. entry.item .. '|r'
+            thingString = '|cFFFFFFFFItem #' .. entry.item
         end
+    elseif state.status == 1 and state.objectives ~= nil and #state.objectives == 1 then
+        local objective = state.objectives[1]
+        thingString = self:GetPercentColor(objective.have, objective.need, true) .. state.objectives[1].text
+    elseif state.status == 0 then
+        thingString = '|cFFFFFFFF???'
     else
-        thingString = '|cFFFFFFFF' .. QuestUtils_GetQuestName(entry.quest) .. '|r'
+        thingString = '|cFFFFFFFF' .. QuestUtils_GetQuestName(entry.quest)
     end
 
-    local text = CHORE_PREFIX[state.status] .. translated .. '|r: ' .. thingString
-    self:AddLine(text)
+    return '- ' .. STATUS_COLOR[state.status] .. translated .. '|r: ' .. thingString .. '|r'
+end
+
+function Module:GetPercentColor(a, b, ignoreZero)
+    if a == 0 and ignoreZero ~= true then
+        return STATUS_COLOR[0]
+    elseif a < b then
+        return STATUS_COLOR[1]
+    else
+        return STATUS_COLOR[2]
+    end
 end
 
 function Module:AddLine(text)

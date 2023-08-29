@@ -73,27 +73,71 @@ function Module:ScanQuests()
     for questId, _ in pairs(self.questPaths) do
         local oldData = self.quests[questId]
         local newData = {
-            status = STATUS_NOT_STARTED
+            status = STATUS_NOT_STARTED,
         }
 
         if CQL_IsQuestFlaggedCompleted(questId) then
             newData.status = STATUS_COMPLETED
         elseif CQL_IsOnQuest(questId) then
             newData.status = STATUS_IN_PROGRESS
-            -- local objectives = CQL_GetQuestObjectives(questId)
-            -- if objectives ~= nil then
-            --     blah blah blah
-            -- end
+            local objectives = CQL_GetQuestObjectives(questId)
+            if objectives ~= nil then
+                newData.objectives = {}
+                for _, objective in ipairs(objectives) do
+                    if objective ~= nil then
+                        local objectiveData = {
+                            type = objective.type,
+                            text = objective.text,
+                        }
+
+                        if objective.type == 'progressbar' then
+                            objectiveData.have = GetQuestProgressBarPercent(questId)
+                            objectiveData.need = 100
+                        else
+                            objectiveData.have = objective.numFulfilled
+                            objectiveData.need = objective.numRequired
+                        end
+
+                        table.insert(newData.objectives, objectiveData)
+                    end
+                end
+            end
         end
 
-        if oldData == nil or newData.status ~= oldData.status then
+        local basicChanged = oldData == nil or oldData.status ~= newData.status
+
+        local objectivesChanged = false
+        if basicChanged == false and newData.objectives ~= nil then
+            if oldData.objectives == nil then
+                objectivesChanged = true
+            elseif #oldData.objectives ~= #newData.objectives then
+                objectivesChanged = true
+            else
+                for i = 1, #oldData.objectives do
+                    local oldObjective = oldData.objectives[i]
+                    local newObjective = newData.objectives[i]
+
+                    if oldObjective.type ~= newObjective.type or
+                        oldObjective.text ~= newObjective.text or
+                        oldObjective.have ~= newObjective.have or
+                        oldObjective.need ~= newObjective.need
+                    then
+                        -- print('objective changed!')
+                        objectivesChanged = true
+                        break
+                    end
+                end
+            end
+        end
+
+        if basicChanged or objectivesChanged then
             anyChanges = true
             self.quests[questId] = newData
         end
     end
 
     if anyChanges then
-        print('quests changed')
+        -- print('quests changed')
         self:SendMessage('ChoreTracker_Quests_Updated')
     end
 end
