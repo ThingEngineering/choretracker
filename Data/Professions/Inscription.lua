@@ -1,12 +1,12 @@
 local _, Addon = ...
 
 
-Addon.data.professions.inscription = {
+Addon.data.professionInscription = {
     skillLineId = 773,
     texture = GetSpellTexture(45357),
     categories = {
-        -- Dragon Isles
-        dragonflight = {
+        {
+            key = 'dragonflight',
             name = EXPANSION_NAME9,
             skillLineId = 2828,
             drops = {

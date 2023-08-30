@@ -22,6 +22,7 @@ Locales\enUS.lua
 
 ChoreTracker.lua
 
+Data\Chores\Dragonflight.lua
 Data\Professions\Alchemy.lua
 Data\Professions\Blacksmithing.lua
 Data\Professions\Enchanting.lua

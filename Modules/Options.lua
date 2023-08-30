@@ -69,12 +69,21 @@ function Module:CreateOptions()
                 order = newOrder(),
                 args = {
                     showCompleted = {
-                        name = L['section_general_showCompleted'],
+                        name = L['option:general:showCompleted'],
                         type = 'toggle',
                         order = newOrder(),
                         -- width = 0.8,
                     }
                 }
+            },
+            chores = {
+                name = 'Chores',
+                type = 'group',
+                childGroups = 'tab',
+                order = newOrder(),
+                args = {
+                    dragonflight = self:GetDataOptions(Addon.data.choresDragonflight),
+                },
             },
             professions = {
                 name = 'Professions',
@@ -82,63 +91,69 @@ function Module:CreateOptions()
                 childGroups = 'tab',
                 order = newOrder(),
                 args = {
-                    alchemy = self:GetProfessionOptions('alchemy'),
-                    blacksmithing = self:GetProfessionOptions('blacksmithing'),
-                    enchanting = self:GetProfessionOptions('enchanting'),
-                    engineering = self:GetProfessionOptions('engineering'),
-                    inscription = self:GetProfessionOptions('inscription'),
-                    jewelcrafting = self:GetProfessionOptions('jewelcrafting'),
-                    leatherworking = self:GetProfessionOptions('leatherworking'),
-                    tailoring = self:GetProfessionOptions('tailoring'),
-                    herbalism = self:GetProfessionOptions('herbalism'),
-                    mining = self:GetProfessionOptions('mining'),
-                    skinning = self:GetProfessionOptions('skinning'),
+                    alchemy = self:GetDataOptions(Addon.data.professionAlchemy),
+                    blacksmithing = self:GetDataOptions(Addon.data.professionBlacksmithing),
+                    enchanting = self:GetDataOptions(Addon.data.professionEnchanting),
+                    engineering = self:GetDataOptions(Addon.data.professionEngineering),
+                    inscription = self:GetDataOptions(Addon.data.professionInscription),
+                    jewelcrafting = self:GetDataOptions(Addon.data.professionJewelcrafting),
+                    leatherworking = self:GetDataOptions(Addon.data.professionLeatherworking),
+                    tailoring = self:GetDataOptions(Addon.data.professionTailoring),
+                    herbalism = self:GetDataOptions(Addon.data.professionHerbalism),
+                    mining = self:GetDataOptions(Addon.data.professionMining),
+                    skinning = self:GetDataOptions(Addon.data.professionSkinning),
                 }
             }
         }
     }
 end
 
-function Module:GetProfessionOptions(key)
-    local data = Addon.data.professions[key]
+function Module:GetDataOptions(data)
     local options = {
-        name = C_TradeSkillUI.GetTradeSkillDisplayName(data.skillLineId),
         type = 'group',
         order = newOrder(),
         args = {},
     }
+    if data.skillLineId ~= nil then
+        options.name = C_TradeSkillUI.GetTradeSkillDisplayName(data.skillLineId)
+    else
+        options.name = data.name or L[data.key]
+    end
 
-    for catKey, catData in pairs(data.categories) do
-        local expansionOptions = {
-            name = catData.name,
+    for _, catData in ipairs(data.categories) do
+        local catOptions = {
+            name = catData.name or L['category:' .. catData.key],
             type = 'group',
             order = newOrder(),
             inline = true,
             args = {},
         }
         
-        self:AddProfessionSubOptions(expansionOptions, 'drops', catData.drops)
-        self:AddProfessionSubOptions(expansionOptions, 'quests', catData.quests)
+        for _, key in ipairs({ 'drops', 'quests' }) do
+            if catData[key] ~= nil then
+                self:AddSubOptions(catOptions, catData.key, key, catData[key])
+            end
+        end
     
-        options.args[catKey] = expansionOptions
+        options.args[catData.key] = catOptions
     end
 
     return options
 end
 
-function Module:AddProfessionSubOptions(optionsTable, key, data)
+function Module:AddSubOptions(optionsTable, parentKey, key, data)
     if #data == 0 then return end
 
     optionsTable.args[key] = {
-        name = L['section_' .. key],
+        name = L['section:' .. key],
         type = 'header',
         order = newOrder(),
     }
 
     for _, subData in ipairs(data) do
-        local subKey = key .. '_' .. subData.key
+        local subKey = parentKey .. ':' .. key .. ':' .. subData.key
         optionsTable.args[subKey] = {
-            name = L['section_' .. subKey],
+            name = L['chore:' .. subKey],
             type = 'toggle',
             order = newOrder(),
             width = 0.8,

@@ -2,78 +2,60 @@ local addonName, addonTable = ...
 local Addon = LibStub('AceAddon-3.0'):NewAddon(addonTable, addonName, 'AceEvent-3.0')
 
 Addon.L = LibStub('AceLocale-3.0'):GetLocale(addonName)
-Addon.data = {
-    professions = {},
-}
+Addon.data = {}
 
-Addon:SetDefaultModuleLibraries('AceBucket-3.0', 'AceEvent-3.0')--, 'AceTimer-3.0')
+Addon:SetDefaultModuleLibraries('AceBucket-3.0', 'AceEvent-3.0')
 
 local ADB = LibStub('AceDB-3.0')
-
--- local ModulePrototype = {
---     UniqueTimer = function(self, name, seconds, callback, ...)
---         self.__timers = self.__timers or {}
-        
---         if self.__timers[name] and self:TimeLeft(self.__timers[name]) > 0 then
---             -- print('Timer '..name..' already exists')
---             return
---         end
-
---         self.__timers[name] = self:ScheduleTimer(callback, seconds, ...)
---     end
--- }
--- Addon:SetDefaultModulePrototype(ModulePrototype)
-
-
 
 local defaultDb = {
     global = {
         questWeeks = {},
     },
     profile = {
+        general = {
+            showCompleted = true,
+        },
+        position = {
+            x = 100,
+            y = 500,
+        },
+        sections = {},
         modules = {
             ['**'] = {
                 enabled = true,
             }
-        },
-        general = {
-            showCompleted = true,
-        },
-        professions = {},
-        position = {
-            x = 100,
-            y = 500,
         },
     }
 }
 
 
 function Addon:OnInitialize()
-    for profKey, profData in pairs(self.data.professions) do
-        defaultDb.profile.professions[profKey] = {}
+    for sectionKey, sectionData in pairs(self.data) do
+        defaultDb.profile.sections[sectionKey] = {}
         
-        for expKey, expData in pairs(profData.categories) do
-            defaultDb.profile.professions[profKey][expKey] = {}
+        for expKey, catData in pairs(sectionData.categories) do
+            defaultDb.profile.sections[sectionKey][expKey] = {}
 
-            if #expData.drops > 0 then
+            if catData.drops ~= nil then
                 local drops = {}
-                for _, dropData in ipairs(expData.drops) do
+                for _, dropData in ipairs(catData.drops) do
                     drops[dropData.key] = dropData.defaultEnabled ~= false
                 end
-                defaultDb.profile.professions[profKey][expKey].drops = drops
+                defaultDb.profile.sections[sectionKey][expKey].drops = drops
             end
 
-            if #expData.quests > 0 then
+            if catData.quests ~= nil then
                 local quests = {}
-                for _, questData in ipairs(expData.quests) do
+                for _, questData in ipairs(catData.quests) do
                     quests[questData.key] = questData.defaultEnabled ~= false
                 end
-                defaultDb.profile.professions[profKey][expKey].quests = quests
+                defaultDb.profile.sections[sectionKey][expKey].quests = quests
             end
         end
     end
 
-    -- DevTools_Dump(defaultDb)
+    DevTools_Dump(defaultDb)
 
     self.db = ADB:New('ChoreTrackerDB', defaultDb, true) -- default global profile
 

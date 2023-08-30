@@ -98,7 +98,7 @@ function Module:Redraw()
     self.fontStrings = {}
 
     -- Get categories and add them
-    local categories = self:GetEntryCategories()
+    local categories = self:GetSections()
     for _, category in ipairs(categories) do
         local prefix = self:GetPercentColor(category.completed, category.total)
         local headerText = category.header .. ' - ' .. prefix .. category.completed ..
@@ -125,19 +125,36 @@ function Module:Redraw()
     self.frame:SetWidth(maxWidth + (PADDING_OUTER * 2))
 end
 
-function Module:GetEntryCategories()
-    local categories = {}
+function Module:GetSections()
+    local sections = {}
     local questsModule = Addon:GetModule('Quests')
 
     local weeklyReset = time() + CDAT_GetSecondsUntilWeeklyReset()
     local week = Addon.db.global.questWeeks[weeklyReset] or {}
 
-    for profKey, profData in pairs(Addon.data.professions) do
-        if questsModule.skillLines[profData.skillLineId] == true then
-            local profInfo = C_TradeSkillUI.GetProfessionInfoBySkillLineID(profData.skillLineId)
+    for sectionKey, sectionData in pairs(Addon.data) do
+        local doSection = false
+        if sectionData.skillLineId ~= nil then
+            doSection = questsModule.skillLines[sectionData.skillLineId] == true
+        end
 
-            local category = {
-                header = '|T' .. profData.texture .. ':0|t |cFFFFFFFF' .. profInfo.professionName .. '|r',
+        if doSection then
+            local header = ''
+            if sectionData.texture then
+                header = header .. '|T' .. sectionData.texture .. ':0|t '
+            end
+
+            header = header .. '|cFFFFFFFF'
+            if sectionData.skillLineId ~= nil then
+                local profInfo = C_TradeSkillUI.GetProfessionInfoBySkillLineID(sectionData.skillLineId)
+                header = header .. profInfo.professionName
+            else
+                header = header .. sectionData.name
+            end
+            header = header ..'|r'
+
+            local section = {
+                header = header,
                 entries = {},
                 completed = 0,
                 total = 0,
@@ -145,17 +162,17 @@ function Module:GetEntryCategories()
 
             -- Quests
             for _, catKey in ipairs({ 'quests', 'drops' }) do
-                for _, choreData in ipairs(profData.categories.dragonflight[catKey]) do
-                    if Addon.db.profile.professions[profKey].dragonflight[catKey][choreData.key] == true then
+                for _, choreData in ipairs(sectionData.categories.dragonflight[catKey]) do
+                    if Addon.db.profile.sections[sectionKey].dragonflight[catKey][choreData.key] == true then
                         local translated = L['section_' .. catKey .. '_' .. choreData.key]
 
                         if catKey == 'drops' then
                             for _, choreEntry in ipairs(choreData.entries) do
-                                category.total = category.total + 1
+                                section.total = section.total + 1
 
                                 local choreState = questsModule.quests[choreEntry.quest]
                                 if choreState.status == 2 then
-                                    category.completed = category.completed + 1
+                                    section.completed = section.completed + 1
                                 end
 
                                 if Addon.db.profile.general.showCompleted or choreState.status < 2 then
@@ -165,13 +182,13 @@ function Module:GetEntryCategories()
                                     end
 
                                     table.insert(
-                                        category.entries,
+                                        section.entries,
                                         self:GetEntryText(entryTranslated, choreEntry, choreState)
                                     )
                                 end
                             end
                         else
-                            category.total = category.total + 1
+                            section.total = section.total + 1
 
                             local bestEntry
                             local bestState = nil
@@ -190,12 +207,12 @@ function Module:GetEntryCategories()
                             end
 
                             if bestState.status == 2 then
-                                category.completed = category.completed + 1
+                                section.completed = section.completed + 1
                             end
 
                             if Addon.db.profile.general.showCompleted or bestState.status < 2 then
                                 table.insert(
-                                    category.entries,
+                                    section.entries,
                                     self:GetEntryText(translated, bestEntry, bestState, bestWeek)
                                 )
 
@@ -212,7 +229,7 @@ function Module:GetEntryCategories()
                                             '|' .. objective.have .. '|' .. objective.need
                                         end
 
-                                        table.insert(category.entries, objText)
+                                        table.insert(section.entries, objText)
                                     end
                                 end
                             end
@@ -221,11 +238,11 @@ function Module:GetEntryCategories()
                 end
             end
 
-            table.insert(categories, category)
+            table.insert(sections, section)
         end
     end
 
-    return categories
+    return sections
 end
 
 function Module:GetEntryText(translated, entry, state, weekState)

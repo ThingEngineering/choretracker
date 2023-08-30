@@ -50,12 +50,12 @@ function Module:InitializeQuests()
         self.skillLines[skillLineId] = true
     end
 
-    for profKey, profData in pairs(Addon.data.professions) do
-        if self.skillLines[profData.skillLineId] == true then
-            for expKey, expData in pairs(profData.categories) do
+    for sectionKey, sectionData in pairs(Addon.data) do
+        if self.skillLines[sectionData.skillLineId] == true then
+            for expKey, expData in pairs(sectionData.categories) do
                 for _, catKey in ipairs(DATA_CATEGORIES) do
                     for _, questData in ipairs(expData[catKey] or {}) do
-                        local questKey = 'professions.' .. profKey .. '.' .. expKey .. '.' .. catKey ..
+                        local questKey = 'professions.' .. sectionKey .. '.' .. expKey .. '.' .. catKey ..
                             '.' .. questData.key
                         for _, questEntry in ipairs(questData.entries) do
                             self.questPaths[questEntry.quest] = questKey

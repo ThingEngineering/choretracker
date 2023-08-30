@@ -1,12 +1,12 @@
 local _, Addon = ...
 
 
-Addon.data.professions.herbalism = {
+Addon.data.professionHerbalism = {
     skillLineId = 182,
     texture = GetSpellTexture(2366),
     categories = {
-        -- Dragon Isles
-        dragonflight = {
+        {
+            key = 'dragonflight',
             name = EXPANSION_NAME9,
             skillLineId = 2832,
             drops = {
