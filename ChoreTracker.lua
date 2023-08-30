@@ -52,7 +52,7 @@ function Addon:OnInitialize()
     for profKey, profData in pairs(self.data.professions) do
         defaultDb.profile.professions[profKey] = {}
         
-        for expKey, expData in pairs(profData.expansions) do
+        for expKey, expData in pairs(profData.categories) do
             defaultDb.profile.professions[profKey][expKey] = {}
 
             if #expData.drops > 0 then

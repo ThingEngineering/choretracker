@@ -4,7 +4,7 @@ local _, Addon = ...
 Addon.data.professions.leatherworking = {
     skillLineId = 165,
     texture = GetSpellTexture(2108),
-    expansions = {
+    categories = {
         -- Dragon Isles
         dragonflight = {
             name = EXPANSION_NAME9,

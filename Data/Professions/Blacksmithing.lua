@@ -4,7 +4,7 @@ local _, Addon = ...
 Addon.data.professions.blacksmithing = {
     skillLineId = 164,
     texture = GetSpellTexture(2018),
-    expansions = {
+    categories = {
         -- Dragon Isles
         dragonflight = {
             name = EXPANSION_NAME9,

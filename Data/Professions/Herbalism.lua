@@ -4,7 +4,7 @@ local _, Addon = ...
 Addon.data.professions.herbalism = {
     skillLineId = 182,
     texture = GetSpellTexture(2366),
-    expansions = {
+    categories = {
         -- Dragon Isles
         dragonflight = {
             name = EXPANSION_NAME9,

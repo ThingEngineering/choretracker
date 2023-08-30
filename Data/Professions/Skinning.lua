@@ -4,7 +4,7 @@ local _, Addon = ...
 Addon.data.professions.skinning = {
     skillLineId = 393,
     texture = GetSpellTexture(8613),
-    expansions = {
+    categories = {
         -- Dragon Isles
         dragonflight = {
             name = EXPANSION_NAME9,

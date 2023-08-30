@@ -4,7 +4,7 @@ local _, Addon = ...
 Addon.data.professions.engineering = {
     skillLineId = 202,
     texture = GetSpellTexture(4036),
-    expansions = {
+    categories = {
         -- Dragon Isles
         dragonflight = {
             name = EXPANSION_NAME9,

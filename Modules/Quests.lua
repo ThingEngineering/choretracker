@@ -52,7 +52,7 @@ function Module:InitializeQuests()
 
     for profKey, profData in pairs(Addon.data.professions) do
         if self.skillLines[profData.skillLineId] == true then
-            for expKey, expData in pairs(profData.expansions) do
+            for expKey, expData in pairs(profData.categories) do
                 for _, catKey in ipairs(DATA_CATEGORIES) do
                     for _, questData in ipairs(expData[catKey] or {}) do
                         local questKey = 'professions.' .. profKey .. '.' .. expKey .. '.' .. catKey ..

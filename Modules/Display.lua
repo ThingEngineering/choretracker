@@ -145,7 +145,7 @@ function Module:GetEntryCategories()
 
             -- Quests
             for _, catKey in ipairs({ 'quests', 'drops' }) do
-                for _, choreData in ipairs(profData.expansions.dragonflight[catKey]) do
+                for _, choreData in ipairs(profData.categories.dragonflight[catKey]) do
                     if Addon.db.profile.professions[profKey].dragonflight[catKey][choreData.key] == true then
                         local translated = L['section_' .. catKey .. '_' .. choreData.key]
 

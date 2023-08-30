@@ -108,19 +108,19 @@ function Module:GetProfessionOptions(key)
         args = {},
     }
 
-    for expansionKey, expansionData in pairs(data.expansions) do
+    for catKey, catData in pairs(data.categories) do
         local expansionOptions = {
-            name = expansionData.name,
+            name = catData.name,
             type = 'group',
             order = newOrder(),
             inline = true,
             args = {},
         }
         
-        self:AddProfessionSubOptions(expansionOptions, 'drops', expansionData.drops)
-        self:AddProfessionSubOptions(expansionOptions, 'quests', expansionData.quests)
+        self:AddProfessionSubOptions(expansionOptions, 'drops', catData.drops)
+        self:AddProfessionSubOptions(expansionOptions, 'quests', catData.quests)
     
-        options.args[expansionKey] = expansionOptions
+        options.args[catKey] = expansionOptions
     end
 
     return options

@@ -4,7 +4,7 @@ local _, Addon = ...
 Addon.data.professions.jewelcrafting = {
     skillLineId = 755,
     texture = GetSpellTexture(25229),
-    expansions = {
+    categories = {
         -- Dragon Isles
         dragonflight = {
             name = EXPANSION_NAME9,
