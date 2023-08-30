@@ -3,6 +3,7 @@ local L = Addon.L
 local Module = Addon:NewModule('Quests')
 
 
+local CDAT_GetSecondsUntilWeeklyReset = C_DateAndTime.GetSecondsUntilWeeklyReset
 local CQL_GetQuestObjectives = C_QuestLog.GetQuestObjectives
 local CQL_IsOnQuest = C_QuestLog.IsOnQuest
 local CQL_IsQuestFlaggedCompleted = C_QuestLog.IsQuestFlaggedCompleted
@@ -69,6 +70,10 @@ function Module:InitializeQuests()
 end
 
 function Module:ScanQuests()
+    local weeklyReset = time() + CDAT_GetSecondsUntilWeeklyReset()
+    Addon.db.global.questWeeks[weeklyReset] = Addon.db.global.questWeeks[weeklyReset] or {}
+    local week = Addon.db.global.questWeeks[weeklyReset]
+
     local anyChanges = false
     for questId, _ in pairs(self.questPaths) do
         local oldData = self.quests[questId]
@@ -133,6 +138,37 @@ function Module:ScanQuests()
         if basicChanged or objectivesChanged then
             anyChanges = true
             self.quests[questId] = newData
+            
+            -- Store the data for other characters if the quest is at least started
+            if newData.status > 0 then
+                local weekData = week[questId]
+                if weekData == nil or (weekData.status == STATUS_COMPLETED and newData.status == STATUS_IN_PROGRESS) then
+                    -- Copy the table in and reset objectives
+                    weekData = {
+                        questId = questId,
+                        status = newData.status,
+                        objectives = {}
+                    }
+
+                    if newData.objectives ~= nil then
+                        for _, objective in ipairs(newData.objectives) do
+                            local text = objective.text
+                            if text ~= nil then
+                                text = text:gsub('(%d+)/(%d+)', '0/%2')
+                            end
+
+                            table.insert(weekData.objectives, {
+                                have = 0,
+                                need = objective.need,
+                                text = text,
+                                type = objective.type,
+                            })
+                        end
+                    end
+
+                    week[questId] = weekData
+                end
+            end
         end
     end
 

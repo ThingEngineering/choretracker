@@ -3,6 +3,8 @@ local L = Addon.L
 local Module = Addon:NewModule('Display')
 
 
+local CDAT_GetSecondsUntilWeeklyReset = C_DateAndTime.GetSecondsUntilWeeklyReset
+
 local STATUS_COLOR = {
     [0] = '|cFFFF2222',
     [1] = '|cFFFFFF00',
@@ -126,7 +128,10 @@ end
 function Module:GetEntryCategories()
     local categories = {}
     local questsModule = Addon:GetModule('Quests')
-    
+
+    local weeklyReset = time() + CDAT_GetSecondsUntilWeeklyReset()
+    local week = Addon.db.global.questWeeks[weeklyReset] or {}
+
     for profKey, profData in pairs(Addon.data.professions) do
         if questsModule.skillLines[profData.skillLineId] == true then
             local profInfo = C_TradeSkillUI.GetProfessionInfoBySkillLineID(profData.skillLineId)
@@ -168,13 +173,19 @@ function Module:GetEntryCategories()
                         else
                             category.total = category.total + 1
 
-                            local bestState = nil
                             local bestEntry
+                            local bestState = nil
+                            local bestWeek = nil
                             for _, choreEntry in ipairs(choreData.entries) do
                                 local entryState = questsModule.quests[choreEntry.quest]
                                 if bestState == nil or bestState.status < entryState.status then
                                     bestEntry = choreEntry
                                     bestState = entryState
+                                end
+
+                                local weekState = week[choreEntry.quest]
+                                if weekState ~= nil and (bestWeek == nil or (bestWeek.status == 2 and weekState.status == 1)) then
+                                    bestWeek = weekState
                                 end
                             end
 
@@ -185,7 +196,7 @@ function Module:GetEntryCategories()
                             if Addon.db.profile.general.showCompleted or bestState.status < 2 then
                                 table.insert(
                                     category.entries,
-                                    self:GetEntryText(translated, bestEntry, bestState)
+                                    self:GetEntryText(translated, bestEntry, bestState, bestWeek)
                                 )
 
                                 if bestState.status == 1 and bestState.objectives ~= nil and #bestState.objectives > 1 then
@@ -217,7 +228,7 @@ function Module:GetEntryCategories()
     return categories
 end
 
-function Module:GetEntryText(translated, entry, state)
+function Module:GetEntryText(translated, entry, state, weekState)
     local thingString = ''
     if entry.item ~= nil then
         local itemInfo = self:GetCachedItem(entry.item)
@@ -235,9 +246,18 @@ function Module:GetEntryText(translated, entry, state)
         end
     elseif state.status == 1 and state.objectives ~= nil and #state.objectives == 1 then
         local objective = state.objectives[1]
-        thingString = self:GetPercentColor(objective.have, objective.need, true) .. state.objectives[1].text
+        thingString = self:GetPercentColor(objective.have, objective.need, true) .. objective.text
     elseif state.status == 0 then
-        thingString = '|cFFFFFFFF???'
+        if weekState ~= nil then
+            if weekState.objectives ~= nil and #weekState.objectives == 1 then
+                local objective = weekState.objectives[1]
+                thingString = '|cFFFFFFFF' .. objective.text
+            else
+                thingString = '|cFFFFFFFF' .. QuestUtils_GetQuestName(weekState.questId)
+            end
+        else
+            thingString = '|cFFFFFFFF???'
+        end
     else
         thingString = '|cFFFFFFFF' .. QuestUtils_GetQuestName(entry.quest)
     end

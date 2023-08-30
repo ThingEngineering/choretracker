@@ -27,6 +27,9 @@ local ADB = LibStub('AceDB-3.0')
 
 
 local defaultDb = {
+    global = {
+        questWeeks = {},
+    },
     profile = {
         modules = {
             ['**'] = {
