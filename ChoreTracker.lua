@@ -37,6 +37,10 @@ local defaultDb = {
             showCompleted = true,
         },
         professions = {},
+        position = {
+            x = 100,
+            y = 500,
+        },
     }
 }
 
@@ -66,7 +70,7 @@ function Addon:OnInitialize()
         end
     end
 
-    DevTools_Dump(defaultDb)
+    -- DevTools_Dump(defaultDb)
 
     self.db = ADB:New('ChoreTrackerDB', defaultDb, true) -- default global profile
 

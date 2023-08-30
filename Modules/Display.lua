@@ -48,7 +48,7 @@ function Module:CreateFrame()
     -- frame:SetFrameStrata('MEDIUM')
     frame:SetHeight(1)
     frame:SetWidth(1)
-    frame:SetPoint('TOPLEFT', 100, -100)
+    frame:SetPoint('TOPLEFT', UIParent, 'BOTTOMLEFT', Addon.db.profile.position.x, Addon.db.profile.position.y)
 
     frame:SetClampedToScreen(true)
     frame:SetMovable(true)
@@ -61,16 +61,14 @@ function Module:CreateFrame()
 end
 
 function Module:OnDragStart()
-    print('WE STARTING')
     self:StartMoving()
 end
 
 function Module:OnDragStop()
-    print('WE STOPPING')
     self:StopMovingOrSizing()
-    local left = self:GetLeft()
-    local top = self:GetTop()
-    print('top: '..top..' | left: '..left)
+
+    Addon.db.profile.position.x = self:GetLeft()
+    Addon.db.profile.position.y = self:GetTop()
 end
 
 function Module:ItemsLoaded(data)
