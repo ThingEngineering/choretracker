@@ -1,3 +1,12 @@
+v0.0.1-alpha2
+-------------
+- Added saving of window position after moving.
+- Added saving of quest data to re-use on other characters.
+- Added LibSharedMedia for fonts.
+- Added options for font and font size.
+- Added Dragonflight chores.
+- Rewrote config handling to support non-profession chores.
+
 v0.0.1-alpha1
 -------------
 - Initial public release.
