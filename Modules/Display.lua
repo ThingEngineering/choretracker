@@ -22,17 +22,31 @@ function Module:OnEnable()
     Addon.db.RegisterCallback(self, 'OnProfileChanged', 'ConfigChanged')
     Addon.db.RegisterCallback(self, 'OnProfileCopied', 'ConfigChanged')
     Addon.db.RegisterCallback(self, 'OnProfileReset', 'ConfigChanged')
-    
+
     self:CreateFrame()
 
     self:RegisterMessage('ChoreTracker_Config_Changed', 'ConfigChanged')
     self:RegisterBucketMessage({ 'ChoreTracker_Quests_Updated', }, 0.5, 'Redraw')
-    
+
+    self:RegisterBucketEvent(
+        { 'ZONE_CHANGED', 'ZONE_CHANGED_INDOORS', 'ZONE_CHANGED_NEW_AREA' },
+        1,
+        'UpdateZone'
+    )
+
     self:RegisterBucketEvent({ 'ITEM_DATA_LOAD_RESULT' }, 1, 'ItemsLoaded')
 end
 
 function Module:OnEnteringWorld()
-    self.frame:Show()
+    self:UpdateZone()
+end
+
+function Module:UpdateZone()
+    if IsInInstance() then
+        self.frame:Hide()
+    else
+        self.frame:Show()
+    end
 end
 
 function Module:CreateFrame()
