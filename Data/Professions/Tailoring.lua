@@ -2,6 +2,7 @@ local _, Addon = ...
 
 
 Addon.data.professionTailoring = {
+    order = 110,
     skillLineId = 197,
     texture = GetSpellTexture(3908),
     categories = {

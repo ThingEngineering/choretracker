@@ -5,6 +5,7 @@ local Module = Addon:NewModule('Options')
 local AC = LibStub('AceConfig-3.0')
 local ACD = LibStub('AceConfigDialog-3.0')
 local ADBO = LibStub('AceDBOptions-3.0')
+local LSM = LibStub('LibSharedMedia-3.0')
 
 
 local newOrder
@@ -33,24 +34,28 @@ function Module:CreateOptions()
         type = 'group',
         childGroups = 'tab',
         get = function(info)
-            local sigh = Addon.db.profile[info[1]]
+            local sigh = Addon.db.profile[info[1]:match('^section') and 'chores' or info[1]]
             for i = 2, #info do
                 if sigh == nil then break end
-                
-                local parts = { strsplit('_', info[i]) }
+                local parts = { strsplit(':', info[i]) }
                 for _, part in ipairs(parts) do
                     sigh = sigh[part]
                     if sigh == nil then break end
                 end
             end
+            if sigh == nil then
+                print('womp womp')
+                for i = 1, #info do
+                    print(i .. ': ' .. info[i])
+                end
+            end
             return sigh
         end,
         set = function(info, value)
-            local sigh = Addon.db.profile[info[1]]
+            local sigh = Addon.db.profile[info[1]:match('^section') and 'chores' or info[1]]
             for i = 2, #info do
                 if sigh == nil then break end
-
-                local parts = { strsplit('_', info[i]) }
+                local parts = { strsplit(':', info[i]) }
                 for j, part in ipairs(parts) do
                     if i == #info and j == #parts then
                         sigh[part] = value
@@ -73,47 +78,70 @@ function Module:CreateOptions()
                         type = 'toggle',
                         order = newOrder(),
                         -- width = 0.8,
-                    }
+                    },
+                    text = {
+                        name = 'Text',
+                        type = 'group',
+                        inline = true,
+                        order = newOrder(),
+                        args = {
+                            font = {
+                                name = 'Font',
+                                type = 'select',
+                                width = 1.2,
+                                dialogControl = 'LSM30_Font',
+                                values = LSM:HashTable('font'),
+                            },
+                            fontSize = {
+                                name = 'Font size',
+                                type = 'range',
+                                min = 8,
+                                max = 24,
+                                step = 1,
+                            },
+                        },
+                    },
                 }
             },
-            chores = {
+            sectionChores = {
                 name = 'Chores',
                 type = 'group',
                 childGroups = 'tab',
                 order = newOrder(),
                 args = {
-                    dragonflight = self:GetDataOptions(Addon.data.choresDragonflight),
+                    choresDragonflight = self:GetDataOptions(Addon.data.choresDragonflight, 1.1),
                 },
             },
-            professions = {
+            sectionProfessions = {
                 name = 'Professions',
                 type = 'group',
                 childGroups = 'tab',
                 order = newOrder(),
                 args = {
-                    alchemy = self:GetDataOptions(Addon.data.professionAlchemy),
-                    blacksmithing = self:GetDataOptions(Addon.data.professionBlacksmithing),
-                    enchanting = self:GetDataOptions(Addon.data.professionEnchanting),
-                    engineering = self:GetDataOptions(Addon.data.professionEngineering),
-                    inscription = self:GetDataOptions(Addon.data.professionInscription),
-                    jewelcrafting = self:GetDataOptions(Addon.data.professionJewelcrafting),
-                    leatherworking = self:GetDataOptions(Addon.data.professionLeatherworking),
-                    tailoring = self:GetDataOptions(Addon.data.professionTailoring),
-                    herbalism = self:GetDataOptions(Addon.data.professionHerbalism),
-                    mining = self:GetDataOptions(Addon.data.professionMining),
-                    skinning = self:GetDataOptions(Addon.data.professionSkinning),
+                    professionAlchemy = self:GetDataOptions(Addon.data.professionAlchemy),
+                    professionBlacksmithing = self:GetDataOptions(Addon.data.professionBlacksmithing),
+                    professionEnchanting = self:GetDataOptions(Addon.data.professionEnchanting),
+                    professionEngineering = self:GetDataOptions(Addon.data.professionEngineering),
+                    professionInscription = self:GetDataOptions(Addon.data.professionInscription),
+                    professionJewelcrafting = self:GetDataOptions(Addon.data.professionJewelcrafting),
+                    professionLeatherworking = self:GetDataOptions(Addon.data.professionLeatherworking),
+                    professionTailoring = self:GetDataOptions(Addon.data.professionTailoring),
+                    professionHerbalism = self:GetDataOptions(Addon.data.professionHerbalism),
+                    professionMining = self:GetDataOptions(Addon.data.professionMining),
+                    professionSkinning = self:GetDataOptions(Addon.data.professionSkinning),
                 }
             }
         }
     }
 end
 
-function Module:GetDataOptions(data)
+function Module:GetDataOptions(data, optionWidth)
     local options = {
         type = 'group',
         order = newOrder(),
         args = {},
     }
+
     if data.skillLineId ~= nil then
         options.name = C_TradeSkillUI.GetTradeSkillDisplayName(data.skillLineId)
     else
@@ -128,20 +156,20 @@ function Module:GetDataOptions(data)
             inline = true,
             args = {},
         }
-        
+
         for _, key in ipairs({ 'drops', 'quests' }) do
             if catData[key] ~= nil then
-                self:AddSubOptions(catOptions, catData.key, key, catData[key])
+                self:AddSubOptions(catOptions, catData.key, key, catData[key], optionWidth or 0.8)
             end
         end
-    
+
         options.args[catData.key] = catOptions
     end
 
     return options
 end
 
-function Module:AddSubOptions(optionsTable, parentKey, key, data)
+function Module:AddSubOptions(optionsTable, parentKey, key, data, optionWidth)
     if #data == 0 then return end
 
     optionsTable.args[key] = {
@@ -151,12 +179,12 @@ function Module:AddSubOptions(optionsTable, parentKey, key, data)
     }
 
     for _, subData in ipairs(data) do
-        local subKey = parentKey .. ':' .. key .. ':' .. subData.key
+        local subKey = key .. ':' .. subData.key
         optionsTable.args[subKey] = {
-            name = L['chore:' .. subKey],
+            name = L['chore:' .. parentKey .. ':' .. subKey],
             type = 'toggle',
             order = newOrder(),
-            width = 0.8,
+            width = optionWidth,
         }
     end
 end

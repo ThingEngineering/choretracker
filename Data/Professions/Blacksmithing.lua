@@ -2,6 +2,7 @@ local _, Addon = ...
 
 
 Addon.data.professionBlacksmithing = {
+    order = 101,
     skillLineId = 164,
     texture = GetSpellTexture(2018),
     categories = {

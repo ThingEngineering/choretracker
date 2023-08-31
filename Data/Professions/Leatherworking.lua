@@ -2,6 +2,7 @@ local _, Addon = ...
 
 
 Addon.data.professionLeatherworking = {
+    order = 107,
     skillLineId = 165,
     texture = GetSpellTexture(2108),
     categories = {

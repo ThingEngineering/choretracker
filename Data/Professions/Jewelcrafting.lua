@@ -2,6 +2,7 @@ local _, Addon = ...
 
 
 Addon.data.professionJewelcrafting = {
+    order = 106,
     skillLineId = 755,
     texture = GetSpellTexture(25229),
     categories = {

@@ -3,8 +3,9 @@ local L = Addon.L
 
 
 Addon.data.choresDragonflight = {
-    key = 'dragonflight',
-    name = EXPANSION_NAME9,
+    key = 'choresDragonflight',
+    name = L['dragonflight_chores'],
+    order = 0,
     categories = {
         {
             key = 'patch_10_1_5',
@@ -12,7 +13,7 @@ Addon.data.choresDragonflight = {
                 {
                     key = 'timeRift',
                     entries = {
-                        { quest=77836 }, -- HTQ
+                        { quest=77836, item=207030 }, -- HTQ, Dilated Time Capsule
                     }
                 }
             },
@@ -22,17 +23,31 @@ Addon.data.choresDragonflight = {
             quests = {
                 {
                     key = 'barter',
-                    count = 2,
+                    requiredQuest = 75721,
                     entries = {
                         { quest=75286 }, -- Blacksmith's Back
-                        { quest=75288 }, -- Enchanted Tales with Topuiz
-                        { quest=75289 }, -- Ink Master
-                        { quest=75301 }, -- Mistie's Mix Magic
-                        { quest=75304 }, -- I Need... a Tailor
+                        -- { quest=75288 }, -- Enchanted Tales with Topuiz
+                        -- { quest=75289 }, -- Ink Master
+                        -- { quest=75301 }, -- Mistie's Mix Magic
+                        -- { quest=75304 }, -- I Need... a Tailor
+                        -- { quest=75307 }, -- Road to Season City
+                        -- { quest=75308 }, -- Scrybbil Engineering
+                        -- { quest=75309 }, -- If a Gem Isn't Pretty
+                        -- { quest=75351 }, -- Keep a Leather Eye Open
+                    },
+                },
+                {
+                    key = 'barter',
+                    requiredQuest = 75721,
+                    entries = {
+                        -- { quest=75288 }, -- Enchanted Tales with Topuiz
+                        -- { quest=75289 }, -- Ink Master
+                        -- { quest=75301 }, -- Mistie's Mix Magic
+                        -- { quest=75304 }, -- I Need... a Tailor
                         { quest=75307 }, -- Road to Season City
-                        { quest=75308 }, -- Scrybbil Engineering
-                        { quest=75309 }, -- If a Gem Isn't Pretty
-                        { quest=75351 }, -- Keep a Leather Eye Open
+                        -- { quest=75308 }, -- Scrybbil Engineering
+                        -- { quest=75309 }, -- If a Gem Isn't Pretty
+                        -- { quest=75351 }, -- Keep a Leather Eye Open
                     },
                 },
                 {
@@ -84,7 +99,7 @@ Addon.data.choresDragonflight = {
                 {
                     key = 'communityFeast',
                     entries = {
-                        { quest = 70893 }, -- HTQ
+                        { quest = 70893, item=200095 }, -- HTQ
                     },
                 },
                 {

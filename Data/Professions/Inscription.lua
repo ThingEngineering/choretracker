@@ -2,6 +2,7 @@ local _, Addon = ...
 
 
 Addon.data.professionInscription = {
+    order = 105,
     skillLineId = 773,
     texture = GetSpellTexture(45357),
     categories = {

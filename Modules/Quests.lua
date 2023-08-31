@@ -8,7 +8,7 @@ local CQL_GetQuestObjectives = C_QuestLog.GetQuestObjectives
 local CQL_IsOnQuest = C_QuestLog.IsOnQuest
 local CQL_IsQuestFlaggedCompleted = C_QuestLog.IsQuestFlaggedCompleted
 
-local DATA_CATEGORIES = {
+local DATA_TYPES = {
     'drops',
     'quests',
 }
@@ -51,14 +51,18 @@ function Module:InitializeQuests()
     end
 
     for sectionKey, sectionData in pairs(Addon.data) do
-        if self.skillLines[sectionData.skillLineId] == true then
-            for expKey, expData in pairs(sectionData.categories) do
-                for _, catKey in ipairs(DATA_CATEGORIES) do
-                    for _, questData in ipairs(expData[catKey] or {}) do
-                        local questKey = 'professions.' .. sectionKey .. '.' .. expKey .. '.' .. catKey ..
-                            '.' .. questData.key
+        if sectionData.skillLineId == nil or self.skillLines[sectionData.skillLineId] == true then
+            for _, catData in ipairs(sectionData.categories) do
+                for _, typeKey in ipairs(DATA_TYPES) do
+                    for _, questData in ipairs(catData[typeKey] or {}) do
+                        local questKey = sectionKey .. '.' .. catData.key .. '.' .. typeKey .. '.' .. questData.key
+                        
                         for _, questEntry in ipairs(questData.entries) do
                             self.questPaths[questEntry.quest] = questKey
+                        end
+
+                        if questData.requiredQuest then
+                            self.questPaths[questData.requiredQuest] = questKey
                         end
                     end
                 end
@@ -142,7 +146,10 @@ function Module:ScanQuests()
             -- Store the data for other characters if the quest is at least started
             if newData.status > 0 then
                 local weekData = week[questId]
-                if weekData == nil or (weekData.status == STATUS_COMPLETED and newData.status == STATUS_IN_PROGRESS) then
+                if weekData == nil or
+                    (weekData.status == STATUS_COMPLETED and newData.status == STATUS_IN_PROGRESS) or
+                    (weekData.objectives == nil and newData.objectives ~= nil)
+                then
                     -- Copy the table in and reset objectives
                     weekData = {
                         questId = questId,
@@ -151,22 +158,16 @@ function Module:ScanQuests()
                     }
 
                     if newData.objectives ~= nil then
-                        for _, objective in ipairs(newData.objectives) do
-                            local text = objective.text
-                            if text ~= nil then
-                                text = text:gsub('(%d+)/(%d+)', '0/%2')
-                            end
-
-                            table.insert(weekData.objectives, {
-                                have = 0,
-                                need = objective.need,
-                                text = text,
-                                type = objective.type,
-                            })
-                        end
+                        self:AddObjectives(weekData, newData)
                     end
 
                     week[questId] = weekData
+                elseif weekData ~= nil and
+                       weekData.status == STATUS_IN_PROGRESS and newData.status == STATUS_IN_PROGRESS and
+                       weekData.objectives ~= nil and newData.objectives ~= nil
+                then
+                    weekData.objectives = {}
+                    self:AddObjectives(weekData, newData)
                 end
             end
         end
@@ -175,5 +176,21 @@ function Module:ScanQuests()
     if anyChanges then
         -- print('quests changed')
         self:SendMessage('ChoreTracker_Quests_Updated')
+    end
+end
+
+function Module:AddObjectives(weekData, newData)
+    for _, objective in ipairs(newData.objectives) do
+        local text = objective.text
+        if text ~= nil then
+            text = string.gsub(text, '(%d+)/(%d+)', '0/%2')
+        end
+
+        table.insert(weekData.objectives, {
+            have = 0,
+            need = objective.need,
+            text = text,
+            type = objective.type,
+        })
     end
 end

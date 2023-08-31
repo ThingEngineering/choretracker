@@ -2,6 +2,7 @@ local _, Addon = ...
 
 
 Addon.data.professionEnchanting = {
+    order = 102,
     skillLineId = 333,
     texture = GetSpellTexture(7411),
     categories = {

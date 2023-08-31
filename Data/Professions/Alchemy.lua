@@ -2,6 +2,7 @@ local _, Addon = ...
 
 
 Addon.data.professionAlchemy = {
+    order = 100,
     skillLineId = 171,
     texture = GetSpellTexture(2259),
     categories = {

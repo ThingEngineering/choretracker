@@ -7,42 +7,47 @@ Addon.data = {}
 Addon:SetDefaultModuleLibraries('AceBucket-3.0', 'AceEvent-3.0')
 
 local ADB = LibStub('AceDB-3.0')
+local LSM = LibStub('LibSharedMedia-3.0')
 
 local defaultDb = {
     global = {
         questWeeks = {},
     },
     profile = {
-        general = {
-            showCompleted = true,
-        },
-        position = {
-            x = 100,
-            y = 500,
-        },
-        sections = {},
         modules = {
             ['**'] = {
                 enabled = true,
             }
         },
+        general = {
+            showCompleted = true,
+            text = {
+                font = LSM:GetDefault('font'),
+                fontSize = 12,
+            }
+        },
+        position = {
+            x = 100,
+            y = 500,
+        },
+        chores = {},
     }
 }
 
 
 function Addon:OnInitialize()
     for sectionKey, sectionData in pairs(self.data) do
-        defaultDb.profile.sections[sectionKey] = {}
+        defaultDb.profile.chores[sectionKey] = {}
         
-        for expKey, catData in pairs(sectionData.categories) do
-            defaultDb.profile.sections[sectionKey][expKey] = {}
+        for _, catData in ipairs(sectionData.categories) do
+            defaultDb.profile.chores[sectionKey][catData.key] = {}
 
             if catData.drops ~= nil then
                 local drops = {}
                 for _, dropData in ipairs(catData.drops) do
                     drops[dropData.key] = dropData.defaultEnabled ~= false
                 end
-                defaultDb.profile.sections[sectionKey][expKey].drops = drops
+                defaultDb.profile.chores[sectionKey][catData.key].drops = drops
             end
 
             if catData.quests ~= nil then
@@ -50,12 +55,12 @@ function Addon:OnInitialize()
                 for _, questData in ipairs(catData.quests) do
                     quests[questData.key] = questData.defaultEnabled ~= false
                 end
-                defaultDb.profile.sections[sectionKey][expKey].quests = quests
+                defaultDb.profile.chores[sectionKey][catData.key].quests = quests
             end
         end
     end
 
-    DevTools_Dump(defaultDb)
+    -- DevTools_Dump(defaultDb)
 
     self.db = ADB:New('ChoreTrackerDB', defaultDb, true) -- default global profile
 

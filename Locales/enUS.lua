@@ -2,6 +2,8 @@ local L = LibStub('AceLocale-3.0'):NewLocale('ChoreTracker', 'enUS', true)
 
 L['option:general:showCompleted'] = 'Show completed chores'
 
+L['dragonflight_chores'] = EXPANSION_NAME9 .. ' Chores'
+
 L['section:drops'] = 'Drops'
 L['section:quests'] = 'Quests'
 
@@ -23,7 +25,7 @@ L['chore:dragonflight:quests:treatise'] = 'Treatise'
 
 L['chore:patch_10_1_5:quests:timeRift'] = 'Time Rift'
 
-L['chore:patch_10_1_0:quests:barter'] = 'Barter Quests'
+L['chore:patch_10_1_0:quests:barter'] = 'Bartering'
 L['chore:patch_10_1_0:quests:fyrakkAssault'] = 'Fyrakk: Assault'
 L['chore:patch_10_1_0:quests:fyrakkDisciple'] = 'Fyrakk: Disciple'
 L['chore:patch_10_1_0:quests:fyrakkShipment'] = 'Fyrakk: Shipment'

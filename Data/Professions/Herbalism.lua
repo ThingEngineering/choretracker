@@ -2,6 +2,7 @@ local _, Addon = ...
 
 
 Addon.data.professionHerbalism = {
+    order = 104,
     skillLineId = 182,
     texture = GetSpellTexture(2366),
     categories = {
