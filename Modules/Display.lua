@@ -319,9 +319,10 @@ function Module:GetEntryText(translated, entry, state, weekState)
     elseif state.status == 0 and weekState ~= nil then
         if weekState.objectives ~= nil and #weekState.objectives == 1 then
             local objective = weekState.objectives[1]
-            print(':obj:' .. objective.text .. ':')
             thingString = '|cFFFFFFFF' .. objective.text
         end
+    else
+        thingString = '|cFFFFFFFF' .. QuestUtils_GetQuestName(entry.quest)
     end
     
     if thingString == '' then thingString = '|cFFFFFFFF???' end
