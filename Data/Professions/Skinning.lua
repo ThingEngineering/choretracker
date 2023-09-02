@@ -13,6 +13,7 @@ Addon.data.professionSkinning = {
             drops = {
                 {
                     key = 'gather',
+                    groupSameItem = true,
                     entries = {
                         { quest=70381, item=198837 }, -- Curious Hide Scraps
                         { quest=70383, item=198837 }, -- Curious Hide Scraps

@@ -219,15 +219,46 @@ function Module:GetSections()
         for _, chore in ipairs(section.chores) do
             if chore.data.requiredQuest == nil or questsModule.quests[chore.data.requiredQuest].status == 2 then
                 if chore.typeKey == 'drops' then
+                    local grouped = {}
                     for _, choreEntry in ipairs(chore.data.entries) do
-                        section.total = section.total + 1
+                        local choreState
+                        if chore.data.groupSameItem == true then
+                            if grouped[choreEntry.item] == nil then
+                                grouped[choreEntry.item] = true
+                                choreState = {
+                                    status = 0,
+                                    completed = 0,
+                                    total = 0,
+                                }
+                                
+                                for _, otherEntry in ipairs(chore.data.entries) do
+                                    if otherEntry.item == choreEntry.item then
+                                        section.total = section.total + 1
+                                        choreState.total = choreState.total + 1
 
-                        local choreState = questsModule.quests[choreEntry.quest]
-                        if choreState.status == 2 then
-                            section.completed = section.completed + 1
+                                        if otherEntry.status == 2 then
+                                            section.completed = section.completed + 1
+                                            choreState.completed = choreState.completed + 1
+                                        end
+                                    end
+                                end
+
+                                if choreState.completed > 0 and choreState.completed < choreState.total then
+                                    choreState.status = 1
+                                elseif choreState.completed == choreState.total then
+                                    choreState.status = 2
+                                end
+                            end
+                        else
+                            section.total = section.total + 1
+
+                            choreState = questsModule.quests[choreEntry.quest]
+                            if choreState.status == 2 then
+                                section.completed = section.completed + 1
+                            end
                         end
-
-                        if Addon.db.profile.general.showCompleted or choreState.status < 2 then
+    
+                        if choreState ~= nil and (Addon.db.profile.general.showCompleted or choreState.status < 2) then
                             local entryTranslated = chore.translated
                             if choreEntry.desc ~= nil then
                                 entryTranslated = entryTranslated .. ' (' .. choreEntry.desc .. ')'
@@ -265,14 +296,17 @@ function Module:GetSections()
                     if Addon.db.profile.general.showCompleted or bestState.status < 2 then
                         table.insert(
                             section.entries,
-                            self:GetEntryText(chore.translated, bestEntry, bestState, bestWeek)
+                            self:GetEntryText(chore.translated, bestEntry, bestState, bestWeek, chore.data.inProgressQuestName)
                         )
 
                         if bestState.status == 1 and bestState.objectives ~= nil and #bestState.objectives > 1 then
                             for _, objective in ipairs(bestState.objectives) do
                                 local objText = '    * '
 
-                                if objective.type == 'item' then
+                                if objective.type == 'item' or
+                                    objective.type == 'monster' or
+                                    objective.type == 'object'
+                                then
                                     objText = objText ..
                                         self:GetPercentColor(objective.have, objective.need) ..
                                         objective.text
@@ -297,7 +331,7 @@ function Module:GetSections()
     return sections
 end
 
-function Module:GetEntryText(translated, entry, state, weekState)
+function Module:GetEntryText(translated, entry, state, weekState, inProgressQuestName)
     local thingString = ''
     if state.status == 1 and state.objectives ~= nil and #state.objectives == 1 then
         local objective = state.objectives[1]
@@ -305,29 +339,40 @@ function Module:GetEntryText(translated, entry, state, weekState)
     elseif entry.item ~= nil then
         local itemInfo = self:GetCachedItem(entry.item)
 
+        if (state.total or 0) > 1 then
+            local color = self:GetPercentColor(state.completed, state.total)
+            thingString = color .. state.completed .. '|cFF888888/|r' .. state.total .. '|r '
+        end
+
         if itemInfo.name ~= nil and itemInfo.quality ~= nil and itemInfo.texture ~= nil then
             table.remove(self.itemRequested, entry.item)
 
-            thingString = '|T' .. itemInfo.texture .. ':0|t ' ..
+            thingString = thingString .. '|T' .. itemInfo.texture .. ':0|t ' ..
                 ITEM_QUALITY_COLORS[itemInfo.quality].hex .. itemInfo.name
         else
             C_Item.RequestLoadItemDataByID(entry.item)
             self.itemRequested[entry.item] = true
 
-            thingString = '|cFFFFFFFFItem #' .. entry.item
+            thingString = thingString .. '|cFFFFFFFFItem #' .. entry.item
         end
     elseif state.status == 0 and weekState ~= nil then
         if weekState.objectives ~= nil and #weekState.objectives == 1 then
             local objective = weekState.objectives[1]
             thingString = '|cFFFFFFFF' .. objective.text
         end
+    elseif state.status == 1 and inProgressQuestName == false then
+        thingString = QuestUtils_GetQuestName(entry.quest)
     else
         thingString = '|cFFFFFFFF' .. QuestUtils_GetQuestName(entry.quest)
     end
     
     if thingString == '' then thingString = '|cFFFFFFFF???' end
 
-    return '- ' .. STATUS_COLOR[state.status] .. translated .. '|r: ' .. thingString .. '|r'
+    if inProgressQuestName == false and state.status == 1 then
+        return '- ' .. STATUS_COLOR[state.status] .. thingString .. '|r'
+    else
+        return '- ' .. STATUS_COLOR[state.status] .. translated .. '|r: ' .. thingString .. '|r'
+    end
 end
 
 function Module:GetPercentColor(a, b, ignoreZero)

@@ -13,6 +13,7 @@ Addon.data.professionMining = {
             drops = {
                 {
                     key = 'gather',
+                    groupSameItem = true,
                     entries = {
                         { quest=72160, item=201300 }, -- Iridescent Ore Fragments
                         { quest=72161, item=201300 }, -- Iridescent Ore Fragments

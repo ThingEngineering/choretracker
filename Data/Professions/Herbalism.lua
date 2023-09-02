@@ -13,6 +13,7 @@ Addon.data.professionHerbalism = {
             drops = {
                 {
                     key = 'gather',
+                    groupSameItem = true,
                     entries = {
                         { quest=71857, item=200677 }, -- Dreambloom Petal
                         { quest=71858, item=200677 }, -- Dreambloom Petal
