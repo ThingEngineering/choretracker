@@ -1,3 +1,14 @@
+v0.0.1
+------
+- Added Aiding the Accord chore.
+- Added A Worthy Ally: Loamm Niffen chore.
+- Added grouping of similar items for gathering "gather" chores.
+- Changed frame to always hide in instances.
+- Fixed quest name showing as "???" sometimes when we know the name.
+- Fixed frame moving up/down when the number of lines changed.
+- Removed "redraw" chat spam.
+- Various frame text improvements.
+
 v0.0.1-alpha2
 -------------
 - Added saving of window position after moving.
