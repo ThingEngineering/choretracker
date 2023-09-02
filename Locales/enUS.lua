@@ -25,6 +25,7 @@ L['chore:dragonflight:quests:treatise'] = 'Treatise'
 
 L['chore:patch_10_1_5:quests:timeRift'] = 'Time Rift'
 
+L['chore:patch_10_1_0:quests:aWorthyAlly'] = 'A Worthy Ally'
 L['chore:patch_10_1_0:quests:barter'] = 'Bartering'
 L['chore:patch_10_1_0:quests:fyrakkAssault'] = 'Fyrakk: Assault'
 L['chore:patch_10_1_0:quests:fyrakkDisciple'] = 'Fyrakk: Disciple'

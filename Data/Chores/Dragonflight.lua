@@ -22,6 +22,12 @@ Addon.data.choresDragonflight = {
             key = 'patch_10_1_0',
             quests = {
                 {
+                    key = 'aWorthyAlly',
+                    entries = {
+                        { quest = 75665 }, -- A Worthy Ally: Loamm Niffen
+                    }
+                },
+                {
                     key = 'barter',
                     requiredQuest = 75721,
                     entries = {
