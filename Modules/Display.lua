@@ -200,8 +200,13 @@ function Module:Redraw()
         end
     end
 
+    local xPos = self.frame:GetLeft()
+    local yPos = self.frame:GetTop()
+
     self.frame:SetHeight(totalHeight + ((#self.fontStrings - 1) * 5) + (PADDING_OUTER * 2))
     self.frame:SetWidth(maxWidth + (PADDING_OUTER * 2))
+
+    self.frame:SetPoint('TOPLEFT', UIParent, 'BOTTOMLEFT', xPos, yPos)
 end
 
 function Module:GetSections()
