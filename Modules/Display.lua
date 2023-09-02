@@ -167,7 +167,7 @@ function Module:Redraw()
         return
     end
 
-    print('redraw')
+    -- print('redraw')
 
     -- Hide text and return to pool
     for _, fontString in ipairs(self.fontStrings) do
