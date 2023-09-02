@@ -103,6 +103,22 @@ Addon.data.choresDragonflight = {
             key = 'patch_10_0_0',
             quests = {
                 {
+                    key = 'aidingTheAccord',
+                    inProgressQuestName = false,
+                    entries = {
+                        { quest = 70750 }, -- Aiding the Accord
+                        { quest = 72068 }, -- Aiding the Accord: A Feast For All
+                        { quest = 72373 }, -- Aiding the Accord: A Hunt Is On
+                        { quest = 72374 }, -- Aiding the Accord: Dragonbane Keep
+                        { quest = 72375 }, -- Aiding the Accord: The Isles Call
+                        { quest = 75259 }, -- Aiding the Accord: Zskera Vaults
+                        { quest = 75859 }, -- Aiding the Accord: Sniffenseeking
+                        { quest = 75860 }, -- Aiding the Accord: Researchers Under Fire
+                        { quest = 75861 }, -- Aiding the Accord: Suffusion Camp
+                        { quest = 77254 }, -- Aiding the Accord: Time Rift
+                    },
+                },
+                {
                     key = 'communityFeast',
                     entries = {
                         { quest = 70893, item=200095 }, -- HTQ

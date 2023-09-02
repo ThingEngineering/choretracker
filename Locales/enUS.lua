@@ -31,6 +31,7 @@ L['chore:patch_10_1_0:quests:fyrakkAssault'] = 'Fyrakk: Assault'
 L['chore:patch_10_1_0:quests:fyrakkDisciple'] = 'Fyrakk: Disciple'
 L['chore:patch_10_1_0:quests:fyrakkShipment'] = 'Fyrakk: Shipment'
 
+L['chore:patch_10_0_0:quests:aidingTheAccord'] = 'Aiding the Accord'
 L['chore:patch_10_0_0:quests:communityFeast'] = 'Community Feast'
 L['chore:patch_10_0_0:quests:dragonAllegiance'] = 'Dragon: Allegiance'
 L['chore:patch_10_0_0:quests:dragonKey'] = 'Dragon: Key Turn-in'
