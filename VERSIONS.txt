@@ -1,3 +1,13 @@
+v0.0.2
+------
+- Added Heroic Dungeons chore ("Fighting is Its Own Reward" quest).
+- Added Show Your Mettle chore.
+- Added Sparks of Life chore.
+- Added a basic slash command (/chores or /choretracker) with "hide", "show", and
+  "toggle" sub-commands.
+- Added a "Toggle ChoreTracker window" keybinding under "AddOns".
+- Fixed Blacksmithing drops having the wrong mob type listed.
+
 v0.0.1
 ------
 - Added Aiding the Accord chore.
