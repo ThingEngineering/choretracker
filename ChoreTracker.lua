@@ -1,5 +1,5 @@
 local addonName, addonTable = ...
-local Addon = LibStub('AceAddon-3.0'):NewAddon(addonTable, addonName, 'AceEvent-3.0')
+local Addon = LibStub('AceAddon-3.0'):NewAddon(addonTable, addonName, 'AceConsole-3.0', 'AceEvent-3.0')
 
 Addon:SetDefaultModuleLibraries('AceBucket-3.0', 'AceEvent-3.0')
 
@@ -63,6 +63,9 @@ function Addon:OnInitialize()
 
     -- DevTools_Dump(defaultDb)
 
+    self:RegisterChatCommand('chores', 'SlashCommand')
+    self:RegisterChatCommand('choretracker', 'SlashCommand')
+
     self.db = ADB:New('ChoreTrackerDB', defaultDb, true) -- default global profile
 
     -- register events, etc
@@ -83,4 +86,31 @@ function Addon:TableKeys(tbl)
         keys[#keys + 1] = key
     end
     return keys
+end
+
+function Addon:SlashCommand(command, editbox)
+    if command == 'show' then
+        local displayModule = self:GetModule('Display')
+        displayModule:SetDesiredShown(true)
+    
+    elseif command == 'hide' then
+        local displayModule = self:GetModule('Display')
+        displayModule:SetDesiredShown(false)
+    
+    elseif command == 'toggle' then
+        local displayModule = self:GetModule('Display')
+        displayModule:ToggleShown(true)
+
+    elseif not command then
+        local optionsModule = self:GetModule('Options')
+        InterfaceOptionsFrame_OpenToCategory(optionsModule.optionsFrame)
+
+    else
+        print('ChoreTracker: unknown command')
+        print()
+        print('  hide: hide the window')
+        print('  show: show the window')
+        print('  toggle: toggle the window')
+
+    end
 end
