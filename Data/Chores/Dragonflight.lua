@@ -161,6 +161,29 @@ Addon.data.choresDragonflight = {
                         { quest = 70906 }, -- HTQ
                     },
                 },
+                {
+                    key = 'heroicDungeons',
+                    entries = {
+                        { quest = 76122 }, -- Fighting is its Own Reward
+                    },
+                },
+                {
+                    key = 'showYourMettle',
+                    entries = {
+                        { quest = 70221 }, -- Show Your Mettle
+                    },
+                },
+                {
+                    key = 'sparksOfLife',
+                    entries = {
+                        { quest = 72646 }, -- Sparks of Life: The Waking Shores
+                        { quest = 72647 }, -- Sparks of Life: Ohn'ahran Plains
+                        { quest = 72648 }, -- Sparks of Life: Azure Span
+                        { quest = 72649 }, -- Sparks of Life: Thaldraszus
+                        { quest = 74871 }, -- Sparks of Life: The Forbidden Reach
+                        { quest = 75305 }, -- Sparks of Life: Zaralek Cavern
+                    },
+                },
             },
         },
     },
