@@ -14,15 +14,15 @@ Addon.data.professionBlacksmithing = {
                 {
                     key = 'mob',
                     entries = {
-                        { quest=70513, item=198966, desc='Decayed' }, -- Molten Globule
-                        { quest=70512, item=198965, desc='Elemental' }, -- Primeval Earth Fragment
+                        { quest=70513, item=198966, desc='Fire' }, -- Molten Globule
+                        { quest=70512, item=198965, desc='Earth' }, -- Primeval Earth Fragment
                     },
                 },
                 {
                     key = 'treasure',
                     entries = {
-                        { quest=66381, item=192131 }, -- Valdrakken Weapon Chain
                         { quest=66382, item=192132 }, -- Draconium Blade Sharpener
+                        { quest=66381, item=192131 }, -- Valdrakken Weapon Chain
                     },
                 },
                 {
