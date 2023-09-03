@@ -3,6 +3,9 @@ local L = Addon.L
 local Module = Addon:NewModule('Display')
 
 
+BINDING_HEADER_CHORETRACKER = addonName
+BINDING_NAME_CHORETRACKER_TOGGLE = Addon.L['key_binding:toggle']
+
 local CDAT_GetSecondsUntilWeeklyReset = C_DateAndTime.GetSecondsUntilWeeklyReset
 local LSM = LibStub('LibSharedMedia-3.0')
 
@@ -14,6 +17,7 @@ local STATUS_COLOR = {
 local PADDING_OUTER = 8
 
 function Module:OnEnable()
+    self.dontShow = false
     self.fontStrings = {}
     self.fsPool = {}
     self.itemCache = {}
@@ -43,9 +47,11 @@ end
 
 function Module:UpdateZone()
     if IsInInstance() then
-        self.frame:Hide()
+        self.dontShow = true
+        self:UpdateShown()
     else
-        self.frame:Show()
+        self.dontShow = false
+        self:UpdateShown()
     end
 end
 
@@ -84,6 +90,25 @@ function Module:OnDragStop()
 
     Addon.db.profile.position.x = self:GetLeft()
     Addon.db.profile.position.y = self:GetTop()
+end
+
+function Module:UpdateShown()
+    if Addon.db.profile.desiredShown == true and self.dontShow == false then
+        self.frame:Show()
+    else
+        self.frame:Hide()
+    end
+end
+
+function Module:SetDesiredShown(shown)
+    Addon.db.profile.desiredShown = shown
+    self:UpdateShown()
+end
+
+function Module:ToggleShown()
+    if self.dontShow == false then
+        self:SetDesiredShown(not Addon.db.profile.desiredShown)
+    end
 end
 
 function Module:ItemsLoaded(data)
@@ -424,4 +449,9 @@ function Module:GetCachedItem(itemId)
     self.itemCache[itemId] = itemInfo
 
     return itemInfo
+end
+
+-- Global function for key binding
+function ChoreTracker_ToggleShown()
+    Module:ToggleShown()
 end

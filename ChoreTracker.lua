@@ -1,10 +1,10 @@
 local addonName, addonTable = ...
 local Addon = LibStub('AceAddon-3.0'):NewAddon(addonTable, addonName, 'AceEvent-3.0')
 
-Addon.L = LibStub('AceLocale-3.0'):GetLocale(addonName)
-Addon.data = {}
-
 Addon:SetDefaultModuleLibraries('AceBucket-3.0', 'AceEvent-3.0')
+
+Addon.data = {}
+Addon.L = LibStub('AceLocale-3.0'):GetLocale(addonName)
 
 local ADB = LibStub('AceDB-3.0')
 local LSM = LibStub('LibSharedMedia-3.0')
@@ -30,6 +30,7 @@ local defaultDb = {
             x = 100,
             y = 500,
         },
+        desiredShown = true,
         chores = {},
     }
 }

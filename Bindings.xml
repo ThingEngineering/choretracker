@@ -1,0 +1,5 @@
+<Bindings>
+    <Binding name="CHORETRACKER_TOGGLE" header="CHORETRACKER" category="ADDONS">
+        ChoreTracker_ToggleShown();
+    </Binding>
+</Bindings>
