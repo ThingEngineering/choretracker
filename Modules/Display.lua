@@ -41,7 +41,7 @@ function Module:OnEnable()
         1,
         'UpdateZone'
     )
-
+    self:RegisterBucketEvent({ 'CALENDAR_UPDATE_EVENT_LIST' }, 1, 'ConfigChanged')
     self:RegisterBucketEvent({ 'ITEM_DATA_LOAD_RESULT' }, 1, 'ItemsLoaded')
 end
 
