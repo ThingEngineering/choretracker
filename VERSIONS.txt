@@ -1,3 +1,13 @@
+v10.1.5.1
+---------
+- Added an addon icon.
+- Added status icons for quest state, can disable in options.
+- Changed "Show completed chores" to off by default.
+- Fixed event chores (eg Darkmoon Faire) not always showing up on login.
+- Fixed frame not always showing up on login.
+- Fixed profession checks.
+- Switched to using game version as base of addon version.
+
 v0.0.4b
 -------
 - Fixed "attempt to concatenate field ?" error.
