@@ -356,7 +356,7 @@ function Module:GetSections()
                                         bringName = ITEM_QUALITY_COLORS[itemInfo.quality].hex ..
                                             itemInfo.name
                                     else
-                                        bringName = ITEM_QUALITY_COLORS[1] .. 'Item #' .. bringMe[2]
+                                        bringName = ITEM_QUALITY_COLORS[1].hex .. 'Item #' .. bringMe[2]
                                     end
                                 end
 
