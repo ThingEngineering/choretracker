@@ -17,6 +17,10 @@ local STATUS_COLOR = {
 local PADDING_OUTER = 8
 
 function Module:OnEnable()
+    if not IsAddOnLoaded('Blizzard_Calendar') then
+        UIParentLoadAddOn('Blizzard_Calendar')
+    end
+
     self.dontShow = false
     self.fontStrings = {}
     self.fsPool = {}
@@ -136,6 +140,13 @@ function Module:ConfigChanged()
         table.sort(self.sortedSections, function(a, b) return a[2].order < b[2].order end)
     end
 
+    local activeEvents = {}
+    local now = C_DateAndTime.GetCurrentCalendarTime()
+    for i = 1, C_Calendar.GetNumDayEvents(0, now.monthDay) do
+        local event = C_Calendar.GetDayEvent(0, now.monthDay, i)
+        activeEvents[event.eventID] = true
+    end
+
     self.sections = {}
     for _, sectionTemp in ipairs(self.sortedSections) do
         local sectionKey, sectionData = unpack(sectionTemp)
@@ -163,15 +174,17 @@ function Module:ConfigChanged()
             }
 
             for _, catData in ipairs(sectionData.categories) do
-                for _, typeKey in ipairs({ 'quests', 'drops' }) do
-                    for _, choreData in ipairs(catData[typeKey] or {}) do
-                        if Addon.db.profile.chores[sectionKey][catData.key][typeKey][choreData.key] == true then
-                            section.total = section.total + 1
-                            table.insert(section.chores, {
-                                data = choreData,
-                                translated = L['chore:' .. catData.key .. ':' .. typeKey .. ':' .. choreData.key],
-                                typeKey = typeKey,
-                            })
+                if catData.requiredEventId == nil or activeEvents[catData.requiredEventId] == true then
+                    for _, typeKey in ipairs({ 'quests', 'drops' }) do
+                        for _, choreData in ipairs(catData[typeKey] or {}) do
+                            if Addon.db.profile.chores[sectionKey][catData.key][typeKey][choreData.key] == true then
+                                section.total = section.total + 1
+                                table.insert(section.chores, {
+                                    data = choreData,
+                                    translated = L['chore:' .. catData.key .. ':' .. typeKey .. ':' .. choreData.key],
+                                    typeKey = typeKey,
+                                })
+                            end
                         end
                     end
                 end
@@ -330,7 +343,14 @@ function Module:GetSections()
                             self:GetEntryText(chore.translated, bestEntry, bestState, bestWeek, chore.data.inProgressQuestName)
                         )
 
-                        if bestState.status == 1 and bestState.objectives ~= nil and #bestState.objectives > 1 then
+                        if bestEntry.shoppingList ~= nil then
+                            for _, buyMe in ipairs(bestEntry.shoppingList) do
+                                local itemInfo = self:GetCachedItem(buyMe[2])
+                                local shoppingText = '    * Buy ' .. buyMe[1] .. 'x ' ..
+                                    (itemInfo.name or ('Item #' .. buyMe[2]))
+                                table.insert(section.entries, shoppingText)
+                            end
+                        elseif bestState.status == 1 and bestState.objectives ~= nil and #bestState.objectives > 1 then
                             for _, objective in ipairs(bestState.objectives) do
                                 local objText = '    * '
 
@@ -375,15 +395,12 @@ function Module:GetEntryText(translated, entry, state, weekState, inProgressQues
             thingString = color .. state.completed .. '|cFF888888/|r' .. state.total .. '|r '
         end
 
-        if itemInfo.name ~= nil and itemInfo.quality ~= nil and itemInfo.texture ~= nil then
+        if itemInfo.valid then
             table.remove(self.itemRequested, entry.item)
 
             thingString = thingString .. '|T' .. itemInfo.texture .. ':0|t ' ..
                 ITEM_QUALITY_COLORS[itemInfo.quality].hex .. itemInfo.name
         else
-            C_Item.RequestLoadItemDataByID(entry.item)
-            self.itemRequested[entry.item] = true
-
             thingString = thingString .. '|cFFFFFFFFItem #' .. entry.item
         end
     elseif state.status == 0 and weekState ~= nil then
@@ -445,6 +462,12 @@ function Module:GetCachedItem(itemId)
     end
     if itemInfo.texture == nil then
         itemInfo.texture = C_Item.GetItemIconByID(itemId)
+    end
+
+    itemInfo.valid = itemInfo.name ~= nil and itemInfo.quality ~= nil and itemInfo.texture ~= nil
+    if not itemInfo.valid then
+        C_Item.RequestLoadItemDataByID(itemId)
+        self.itemRequested[itemId] = true
     end
 
     self.itemCache[itemId] = itemInfo
