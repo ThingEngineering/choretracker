@@ -129,6 +129,9 @@ function Module:CreateOptions()
                     professionHerbalism = self:GetDataOptions(Addon.data.professionHerbalism),
                     professionMining = self:GetDataOptions(Addon.data.professionMining),
                     professionSkinning = self:GetDataOptions(Addon.data.professionSkinning),
+                    professionArchaeology = self:GetDataOptions(Addon.data.professionArchaeology),
+                    professionCooking = self:GetDataOptions(Addon.data.professionCooking),
+                    professionFishing = self:GetDataOptions(Addon.data.professionFishing),
                 }
             }
         }
