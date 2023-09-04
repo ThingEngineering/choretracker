@@ -14,6 +14,11 @@ local STATUS_COLOR = {
     [1] = '|cFFFFFF00',
     [2] = '|cFF00FF00',
 }
+local STATUS_ICON = {
+    [0] = '|TInterface\\Addons\\ChoreTracker\\Assets\\status_0:0|t',
+    [1] = '|TInterface\\Addons\\ChoreTracker\\Assets\\status_1.tga:0|t',
+    [2] = '|TInterface\\Addons\\ChoreTracker\\Assets\\status_2.tga:0|t',
+}
 local PADDING_OUTER = 8
 
 function Module:OnEnable()
@@ -224,7 +229,7 @@ function Module:Redraw()
         local prefix = self:GetPercentColor(category.completed, category.total)
         local headerText = category.header .. ' - ' .. prefix .. category.completed ..
             '|r|cFF888888/|r' .. prefix .. category.total .. '|r'
-        self:AddLine(headerText)
+        self:AddLine(headerText, Addon.db.profile.general.text.fontSize + 1)
 
         for _, entry in ipairs(category.entries) do
             self:AddLine(entry)
@@ -433,11 +438,19 @@ function Module:GetEntryText(translated, entry, state, weekState, inProgressQues
     
     if thingString == '' then thingString = '|cFFFFFFFF???' end
 
-    if inProgressQuestName == false and state.status == 1 then
-        return '- ' .. STATUS_COLOR[state.status] .. thingString .. '|r'
-    else
-        return '- ' .. STATUS_COLOR[state.status] .. translated .. '|r: ' .. thingString .. '|r'
+    local final = '- '
+    if Addon.db.profile.general.statusIcons == true then
+        final = final .. STATUS_ICON[state.status] .. ' '
     end
+
+    final = final .. STATUS_COLOR[state.status]
+
+    if not (inProgressQuestName == false and state.status == 1) then
+        final = final .. translated .. '|r: '
+    end
+
+    final = final .. thingString .. '|r'
+    return final
 end
 
 function Module:GetPercentColor(a, b, ignoreZero)
@@ -450,12 +463,12 @@ function Module:GetPercentColor(a, b, ignoreZero)
     end
 end
 
-function Module:AddLine(text)
+function Module:AddLine(text, size)
     local fontString = table.remove(self.fsPool) or self.frame:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
     fontString:SetText(text)
 
     local font = LSM:Fetch('font', Addon.db.profile.general.text.font)
-    fontString:SetFont(font, Addon.db.profile.general.text.fontSize)
+    fontString:SetFont(font, size or Addon.db.profile.general.text.fontSize)
 
     if #self.fontStrings == 0 then
         fontString:SetPoint('TOPLEFT', self.frame, 'TOPLEFT', PADDING_OUTER, -PADDING_OUTER)

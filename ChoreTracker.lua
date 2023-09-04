@@ -21,6 +21,7 @@ local defaultDb = {
         },
         general = {
             showCompleted = false,
+            statusIcons = true,
             text = {
                 font = LSM:GetDefault('font'),
                 fontSize = 12,

@@ -79,6 +79,11 @@ function Module:CreateOptions()
                         order = newOrder(),
                         -- width = 0.8,
                     },
+                    statusIcons = {
+                        name = L['option:general:statusIcons'],
+                        type = 'toggle',
+                        order = newOrder(),
+                    },
                     text = {
                         name = 'Text',
                         type = 'group',

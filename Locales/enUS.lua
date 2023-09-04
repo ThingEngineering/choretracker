@@ -3,6 +3,7 @@ local L = LibStub('AceLocale-3.0'):NewLocale('ChoreTracker', 'enUS', true)
 L['key_binding:toggle'] = 'Toggle ChoreTracker window'
 
 L['option:general:showCompleted'] = 'Show completed chores'
+L['option:general:statusIcons'] = 'Use status icons'
 
 L['category:event'] = 'Event'
 L['dragonflight_chores'] = EXPANSION_NAME9 .. ' Chores'
