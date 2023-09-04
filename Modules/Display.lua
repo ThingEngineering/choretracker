@@ -231,6 +231,7 @@ function Module:Redraw()
     self.frame:SetHeight(totalHeight + ((#self.fontStrings - 1) * 5) + (PADDING_OUTER * 2))
     self.frame:SetWidth(maxWidth + (PADDING_OUTER * 2))
 
+    self.frame:ClearAllPoints()
     self.frame:SetPoint('TOPLEFT', UIParent, 'BOTTOMLEFT', xPos, yPos)
 end
 
