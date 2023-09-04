@@ -148,7 +148,7 @@ function Module:GetDataOptions(data, optionWidth)
         options.name = data.name or L[data.key]
     end
 
-    for _, catData in ipairs(data.categories) do
+    for _, catData in ipairs(data.categories or {}) do
         local catOptions = {
             name = catData.name or L['category:' .. catData.key],
             type = 'group',

@@ -40,7 +40,7 @@ function Addon:OnInitialize()
     for sectionKey, sectionData in pairs(self.data) do
         defaultDb.profile.chores[sectionKey] = {}
         
-        for _, catData in ipairs(sectionData.categories) do
+        for _, catData in ipairs(sectionData.categories or {}) do
             defaultDb.profile.chores[sectionKey][catData.key] = {}
 
             if catData.drops ~= nil then
