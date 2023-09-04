@@ -20,7 +20,7 @@ local defaultDb = {
             }
         },
         general = {
-            showCompleted = true,
+            showCompleted = false,
             text = {
                 font = LSM:GetDefault('font'),
                 fontSize = 12,
