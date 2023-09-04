@@ -1,3 +1,7 @@
+v0.0.4b
+-------
+- Fixed "attempt to concatenate field ?" error.
+
 v0.0.4
 ------
 - Added Archaeology profession chores.
