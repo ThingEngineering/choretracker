@@ -140,8 +140,10 @@ function Module:ConfigChanged()
         table.sort(self.sortedSections, function(a, b) return a[2].order < b[2].order end)
     end
 
-    local activeEvents = {}
     local now = C_DateAndTime.GetCurrentCalendarTime()
+    C_Calendar.SetAbsMonth(now.month, now.year) -- this will make sure that events are loaded
+
+    local activeEvents = {}
     for i = 1, C_Calendar.GetNumDayEvents(0, now.monthDay) do
         local event = C_Calendar.GetDayEvent(0, now.monthDay, i)
         activeEvents[event.eventID] = true
