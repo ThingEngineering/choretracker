@@ -1,4 +1,5 @@
 local _, Addon = ...
+local L = Addon.L
 
 
 Addon.data.professionTailoring = {
@@ -64,6 +65,26 @@ Addon.data.professionTailoring = {
                     key = 'treatise',
                     entries = {
                         { quest=74115, item=194698 }, -- Draconic Treatise on Tailoring
+                    },
+                },
+            },
+        },
+        {
+            key = 'event',
+            name = L['category:event'],
+            requiredEventId = 479, -- Darkmoon Faire
+            quests = {
+                {
+                    key = 'darkmoonFaire',
+                    entries = {
+                        {
+                            quest = 29520, -- Banners, Banners Everywhere!
+                            shoppingList = {
+                                { 1, 2604 }, -- Red Dye
+                                { 1, 6260 }, -- Blue Dye
+                                { 1, 2320 }, -- Coarse Thread
+                            }
+                        },
                     },
                 },
             },

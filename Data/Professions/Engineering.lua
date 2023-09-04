@@ -1,4 +1,5 @@
 local _, Addon = ...
+local L = Addon.L
 
 
 Addon.data.professionEngineering = {
@@ -64,6 +65,21 @@ Addon.data.professionEngineering = {
                     key = 'treatise',
                     entries = {
                         { quest=74111, item=198510 }, -- Draconic Treatise on Engineering
+                    },
+                },
+            },
+        },
+        {
+            key = 'event',
+            name = L['category:event'],
+            requiredEventId = 479, -- Darkmoon Faire
+            quests = {
+                {
+                    key = 'darkmoonFaire',
+                    entries = {
+                        {
+                            quest = 29511, -- Talkin' Tonks
+                        },
                     },
                 },
             },

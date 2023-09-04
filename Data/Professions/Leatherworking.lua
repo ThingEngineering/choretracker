@@ -1,4 +1,5 @@
 local _, Addon = ...
+local L = Addon.L
 
 
 Addon.data.professionLeatherworking = {
@@ -64,6 +65,26 @@ Addon.data.professionLeatherworking = {
                     key = 'treatise',
                     entries = {
                         { quest=74113, item=194700 }, -- Draconic Treatise on Leatherworking
+                    },
+                },
+            },
+        },
+        {
+            key = 'event',
+            name = L['category:event'],
+            requiredEventId = 479, -- Darkmoon Faire
+            quests = {
+                {
+                    key = 'darkmoonFaire',
+                    entries = {
+                        {
+                            quest = 29517, -- Eye on the Prizes
+                            shoppingList = {
+                                { 10, 6529 }, -- Shiny Bauble
+                                { 5, 2320 }, -- Coarse Thread
+                                { 5, 6260 }, -- Blue Dye
+                            }
+                        },
                     },
                 },
             },

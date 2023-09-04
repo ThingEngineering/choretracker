@@ -1,4 +1,5 @@
 local _, Addon = ...
+local L = Addon.L
 
 
 Addon.data.professionMining = {
@@ -46,6 +47,21 @@ Addon.data.professionMining = {
                     key = 'treatise',
                     entries = {
                         { quest=74106, item=194708 }, -- Draconic Treatise on Mining
+                    },
+                },
+            },
+        },
+        {
+            key = 'event',
+            name = L['category:event'],
+            requiredEventId = 479, -- Darkmoon Faire
+            quests = {
+                {
+                    key = 'darkmoonFaire',
+                    entries = {
+                        {
+                            quest = 29518, -- Rearm, Reuse, Recycle
+                        },
                     },
                 },
             },

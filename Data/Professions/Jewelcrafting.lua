@@ -1,4 +1,5 @@
 local _, Addon = ...
+local L = Addon.L
 
 
 Addon.data.professionJewelcrafting = {
@@ -64,6 +65,21 @@ Addon.data.professionJewelcrafting = {
                     key = 'treatise',
                     entries = {
                         { quest=74112, item=194703 }, -- Draconic Treatise on Jewelcrafting
+                    },
+                },
+            },
+        },
+        {
+            key = 'event',
+            name = L['category:event'],
+            requiredEventId = 479, -- Darkmoon Faire
+            quests = {
+                {
+                    key = 'darkmoonFaire',
+                    entries = {
+                        {
+                            quest = 29516, -- Keeping the Faire Sparkling
+                        },
                     },
                 },
             },

@@ -1,4 +1,5 @@
 local _, Addon = ...
+local L = Addon.L
 
 
 Addon.data.professionBlacksmithing = {
@@ -64,6 +65,21 @@ Addon.data.professionBlacksmithing = {
                     key = 'treatise',
                     entries = {
                         { quest=74109, item=198454 }, -- Draconic Treatise on Blacksmithing
+                    },
+                },
+            },
+        },
+        {
+            key = 'event',
+            name = L['category:event'],
+            requiredEventId = 479, -- Darkmoon Faire
+            quests = {
+                {
+                    key = 'darkmoonFaire',
+                    entries = {
+                        {
+                            quest = 29508, -- Baby Needs Two Pair of Shoes
+                        },
                     },
                 },
             },

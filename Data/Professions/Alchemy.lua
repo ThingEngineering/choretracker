@@ -1,4 +1,5 @@
 local _, Addon = ...
+local L = Addon.L
 
 
 Addon.data.professionAlchemy = {
@@ -60,6 +61,24 @@ Addon.data.professionAlchemy = {
                     key = 'treatise',
                     entries = {
                         { quest=74108, item=194697 }, -- Draconic Treatise on Alchemy
+                    },
+                },
+            },
+        },
+        {
+            key = 'event',
+            name = L['category:event'],
+            requiredEventId = 479, -- Darkmoon Faire
+            quests = {
+                {
+                    key = 'darkmoonFaire',
+                    entries = {
+                        {
+                            quest = 29506, -- A Fizzy Fusion
+                            shoppingList = {
+                                { 5, 1645 }, -- Moonberry Juice
+                            }
+                        },
                     },
                 },
             },

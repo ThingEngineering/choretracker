@@ -1,4 +1,5 @@
 local _, Addon = ...
+local L = Addon.L
 
 
 Addon.data.professionSkinning = {
@@ -46,6 +47,21 @@ Addon.data.professionSkinning = {
                     key = 'treatise',
                     entries = {
                         { quest=74114, item=201023 }, -- Draconic Treatise on Skinning
+                    },
+                },
+            },
+        },
+        {
+            key = 'event',
+            name = L['category:event'],
+            requiredEventId = 479, -- Darkmoon Faire
+            quests = {
+                {
+                    key = 'darkmoonFaire',
+                    entries = {
+                        {
+                            quest = 29519, -- Tan My Hide
+                        },
                     },
                 },
             },

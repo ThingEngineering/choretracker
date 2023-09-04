@@ -1,4 +1,5 @@
 local _, Addon = ...
+local L = Addon.L
 
 
 Addon.data.professionInscription = {
@@ -64,6 +65,24 @@ Addon.data.professionInscription = {
                     key = 'treatise',
                     entries = {
                         { quest=74105, item=194699 }, -- Draconic Treatise on Inscription
+                    },
+                },
+            },
+        },
+        {
+            key = 'event',
+            name = L['category:event'],
+            requiredEventId = 479, -- Darkmoon Faire
+            quests = {
+                {
+                    key = 'darkmoonFaire',
+                    entries = {
+                        {
+                            quest = 29515, -- Writing the Future
+                            shoppingList = {
+                                { 5, 39354 }, -- Light Parchment
+                            }
+                        },
                     },
                 },
             },

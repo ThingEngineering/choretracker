@@ -1,4 +1,5 @@
 local _, Addon = ...
+local L = Addon.L
 
 
 Addon.data.professionHerbalism = {
@@ -46,6 +47,21 @@ Addon.data.professionHerbalism = {
                     key = 'treatise',
                     entries = {
                         { quest=74107, item=194704 }, -- Draconic Treatise on Herbalism
+                    },
+                },
+            },
+        },
+        {
+            key = 'event',
+            name = L['category:event'],
+            requiredEventId = 479, -- Darkmoon Faire
+            quests = {
+                {
+                    key = 'darkmoonFaire',
+                    entries = {
+                        {
+                            quest = 29514, -- Herbs for Healing
+                        },
                     },
                 },
             },

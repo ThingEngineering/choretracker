@@ -4,6 +4,7 @@ L['key_binding:toggle'] = 'Toggle ChoreTracker window'
 
 L['option:general:showCompleted'] = 'Show completed chores'
 
+L['category:event'] = 'Event'
 L['dragonflight_chores'] = EXPANSION_NAME9 .. ' Chores'
 
 L['section:drops'] = 'Drops'
@@ -24,6 +25,8 @@ L['chore:dragonflight:quests:craft'] = 'Craft'
 L['chore:dragonflight:quests:gather'] = 'Gather'
 L['chore:dragonflight:quests:orders'] = 'Orders'
 L['chore:dragonflight:quests:treatise'] = 'Treatise'
+
+L['chore:event:quests:darkmoonFaire'] = GetFactionInfoByID(909)
 
 L['chore:patch_10_1_5:quests:timeRift'] = 'Time Rift'
 
