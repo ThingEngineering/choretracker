@@ -41,7 +41,8 @@ function Module:InitializeQuests()
     self.skillLines = {}
 
     local professions = { GetProfessions() }
-    for _, professionId in ipairs(professions) do
+    for i = 1, 5 do
+        local professionId = professions[i]
         if professionId ~= nil then
             local skillLineId = select(7, GetProfessionInfo(professionId))
             self.skillLines[skillLineId] = true
