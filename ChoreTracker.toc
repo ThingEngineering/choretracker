@@ -3,6 +3,7 @@
 ## Notes: Keep track of your chores
 ## Version: 0.0.4
 ## Author: Freddie
+## IconTexture: Interface\AddOns\ChoreTracker\Assets\icon.blp
 ## SavedVariables: ChoreTrackerDB
 
 libs\LibStub\LibStub.lua
