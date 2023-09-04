@@ -40,14 +40,12 @@ function Module:InitializeQuests()
     self.questPaths = {}
     self.skillLines = {}
 
-    local profession1, profession2 = GetProfessions()
-    if profession1 ~= nil then
-        local skillLineId = select(7, GetProfessionInfo(profession1))
-        self.skillLines[skillLineId] = true
-    end
-    if profession2 ~= nil then
-        local skillLineId = select(7, GetProfessionInfo(profession2))
-        self.skillLines[skillLineId] = true
+    local professions = { GetProfessions() }
+    for _, professionId in ipairs(professions) do
+        if professionId ~= nil then
+            local skillLineId = select(7, GetProfessionInfo(professionId))
+            self.skillLines[skillLineId] = true
+        end
     end
 
     for sectionKey, sectionData in pairs(Addon.data) do
