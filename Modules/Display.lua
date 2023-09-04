@@ -344,10 +344,22 @@ function Module:GetSections()
                         )
 
                         if bestEntry.shoppingList ~= nil then
-                            for _, buyMe in ipairs(bestEntry.shoppingList) do
-                                local itemInfo = self:GetCachedItem(buyMe[2])
-                                local shoppingText = '    * Buy ' .. buyMe[1] .. 'x ' ..
-                                    (itemInfo.name or ('Item #' .. buyMe[2]))
+                            for _, bringMe in ipairs(bestEntry.shoppingList) do
+                                local bringName = ''
+                                if bringMe[3] == 'currency' then
+                                    local currencyInfo = C_CurrencyInfo.GetCurrencyInfo(bringMe[2])
+                                    bringName = currencyInfo.name
+                                else
+                                    local itemInfo = self:GetCachedItem(bringMe[2])
+                                    if itemInfo.valid then
+                                        bringName = ITEM_QUALITY_COLORS[itemInfo.quality].hex ..
+                                            itemInfo.name
+                                    else
+                                        bringName = ITEM_QUALITY_COLORS[1] .. 'Item #' .. bringMe[2]
+                                    end
+                                end
+
+                                local shoppingText = '    * Bring ' .. bringMe[1] .. 'x ' .. bringName .. '|r'
                                 table.insert(section.entries, shoppingText)
                             end
                         elseif bestState.status == 1 and bestState.objectives ~= nil and #bestState.objectives > 1 then
