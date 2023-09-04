@@ -280,7 +280,8 @@ function Module:GetSections()
                                         section.total = section.total + 1
                                         choreState.total = choreState.total + 1
 
-                                        if otherEntry.status == 2 then
+                                        local otherState = questsModule.quests[otherEntry.quest]
+                                        if otherState.status == 2 then
                                             section.completed = section.completed + 1
                                             choreState.completed = choreState.completed + 1
                                         end
