@@ -83,6 +83,8 @@ function Module:CreateFrame()
     frame:SetScript('OnDragStop', self.OnDragStop)
 
     self.frame = frame
+
+    self:UpdateShown()
 end
 
 function Module:OnDragStart()
