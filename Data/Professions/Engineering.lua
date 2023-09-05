@@ -3,6 +3,7 @@ local L = Addon.L
 
 
 Addon.data.professionEngineering = {
+    key = 'professions',
     order = 103,
     skillLineId = 202,
     texture = GetSpellTexture(4036),

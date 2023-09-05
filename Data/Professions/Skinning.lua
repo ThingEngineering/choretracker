@@ -3,6 +3,7 @@ local L = Addon.L
 
 
 Addon.data.professionSkinning = {
+    key = 'professions',
     order = 109,
     skillLineId = 393,
     texture = GetSpellTexture(8613),

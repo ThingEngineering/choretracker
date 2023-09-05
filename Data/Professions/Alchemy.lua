@@ -3,6 +3,7 @@ local L = Addon.L
 
 
 Addon.data.professionAlchemy = {
+    key = 'professions',
     order = 100,
     skillLineId = 171,
     texture = GetSpellTexture(2259),

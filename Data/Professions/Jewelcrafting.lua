@@ -3,6 +3,7 @@ local L = Addon.L
 
 
 Addon.data.professionJewelcrafting = {
+    key = 'professions',
     order = 106,
     skillLineId = 755,
     texture = GetSpellTexture(25229),

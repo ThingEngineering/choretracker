@@ -167,7 +167,7 @@ function Module:GetDataOptions(data, optionWidth)
 
         for _, key in ipairs({ 'drops', 'quests' }) do
             if catData[key] ~= nil then
-                self:AddSubOptions(catOptions, catData.key, key, catData[key], optionWidth or 0.8)
+                self:AddSubOptions(catOptions, data.key .. ':' .. catData.key, key, catData[key], optionWidth or 0.8)
             end
         end
 

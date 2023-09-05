@@ -172,7 +172,7 @@ function Module:ConfigChanged()
             else
                 header = header .. sectionData.name
             end
-            header = header ..'|r'
+            header = header .. '|r'
 
             local section = {
                 header = header,
@@ -190,7 +190,7 @@ function Module:ConfigChanged()
                                 section.total = section.total + 1
                                 table.insert(section.chores, {
                                     data = choreData,
-                                    translated = L['chore:' .. catData.key .. ':' .. typeKey .. ':' .. choreData.key],
+                                    translated = L['chore:' .. sectionData.key .. ':' .. catData.key .. ':' .. typeKey .. ':' .. choreData.key],
                                     typeKey = typeKey,
                                 })
                             end

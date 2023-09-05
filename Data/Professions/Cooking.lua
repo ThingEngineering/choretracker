@@ -3,6 +3,7 @@ local L = Addon.L
 
 
 Addon.data.professionCooking = {
+    key = 'professions',
     order = 121,
     skillLineId = 185,
     texture = GetSpellTexture(2550),

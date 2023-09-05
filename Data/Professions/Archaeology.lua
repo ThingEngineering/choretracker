@@ -3,6 +3,7 @@ local L = Addon.L
 
 
 Addon.data.professionArchaeology = {
+    key = 'professions',
     order = 120,
     skillLineId = 794,
     texture = GetSpellTexture(80836),

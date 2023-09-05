@@ -3,6 +3,7 @@ local L = Addon.L
 
 
 Addon.data.professionFishing = {
+    key = 'professions',
     order = 122,
     skillLineId = 356,
     texture = GetSpellTexture(271616),

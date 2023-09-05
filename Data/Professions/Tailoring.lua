@@ -3,6 +3,7 @@ local L = Addon.L
 
 
 Addon.data.professionTailoring = {
+    key = 'professions',
     order = 110,
     skillLineId = 197,
     texture = GetSpellTexture(3908),

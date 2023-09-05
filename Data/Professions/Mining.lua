@@ -3,6 +3,7 @@ local L = Addon.L
 
 
 Addon.data.professionMining = {
+    key = 'professions',
     order = 108,
     skillLineId = 186,
     texture = GetSpellTexture(2575),
