@@ -180,6 +180,8 @@ function Module:ConfigChanged()
         self.activeEvents = activeEvents
     end
 
+    local playerLevel = UnitLevel('player')
+
     self.sections = {}
     for _, sectionTemp in ipairs(self.sortedSections) do
         local sectionKey, sectionData = unpack(sectionTemp)
@@ -213,6 +215,10 @@ function Module:ConfigChanged()
                             (
                                 choreData.requiredEventIds == nil or
                                 self:AnyActive(self.activeEvents, choreData.requiredEventIds)
+                            ) and
+                            (
+                                choreData.minimumLevel == nil or
+                                playerLevel >= choreData.minimumLevel
                             )
                         then
                             section.total = section.total + 1
