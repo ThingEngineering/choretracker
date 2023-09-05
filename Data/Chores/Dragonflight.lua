@@ -118,6 +118,7 @@ Addon.data.choresDragonflight = {
                         { quest = 75860 }, -- Aiding the Accord: Researchers Under Fire
                         { quest = 75861 }, -- Aiding the Accord: Suffusion Camp
                         { quest = 77254 }, -- Aiding the Accord: Time Rift
+                        { quest = 77976 }, -- Aiding the Accord: Dreamsurge
                     },
                 },
                 {
