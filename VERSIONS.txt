@@ -1,3 +1,15 @@
+v10.1.7.1
+---------
+- Added support for minimum level on chores and added it to some Dragonflight ones.
+- Added support for required active events on chores.
+- Added Chores > Events with Mythic Dungeons, World Quests, and Timewalking.
+- Added Chores > Dragonblight > Patch 10.1.7 > Dreamsurge.
+- Added Aiding the Accord: Dreamsurge quest ID.
+- Fixed the first options under General not being in a group.
+- Fixed frame not always showing up on login. Again. For real this time.
+- Fixed slash command with no parameters not opening config.
+- Updated TOC for 10.1.7.
+
 v10.1.5.1
 ---------
 - Added an addon icon.
