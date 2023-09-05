@@ -36,8 +36,6 @@ function Module:OnEnable()
     Addon.db.RegisterCallback(self, 'OnProfileCopied', 'ConfigChanged')
     Addon.db.RegisterCallback(self, 'OnProfileReset', 'ConfigChanged')
 
-    self:CreateFrame()
-
     self:RegisterMessage('ChoreTracker_Config_Changed', 'ConfigChanged')
     self:RegisterBucketMessage({ 'ChoreTracker_Quests_Updated', }, 0.5, 'Redraw')
 
@@ -48,6 +46,10 @@ function Module:OnEnable()
     )
     self:RegisterBucketEvent({ 'CALENDAR_UPDATE_EVENT_LIST' }, 1, 'ConfigChanged')
     self:RegisterBucketEvent({ 'ITEM_DATA_LOAD_RESULT' }, 1, 'ItemsLoaded')
+
+    self:CreateFrame()
+    self:UpdateShown()
+    self:Redraw()
 end
 
 function Module:OnEnteringWorld()
@@ -88,8 +90,6 @@ function Module:CreateFrame()
     frame:SetScript('OnDragStop', self.OnDragStop)
 
     self.frame = frame
-
-    self:UpdateShown()
 end
 
 function Module:OnDragStart()
