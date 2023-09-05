@@ -20,8 +20,10 @@ local defaultDb = {
             }
         },
         general = {
-            showCompleted = false,
-            statusIcons = true,
+            display = {
+                showCompleted = false,
+                statusIcons = true,
+            },
             text = {
                 font = LSM:GetDefault('font'),
                 fontSize = 12,
@@ -102,7 +104,7 @@ function Addon:SlashCommand(command, editbox)
         local displayModule = self:GetModule('Display')
         displayModule:ToggleShown(true)
 
-    elseif not command then
+    elseif command == '' or command == nil then
         local optionsModule = self:GetModule('Options')
         InterfaceOptionsFrame_OpenToCategory(optionsModule.optionsFrame)
 
