@@ -123,7 +123,7 @@ function Module:CreateOptions()
                 order = newOrder(),
                 args = {
                     choresDragonflight = self:GetDataOptions(Addon.data.choresDragonflight, 1.1),
-                    choresEvents = self:GetDataOptions(Addon.data.choresEvents),
+                    choresEvents = self:GetDataOptions(Addon.data.choresEvents, 1.1),
                 },
             },
             sectionProfessions = {

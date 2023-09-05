@@ -57,7 +57,9 @@ function Addon:OnInitialize()
             if catData.quests ~= nil then
                 local quests = {}
                 for _, questData in ipairs(catData.quests) do
-                    quests[questData.key] = questData.defaultEnabled ~= false
+                    if quests[questData.key] == nil then
+                        quests[questData.key] = questData.defaultEnabled ~= false
+                    end
                 end
                 defaultDb.profile.chores[sectionKey][catData.key].quests = quests
             end
