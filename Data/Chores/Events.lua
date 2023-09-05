@@ -45,6 +45,7 @@ Addon.data.choresEvents = {
                 },
                 {
                     key = 'timewalkingTurnIn',
+                    minimumLevel = 30,
                     requiredEventIds = tbcTimewalkingIds,
                     entries = {
                         { quest = 40168, item = 129747 }, -- [TBC] The Swirling Vial
@@ -61,6 +62,7 @@ Addon.data.choresEvents = {
                 },
                 {
                     key = 'timewalkingTurnIn',
+                    minimumLevel = 30,
                     requiredEventIds = wotlkTimewalkingIds,
                     entries = {
                         { quest = 40173, item = 129928 }, -- [WotLK] The Unstable Prism
@@ -77,6 +79,7 @@ Addon.data.choresEvents = {
                 },
                 {
                     key = 'timewalkingTurnIn',
+                    minimumLevel = 35,
                     requiredEventIds = cataTimewalkingIds,
                     entries = {
                         { quest = 40786, item = 133377 }, -- [Cata-H] The Smoldering Ember
@@ -94,6 +97,7 @@ Addon.data.choresEvents = {
                 },
                 {
                     key = 'timewalkingTurnIn',
+                    minimumLevel = 35,
                     requiredEventIds = mopTimewalkingIds,
                     entries = {
                         { quest = 45563, item = 143776 }, -- [MoP] The Shrouded Coin
@@ -110,6 +114,7 @@ Addon.data.choresEvents = {
                 },
                 {
                     key = 'timewalkingTurnIn',
+                    minimumLevel = 40,
                     requiredEventIds = wodTimewalkingIds,
                     entries = {
                         { quest = 55498, item = 167921 }, -- [WoD-A] The Shimmering Crystal
@@ -127,6 +132,7 @@ Addon.data.choresEvents = {
                 },
                 {
                     key = 'timewalkingTurnIn',
+                    minimumLevel = 45,
                     requiredEventIds = legionTimewalkingIds,
                     entries = {
                         { quest = 64710, item = 187611 }, -- [Legion] Whispering Felflame Crystal
