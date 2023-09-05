@@ -1,13 +1,17 @@
 local addonName, Addon = ...
 local L = Addon.L
-local Module = Addon:NewModule('Display')
+local Module = Addon:NewModule('Display', 'AceHook-3.0')
 
+local LSM = LibStub('LibSharedMedia-3.0')
 
 BINDING_HEADER_CHORETRACKER = addonName
 BINDING_NAME_CHORETRACKER_TOGGLE = Addon.L['key_binding:toggle']
 
+local CC_GetDayEvent = C_Calendar.GetDayEvent
+local CC_GetNumDayEvents = C_Calendar.GetNumDayEvents
+local CDAT_CompareCalendarTime = C_DateAndTime.CompareCalendarTime
+local CDAT_GetCurrentCalendarTime = C_DateAndTime.GetCurrentCalendarTime
 local CDAT_GetSecondsUntilWeeklyReset = C_DateAndTime.GetSecondsUntilWeeklyReset
-local LSM = LibStub('LibSharedMedia-3.0')
 
 local STATUS_COLOR = {
     [0] = '|cFFFF2222',
@@ -36,6 +40,8 @@ function Module:OnEnable()
     Addon.db.RegisterCallback(self, 'OnProfileCopied', 'ConfigChanged')
     Addon.db.RegisterCallback(self, 'OnProfileReset', 'ConfigChanged')
 
+    self:HookScript(CalendarFrame, 'OnHide', 'ResetCalendar')
+
     self:RegisterMessage('ChoreTracker_Config_Changed', 'ConfigChanged')
     self:RegisterBucketMessage({ 'ChoreTracker_Quests_Updated', }, 0.5, 'Redraw')
 
@@ -53,7 +59,13 @@ function Module:OnEnable()
 end
 
 function Module:OnEnteringWorld()
+    self:ResetCalendar()
     self:UpdateZone()
+end
+
+function Module:ResetCalendar()
+    local now = CDAT_GetCurrentCalendarTime()
+    C_Calendar.SetAbsMonth(now.month, now.year)
 end
 
 function Module:UpdateZone()
@@ -147,13 +159,22 @@ function Module:ConfigChanged()
         table.sort(self.sortedSections, function(a, b) return a[2].order < b[2].order end)
     end
 
-    local now = C_DateAndTime.GetCurrentCalendarTime()
-    C_Calendar.SetAbsMonth(now.month, now.year) -- this will make sure that events are loaded
+    self.activeEvents = self.activeEvents or {}
 
-    local activeEvents = {}
-    for i = 1, C_Calendar.GetNumDayEvents(0, now.monthDay) do
-        local event = C_Calendar.GetDayEvent(0, now.monthDay, i)
-        activeEvents[event.eventID] = true
+    -- Check which events are active if the calendar is set to the correct year/month
+    local now = CDAT_GetCurrentCalendarTime()
+    local calendar = C_Calendar.GetMonthInfo(0)
+    if now.year == calendar.year and now.month == calendar.month then
+        local activeEvents = {}
+        for i = 1, CC_GetNumDayEvents(0, now.monthDay) do
+            local event = CC_GetDayEvent(0, now.monthDay, i)
+            if CDAT_CompareCalendarTime(event.startTime, now) >= 0 and
+                CDAT_CompareCalendarTime(event.endTime, now) < 0
+            then
+                activeEvents[event.eventID] = true
+            end
+        end
+        self.activeEvents = activeEvents
     end
 
     self.sections = {}
@@ -188,7 +209,7 @@ function Module:ConfigChanged()
                         if Addon.db.profile.chores[sectionKey][catData.key][typeKey][choreData.key] == true and
                             (
                                 choreData.requiredEventIds == nil or
-                                self:AnyActive(activeEvents, choreData.requiredEventIds)
+                                self:AnyActive(self.activeEvents, choreData.requiredEventIds)
                             )
                         then
                             section.total = section.total + 1
