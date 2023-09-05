@@ -73,16 +73,24 @@ function Module:CreateOptions()
                 type = 'group',
                 order = newOrder(),
                 args = {
-                    showCompleted = {
-                        name = L['option:general:showCompleted'],
-                        type = 'toggle',
+                    display = {
+                        name = 'Display',
+                        type = 'group',
+                        inline = true,
                         order = newOrder(),
-                        -- width = 0.8,
-                    },
-                    statusIcons = {
-                        name = L['option:general:statusIcons'],
-                        type = 'toggle',
-                        order = newOrder(),
+                        args = {
+                            showCompleted = {
+                                name = L['option:general:showCompleted'],
+                                type = 'toggle',
+                                order = newOrder(),
+                                -- width = 0.8,
+                            },
+                            statusIcons = {
+                                name = L['option:general:statusIcons'],
+                                type = 'toggle',
+                                order = newOrder(),
+                            },
+                        },
                     },
                     text = {
                         name = 'Text',
