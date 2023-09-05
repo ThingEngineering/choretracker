@@ -10,6 +10,7 @@ BINDING_NAME_CHORETRACKER_TOGGLE = Addon.L['key_binding:toggle']
 local CC_GetDayEvent = C_Calendar.GetDayEvent
 local CC_GetNumDayEvents = C_Calendar.GetNumDayEvents
 local CDAT_CompareCalendarTime = C_DateAndTime.CompareCalendarTime
+local CDAT_GetCalendarTimeFromEpoch = C_DateAndTime.GetCalendarTimeFromEpoch
 local CDAT_GetCurrentCalendarTime = C_DateAndTime.GetCurrentCalendarTime
 local CDAT_GetSecondsUntilWeeklyReset = C_DateAndTime.GetSecondsUntilWeeklyReset
 
@@ -64,6 +65,10 @@ end
 function Module:OnEnteringWorld()
     self:ResetCalendar()
     self:UpdateZone()
+end
+
+function Module:GetLocalTime()
+    return CDAT_GetCalendarTimeFromEpoch(GetServerTime() * 1000000)
 end
 
 function Module:ResetCalendar()
@@ -165,7 +170,7 @@ function Module:ConfigChanged()
     self.activeEvents = self.activeEvents or {}
 
     -- Check which events are active if the calendar is set to the correct year/month
-    local now = CDAT_GetCurrentCalendarTime()
+    local now = self:GetLocalTime()
     local calendar = C_Calendar.GetMonthInfo(0)
     if now.year == calendar.year and now.month == calendar.month then
         local activeEvents = {}
@@ -185,7 +190,10 @@ function Module:ConfigChanged()
     self.sections = {}
     for _, sectionTemp in ipairs(self.sortedSections) do
         local sectionKey, sectionData = unpack(sectionTemp)
-        if sectionData.skillLineId == nil or questsModule.skillLines[sectionData.skillLineId] == true then
+        if
+            (sectionData.skillLineId == nil or questsModule.skillLines[sectionData.skillLineId] == true) and
+            (sectionData.minimumLevel == nil or playerLevel >= sectionData.minimumLevel)
+        then
             local header = ''
             if sectionData.texture then
                 header = header .. '|T' .. sectionData.texture .. ':0|t '

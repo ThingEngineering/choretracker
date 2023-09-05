@@ -6,6 +6,7 @@ Addon.data.choresDragonflight = {
     key = 'dragonflight',
     name = EXPANSION_NAME9,
     order = 0,
+    minimumLevel = 60,
     categories = {
         {
             key = 'patch_10_1_5',
