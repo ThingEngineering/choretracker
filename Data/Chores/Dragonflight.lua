@@ -23,6 +23,7 @@ Addon.data.choresDragonflight = {
             quests = {
                 {
                     key = 'aWorthyAlly',
+                    minimumLevel = 70,
                     entries = {
                         { quest = 75665 }, -- A Worthy Ally: Loamm Niffen
                     },
