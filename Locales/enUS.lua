@@ -19,6 +19,8 @@ L['category:patch_10_1_0'] = 'Patch 10.1'
 L['category:patch_10_1_5'] = 'Patch 10.1.5'
 L['category:patch_10_1_7'] = 'Patch 10.1.7'
 
+L['chore:dragonflight:patch_10_1_7:quests:dreamsurge'] = 'Dreamsurge'
+
 L['chore:dragonflight:patch_10_1_5:quests:timeRift'] = 'Time Rift'
 
 L['chore:dragonflight:patch_10_1_0:quests:aWorthyAlly'] = 'A Worthy Ally'

@@ -9,6 +9,17 @@ Addon.data.choresDragonflight = {
     minimumLevel = 60,
     categories = {
         {
+            key = 'patch_10_1_7',
+            quests = {
+                {
+                    key = 'dreamsurge',
+                    entries = {
+                        { quest=77251, item=208153 }, -- Shaping the Dreamsurge, Dreamsurge Chrysalis
+                    },
+                },
+            },
+        },
+        {
             key = 'patch_10_1_5',
             quests = {
                 {
