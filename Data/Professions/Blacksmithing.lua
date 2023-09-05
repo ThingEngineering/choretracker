@@ -73,10 +73,10 @@ Addon.data.professionBlacksmithing = {
         {
             key = 'event',
             name = L['category:event'],
-            requiredEventId = 479, -- Darkmoon Faire
             quests = {
                 {
                     key = 'darkmoonFaire',
+                    requiredEventIds = { 479 }, -- Darkmoon Faire
                     entries = {
                         {
                             quest = 29508, -- Baby Needs Two Pair of Shoes

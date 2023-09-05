@@ -14,8 +14,8 @@ Addon.data.choresDragonflight = {
                     key = 'timeRift',
                     entries = {
                         { quest=77836, item=207030 }, -- HTQ, Dilated Time Capsule
-                    }
-                }
+                    },
+                },
             },
         },
         {
@@ -25,7 +25,7 @@ Addon.data.choresDragonflight = {
                     key = 'aWorthyAlly',
                     entries = {
                         { quest = 75665 }, -- A Worthy Ally: Loamm Niffen
-                    }
+                    },
                 },
                 {
                     key = 'barter',

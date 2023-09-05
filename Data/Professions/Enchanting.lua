@@ -67,10 +67,10 @@ Addon.data.professionEnchanting = {
         {
             key = 'event',
             name = L['category:event'],
-            requiredEventId = 479, -- Darkmoon Faire
             quests = {
                 {
                     key = 'darkmoonFaire',
+                    requiredEventIds = { 479 }, -- Darkmoon Faire
                     entries = {
                         {
                             quest = 29510, -- Putting Trash to Good Use

@@ -11,10 +11,10 @@ Addon.data.professionFishing = {
         {
             key = 'event',
             name = L['category:event'],
-            requiredEventId = 479, -- Darkmoon Faire
             quests = {
                 {
                     key = 'darkmoonFaire',
+                    requiredEventIds = { 479 }, -- Darkmoon Faire
                     entries = {
                         {
                             quest = 29513, -- Spoilin' for Salty Sea Dogs

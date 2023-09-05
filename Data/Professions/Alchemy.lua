@@ -69,10 +69,10 @@ Addon.data.professionAlchemy = {
         {
             key = 'event',
             name = L['category:event'],
-            requiredEventId = 479, -- Darkmoon Faire
             quests = {
                 {
                     key = 'darkmoonFaire',
+                    requiredEventIds = { 479 }, -- Darkmoon Faire
                     entries = {
                         {
                             quest = 29506, -- A Fizzy Fusion

@@ -183,17 +183,21 @@ function Module:ConfigChanged()
             }
 
             for _, catData in ipairs(sectionData.categories) do
-                if catData.requiredEventId == nil or activeEvents[catData.requiredEventId] == true then
-                    for _, typeKey in ipairs({ 'quests', 'drops' }) do
-                        for _, choreData in ipairs(catData[typeKey] or {}) do
-                            if Addon.db.profile.chores[sectionKey][catData.key][typeKey][choreData.key] == true then
-                                section.total = section.total + 1
-                                table.insert(section.chores, {
-                                    data = choreData,
-                                    translated = L['chore:' .. sectionData.key .. ':' .. catData.key .. ':' .. typeKey .. ':' .. choreData.key],
-                                    typeKey = typeKey,
-                                })
-                            end
+                for _, typeKey in ipairs({ 'quests', 'drops' }) do
+                    for _, choreData in ipairs(catData[typeKey] or {}) do
+                        if Addon.db.profile.chores[sectionKey][catData.key][typeKey][choreData.key] == true and
+                            (
+                                choreData.requiredEventIds == nil or
+                                self:AnyActive(activeEvents, choreData.requiredEventIds)
+                            )
+                        then
+                            section.total = section.total + 1
+                            table.insert(section.chores, {
+                                data = choreData,
+                                translated = L
+                                ['chore:' .. sectionData.key .. ':' .. catData.key .. ':' .. typeKey .. ':' .. choreData.key],
+                                typeKey = typeKey,
+                            })
                         end
                     end
                 end
@@ -206,6 +210,15 @@ function Module:ConfigChanged()
     end
 
     self:Redraw()
+end
+
+function Module:AnyActive(activeEvents, eventIds)
+    for _, eventId in ipairs(eventIds) do
+        if activeEvents[eventId] == true then
+            return true
+        end
+    end
+    return false
 end
 
 function Module:Redraw()

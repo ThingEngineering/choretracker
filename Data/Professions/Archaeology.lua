@@ -11,10 +11,10 @@ Addon.data.professionArchaeology = {
         {
             key = 'event',
             name = L['category:event'],
-            requiredEventId = 479, -- Darkmoon Faire
             quests = {
                 {
                     key = 'darkmoonFaire',
+                    requiredEventIds = { 479 }, -- Darkmoon Faire
                     entries = {
                         {
                             quest = 29507, -- Fun for the Little Ones
