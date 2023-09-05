@@ -4,7 +4,7 @@ local L = Addon.L
 
 Addon.data.choresDragonflight = {
     key = 'dragonflight',
-    name = L['dragonflight_chores'],
+    name = EXPANSION_NAME9,
     order = 0,
     categories = {
         {

@@ -5,8 +5,10 @@ L['key_binding:toggle'] = 'Toggle ChoreTracker window'
 L['option:general:showCompleted'] = 'Show completed chores'
 L['option:general:statusIcons'] = 'Use status icons'
 
+L['section:events'] = 'Events'
+
 L['category:event'] = 'Event'
-L['dragonflight_chores'] = EXPANSION_NAME9 .. ' Chores'
+L['category:holidays'] = 'Holidays'
 
 L['section:drops'] = 'Drops'
 L['section:quests'] = 'Quests'
@@ -36,6 +38,8 @@ L['chore:dragonflight:patch_10_0_0:quests:grandHuntEpic'] = 'Grand Hunt: Epic'
 L['chore:dragonflight:patch_10_0_0:quests:heroicDungeons'] = 'Heroic Dungeons'
 L['chore:dragonflight:patch_10_0_0:quests:showYourMettle'] = 'Show Your Mettle'
 L['chore:dragonflight:patch_10_0_0:quests:sparksOfLife'] = 'Sparks of Life'
+
+L['chore:events:holidays:quests:mythicDungeons'] = 'Mythic Dungeons'
 
 L['chore:professions:dragonflight:drops:forbiddenReach'] = 'Forbidden Reach'
 L['chore:professions:dragonflight:drops:gather'] = 'Gather'

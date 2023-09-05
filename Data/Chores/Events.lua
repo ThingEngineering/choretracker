@@ -2,13 +2,13 @@ local _, Addon = ...
 local L = Addon.L
 
 
-Addon.data.events = {
+Addon.data.choresEvents = {
     key = 'events',
-    name = L['dragonflight_chores'],
+    name = L['section:events'],
     order = 0,
     categories = {
         {
-            key = 'holiays',
+            key = 'holidays',
             quests = {
                 {
                     key = 'mythicDungeons',

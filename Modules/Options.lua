@@ -115,6 +115,7 @@ function Module:CreateOptions()
                 order = newOrder(),
                 args = {
                     choresDragonflight = self:GetDataOptions(Addon.data.choresDragonflight, 1.1),
+                    choresEvents = self:GetDataOptions(Addon.data.choresEvents),
                 },
             },
             sectionProfessions = {
