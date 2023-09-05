@@ -22,7 +22,15 @@ Addon.data.choresEvents = {
                     minimumLevel = 70,
                     requiredEventIds = { 1335, 1352, 1353, 1354 }, -- Dragonflight Dungeon Event
                     entries = {
-                        { quest=72722, item=207030 }, -- Emissary of War
+                        { quest=72722 }, -- Emissary of War
+                    },
+                },
+                {
+                    key = 'worldQuests',
+                    minimumLevel = 70,
+                    requiredEventIds = { 592, 613, 614, 615 }, -- World Quest Bonus Event
+                    entries = {
+                        { quest=72728 }, -- The World Awaits
                     },
                 },
 

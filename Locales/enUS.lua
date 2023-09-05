@@ -42,6 +42,7 @@ L['chore:dragonflight:patch_10_0_0:quests:sparksOfLife'] = 'Sparks of Life'
 L['chore:events:holidays:quests:mythicDungeons'] = 'Mythic Dungeons'
 L['chore:events:holidays:quests:timewalkingDungeons'] = 'Timewalking Dungeons'
 L['chore:events:holidays:quests:timewalkingTurnIn'] = 'Timewalking Turn-in'
+L['chore:events:holidays:quests:worldQuests'] = 'World Quests'
 
 L['chore:professions:dragonflight:drops:forbiddenReach'] = 'Forbidden Reach'
 L['chore:professions:dragonflight:drops:gather'] = 'Gather'
