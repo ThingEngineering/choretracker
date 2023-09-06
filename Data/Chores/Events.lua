@@ -165,5 +165,106 @@ Addon.data.choresEvents = {
                 },
             },
         },
+        {
+            key = 'pvpBrawls',
+            quests = {
+                {
+                    key = 'arathiBlizzard',
+                    minimumLevel = 70,
+                    requiredEventIds = { 666, 673, 680, 697, 737 },
+                    entries = {
+                        { quest = 47148 }, -- Something Different
+                    },
+                },
+                {
+                    key = 'classicAshran',
+                    minimumLevel = 70,
+                    requiredEventIds = { 1120, 1121, 1122, 1123, 1124 },
+                    entries = {
+                        { quest = 47148 }, -- Something Different
+                    },
+                },
+                {
+                    key = 'compStomp',
+                    minimumLevel = 70,
+                    requiredEventIds = { 1234, 1235, 1236, 1237, 1238 },
+                    entries = {
+                        { quest = 47148 }, -- Something Different
+                    },
+                },
+                {
+                    key = 'cookingImpossible',
+                    minimumLevel = 70,
+                    requiredEventIds = { 1047, 1048, 1049, 1050, 1051 },
+                    entries = {
+                        { quest = 47148 }, -- Something Different
+                    },
+                },
+                {
+                    key = 'deepSix',
+                    minimumLevel = 70,
+                    requiredEventIds = { 702, 704, 705, 706, 736 },
+                    entries = {
+                        { quest = 47148 }, -- Something Different
+                    },
+                },
+                {
+                    key = 'deepwindDunk',
+                    minimumLevel = 70,
+                    requiredEventIds = { 1239, 1240, 1241, 1242, 1243 },
+                    entries = {
+                        { quest = 47148 }, -- Something Different
+                    },
+                },
+                {
+                    key = 'gravityLapse',
+                    minimumLevel = 70,
+                    requiredEventIds = { 659, 663, 670, 677, 684 },
+                    entries = {
+                        { quest = 47148 }, -- Something Different
+                    },
+                },
+                {
+                    key = 'packedHouse',
+                    minimumLevel = 70,
+                    requiredEventIds = { 667, 674, 681, 688, 701 },
+                    entries = {
+                        { quest = 47148 }, -- Something Different
+                    },
+                },
+                {
+                    key = 'shadoPanShowdown',
+                    minimumLevel = 70,
+                    requiredEventIds = { 1232, 1233, 1244, 1245, 1246, 1312 },
+                    entries = {
+                        { quest = 47148 }, -- Something Different
+                    },
+                },
+                {
+                    key = 'southshoreVsTarrenMill',
+                    minimumLevel = 70,
+                    requiredEventIds = { 660, 662, 669, 676, 683 },
+                    entries = {
+                        { quest = 47148 }, -- Something Different
+                    },
+                },
+                {
+                    key = 'templeOfHotmogu',
+                    minimumLevel = 70,
+                    requiredEventIds = { 1166, 1167, 1168, 1169, 1170 },
+                    entries = {
+                        { quest = 47148 }, -- Something Different
+                    },
+                },
+                {
+                    key = 'warsongScramble',
+                    minimumLevel = 70,
+                    requiredEventIds = { 664, 671, 678, 685, 1221 },
+                    entries = {
+                        { quest = 47148 }, -- Something Different
+                    },
+                },
+            },
+        },
     },
 }

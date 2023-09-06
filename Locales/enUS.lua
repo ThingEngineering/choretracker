@@ -7,17 +7,17 @@ L['option:general:statusIcons'] = 'Use status icons'
 
 L['section:events'] = 'Events'
 
-L['category:event'] = 'Event'
-L['category:holidays'] = 'Holidays'
-
 L['section:drops'] = 'Drops'
 L['section:quests'] = 'Quests'
 
+L['category:event'] = 'Event'
+L['category:holidays'] = 'Holidays'
 L['category:patch_10_0_0'] = 'Patch 10.0'
 L['category:patch_10_0_7'] = 'Patch 10.0.7'
 L['category:patch_10_1_0'] = 'Patch 10.1'
 L['category:patch_10_1_5'] = 'Patch 10.1.5'
 L['category:patch_10_1_7'] = 'Patch 10.1.7'
+L['category:pvpBrawls'] = 'PvP Brawls'
 
 L['chore:dragonflight:patch_10_1_7:quests:dreamsurge'] = 'Dreamsurge'
 
@@ -48,6 +48,19 @@ L['chore:events:holidays:quests:pvpPetBattles'] = 'PvP Pet Battles'
 L['chore:events:holidays:quests:timewalkingDungeons'] = 'Timewalking Dungeons'
 L['chore:events:holidays:quests:timewalkingTurnIn'] = 'Timewalking Turn-in'
 L['chore:events:holidays:quests:worldQuests'] = 'World Quests'
+
+L['chore:events:pvpBrawls:quests:arathiBlizzard'] = 'Arathi Blizzard'
+L['chore:events:pvpBrawls:quests:classicAshran'] = 'Classic Ashran'
+L['chore:events:pvpBrawls:quests:compStomp'] = 'Comp Stomp'
+L['chore:events:pvpBrawls:quests:cookingImpossible'] = 'Cooking Impossible'
+L['chore:events:pvpBrawls:quests:deepSix'] = 'Deep Six'
+L['chore:events:pvpBrawls:quests:deepwindDunk'] = 'Deepwind Dunk'
+L['chore:events:pvpBrawls:quests:gravityLapse'] = 'Gravity Lapse'
+L['chore:events:pvpBrawls:quests:packedHouse'] = 'Packed House'
+L['chore:events:pvpBrawls:quests:shadoPanShowdown'] = 'Shado-Pan Showdown'
+L['chore:events:pvpBrawls:quests:southshoreVsTarrenMill'] = 'Southshore vs. Tarren Mill'
+L['chore:events:pvpBrawls:quests:templeOfHotmogu'] = 'Temple of Hotmogu'
+L['chore:events:pvpBrawls:quests:warsongScramble'] = 'Warsong Scramble'
 
 L['chore:professions:dragonflight:drops:forbiddenReach'] = 'Forbidden Reach'
 L['chore:professions:dragonflight:drops:gather'] = 'Gather'
