@@ -1,3 +1,13 @@
+v10.1.7.2
+---------
+- Added Arena Skirmishes, Battlegrounds, and PvP Pet Battles to Chores > Events.
+- Added PvP Brawls to Chores > Events.
+- Added hiding of _some_ profession weeklies if you don't meet the skill requirement.
+- Changed Events to show after Dragonflight.
+- Cleaned up Dragonflight/Events options layout.
+- Fixed Chores options being slightly too wide to fit 3 per row.
+- Fixed "Show completed chores" and "Use status icons" options not working.
+
 v10.1.7.1
 ---------
 - Added support for minimum level on chores and added it to some Dragonflight ones.
