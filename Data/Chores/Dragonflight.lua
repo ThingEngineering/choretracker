@@ -47,7 +47,7 @@ Addon.data.choresDragonflight = {
                         { quest=75286 }, -- Blacksmith's Back
                         -- { quest=75288 }, -- Enchanted Tales with Topuiz
                         -- { quest=75289 }, -- Ink Master
-                        -- { quest=75301 }, -- Mistie's Mix Magic
+                        { quest=75301 }, -- Mistie's Mix Magic
                         -- { quest=75304 }, -- I Need... a Tailor
                         -- { quest=75307 }, -- Road to Season City
                         -- { quest=75308 }, -- Scrybbil Engineering
@@ -64,7 +64,7 @@ Addon.data.choresDragonflight = {
                         -- { quest=75301 }, -- Mistie's Mix Magic
                         -- { quest=75304 }, -- I Need... a Tailor
                         { quest=75307 }, -- Road to Season City
-                        -- { quest=75308 }, -- Scrybbil Engineering
+                        { quest=75308 }, -- Scrybbil Engineering
                         -- { quest=75309 }, -- If a Gem Isn't Pretty
                         -- { quest=75351 }, -- Keep a Leather Eye Open
                     },
