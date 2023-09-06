@@ -8,7 +8,7 @@ local ADBO = LibStub('AceDBOptions-3.0')
 local LSM = LibStub('LibSharedMedia-3.0')
 
 
-local WIDTH_3_PER_ROW = 1.05
+local WIDTH_3_PER_ROW = 1.1
 local WIDTH_4_PER_ROW = 0.81
 
 local newOrder
