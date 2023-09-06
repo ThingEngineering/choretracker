@@ -18,19 +18,35 @@ Addon.data.choresEvents = {
             key = 'holidays',
             quests = {
                 {
+                    key = 'arenaSkirmishes',
+                    minimumLevel = 70,
+                    requiredEventIds = { 238 }, -- Arena Skirmish Bonus Event
+                    entries = {
+                        { quest = 72720 }, -- The Arena Calls
+                    },
+                },
+                {
+                    key = 'battlegrounds',
+                    minimumLevel = 70,
+                    requiredEventIds = { 236 }, -- Battleground Bonus Event
+                    entries = {
+                        { quest = 72723 }, -- A Call to Battle
+                    },
+                },
+                {
                     key = 'mythicDungeons',
                     minimumLevel = 70,
                     requiredEventIds = { 1335, 1352, 1353, 1354 }, -- Dragonflight Dungeon Event
                     entries = {
-                        { quest=72722 }, -- Emissary of War
+                        { quest = 72722 }, -- Emissary of War
                     },
                 },
                 {
-                    key = 'worldQuests',
+                    key = 'pvpPetBattles',
                     minimumLevel = 70,
-                    requiredEventIds = { 592, 613, 614, 615 }, -- World Quest Bonus Event
+                    requiredEventIds = { 234 }, -- Pet Battle Bonus Event
                     entries = {
-                        { quest=72728 }, -- The World Awaits
+                        { quest = 72721 }, -- The Very Best
                     },
                 },
 
@@ -136,6 +152,15 @@ Addon.data.choresEvents = {
                     requiredEventIds = legionTimewalkingIds,
                     entries = {
                         { quest = 64710, item = 187611 }, -- [Legion] Whispering Felflame Crystal
+                    },
+                },
+
+                {
+                    key = 'worldQuests',
+                    minimumLevel = 70,
+                    requiredEventIds = { 592, 613, 614, 615 }, -- World Quest Bonus Event
+                    entries = {
+                        { quest = 72728 }, -- The World Awaits
                     },
                 },
             },
