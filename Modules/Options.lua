@@ -122,8 +122,8 @@ function Module:CreateOptions()
                 childGroups = 'tab',
                 order = newOrder(),
                 args = {
-                    choresDragonflight = self:GetDataOptions(Addon.data.choresDragonflight, 1.1),
-                    choresEvents = self:GetDataOptions(Addon.data.choresEvents, 1.1),
+                    choresDragonflight = self:GetDataOptions(Addon.data.choresDragonflight, 1.05),
+                    choresEvents = self:GetDataOptions(Addon.data.choresEvents, 1.05),
                 },
             },
             sectionProfessions = {
