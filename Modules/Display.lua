@@ -363,7 +363,7 @@ function Module:GetSections()
                             end
                         end
     
-                        if choreState ~= nil and (Addon.db.profile.general.showCompleted or choreState.status < 2) then
+                        if choreState ~= nil and (Addon.db.profile.general.display.showCompleted or choreState.status < 2) then
                             local entryTranslated = chore.translated
                             if choreEntry.desc ~= nil then
                                 entryTranslated = entryTranslated .. ' (' .. choreEntry.desc .. ')'
@@ -398,7 +398,7 @@ function Module:GetSections()
                         section.completed = section.completed + 1
                     end
 
-                    if Addon.db.profile.general.showCompleted or bestState.status < 2 then
+                    if Addon.db.profile.general.display.showCompleted or bestState.status < 2 then
                         table.insert(
                             section.entries,
                             self:GetEntryText(chore.translated, bestEntry, bestState, bestWeek, chore.data.inProgressQuestName)
@@ -490,7 +490,7 @@ function Module:GetEntryText(translated, entry, state, weekState, inProgressQues
     if thingString == '' then thingString = '|cFFFFFFFF???' end
 
     local final = '- '
-    if Addon.db.profile.general.statusIcons == true then
+    if Addon.db.profile.general.display.statusIcons == true then
         final = final .. STATUS_ICON[state.status] .. ' '
     end
 
