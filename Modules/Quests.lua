@@ -15,14 +15,29 @@ local DATA_TYPES = {
 local STATUS_NOT_STARTED = 0
 local STATUS_IN_PROGRESS = 1
 local STATUS_COMPLETED = 2
+local PROFESSION_DRAGONFLIGHT = {
+    [171] = 2823, -- Alchemy
+    [164] = 2822, -- Blacksmithing
+    [333] = 2825, -- Enchanting
+    [202] = 2827, -- Engineering
+    [182] = 2832, -- Herbalism
+    [773] = 2828, -- Inscription
+    [755] = 2829, -- Jewelcrafting
+    [165] = 2830, -- Leatherworking
+    [186] = 2833, -- Mining
+    [393] = 2834, -- Skinning
+    [197] = 2831, -- Tailoring
+}
 
 function Module:OnEnable()
     self.quests = {}
-    self:InitializeQuests()
+    self.questPaths = {}
+    self.skillLines = {}
 
     self:RegisterBucketEvent(
         {
             'SKILL_LINES_CHANGED',
+            'TRADE_SKILL_LIST_UPDATE',
         },
         1,
         'InitializeQuests'
@@ -36,21 +51,33 @@ function Module:OnEnable()
     )
 end
 
+function Module:OnEnteringWorld()
+    self:InitializeQuests()
+end
+
 function Module:InitializeQuests()
-    self.questPaths = {}
-    self.skillLines = {}
+    wipe(self.questPaths)
+    wipe(self.skillLines)
 
     local professions = { GetProfessions() }
     for i = 1, 5 do
         local professionId = professions[i]
         if professionId ~= nil then
-            local skillLineId = select(7, GetProfessionInfo(professionId))
+            local _, _, skillLevel, _, _, _, skillLineId, _, _, _, subName = GetProfessionInfo(professionId)
             self.skillLines[skillLineId] = true
+            
+            local dfId = PROFESSION_DRAGONFLIGHT[skillLineId]
+            if dfId ~= nil then
+                local expectedName = C_TradeSkillUI.GetTradeSkillDisplayName(dfId)
+                if expectedName == subName then
+                    self.skillLines[dfId] = skillLevel
+                end
+            end
         end
     end
 
     for sectionKey, sectionData in pairs(Addon.data) do
-        if sectionData.skillLineId == nil or self.skillLines[sectionData.skillLineId] == true then
+        if sectionData.skillLineId == nil or self.skillLines[sectionData.skillLineId] ~= nil then
             for _, catData in ipairs(sectionData.categories) do
                 for _, typeKey in ipairs(DATA_TYPES) do
                     for _, questData in ipairs(catData[typeKey] or {}) do

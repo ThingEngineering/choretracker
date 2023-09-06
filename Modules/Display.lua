@@ -2,6 +2,8 @@ local addonName, Addon = ...
 local L = Addon.L
 local Module = Addon:NewModule('Display', 'AceHook-3.0')
 
+local QuestsModule
+
 local LSM = LibStub('LibSharedMedia-3.0')
 
 BINDING_HEADER_CHORETRACKER = addonName
@@ -27,6 +29,8 @@ local STATUS_ICON = {
 local PADDING_OUTER = 8
 
 function Module:OnEnable()
+    QuestsModule = Addon:GetModule('Quests')
+
     if not IsAddOnLoaded('Blizzard_Calendar') then
         UIParentLoadAddOn('Blizzard_Calendar')
     end
@@ -157,8 +161,6 @@ function Module:ItemsLoaded(data)
 end
 
 function Module:ConfigChanged()
-    local questsModule = Addon:GetModule('Quests')
-
     if self.sortedSections == nil then
         self.sortedSections = {}
         for sectionKey, sectionData in pairs(Addon.data) do
@@ -191,7 +193,7 @@ function Module:ConfigChanged()
     for _, sectionTemp in ipairs(self.sortedSections) do
         local sectionKey, sectionData = unpack(sectionTemp)
         if
-            (sectionData.skillLineId == nil or questsModule.skillLines[sectionData.skillLineId] == true) and
+            (sectionData.skillLineId == nil or QuestsModule.skillLines[sectionData.skillLineId] ~= nil) and
             (sectionData.minimumLevel == nil or playerLevel >= sectionData.minimumLevel)
         then
             local header = ''
@@ -217,25 +219,32 @@ function Module:ConfigChanged()
             }
 
             for _, catData in ipairs(sectionData.categories) do
-                for _, typeKey in ipairs({ 'quests', 'drops' }) do
-                    for _, choreData in ipairs(catData[typeKey] or {}) do
-                        if Addon.db.profile.chores[sectionKey][catData.key][typeKey][choreData.key] == true and
-                            (
-                                choreData.requiredEventIds == nil or
-                                self:AnyActive(self.activeEvents, choreData.requiredEventIds)
-                            ) and
-                            (
-                                choreData.minimumLevel == nil or
-                                playerLevel >= choreData.minimumLevel
-                            )
-                        then
-                            section.total = section.total + 1
-                            table.insert(section.chores, {
-                                data = choreData,
-                                translated = L
-                                ['chore:' .. sectionData.key .. ':' .. catData.key .. ':' .. typeKey .. ':' .. choreData.key],
-                                typeKey = typeKey,
-                            })
+                if catData.skillLineId == nil or QuestsModule.skillLines[catData.skillLineId] ~= nil then
+                    for _, typeKey in ipairs({ 'quests', 'drops' }) do
+                        for _, choreData in ipairs(catData[typeKey] or {}) do
+                            local choreEnabled = Addon.db.profile.chores[sectionKey][catData.key][typeKey][choreData.key]
+                            if choreEnabled == true and
+                                (
+                                    choreData.requiredEventIds == nil or
+                                    self:AnyActive(self.activeEvents, choreData.requiredEventIds)
+                                ) and
+                                (
+                                    choreData.minimumLevel == nil or
+                                    playerLevel >= choreData.minimumLevel
+                                ) and
+                                (
+                                    choreData.skill == nil or
+                                    QuestsModule.skillLines[catData.skillLineId] >= choreData.skill
+                                )
+                            then
+                                section.total = section.total + 1
+                                table.insert(section.chores, {
+                                    data = choreData,
+                                    translated = L
+                                    ['chore:' .. sectionData.key .. ':' .. catData.key .. ':' .. typeKey .. ':' .. choreData.key],
+                                    typeKey = typeKey,
+                                })
+                            end
                         end
                     end
                 end
@@ -310,7 +319,6 @@ end
 
 function Module:GetSections()
     local sections = {}
-    local questsModule = Addon:GetModule('Quests')
 
     local weeklyReset = time() + CDAT_GetSecondsUntilWeeklyReset()
     local week = Addon.db.global.questWeeks[weeklyReset] or {}
@@ -321,128 +329,12 @@ function Module:GetSections()
         section.entries = {}
 
         for _, chore in ipairs(section.chores) do
-            if chore.data.requiredQuest == nil or questsModule.quests[chore.data.requiredQuest].status == 2 then
+            local quest = QuestsModule.quests[chore.data.requiredQuest]
+            if chore.data.requiredQuest == nil or (quest ~= nil and quest.status == 2) then
                 if chore.typeKey == 'drops' then
-                    local grouped = {}
-                    for _, choreEntry in ipairs(chore.data.entries) do
-                        local choreState
-                        if chore.data.groupSameItem == true then
-                            if grouped[choreEntry.item] == nil then
-                                grouped[choreEntry.item] = true
-                                choreState = {
-                                    status = 0,
-                                    completed = 0,
-                                    total = 0,
-                                }
-                                
-                                for _, otherEntry in ipairs(chore.data.entries) do
-                                    if otherEntry.item == choreEntry.item then
-                                        section.total = section.total + 1
-                                        choreState.total = choreState.total + 1
-
-                                        local otherState = questsModule.quests[otherEntry.quest]
-                                        if otherState.status == 2 then
-                                            section.completed = section.completed + 1
-                                            choreState.completed = choreState.completed + 1
-                                        end
-                                    end
-                                end
-
-                                if choreState.completed > 0 and choreState.completed < choreState.total then
-                                    choreState.status = 1
-                                elseif choreState.completed == choreState.total then
-                                    choreState.status = 2
-                                end
-                            end
-                        else
-                            section.total = section.total + 1
-
-                            choreState = questsModule.quests[choreEntry.quest]
-                            if choreState.status == 2 then
-                                section.completed = section.completed + 1
-                            end
-                        end
-    
-                        if choreState ~= nil and (Addon.db.profile.general.display.showCompleted or choreState.status < 2) then
-                            local entryTranslated = chore.translated
-                            if choreEntry.desc ~= nil then
-                                entryTranslated = entryTranslated .. ' (' .. choreEntry.desc .. ')'
-                            end
-
-                            table.insert(
-                                section.entries,
-                                self:GetEntryText(entryTranslated, choreEntry, choreState)
-                            )
-                        end
-                    end
+                    self:GetSectionDrops(section, chore)
                 else
-                    section.total = section.total + 1
-
-                    local bestEntry
-                    local bestState = nil
-                    local bestWeek = nil
-                    for _, choreEntry in ipairs(chore.data.entries) do
-                        local entryState = questsModule.quests[choreEntry.quest]
-                        if bestState == nil or bestState.status < entryState.status then
-                            bestEntry = choreEntry
-                            bestState = entryState
-                        end
-
-                        local weekState = week[choreEntry.quest]
-                        if weekState ~= nil and (bestWeek == nil or (bestWeek.status == 2 and weekState.status == 1)) then
-                            bestWeek = weekState
-                        end
-                    end
-
-                    if bestState.status == 2 then
-                        section.completed = section.completed + 1
-                    end
-
-                    if Addon.db.profile.general.display.showCompleted or bestState.status < 2 then
-                        table.insert(
-                            section.entries,
-                            self:GetEntryText(chore.translated, bestEntry, bestState, bestWeek, chore.data.inProgressQuestName)
-                        )
-
-                        if bestEntry.shoppingList ~= nil then
-                            for _, bringMe in ipairs(bestEntry.shoppingList) do
-                                local bringName = ''
-                                if bringMe[3] == 'currency' then
-                                    local currencyInfo = C_CurrencyInfo.GetCurrencyInfo(bringMe[2])
-                                    bringName = currencyInfo.name
-                                else
-                                    local itemInfo = self:GetCachedItem(bringMe[2])
-                                    if itemInfo.valid then
-                                        bringName = ITEM_QUALITY_COLORS[itemInfo.quality].hex ..
-                                            itemInfo.name
-                                    else
-                                        bringName = ITEM_QUALITY_COLORS[1].hex .. 'Item #' .. bringMe[2]
-                                    end
-                                end
-
-                                local shoppingText = '    * Bring ' .. bringMe[1] .. 'x ' .. bringName .. '|r'
-                                table.insert(section.entries, shoppingText)
-                            end
-                        elseif bestState.status == 1 and bestState.objectives ~= nil and #bestState.objectives > 1 then
-                            for _, objective in ipairs(bestState.objectives) do
-                                local objText = '    * '
-
-                                if objective.type == 'item' or
-                                    objective.type == 'monster' or
-                                    objective.type == 'object'
-                                then
-                                    objText = objText ..
-                                        self:GetPercentColor(objective.have, objective.need) ..
-                                        objective.text
-                                else
-                                    objText = objText .. objective.type .. '|' .. objective.text ..
-                                    '|' .. objective.have .. '|' .. objective.need
-                                end
-
-                                table.insert(section.entries, objText)
-                            end
-                        end
-                    end
+                    self:GetSectionQuests(week, section, chore)
                 end
             end
         end
@@ -453,6 +345,134 @@ function Module:GetSections()
     end
 
     return sections
+end
+
+function Module:GetSectionDrops(section, chore)
+    local grouped = {}
+    for _, choreEntry in ipairs(chore.data.entries) do
+        local choreState
+        if chore.data.groupSameItem == true then
+            if grouped[choreEntry.item] == nil then
+                grouped[choreEntry.item] = true
+                choreState = {
+                    status = 0,
+                    completed = 0,
+                    total = 0,
+                }
+
+                for _, otherEntry in ipairs(chore.data.entries) do
+                    if otherEntry.item == choreEntry.item then
+                        section.total = section.total + 1
+                        choreState.total = choreState.total + 1
+
+                        local otherState = QuestsModule.quests[otherEntry.quest]
+                        if otherState.status == 2 then
+                            section.completed = section.completed + 1
+                            choreState.completed = choreState.completed + 1
+                        end
+                    end
+                end
+
+                if choreState.completed > 0 and choreState.completed < choreState.total then
+                    choreState.status = 1
+                elseif choreState.completed == choreState.total then
+                    choreState.status = 2
+                end
+            end
+        else
+            section.total = section.total + 1
+
+            choreState = QuestsModule.quests[choreEntry.quest]
+            if choreState.status == 2 then
+                section.completed = section.completed + 1
+            end
+        end
+
+        if choreState ~= nil and (Addon.db.profile.general.display.showCompleted or choreState.status < 2) then
+            local entryTranslated = chore.translated
+            if choreEntry.desc ~= nil then
+                entryTranslated = entryTranslated .. ' (' .. choreEntry.desc .. ')'
+            end
+
+            table.insert(
+                section.entries,
+                self:GetEntryText(entryTranslated, choreEntry, choreState)
+            )
+        end
+    end
+end
+
+function Module:GetSectionQuests(week, section, chore)
+    section.total = section.total + 1
+
+    local bestEntry
+    local bestState = nil
+    local bestWeek = nil
+    for _, choreEntry in ipairs(chore.data.entries) do
+        local entryState = QuestsModule.quests[choreEntry.quest]
+        if bestState == nil or bestState.status < entryState.status then
+            bestEntry = choreEntry
+            bestState = entryState
+        end
+
+        local weekState = week[choreEntry.quest]
+        if weekState ~= nil and (bestWeek == nil or (bestWeek.status == 2 and weekState.status == 1)) then
+            bestWeek = weekState
+        end
+    end
+
+    if bestState ~= nil and bestState.status == 2 then
+        section.completed = section.completed + 1
+    end
+
+    if bestState ~= nil and (
+            Addon.db.profile.general.display.showCompleted
+            or bestState.status < 2
+        ) then
+        table.insert(
+            section.entries,
+            self:GetEntryText(chore.translated, bestEntry, bestState, bestWeek, chore.data.inProgressQuestName)
+        )
+
+        if bestEntry.shoppingList ~= nil then
+            for _, bringMe in ipairs(bestEntry.shoppingList) do
+                local bringName = ''
+                if bringMe[3] == 'currency' then
+                    local currencyInfo = C_CurrencyInfo.GetCurrencyInfo(bringMe[2])
+                    bringName = currencyInfo.name
+                else
+                    local itemInfo = self:GetCachedItem(bringMe[2])
+                    if itemInfo.valid then
+                        bringName = ITEM_QUALITY_COLORS[itemInfo.quality].hex ..
+                            itemInfo.name
+                    else
+                        bringName = ITEM_QUALITY_COLORS[1].hex .. 'Item #' .. bringMe[2]
+                    end
+                end
+
+                local shoppingText = '    * Bring ' .. bringMe[1] .. 'x ' .. bringName .. '|r'
+                table.insert(section.entries, shoppingText)
+            end
+        elseif bestState.status == 1 and bestState.objectives ~= nil and #bestState.objectives > 1 then
+            for _, objective in ipairs(bestState.objectives) do
+                local objText = '    * '
+
+                if objective.type == 'item' or
+                    objective.type == 'monster' or
+                    objective.type == 'object'
+                then
+                    objText = objText ..
+                        self:GetPercentColor(objective.have, objective.need) ..
+                        objective.text
+                else
+                    objText = objText .. objective.type .. '|' .. objective.text ..
+                        '|' .. objective.have .. '|' .. objective.need
+                end
+
+                table.insert(section.entries, objText)
+            end
+        end
+    end
 end
 
 function Module:GetEntryText(translated, entry, state, weekState, inProgressQuestName)
