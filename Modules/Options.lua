@@ -8,6 +8,9 @@ local ADBO = LibStub('AceDBOptions-3.0')
 local LSM = LibStub('LibSharedMedia-3.0')
 
 
+local WIDTH_3_PER_ROW = 1.05
+local WIDTH_4_PER_ROW = 0.81
+
 local newOrder
 do
 	local current = 0
@@ -83,12 +86,13 @@ function Module:CreateOptions()
                                 name = L['option:general:showCompleted'],
                                 type = 'toggle',
                                 order = newOrder(),
-                                -- width = 0.8,
+                                width = WIDTH_3_PER_ROW,
                             },
                             statusIcons = {
                                 name = L['option:general:statusIcons'],
                                 type = 'toggle',
                                 order = newOrder(),
+                                width = WIDTH_3_PER_ROW,
                             },
                         },
                     },
@@ -101,7 +105,6 @@ function Module:CreateOptions()
                             font = {
                                 name = 'Font',
                                 type = 'select',
-                                width = 1.2,
                                 dialogControl = 'LSM30_Font',
                                 values = LSM:HashTable('font'),
                             },
@@ -122,8 +125,8 @@ function Module:CreateOptions()
                 childGroups = 'tab',
                 order = newOrder(),
                 args = {
-                    choresDragonflight = self:GetDataOptions(Addon.data.choresDragonflight, 1.05),
-                    choresEvents = self:GetDataOptions(Addon.data.choresEvents, 1.05),
+                    choresDragonflight = self:GetDataOptions(Addon.data.choresDragonflight, WIDTH_3_PER_ROW, true),
+                    choresEvents = self:GetDataOptions(Addon.data.choresEvents, WIDTH_3_PER_ROW, true),
                 },
             },
             sectionProfessions = {
@@ -152,7 +155,7 @@ function Module:CreateOptions()
     }
 end
 
-function Module:GetDataOptions(data, optionWidth)
+function Module:GetDataOptions(data, optionWidth, inline)
     local options = {
         type = 'group',
         order = newOrder(),
@@ -166,21 +169,53 @@ function Module:GetDataOptions(data, optionWidth)
     end
 
     for _, catData in ipairs(data.categories or {}) do
-        local catOptions = {
-            name = catData.name or L['category:' .. catData.key],
-            type = 'group',
-            order = newOrder(),
-            inline = true,
-            args = {},
-        }
+        local catOptions
+        local parentKey = data.key .. ':' .. catData.key
+        
+        if inline == true then
+            catOptions = options
+            parentKey = data.key
+
+            options.args[catData.key .. ':header'] = {
+                name = catData.name or L['category:' .. catData.key],
+                type = 'header',
+                order = newOrder(),
+            }
+        else
+            catOptions = {
+                name = catData.name or L['category:' .. catData.key],
+                type = 'group',
+                order = newOrder(),
+                inline = true,
+                args = {},
+            }
+            options.args[catData.key] = catOptions
+            parentKey = data.key .. ':' .. catData.key
+        end
 
         for _, key in ipairs({ 'drops', 'quests' }) do
             if catData[key] ~= nil then
-                self:AddSubOptions(catOptions, data.key .. ':' .. catData.key, key, catData[key], optionWidth or 0.8)
+                local thisKey
+                if inline == true then
+                    thisKey = catData.key .. ':' .. key
+                else
+                    catOptions.args[key .. ':header'] = {
+                        name = L['section:' .. key],
+                        type = 'header',
+                        order = newOrder(),
+                    }
+                    thisKey = key
+                end
+
+                self:AddSubOptions(
+                    catOptions,
+                    parentKey,
+                    thisKey,
+                    catData[key],
+                    optionWidth or WIDTH_4_PER_ROW
+                )
             end
         end
-
-        options.args[catData.key] = catOptions
     end
 
     return options
@@ -188,12 +223,6 @@ end
 
 function Module:AddSubOptions(optionsTable, parentKey, key, data, optionWidth)
     if #data == 0 then return end
-
-    optionsTable.args[key] = {
-        name = L['section:' .. key],
-        type = 'header',
-        order = newOrder(),
-    }
 
     for _, subData in ipairs(data) do
         local subKey = key .. ':' .. subData.key
