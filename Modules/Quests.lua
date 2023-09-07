@@ -122,7 +122,11 @@ function Module:ScanQuests()
                     if objective ~= nil then
                         local objectiveData = {
                             type = objective.type,
-                            text = objective.text,
+                            text = gsub(
+                                objective.text,
+                                ":18:18:0:2%|a",
+                                ":0:0:0:2|a"
+                            ),objective.text,
                         }
 
                         if objective.type == 'progressbar' then
