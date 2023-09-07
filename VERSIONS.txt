@@ -1,3 +1,9 @@
+v10.1.7.3
+---------
+- Added title bar with collapse/expand icon and settings icon.
+- Changed the frame to be scrollable.
+- Fixed crafted quality icons making text lines weirdly tall.
+
 v10.1.7.2
 ---------
 - Added Arena Skirmishes, Battlegrounds, and PvP Pet Battles to Chores > Events.
