@@ -29,9 +29,12 @@ local defaultDb = {
                 fontSize = 12,
             }
         },
-        position = {
-            x = 100,
-            y = 500,
+        window = {
+            height = nil,
+            width = nil,
+            left = nil,
+            top = nil,
+            minimized = false,
         },
         desiredShown = true,
         chores = {},

@@ -6,20 +6,23 @@
 ## IconTexture: Interface\AddOns\ChoreTracker\Assets\icon.blp
 ## SavedVariables: ChoreTrackerDB
 
-libs\LibStub\LibStub.lua
-libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
-libs\AceAddon-3.0\AceAddon-3.0.xml
-libs\AceGUI-3.0\AceGUI-3.0.xml
-libs\AceBucket-3.0\AceBucket-3.0.xml
-libs\AceConfig-3.0\AceConfig-3.0.xml
-libs\AceDB-3.0\AceDB-3.0.xml
-libs\AceDBOptions-3.0\AceDBOptions-3.0.xml
-libs\AceEvent-3.0\AceEvent-3.0.xml
-libs\AceHook-3.0\AceHook-3.0.xml
-libs\AceLocale-3.0\AceLocale-3.0.xml
-libs\AceTimer-3.0\AceTimer-3.0.xml
-libs\LibSharedMedia-3.0\lib.xml
-libs\AceGUI-3.0-SharedMediaWidgets\widget.xml
+Libs\LibStub\LibStub.lua
+Libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
+Libs\AceAddon-3.0\AceAddon-3.0.xml
+Libs\AceGUI-3.0\AceGUI-3.0.xml
+Libs\AceBucket-3.0\AceBucket-3.0.xml
+Libs\AceConfig-3.0\AceConfig-3.0.xml
+Libs\AceDB-3.0\AceDB-3.0.xml
+Libs\AceDBOptions-3.0\AceDBOptions-3.0.xml
+Libs\AceEvent-3.0\AceEvent-3.0.xml
+Libs\AceHook-3.0\AceHook-3.0.xml
+Libs\AceLocale-3.0\AceLocale-3.0.xml
+Libs\AceTimer-3.0\AceTimer-3.0.xml
+Libs\LibSharedMedia-3.0\lib.xml
+Libs\AceGUI-3.0-SharedMediaWidgets\widget.xml
+
+AceGUI\ChoreFrame.lua
+AceGUI\TextList.lua
 
 Locales\enUS.lua
 

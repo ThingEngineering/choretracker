@@ -4,6 +4,7 @@ local Module = Addon:NewModule('Display', 'AceHook-3.0')
 
 local QuestsModule
 
+local AceGUI = LibStub('AceGUI-3.0')
 local LSM = LibStub('LibSharedMedia-3.0')
 
 BINDING_HEADER_CHORETRACKER = addonName
@@ -36,8 +37,6 @@ function Module:OnEnable()
     end
 
     self.dontShow = false
-    self.fontStrings = {}
-    self.fsPool = {}
     self.itemCache = {}
     self.itemRequested = {}
 
@@ -91,40 +90,22 @@ function Module:UpdateZone()
 end
 
 function Module:CreateFrame()
-    local frame = CreateFrame('Frame', 'ChoreTrackerFrame', UIParent, 'BackdropTemplate')
-    frame:SetBackdrop({
-        bgFile = 'Interface\\Tooltips\\UI-Tooltip-Background',
-        edgeFile = [[Interface\Buttons\WHITE8X8]],
-        edgeSize = 1,
-        tile = true,
-        tileSize = 16,
-    })
-    frame:SetBackdropColor(0, 0, 0, 0.7)
-    frame:SetBackdropBorderColor(63/255, 63/255, 63/255, 0.7)
-    -- frame:SetFrameStrata('MEDIUM')
-    frame:SetHeight(1)
-    frame:SetWidth(1)
-    frame:SetPoint('TOPLEFT', UIParent, 'BOTTOMLEFT', Addon.db.profile.position.x, Addon.db.profile.position.y)
+    local optionsModule = Addon:GetModule('Options')
 
-    frame:SetClampedToScreen(true)
-    frame:SetMovable(true)
-    frame:EnableMouse(true)
-    frame:RegisterForDrag('LeftButton')
-    frame:SetScript('OnDragStart', self.OnDragStart)
-    frame:SetScript('OnDragStop', self.OnDragStop)
+    local frame = AceGUI:Create('ChoreFrame')
+    frame:SetOptionsFrame(optionsModule.optionsFrame)
+    frame:SetStatusTable(Addon.db.profile.window)
 
     self.frame = frame
-end
 
-function Module:OnDragStart()
-    self:StartMoving()
-end
+    local scrollFrame = AceGUI:Create('ScrollFrame')
+    scrollFrame:SetLayout('TextList')
+    scrollFrame:SetFullHeight(true)
+    scrollFrame:SetFullWidth(true)
 
-function Module:OnDragStop()
-    self:StopMovingOrSizing()
+    self.scrollFrame = scrollFrame
 
-    Addon.db.profile.position.x = self:GetLeft()
-    Addon.db.profile.position.y = self:GetTop()
+    frame:AddChild(scrollFrame)
 end
 
 function Module:UpdateShown()
@@ -276,12 +257,7 @@ function Module:Redraw()
 
     -- print('redraw')
 
-    -- Hide text and return to pool
-    for _, fontString in ipairs(self.fontStrings) do
-        fontString:Hide()
-        table.insert(self.fsPool, fontString)
-    end
-    self.fontStrings = {}
+    self.scrollFrame:ReleaseChildren()
 
     -- Get categories and add them
     local categories = self:GetSections()
@@ -295,26 +271,6 @@ function Module:Redraw()
             self:AddLine(entry)
         end
     end
-
-    -- Now we can resize I guess?
-    local maxWidth = 0
-    local totalHeight = 0
-    for _, fontString in ipairs(self.fontStrings) do
-        totalHeight = totalHeight + fontString:GetHeight()
-        local width = fontString:GetWidth()
-        if width > maxWidth then
-            maxWidth = width
-        end
-    end
-
-    local xPos = self.frame:GetLeft()
-    local yPos = self.frame:GetTop()
-
-    self.frame:SetHeight(totalHeight + ((#self.fontStrings - 1) * 5) + (PADDING_OUTER * 2))
-    self.frame:SetWidth(maxWidth + (PADDING_OUTER * 2))
-
-    self.frame:ClearAllPoints()
-    self.frame:SetPoint('TOPLEFT', UIParent, 'BOTTOMLEFT', xPos, yPos)
 end
 
 function Module:GetSections()
@@ -535,21 +491,15 @@ function Module:GetPercentColor(a, b, ignoreZero)
 end
 
 function Module:AddLine(text, size)
-    local fontString = table.remove(self.fsPool) or self.frame:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
-    fontString:SetText(text)
-
     local font = LSM:Fetch('font', Addon.db.profile.general.text.font)
-    fontString:SetFont(font, size or Addon.db.profile.general.text.fontSize)
 
-    if #self.fontStrings == 0 then
-        fontString:SetPoint('TOPLEFT', self.frame, 'TOPLEFT', PADDING_OUTER, -PADDING_OUTER)
-    else
-        fontString:SetPoint('TOPLEFT', self.fontStrings[#self.fontStrings], 'BOTTOMLEFT', 0, -5)
-    end
+    local label = AceGUI:Create('Label')
+    label:SetFullWidth(true)
+    label:SetFont(font, size or Addon.db.profile.general.text.fontSize, '')
+    label:SetText(text)
+    label.label:SetWordWrap(false)
 
-    fontString:Show()
-
-    table.insert(self.fontStrings, fontString)
+    self.scrollFrame:AddChild(label)
 end
 
 function Module:GetCachedItem(itemId)
