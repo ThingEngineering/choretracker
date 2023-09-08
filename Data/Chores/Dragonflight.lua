@@ -14,7 +14,7 @@ Addon.data.choresDragonflight = {
                 {
                     key = 'dreamsurge',
                     entries = {
-                        { quest=77251, item=208153 }, -- Shaping the Dreamsurge, Dreamsurge Chrysalis
+                        { quest=77251 }, -- Shaping the Dreamsurge
                     },
                 },
             },
