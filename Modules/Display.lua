@@ -147,7 +147,7 @@ end
 function Module:ConfigChanged()
     if self.sortedSections == nil then
         self.sortedSections = {}
-        for sectionKey, sectionData in pairs(Addon.data) do
+        for sectionKey, sectionData in pairs(Addon.data.chores) do
             table.insert(self.sortedSections, { sectionKey, sectionData })
         end
         table.sort(self.sortedSections, function(a, b) return a[2].order < b[2].order end)

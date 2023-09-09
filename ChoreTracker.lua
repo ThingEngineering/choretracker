@@ -3,7 +3,9 @@ local Addon = LibStub('AceAddon-3.0'):NewAddon(addonTable, addonName, 'AceConsol
 
 Addon:SetDefaultModuleLibraries('AceBucket-3.0', 'AceEvent-3.0')
 
-Addon.data = {}
+Addon.data = {
+    chores = {},
+}
 Addon.L = LibStub('AceLocale-3.0'):GetLocale(addonName)
 
 local ADB = LibStub('AceDB-3.0')
@@ -44,7 +46,7 @@ local defaultDb = {
 
 
 function Addon:OnInitialize()
-    for sectionKey, sectionData in pairs(self.data) do
+    for sectionKey, sectionData in pairs(self.data.chores) do
         defaultDb.profile.chores[sectionKey] = {}
         
         for _, catData in ipairs(sectionData.categories or {}) do

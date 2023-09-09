@@ -2,7 +2,7 @@ local _, Addon = ...
 local L = Addon.L
 
 
-Addon.data.professionSkinning = {
+Addon.data.chores.professionSkinning = {
     key = 'professions',
     order = 109,
     skillLineId = 393,

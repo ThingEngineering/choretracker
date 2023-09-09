@@ -2,7 +2,7 @@ local _, Addon = ...
 local L = Addon.L
 
 
-Addon.data.professionEngineering = {
+Addon.data.chores.professionEngineering = {
     key = 'professions',
     order = 103,
     skillLineId = 202,

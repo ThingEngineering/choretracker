@@ -2,7 +2,7 @@ local _, Addon = ...
 local L = Addon.L
 
 
-Addon.data.choresDragonflight = {
+Addon.data.chores.choresDragonflight = {
     key = 'dragonflight',
     name = EXPANSION_NAME9,
     order = 0,

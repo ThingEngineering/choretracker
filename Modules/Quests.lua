@@ -76,7 +76,7 @@ function Module:InitializeQuests()
         end
     end
 
-    for sectionKey, sectionData in pairs(Addon.data) do
+    for sectionKey, sectionData in pairs(Addon.data.chores) do
         if sectionData.skillLineId == nil or self.skillLines[sectionData.skillLineId] ~= nil then
             for _, catData in ipairs(sectionData.categories) do
                 for _, typeKey in ipairs(DATA_TYPES) do
