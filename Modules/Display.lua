@@ -340,9 +340,8 @@ function Module:Redraw(changed)
     -- Release any unused frames
     for key, sectionFrame in pairs(self.sectionFrames) do
         if seenFrames[key] ~= true then
-            print('releasing ' .. key)
-            self.sectionFrames[key] = nil
             AceGUI:Release(sectionFrame)
+            self.sectionFrames[key] = nil
         end
     end
 
@@ -367,8 +366,6 @@ function Module:GetSectionFrame(key)
         sectionFrame.content.spacing = 4
         
         self.sectionFrames[key] = sectionFrame
-
-        print('created '..key)
     end
 
     return sectionFrame
