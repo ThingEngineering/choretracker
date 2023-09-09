@@ -27,7 +27,11 @@ do
     end
 
     local function frameOnMouseDown(this)
-        this:StartMoving()
+        local self = this.obj
+        local status = self.status or self.localstatus
+        if status.locked ~= true then
+            this:StartMoving()
+        end
         AceGUI:ClearFocus()
     end
 
@@ -58,6 +62,25 @@ do
     local function setDesaturation(button, desat)
         local texture = button:GetNormalTexture()
         texture:SetDesaturation(desat or 0.2)
+    end
+
+    local function setLockedTexture(this)
+        this.lockButton:SetNormalTexture([[Interface\Addons\ChoreTracker\Assets\locked]])
+        this.lockButton:SetHighlightTexture([[Interface\Addons\ChoreTracker\Assets\locked]])
+        setDesaturation(this.lockButton)
+    end
+
+    local function setUnlockedTexture(this)
+        this.lockButton:SetNormalTexture([[Interface\Addons\ChoreTracker\Assets\unlocked]])
+        this.lockButton:SetHighlightTexture([[Interface\Addons\ChoreTracker\Assets\unlocked]])
+        setDesaturation(this.lockButton)
+    end
+
+    local function lockButtonOnClick(this)
+        local self = this:GetParent().obj
+        local status = self.status or self.localstatus
+        status.locked = (status.locked ~= true)
+        self:ApplyStatus()
     end
 
     local function setCollapseTexture(this)
@@ -139,7 +162,14 @@ do
         else
             setCollapseTexture(self)
             self.content:Show()
-            self.resizeButton:Show()
+
+            if status.locked then
+                setLockedTexture(self)
+                self.resizeButton:Hide()
+            else
+                setUnlockedTexture(self)
+                self.resizeButton:Show()
+            end
         end
     end
 
@@ -224,10 +254,20 @@ do
 
         self.titleText = titleText
 
+        -- Lock button
+        local lockButton = CreateFrame('Button', nil, frame)
+        lockButton.obj = frame
+        lockButton:SetPoint('TOPRIGHT', -41, -3)
+        lockButton:SetSize(16, 16)
+
+        lockButton:SetScript('OnClick', lockButtonOnClick)
+
+        self.lockButton = lockButton
+
         -- Settings button
         local settingsButton = CreateFrame('Button', nil, frame)
         settingsButton.obj = frame
-        settingsButton:SetPoint('TOPRIGHT', -2, -2)
+        settingsButton:SetPoint('TOPRIGHT', -22, -3)
         settingsButton:SetSize(16, 16)
         settingsButton:SetNormalTexture([[Interface\Addons\ChoreTracker\Assets\gear]])
         settingsButton:SetHighlightTexture([[Interface\Addons\ChoreTracker\Assets\gear]])
@@ -240,7 +280,7 @@ do
         -- Minimize/maximize button
         local minMaxButton = CreateFrame('Button', nil, frame)
         minMaxButton.obj = frame
-        minMaxButton:SetPoint('TOPRIGHT', -20, -2)
+        minMaxButton:SetPoint('TOPRIGHT', -3, -3)
         minMaxButton:SetSize(16, 16)
 
         minMaxButton:SetScript('OnClick', minMaxButtonOnClick)
@@ -250,8 +290,8 @@ do
         -- Separator
         local separator = frame:CreateLine()
         separator:SetColorTexture(63 / 255, 63 / 255, 63 / 255, 0.7)
-        separator:SetStartPoint('TOPLEFT', 0, -21)
-        separator:SetEndPoint('TOPRIGHT', 0, -21)
+        separator:SetStartPoint('TOPLEFT', 0, -22)
+        separator:SetEndPoint('TOPRIGHT', 0, -22)
         separator:SetThickness(1)
 
         self.separator = separator

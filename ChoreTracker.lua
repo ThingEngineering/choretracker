@@ -34,6 +34,7 @@ local defaultDb = {
             width = nil,
             left = nil,
             top = nil,
+            locked = false,
             minimized = false,
         },
         desiredShown = true,
