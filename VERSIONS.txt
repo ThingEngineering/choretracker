@@ -1,3 +1,12 @@
+v10.1.7.4
+---------
+- Added a lock/unlock button, prevents moving/resizing of frame when locked.
+- Added event timers, enable/disable on the "Timers" tab in options.
+- Changed various UI magic to make updates faster.
+- Fixed Dreamsurge chore always showing the reward item instead of progress.
+- Fixed right side of frame having no padding.
+- Fixed missing AceConsole library reference.
+
 v10.1.7.3
 ---------
 - Added title bar with collapse/expand icon and settings icon.
