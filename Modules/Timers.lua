@@ -3,12 +3,6 @@ local L = Addon.L
 local Module = Addon:NewModule('Timers', 'AceTimer-3.0')
 
 
-local EVENTS = {
-    communityFeast = { 90 * 60, 15 * 60 },
-    dragonbaneKeep = { 120 * 60, 15 * 60 },
-    researchersUnderFire = { 60 * 60, 25 * 60, 30 * 60 },
-}
-
 function Module:OnEnable()
     self.timers = {}
 end
@@ -37,19 +31,17 @@ function Module:UpdateTimers()
     local now = time()
     local weeklyReset = now + C_DateAndTime.GetSecondsUntilWeeklyReset() + 1
 
-    for key, event in pairs(EVENTS) do
-        local interval, duration, offset = unpack(event)
-
-        local lastStart = weeklyReset + (offset or 0)
-        local lastEnd = lastStart + duration
-        local nextStart = weeklyReset - interval
-        local nextEnd = lastEnd - interval
+    for key, event in pairs(Addon.data.events) do
+        local lastStart = weeklyReset + (event.offset or 0)
+        local lastEnd = lastStart + event.duration
+        local nextStart = weeklyReset - event.interval
+        local nextEnd = lastEnd - event.interval
 
         while nextEnd > now do
             lastStart = nextStart
             lastEnd = nextEnd
-            nextStart = nextStart - interval
-            nextEnd = nextEnd - interval
+            nextStart = nextStart - event.interval
+            nextEnd = nextEnd - event.interval
         end
 
         self.timers[key] = {
