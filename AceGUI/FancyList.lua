@@ -15,8 +15,8 @@ local function safecall(func, ...)
 	end
 end
 
--- Based on built-in "List" layout
-AceGUI:RegisterLayout("TextList",
+-- Based on "List" layout
+AceGUI:RegisterLayout("FancyList",
 	function(content, children)
         local paddingX = content.paddingX or 0
         local paddingY = content.paddingY or 0

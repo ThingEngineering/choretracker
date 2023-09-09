@@ -98,7 +98,7 @@ function Module:CreateFrame()
     self.frame = frame
 
     local scrollFrame = AceGUI:Create('ScrollFrame')
-    scrollFrame:SetLayout('TextList')
+    scrollFrame:SetLayout('FancyList')
     scrollFrame:SetFullHeight(true)
     scrollFrame:SetFullWidth(true)
     

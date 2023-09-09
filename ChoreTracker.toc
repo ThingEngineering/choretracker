@@ -22,7 +22,7 @@ Libs\LibSharedMedia-3.0\lib.xml
 Libs\AceGUI-3.0-SharedMediaWidgets\widget.xml
 
 AceGUI\ChoreFrame.lua
-AceGUI\TextList.lua
+AceGUI\FancyList.lua
 
 Locales\enUS.lua
 
