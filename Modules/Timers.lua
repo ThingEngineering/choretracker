@@ -34,7 +34,7 @@ function Module:UpdateTimers()
     for _, event in ipairs(Addon.data.timers) do
         local lastStart = weeklyReset + (event.offset or 0)
         local lastEnd = lastStart + event.duration
-        local nextStart = weeklyReset - event.interval
+        local nextStart = lastStart - event.interval
         local nextEnd = lastEnd - event.interval
 
         while nextEnd > now do
