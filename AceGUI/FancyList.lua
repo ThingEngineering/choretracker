@@ -15,8 +15,8 @@ local function safecall(func, ...)
 	end
 end
 
--- Based on "List" layout
-AceGUI:RegisterLayout("FancyList",
+-- Based on 'List' layout
+AceGUI:RegisterLayout('FancyList',
 	function(content, children)
         local paddingX = content.paddingX or 0
         local paddingY = content.paddingY or 0
@@ -25,34 +25,28 @@ AceGUI:RegisterLayout("FancyList",
 		local height = paddingY
 		local width = content.width or content:GetWidth() or 0
 
-        for i = 1, #children do
-			local child = children[i]
-
-			local frame = child.frame
-			frame:ClearAllPoints()
-            frame:Show()
-			if i == 1 then
-				frame:SetPoint("TOPLEFT", content, paddingX, -paddingY)
+		local lastChild
+        for _, child in ipairs(children) do
+            local frame = child.frame
+            frame:ClearAllPoints()
+			frame:Show()
+			
+			if lastChild == nil then
+				frame:SetPoint('TOPLEFT', content, paddingX, -paddingY)
 			else
-				frame:SetPoint("TOPLEFT", children[i - 1].frame, "BOTTOMLEFT", 0, -spacing)
+				frame:SetPoint('TOPLEFT', lastChild.frame, 'BOTTOMLEFT', 0, -spacing)
 			end
 
-			if child.width == "fill" then
-				child:SetWidth(width - (2 * paddingX))
-				frame:SetPoint("RIGHT", content, -paddingX, 0)
+			child:SetWidth(width - (2 * paddingX))
+			frame:SetPoint('RIGHT', content, -paddingX, 0)
 
-				if child.DoLayout then
-					child:DoLayout()
-				end
-			elseif child.width == "relative" then
-				child:SetWidth(width * child.relWidth)
-
-				if child.DoLayout then
-					child:DoLayout()
-				end
+			if child.DoLayout then
+				child:DoLayout()
 			end
 
-            height = height + (frame.height or frame:GetHeight() or 0) + spacing
+			height = height + (frame.height or frame:GetHeight() or 0) + spacing
+			lastChild = child
 		end
+
 		safecall(content.obj.LayoutFinished, content.obj, nil, height)
 	end)

@@ -3,6 +3,7 @@ local L = Addon.L
 local Module = Addon:NewModule('Display', 'AceHook-3.0')
 
 local QuestsModule
+local TimersModule
 
 local AceGUI = LibStub('AceGUI-3.0')
 local LSM = LibStub('LibSharedMedia-3.0')
@@ -30,14 +31,17 @@ local STATUS_ICON = {
 
 function Module:OnEnable()
     QuestsModule = Addon:GetModule('Quests')
+    TimersModule = Addon:GetModule('Timers')
 
     if not IsAddOnLoaded('Blizzard_Calendar') then
         UIParentLoadAddOn('Blizzard_Calendar')
     end
 
     self.dontShow = false
+    self.enabledTimers = {}
     self.itemCache = {}
     self.itemRequested = {}
+    self.sectionFrames = {}
 
     Addon.db.RegisterCallback(self, 'OnProfileChanged', 'ConfigChanged')
     Addon.db.RegisterCallback(self, 'OnProfileCopied', 'ConfigChanged')
@@ -46,7 +50,14 @@ function Module:OnEnable()
     self:HookScript(CalendarFrame, 'OnHide', 'ResetCalendar')
 
     self:RegisterMessage('ChoreTracker_Config_Changed', 'ConfigChanged')
-    self:RegisterBucketMessage({ 'ChoreTracker_Quests_Updated', }, 0.5, 'Redraw')
+    self:RegisterBucketMessage(
+        {
+            'ChoreTracker_Quests_Updated',
+            'ChoreTracker_Timers_Updated',
+        },
+        0.5,
+        'Redraw'
+    )
 
     self:RegisterBucketEvent(
         { 'ZONE_CHANGED', 'ZONE_CHANGED_INDOORS', 'ZONE_CHANGED_NEW_AREA' },
@@ -59,7 +70,7 @@ function Module:OnEnable()
     }, 1, 'ConfigChanged')
     self:RegisterBucketEvent({ 'ITEM_DATA_LOAD_RESULT' }, 1, 'ItemsLoaded')
 
-    self:CreateFrame()
+    self:CreateMainFrame()
     self:UpdateShown()
     self:Redraw()
 end
@@ -88,7 +99,7 @@ function Module:UpdateZone()
     end
 end
 
-function Module:CreateFrame()
+function Module:CreateMainFrame()
     local optionsModule = Addon:GetModule('Options')
 
     local frame = AceGUI:Create('ChoreFrame')
@@ -103,8 +114,8 @@ function Module:CreateFrame()
     scrollFrame:SetFullWidth(true)
     
     scrollFrame.content.paddingX = 5
-    scrollFrame.content.paddingY = 2
-    scrollFrame.content.spacing = 5
+    scrollFrame.content.paddingY = 5
+    scrollFrame.content.spacing = 4
 
     self.scrollFrame = scrollFrame
 
@@ -145,6 +156,8 @@ function Module:ItemsLoaded(data)
 end
 
 function Module:ConfigChanged()
+    self.font = LSM:Fetch('font', Addon.db.profile.general.text.font)
+
     if self.sortedSections == nil then
         self.sortedSections = {}
         for sectionKey, sectionData in pairs(Addon.data.chores) do
@@ -173,6 +186,7 @@ function Module:ConfigChanged()
 
     local playerLevel = UnitLevel('player')
 
+    -- Events
     self.sections = {}
     for _, sectionTemp in ipairs(self.sortedSections) do
         local sectionKey, sectionData = unpack(sectionTemp)
@@ -195,6 +209,7 @@ function Module:ConfigChanged()
             header = header .. '|r'
 
             local section = {
+                key = sectionKey,
                 header = header,
                 completed = 0,
                 total = 0,
@@ -206,7 +221,8 @@ function Module:ConfigChanged()
                 if catData.skillLineId == nil or QuestsModule.skillLines[catData.skillLineId] ~= nil then
                     for _, typeKey in ipairs({ 'quests', 'drops' }) do
                         for _, choreData in ipairs(catData[typeKey] or {}) do
-                            local choreEnabled = Addon.db.profile.chores[sectionKey][catData.key][typeKey][choreData.key]
+                            local choreEnabled = Addon.db.profile.chores[sectionKey][catData.key][typeKey]
+                            [choreData.key]
                             if choreEnabled == true and
                                 (
                                     choreData.requiredEventIds == nil or
@@ -225,7 +241,7 @@ function Module:ConfigChanged()
                                 table.insert(section.chores, {
                                     data = choreData,
                                     translated = L
-                                    ['chore:' .. sectionData.key .. ':' .. catData.key .. ':' .. typeKey .. ':' .. choreData.key],
+                                        ['chore:' .. sectionData.key .. ':' .. catData.key .. ':' .. typeKey .. ':' .. choreData.key],
                                     typeKey = typeKey,
                                 })
                             end
@@ -237,6 +253,14 @@ function Module:ConfigChanged()
             if section.total > 0 then
                 table.insert(self.sections, section)
             end
+        end
+    end
+    
+    -- Timers
+    wipe(self.enabledTimers)
+    for _, timerData in ipairs(Addon.data.timers) do
+        if Addon.db.profile.timers[timerData.key] == true then
+            table.insert(self.enabledTimers, timerData)
         end
     end
 
@@ -258,22 +282,95 @@ function Module:Redraw()
         return
     end
 
-    -- print('redraw')
+    local started = debugprofilestop()
 
-    self.scrollFrame:ReleaseChildren()
+    local newChildren = {}
+    local seenFrames = {}
+
+    -- Timers
+    if #self.enabledTimers > 0 then
+        local timerFrame = self:GetSectionFrame('timers')
+        timerFrame:ReleaseChildren()
+
+        local now = time()
+        for _, timerData in ipairs(self.enabledTimers) do
+            local name = L['timer:' .. timerData.key]
+            local timer = TimersModule.timers[timerData.key]
+            
+            local labelText
+
+            -- in progress
+            if timer.startsAt < now and timer.endsAt > now then
+                labelText = '|cFF888888[|r' .. STATUS_COLOR[2] .. self:GetDuration(timer.endsAt - now) ..
+                    '|cFF888888]|r ' .. STATUS_COLOR[2] .. name .. '|r'
+                -- timeText = self:GetDuration(timer.endsAt - now)
+            else
+                local color = (timer.startsAt - now) < 900 and STATUS_COLOR[1] or ''
+                labelText = '|cFF888888[|r' .. color .. self:GetDuration(timer.startsAt - now) ..
+                    '|cFF888888]|r ' .. name .. '|r'
+            end
+
+            self:AddLine(timerFrame, labelText)
+        end
+
+        -- self.scrollFrame:AddChild(timerFrame)
+        table.insert(newChildren, timerFrame)
+        seenFrames.timers = true
+    end
 
     -- Get categories and add them
     local categories = self:GetSections()
     for _, category in ipairs(categories) do
+        local frameKey = 'category:' .. category.key
+        local catFrame = self:GetSectionFrame(frameKey)
+        catFrame:ReleaseChildren()
+
         local prefix = self:GetPercentColor(category.completed, category.total)
         local headerText = category.header .. ' - ' .. prefix .. category.completed ..
             '|r|cFF888888/|r' .. prefix .. category.total .. '|r'
-        self:AddLine(headerText, Addon.db.profile.general.text.fontSize + 1)
+        self:AddLine(catFrame, headerText, Addon.db.profile.general.text.fontSize + 1)
 
         for _, entry in ipairs(category.entries) do
-            self:AddLine(entry)
+            self:AddLine(catFrame, entry)
+        end
+
+        table.insert(newChildren, catFrame)
+        seenFrames[frameKey] = true
+    end
+
+    -- Release any unused frames
+    for key, sectionFrame in pairs(self.sectionFrames) do
+        if seenFrames[key] ~= true then
+            print('releasing ' .. key)
+            self.sectionFrames[key] = nil
+            AceGUI:Release(sectionFrame)
         end
     end
+
+    self.scrollFrame.children = newChildren
+    self.scrollFrame:DoLayout()
+
+    local ended = debugprofilestop()
+    print('redraw took '..(ended - started) .. 'ms')
+end
+
+function Module:GetSectionFrame(key)
+    local sectionFrame = self.sectionFrames[key]
+    if sectionFrame == nil then
+        sectionFrame = AceGUI:Create('SimpleGroup')
+        sectionFrame:SetParent(self.scrollFrame)
+        sectionFrame:SetLayout('FancyList')
+        sectionFrame:SetFullWidth(true)
+
+        sectionFrame.__key = key
+        sectionFrame.content.spacing = 4
+        
+        self.sectionFrames[key] = sectionFrame
+
+        print('created '..key)
+    end
+
+    return sectionFrame
 end
 
 function Module:GetSections()
@@ -434,6 +531,19 @@ function Module:GetSectionQuests(week, section, chore)
     end
 end
 
+function Module:GetDuration(t)
+    local parts = {}
+
+    local hours = math.floor(t / 3600)
+    t = t % 3600
+    local mins = math.floor(t / 60)
+
+    if hours > 0 then table.insert(parts, hours .. 'h') end
+    table.insert(parts, mins .. 'm')
+
+    return table.concat(parts, ' ')
+end
+
 function Module:GetEntryText(translated, entry, state, weekState, inProgressQuestName)
     local thingString = ''
     if state.status == 1 and state.objectives ~= nil and #state.objectives == 1 then
@@ -493,16 +603,13 @@ function Module:GetPercentColor(a, b, ignoreZero)
     end
 end
 
-function Module:AddLine(text, size)
-    local font = LSM:Fetch('font', Addon.db.profile.general.text.font)
-
+function Module:AddLine(frame, text, size)
     local label = AceGUI:Create('Label')
+    label:SetFont(self.font, size or Addon.db.profile.general.text.fontSize, '')
     label:SetFullWidth(true)
-    label:SetFont(font, size or Addon.db.profile.general.text.fontSize, '')
     label:SetText(text)
     label.label:SetWordWrap(false)
-
-    self.scrollFrame:AddChild(label)
+    frame:AddChild(label)
 end
 
 function Module:GetCachedItem(itemId)
