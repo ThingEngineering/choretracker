@@ -274,7 +274,7 @@ do
         self.content = content
         content.obj = self
         content:SetPoint('TOPLEFT', frame, 'TOPLEFT', 1, -22)
-        content:SetPoint('BOTTOMRIGHT', frame, 'BOTTOMRIGHT', -2, 14)
+        content:SetPoint('BOTTOMRIGHT', frame, 'BOTTOMRIGHT', -2, 13)
 
         AceGUI:RegisterAsContainer(self)
         return self

@@ -18,23 +18,28 @@ end
 -- Based on built-in "List" layout
 AceGUI:RegisterLayout("TextList",
 	function(content, children)
-		local height = 5
+        local paddingX = content.paddingX or 0
+        local paddingY = content.paddingY or 0
+        local spacing = content.spacing or 0
+
+		local height = paddingY
 		local width = content.width or content:GetWidth() or 0
-		for i = 1, #children do
+
+        for i = 1, #children do
 			local child = children[i]
 
 			local frame = child.frame
 			frame:ClearAllPoints()
             frame:Show()
 			if i == 1 then
-				frame:SetPoint("TOPLEFT", content, 5, -5)
+				frame:SetPoint("TOPLEFT", content, paddingX, -paddingY)
 			else
-				frame:SetPoint("TOPLEFT", children[i - 1].frame, "BOTTOMLEFT", 0, -5)
+				frame:SetPoint("TOPLEFT", children[i - 1].frame, "BOTTOMLEFT", 0, -spacing)
 			end
 
 			if child.width == "fill" then
-				child:SetWidth(width)
-				frame:SetPoint("RIGHT", content, 5, 0)
+				child:SetWidth(width - (2 * paddingX))
+				frame:SetPoint("RIGHT", content, -paddingX, 0)
 
 				if child.DoLayout then
 					child:DoLayout()
@@ -47,7 +52,7 @@ AceGUI:RegisterLayout("TextList",
 				end
 			end
 
-            height = height + (frame.height or frame:GetHeight() or 0) + 5
+            height = height + (frame.height or frame:GetHeight() or 0) + spacing
 		end
 		safecall(content.obj.LayoutFinished, content.obj, nil, height)
 	end)

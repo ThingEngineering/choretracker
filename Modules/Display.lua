@@ -27,7 +27,6 @@ local STATUS_ICON = {
     [1] = '|TInterface\\Addons\\ChoreTracker\\Assets\\status_1.tga:0|t',
     [2] = '|TInterface\\Addons\\ChoreTracker\\Assets\\status_2.tga:0|t',
 }
-local PADDING_OUTER = 8
 
 function Module:OnEnable()
     QuestsModule = Addon:GetModule('Quests')
@@ -102,6 +101,10 @@ function Module:CreateFrame()
     scrollFrame:SetLayout('TextList')
     scrollFrame:SetFullHeight(true)
     scrollFrame:SetFullWidth(true)
+    
+    scrollFrame.content.paddingX = 5
+    scrollFrame.content.paddingY = 2
+    scrollFrame.content.spacing = 5
 
     self.scrollFrame = scrollFrame
 
