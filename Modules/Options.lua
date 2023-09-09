@@ -37,7 +37,15 @@ function Module:CreateOptions()
         type = 'group',
         childGroups = 'tab',
         get = function(info)
-            local sigh = Addon.db.profile[info[1]:match('^section') and 'chores' or info[1]]
+            local sighKey = info[1]
+            if sighKey == 'sectionChores' or sighKey == 'sectionProfessions' then
+                sighKey = 'chores'
+            elseif sighKey == 'sectionTimers' then
+                sighKey = 'timers'
+            end
+
+            local sigh = Addon.db.profile[sighKey]
+
             for i = 2, #info do
                 if sigh == nil then break end
                 local parts = { strsplit(':', info[i]) }
@@ -46,16 +54,24 @@ function Module:CreateOptions()
                     if sigh == nil then break end
                 end
             end
+
             if sigh == nil then
                 print('womp womp')
                 for i = 1, #info do
                     print(i .. ': ' .. info[i])
                 end
             end
+
             return sigh
         end,
         set = function(info, value)
-            local sigh = Addon.db.profile[info[1]:match('^section') and 'chores' or info[1]]
+            local sigh = info[1]
+            if sigh == 'sectionChores' or sigh == 'sectionProfessions' then
+                sigh = 'chores'
+            elseif sigh == 'sectionTimers' then
+                sigh = 'timers'
+            end
+
             for i = 2, #info do
                 if sigh == nil then break end
                 local parts = { strsplit(':', info[i]) }
@@ -68,6 +84,7 @@ function Module:CreateOptions()
                     if sigh == nil then break end
                 end
             end
+
             self:SendMessage('ChoreTracker_Config_Changed')
         end,
         args = {
@@ -125,8 +142,8 @@ function Module:CreateOptions()
                 childGroups = 'tab',
                 order = newOrder(),
                 args = {
-                    choresDragonflight = self:GetDataOptions(Addon.data.chores.choresDragonflight, WIDTH_3_PER_ROW, true),
-                    choresEvents = self:GetDataOptions(Addon.data.chores.choresEvents, WIDTH_3_PER_ROW, true),
+                    choresDragonflight = self:GetChoreOptions(Addon.data.chores.choresDragonflight, WIDTH_3_PER_ROW, true),
+                    choresEvents = self:GetChoreOptions(Addon.data.chores.choresEvents, WIDTH_3_PER_ROW, true),
                 },
             },
             sectionProfessions = {
@@ -135,27 +152,33 @@ function Module:CreateOptions()
                 childGroups = 'tab',
                 order = newOrder(),
                 args = {
-                    professionAlchemy = self:GetDataOptions(Addon.data.chores.professionAlchemy),
-                    professionBlacksmithing = self:GetDataOptions(Addon.data.chores.professionBlacksmithing),
-                    professionEnchanting = self:GetDataOptions(Addon.data.chores.professionEnchanting),
-                    professionEngineering = self:GetDataOptions(Addon.data.chores.professionEngineering),
-                    professionInscription = self:GetDataOptions(Addon.data.chores.professionInscription),
-                    professionJewelcrafting = self:GetDataOptions(Addon.data.chores.professionJewelcrafting),
-                    professionLeatherworking = self:GetDataOptions(Addon.data.chores.professionLeatherworking),
-                    professionTailoring = self:GetDataOptions(Addon.data.chores.professionTailoring),
-                    professionHerbalism = self:GetDataOptions(Addon.data.chores.professionHerbalism),
-                    professionMining = self:GetDataOptions(Addon.data.chores.professionMining),
-                    professionSkinning = self:GetDataOptions(Addon.data.chores.professionSkinning),
-                    professionArchaeology = self:GetDataOptions(Addon.data.chores.professionArchaeology),
-                    professionCooking = self:GetDataOptions(Addon.data.chores.professionCooking),
-                    professionFishing = self:GetDataOptions(Addon.data.chores.professionFishing),
+                    professionAlchemy = self:GetChoreOptions(Addon.data.chores.professionAlchemy),
+                    professionBlacksmithing = self:GetChoreOptions(Addon.data.chores.professionBlacksmithing),
+                    professionEnchanting = self:GetChoreOptions(Addon.data.chores.professionEnchanting),
+                    professionEngineering = self:GetChoreOptions(Addon.data.chores.professionEngineering),
+                    professionInscription = self:GetChoreOptions(Addon.data.chores.professionInscription),
+                    professionJewelcrafting = self:GetChoreOptions(Addon.data.chores.professionJewelcrafting),
+                    professionLeatherworking = self:GetChoreOptions(Addon.data.chores.professionLeatherworking),
+                    professionTailoring = self:GetChoreOptions(Addon.data.chores.professionTailoring),
+                    professionHerbalism = self:GetChoreOptions(Addon.data.chores.professionHerbalism),
+                    professionMining = self:GetChoreOptions(Addon.data.chores.professionMining),
+                    professionSkinning = self:GetChoreOptions(Addon.data.chores.professionSkinning),
+                    professionArchaeology = self:GetChoreOptions(Addon.data.chores.professionArchaeology),
+                    professionCooking = self:GetChoreOptions(Addon.data.chores.professionCooking),
+                    professionFishing = self:GetChoreOptions(Addon.data.chores.professionFishing),
                 }
-            }
-        }
+            },
+            sectionTimers = {
+                name = 'Timers',
+                type = 'group',
+                order = newOrder(),
+                args = self:GetAllTimerOptions(),
+            },
+        },
     }
 end
 
-function Module:GetDataOptions(data, optionWidth, inline)
+function Module:GetChoreOptions(data, optionWidth, inline)
     local options = {
         type = 'group',
         order = newOrder(),
@@ -233,4 +256,19 @@ function Module:AddSubOptions(optionsTable, parentKey, key, data, optionWidth)
             width = optionWidth,
         }
     end
+end
+
+function Module:GetAllTimerOptions()
+    local args = {}
+
+    for _, timer in ipairs(Addon.data.timers) do
+        args[timer.key] = {
+            name = L['timer:' .. timer.key],
+            type = 'toggle',
+            order = newOrder(),
+            width = WIDTH_3_PER_ROW,
+        }
+    end
+
+    return args
 end

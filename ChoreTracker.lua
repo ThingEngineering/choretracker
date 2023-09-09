@@ -41,6 +41,7 @@ local defaultDb = {
         },
         desiredShown = true,
         chores = {},
+        timers = {},
     }
 }
 
@@ -70,6 +71,10 @@ function Addon:OnInitialize()
                 defaultDb.profile.chores[sectionKey][catData.key].quests = quests
             end
         end
+    end
+
+    for _, timer in ipairs(self.data.timers) do
+        defaultDb.profile.timers[timer.key] = true
     end
 
     -- DevTools_Dump(defaultDb)

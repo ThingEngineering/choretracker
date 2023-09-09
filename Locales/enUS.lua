@@ -72,4 +72,8 @@ L['chore:professions:dragonflight:quests:gather'] = 'Gather'
 L['chore:professions:dragonflight:quests:orders'] = 'Orders'
 L['chore:professions:dragonflight:quests:treatise'] = 'Treatise'
 
-L['chore:professions:event:quests:darkmoonFaire'] = GetFactionInfoByID(909)
+L['chore:professions:event:quests:darkmoonFaire'] = 'Darkmoon Faire'
+
+L['timer:communityFeast'] = 'Community Feast'
+L['timer:dragonbaneKeep'] = 'Dragonbane Keep'
+L['timer:researchersUnderFire'] = 'Researchers Under Fire'

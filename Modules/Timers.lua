@@ -31,7 +31,7 @@ function Module:UpdateTimers()
     local now = time()
     local weeklyReset = now + C_DateAndTime.GetSecondsUntilWeeklyReset() + 1
 
-    for key, event in pairs(Addon.data.events) do
+    for _, event in ipairs(Addon.data.timers) do
         local lastStart = weeklyReset + (event.offset or 0)
         local lastEnd = lastStart + event.duration
         local nextStart = weeklyReset - event.interval
@@ -44,7 +44,7 @@ function Module:UpdateTimers()
             nextEnd = nextEnd - event.interval
         end
 
-        self.timers[key] = {
+        self.timers[event.key] = {
             startsAt = lastStart,
             endsAt = lastEnd,
         }

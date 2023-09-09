@@ -2,16 +2,19 @@ local _, Addon = ...
 local L = Addon.L
 
 
-Addon.data.events = {
-    communityFeast = {
+Addon.data.timers = {
+    {
+        key = 'communityFeast',
         interval = 90 * 60,
         duration = 15 * 60,
     },
-    dragonbaneKeep = {
+    {
+        key = 'dragonbaneKeep',
         interval = 120 * 60,
         duration = 15 * 60,
     },
-    researchersUnderFire = {
+    {
+        key = 'researchersUnderFire',
         interval = 60 * 60,
         duration = 25 * 60,
         offset = 30 * 60,
