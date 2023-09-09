@@ -204,8 +204,7 @@ function Module:ScanQuests()
     end
 
     if anyChanges then
-        -- print('quests changed')
-        self:SendMessage('ChoreTracker_Quests_Updated')
+        self:SendMessage('ChoreTracker_Data_Updated', 'quests')
     end
 end
 

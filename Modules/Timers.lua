@@ -50,5 +50,5 @@ function Module:UpdateTimers()
         }
     end
 
-    self:SendMessage('ChoreTracker_Timers_Updated')
+    self:SendMessage('ChoreTracker_Data_Updated', 'timers')
 end

@@ -50,14 +50,7 @@ function Module:OnEnable()
     self:HookScript(CalendarFrame, 'OnHide', 'ResetCalendar')
 
     self:RegisterMessage('ChoreTracker_Config_Changed', 'ConfigChanged')
-    self:RegisterBucketMessage(
-        {
-            'ChoreTracker_Quests_Updated',
-            'ChoreTracker_Timers_Updated',
-        },
-        0.5,
-        'Redraw'
-    )
+    self:RegisterBucketMessage({ 'ChoreTracker_Data_Updated' }, 0.5, 'Redraw')
 
     self:RegisterBucketEvent(
         { 'ZONE_CHANGED', 'ZONE_CHANGED_INDOORS', 'ZONE_CHANGED_NEW_AREA' },
@@ -276,13 +269,13 @@ function Module:AnyActive(activeEvents, eventIds)
     return false
 end
 
-function Module:Redraw()
+function Module:Redraw(changed)
     if self.sections == nil then
         self:ConfigChanged()
         return
     end
 
-    local started = debugprofilestop()
+    -- local started = debugprofilestop()
 
     local newChildren = {}
     local seenFrames = {}
@@ -290,30 +283,33 @@ function Module:Redraw()
     -- Timers
     if #self.enabledTimers > 0 then
         local timerFrame = self:GetSectionFrame('timers')
-        timerFrame:ReleaseChildren()
 
-        local now = time()
-        for _, timerData in ipairs(self.enabledTimers) do
-            local name = L['timer:' .. timerData.key]
-            local timer = TimersModule.timers[timerData.key]
-            
-            local labelText
+        if changed == nil or changed.timers ~= nil then
+            timerFrame:ReleaseChildren()
 
-            -- in progress
-            if timer.startsAt < now and timer.endsAt > now then
-                labelText = '|cFF888888[|r' .. STATUS_COLOR[2] .. self:GetDuration(timer.endsAt - now) ..
-                    '|cFF888888]|r ' .. STATUS_COLOR[2] .. name .. '|r'
-                -- timeText = self:GetDuration(timer.endsAt - now)
-            else
-                local color = (timer.startsAt - now) < 900 and STATUS_COLOR[1] or ''
-                labelText = '|cFF888888[|r' .. color .. self:GetDuration(timer.startsAt - now) ..
-                    '|cFF888888]|r ' .. name .. '|r'
+            local now = time()
+            for _, timerData in ipairs(self.enabledTimers) do
+                local name = L['timer:' .. timerData.key]
+                local timer = TimersModule.timers[timerData.key]
+
+                local labelText
+
+                if timer == nil then
+                    labelText = '|cFF888888[|r???|cFF888888]|r ' .. STATUS_COLOR[0] .. name .. '|r'
+                elseif timer.startsAt <= now and timer.endsAt >= now then
+                    labelText = '|cFF888888[|r' .. STATUS_COLOR[2] .. self:GetDuration(timer.endsAt - now) ..
+                        '|cFF888888]|r ' .. STATUS_COLOR[2] .. name .. '|r'
+                    -- timeText = self:GetDuration(timer.endsAt - now)
+                else
+                    local color = (timer.startsAt - now) <= 300 and STATUS_COLOR[1] or ''
+                    labelText = '|cFF888888[|r' .. color .. self:GetDuration(timer.startsAt - now) ..
+                        '|r|cFF888888]|r ' .. name .. '|r'
+                end
+
+                self:AddLine(timerFrame, labelText)
             end
-
-            self:AddLine(timerFrame, labelText)
         end
 
-        -- self.scrollFrame:AddChild(timerFrame)
         table.insert(newChildren, timerFrame)
         seenFrames.timers = true
     end
@@ -323,15 +319,18 @@ function Module:Redraw()
     for _, category in ipairs(categories) do
         local frameKey = 'category:' .. category.key
         local catFrame = self:GetSectionFrame(frameKey)
-        catFrame:ReleaseChildren()
 
-        local prefix = self:GetPercentColor(category.completed, category.total)
-        local headerText = category.header .. ' - ' .. prefix .. category.completed ..
-            '|r|cFF888888/|r' .. prefix .. category.total .. '|r'
-        self:AddLine(catFrame, headerText, Addon.db.profile.general.text.fontSize + 1)
+        if changed == nil or changed.quests ~= nil then
+            catFrame:ReleaseChildren()
 
-        for _, entry in ipairs(category.entries) do
-            self:AddLine(catFrame, entry)
+            local prefix = self:GetPercentColor(category.completed, category.total)
+            local headerText = category.header .. ' - ' .. prefix .. category.completed ..
+                '|r|cFF888888/|r' .. prefix .. category.total .. '|r'
+            self:AddLine(catFrame, headerText, Addon.db.profile.general.text.fontSize + 1)
+
+            for _, entry in ipairs(category.entries) do
+                self:AddLine(catFrame, entry)
+            end
         end
 
         table.insert(newChildren, catFrame)
@@ -350,8 +349,10 @@ function Module:Redraw()
     self.scrollFrame.children = newChildren
     self.scrollFrame:DoLayout()
 
-    local ended = debugprofilestop()
-    print('redraw took '..(ended - started) .. 'ms')
+    -- local ended = debugprofilestop()
+    -- print('redraw took ' .. (ended - started) .. 'ms')
+    
+    self.haveDrawn = true
 end
 
 function Module:GetSectionFrame(key)

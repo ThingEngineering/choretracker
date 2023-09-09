@@ -31,21 +31,23 @@ function Module:OnInitialize()
     ACD:AddToBlizOptions(addonName .. '_Profiles', 'Profiles', addonName)
 end
 
+function Module:GetDbSection(sighKey)
+    if sighKey == 'sectionChores' or sighKey == 'sectionProfessions' then
+        sighKey = 'chores'
+    elseif sighKey == 'sectionTimers' then
+        sighKey = 'timers'
+    end
+
+    return Addon.db.profile[sighKey]
+end
+
 function Module:CreateOptions()
     self.options = {
         name = addonName,
         type = 'group',
         childGroups = 'tab',
         get = function(info)
-            local sighKey = info[1]
-            if sighKey == 'sectionChores' or sighKey == 'sectionProfessions' then
-                sighKey = 'chores'
-            elseif sighKey == 'sectionTimers' then
-                sighKey = 'timers'
-            end
-
-            local sigh = Addon.db.profile[sighKey]
-
+            local sigh = self:GetDbSection(info[1])
             for i = 2, #info do
                 if sigh == nil then break end
                 local parts = { strsplit(':', info[i]) }
@@ -65,13 +67,7 @@ function Module:CreateOptions()
             return sigh
         end,
         set = function(info, value)
-            local sigh = info[1]
-            if sigh == 'sectionChores' or sigh == 'sectionProfessions' then
-                sigh = 'chores'
-            elseif sigh == 'sectionTimers' then
-                sigh = 'timers'
-            end
-
+            local sigh = self:GetDbSection(info[1])
             for i = 2, #info do
                 if sigh == nil then break end
                 local parts = { strsplit(':', info[i]) }
@@ -82,6 +78,13 @@ function Module:CreateOptions()
                         sigh = sigh[part]
                     end
                     if sigh == nil then break end
+                end
+            end
+
+            if sigh == nil then
+                print('womp womp')
+                for i = 1, #info do
+                    print(i .. ': ' .. info[i])
                 end
             end
 
