@@ -19,4 +19,9 @@ Addon.data.timers = {
         duration = 25 * 60,
         offset = 30 * 60,
     },
+    {
+        key = 'timeRift',
+        interval = 60 * 60,
+        duration = 15 * 60,
+    },
 }
