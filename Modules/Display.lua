@@ -603,7 +603,7 @@ end
 
 function Module:AddLine(frame, text, size)
     local label = AceGUI:Create('Label')
-    label:SetFont(self.font, size or Addon.db.profile.general.text.fontSize, '')
+    label:SetFont(self.font, size or Addon.db.profile.general.text.fontSize, Addon.db.profile.general.text.fontStyle)
     label:SetFullWidth(true)
     label:SetText(text)
     label.label:SetWordWrap(false)

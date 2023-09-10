@@ -11,6 +11,15 @@ local LSM = LibStub('LibSharedMedia-3.0')
 local WIDTH_3_PER_ROW = 1.1
 local WIDTH_4_PER_ROW = 0.81
 
+local FONT_FLAGS = {
+    [''] = 'None',
+    ['MONOCHROME'] = 'Monochrome',
+    ['MONOCHROME,OUTLINE'] = 'Monochrome, Outline',
+    ['MONOCHROME,THICKOUTLINE'] = 'Monochrome, Thick Outline',
+    ['OUTLINE'] = 'Outline',
+    ['THICKOUTLINE'] = 'Thick Outline'
+}
+
 local newOrder
 do
 	local current = 0
@@ -106,13 +115,13 @@ function Module:CreateOptions()
                                 name = L['option:general:showCompleted'],
                                 type = 'toggle',
                                 order = newOrder(),
-                                width = WIDTH_3_PER_ROW,
+                                -- width = WIDTH_4_PER_ROW,
                             },
                             statusIcons = {
                                 name = L['option:general:statusIcons'],
                                 type = 'toggle',
                                 order = newOrder(),
-                                width = WIDTH_3_PER_ROW,
+                                -- width = WIDTH_4_PER_ROW,
                             },
                         },
                     },
@@ -125,15 +134,23 @@ function Module:CreateOptions()
                             font = {
                                 name = 'Font',
                                 type = 'select',
+                                order = newOrder(),
                                 dialogControl = 'LSM30_Font',
                                 values = LSM:HashTable('font'),
                             },
                             fontSize = {
                                 name = 'Font size',
                                 type = 'range',
+                                order = newOrder(),
                                 min = 8,
                                 max = 24,
                                 step = 1,
+                            },
+                            fontStyle = {
+                                name = 'Font style', 
+                                type = 'select',
+                                order = newOrder(),
+                                values = FONT_FLAGS,
                             },
                         },
                     },

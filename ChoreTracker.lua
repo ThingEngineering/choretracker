@@ -29,6 +29,7 @@ local defaultDb = {
             text = {
                 font = LSM:GetDefault('font'),
                 fontSize = 12,
+                fontStyle = '',
             }
         },
         window = {
