@@ -1,3 +1,12 @@
+v10.1.7.5
+---------
+- Added background color to options.
+- Added border color to options.
+- Added font style to options.
+- Added frame strata to options.
+- Changed timer to round minutes instead of floor so that 59 seconds is 1 minute
+  instead of 0 minutes.
+
 v10.1.7.4
 ---------
 - Added a lock/unlock button, prevents moving/resizing of frame when locked.
