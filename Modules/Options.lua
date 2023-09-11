@@ -20,6 +20,14 @@ local FONT_FLAGS = {
     ['THICKOUTLINE'] = 'Thick Outline'
 }
 
+local STRATA = {
+    ['BACKGROUND'] = 'Background',
+    ['LOW'] = 'Low',
+    ['MEDIUM'] = 'Medium',
+    ['HIGH'] = 'High',
+}
+local STRATA_ORDER = { 'BACKGROUND', 'LOW', 'MEDIUM', 'HIGH' }
+
 local newOrder
 do
 	local current = 0
@@ -172,7 +180,14 @@ function Module:CreateOptions()
                                     self:SendMessage('ChoreTracker_Config_Changed')
                                 end,
                             },
-                        }
+                            strata = {
+                                name = 'Strata',
+                                type = 'select',
+                                order = newOrder(),
+                                values = STRATA,
+                                sorting = STRATA_ORDER,
+                            },
+                        },
                     },
                     text = {
                         name = 'Text',

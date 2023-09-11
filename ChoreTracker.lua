@@ -28,7 +28,8 @@ local defaultDb = {
             },
             appearance = {
                 backgroundColor = { r = 0, g = 0, b = 0, a = 0.7 },
-                borderColor = { r = 63/255, g = 63/255, b = 63/255, a = 0.7 },
+                borderColor = { r = 63 / 255, g = 63 / 255, b = 63 / 255, a = 0.7 },
+                strata = 'LOW',
             },
             text = {
                 font = LSM:GetDefault('font'),

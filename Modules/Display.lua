@@ -151,6 +151,7 @@ end
 function Module:ConfigChanged()
     self.font = LSM:Fetch('font', Addon.db.profile.general.text.font)
 
+    self.frame.frame:SetFrameStrata(Addon.db.profile.general.appearance.strata)
     self.frame:SetBackgroundColor(Addon.db.profile.general.appearance.backgroundColor)
     self.frame:SetBorderColor(Addon.db.profile.general.appearance.borderColor)
 
