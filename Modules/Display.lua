@@ -537,7 +537,7 @@ function Module:GetDuration(t)
 
     local hours = math.floor(t / 3600)
     t = t % 3600
-    local mins = math.floor(t / 60)
+    local mins = math.floor((t / 60) + 0.5)
 
     if hours > 0 then table.insert(parts, hours .. 'h') end
     table.insert(parts, mins .. 'm')
