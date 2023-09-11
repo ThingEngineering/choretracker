@@ -40,6 +40,52 @@ function Module:OnInitialize()
     ACD:AddToBlizOptions(addonName .. '_Profiles', 'Profiles', addonName)
 end
 
+function Module:GetOption(info)
+    local sigh = self:GetDbSection(info[1])
+    for i = 2, #info do
+        if sigh == nil then break end
+        local parts = { strsplit(':', info[i]) }
+        for _, part in ipairs(parts) do
+            sigh = sigh[part]
+            if sigh == nil then break end
+        end
+    end
+
+    if sigh == nil then
+        print('womp womp')
+        for i = 1, #info do
+            print(i .. ': ' .. info[i])
+        end
+    end
+
+    return sigh
+end
+
+function Module:SetOption(info, value)
+    local sigh = self:GetDbSection(info[1])
+    for i = 2, #info do
+        if sigh == nil then break end
+        local parts = { strsplit(':', info[i]) }
+        for j, part in ipairs(parts) do
+            if i == #info and j == #parts then
+                sigh[part] = value
+            else
+                sigh = sigh[part]
+            end
+            if sigh == nil then break end
+        end
+    end
+
+    if sigh == nil then
+        print('womp womp')
+        for i = 1, #info do
+            print(i .. ': ' .. info[i])
+        end
+    end
+
+    self:SendMessage('ChoreTracker_Config_Changed')
+end
+
 function Module:GetDbSection(sighKey)
     if sighKey == 'sectionChores' or sighKey == 'sectionProfessions' then
         sighKey = 'chores'
@@ -55,50 +101,9 @@ function Module:CreateOptions()
         name = addonName,
         type = 'group',
         childGroups = 'tab',
-        get = function(info)
-            local sigh = self:GetDbSection(info[1])
-            for i = 2, #info do
-                if sigh == nil then break end
-                local parts = { strsplit(':', info[i]) }
-                for _, part in ipairs(parts) do
-                    sigh = sigh[part]
-                    if sigh == nil then break end
-                end
-            end
-
-            if sigh == nil then
-                print('womp womp')
-                for i = 1, #info do
-                    print(i .. ': ' .. info[i])
-                end
-            end
-
-            return sigh
-        end,
-        set = function(info, value)
-            local sigh = self:GetDbSection(info[1])
-            for i = 2, #info do
-                if sigh == nil then break end
-                local parts = { strsplit(':', info[i]) }
-                for j, part in ipairs(parts) do
-                    if i == #info and j == #parts then
-                        sigh[part] = value
-                    else
-                        sigh = sigh[part]
-                    end
-                    if sigh == nil then break end
-                end
-            end
-
-            if sigh == nil then
-                print('womp womp')
-                for i = 1, #info do
-                    print(i .. ': ' .. info[i])
-                end
-            end
-
-            self:SendMessage('ChoreTracker_Config_Changed')
-        end,
+        handler = self,
+        get = 'GetOption',
+        set = 'SetOption',
         args = {
             general = {
                 name = 'General',
@@ -125,6 +130,50 @@ function Module:CreateOptions()
                             },
                         },
                     },
+                    appearance = {
+                        name = 'Appearance',
+                        type = 'group',
+                        inline = true,
+                        order = newOrder(),
+                        args = {
+                            backgroundColor = {
+                                name = 'Background color',
+                                type = 'color',
+                                order = newOrder(),
+                                hasAlpha = true,
+                                get = function()
+                                    local color = Addon.db.profile.general.appearance.backgroundColor
+                                    return color.r, color.g, color.b, color.a
+                                end,
+                                set = function(_, r, g, b, a)
+                                    local color = Addon.db.profile.general.appearance.backgroundColor
+                                    color.r = r
+                                    color.g = g
+                                    color.b = b
+                                    color.a = a
+                                    self:SendMessage('ChoreTracker_Config_Changed')
+                                end,
+                            },
+                            borderColor = {
+                                name = 'Border color',
+                                type = 'color',
+                                order = newOrder(),
+                                hasAlpha = true,
+                                get = function()
+                                    local color = Addon.db.profile.general.appearance.borderColor
+                                    return color.r, color.g, color.b, color.a
+                                end,
+                                set = function(_, r, g, b, a)
+                                    local color = Addon.db.profile.general.appearance.borderColor
+                                    color.r = r
+                                    color.g = g
+                                    color.b = b
+                                    color.a = a
+                                    self:SendMessage('ChoreTracker_Config_Changed')
+                                end,
+                            },
+                        }
+                    },
                     text = {
                         name = 'Text',
                         type = 'group',
@@ -147,7 +196,7 @@ function Module:CreateOptions()
                                 step = 1,
                             },
                             fontStyle = {
-                                name = 'Font style', 
+                                name = 'Font style',
                                 type = 'select',
                                 order = newOrder(),
                                 values = FONT_FLAGS,

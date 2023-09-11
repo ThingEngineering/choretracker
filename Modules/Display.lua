@@ -151,6 +151,9 @@ end
 function Module:ConfigChanged()
     self.font = LSM:Fetch('font', Addon.db.profile.general.text.font)
 
+    self.frame:SetBackgroundColor(Addon.db.profile.general.appearance.backgroundColor)
+    self.frame:SetBorderColor(Addon.db.profile.general.appearance.borderColor)
+
     if self.sortedSections == nil then
         self.sortedSections = {}
         for sectionKey, sectionData in pairs(Addon.data.chores) do

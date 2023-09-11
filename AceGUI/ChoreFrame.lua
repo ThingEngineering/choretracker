@@ -125,6 +125,14 @@ do
         end
     end
 
+    local function SetBackgroundColor(self, color)
+        self.frame:SetBackdropColor(color.r, color.g, color.b, color.a)
+    end
+
+    local function SetBorderColor(self, color)
+        self.frame:SetBackdropBorderColor(color.r, color.g, color.b, color.a)
+    end
+
     local function SetOptionsFrame(self, optionsFrame)
         self.optionsFrame = optionsFrame
     end
@@ -209,6 +217,8 @@ do
         self.Show = Show
         self.OnRelease = OnRelease
         self.OnAcquire = OnAcquire
+        self.SetBackgroundColor = SetBackgroundColor
+        self.SetBorderColor = SetBorderColor
         self.SetOptionsFrame = SetOptionsFrame
         self.SetStatusTable = SetStatusTable
         self.ApplyStatus = ApplyStatus
@@ -242,8 +252,6 @@ do
             tile = true,
             tileSize = 16,
         })
-        frame:SetBackdropColor(0, 0, 0, 0.7)
-        frame:SetBackdropBorderColor(63/255, 63/255, 63/255, 0.7)
 
         -- Title text
         local titleText = frame:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
