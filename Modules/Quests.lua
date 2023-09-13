@@ -56,6 +56,11 @@ function Module:OnEnteringWorld()
 end
 
 function Module:InitializeQuests()
+    local oldSkillLines = {}
+    for key, value in pairs(self.skillLines) do
+        oldSkillLines[key] = value
+    end
+
     wipe(self.questPaths)
     wipe(self.skillLines)
 
@@ -65,7 +70,7 @@ function Module:InitializeQuests()
         if professionId ~= nil then
             local _, _, skillLevel, _, _, _, skillLineId, _, _, _, subName = GetProfessionInfo(professionId)
             self.skillLines[skillLineId] = true
-            
+
             local dfId = PROFESSION_DRAGONFLIGHT[skillLineId]
             if dfId ~= nil then
                 local expectedName = C_TradeSkillUI.GetTradeSkillDisplayName(dfId)
@@ -74,6 +79,29 @@ function Module:InitializeQuests()
                 end
             end
         end
+    end
+
+    local linesChanged = false
+    -- Check for unlearned skills
+    for key, _ in pairs(oldSkillLines) do
+        if self.skillLines[key] == nil then
+            linesChanged = true
+            break
+        end
+    end
+
+    -- Check for learned skills or skill level increases
+    for key, value in pairs(self.skillLines) do
+        if oldSkillLines[key] == nil or
+            (type(oldSkillLines[key] == 'number') and type(value) == 'number' and oldSkillLines[key] < value)
+        then
+            linesChanged = true
+            break
+        end
+    end
+
+    if linesChanged then
+        self:SendMessage('ChoreTracker_Config_Changed', 'skill lines')
     end
 
     for sectionKey, sectionData in pairs(Addon.data.chores) do
@@ -96,10 +124,10 @@ function Module:InitializeQuests()
         end
     end
     
-    self:ScanQuests()
+    self:ScanQuests(true)
 end
 
-function Module:ScanQuests()
+function Module:ScanQuests(forceChanged)
     local weeklyReset = time() + CDAT_GetSecondsUntilWeeklyReset()
     Addon.db.global.questWeeks[weeklyReset] = Addon.db.global.questWeeks[weeklyReset] or {}
     local week = Addon.db.global.questWeeks[weeklyReset]
@@ -203,7 +231,7 @@ function Module:ScanQuests()
         end
     end
 
-    if anyChanges then
+    if anyChanges or forceChanged then
         self:SendMessage('ChoreTracker_Data_Updated', 'quests')
     end
 end
