@@ -1,3 +1,7 @@
+v10.1.7.6
+---------
+- Fixed Bartering quests so that they (hopefully) track both quests consistently.
+
 v10.1.7.5
 ---------
 - Added background color to options.
