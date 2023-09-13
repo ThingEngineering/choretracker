@@ -1,3 +1,7 @@
+v10.1.7.7
+---------
+- Fixed completed quests not counting as completed.
+
 v10.1.7.6
 ---------
 - Fixed Bartering quests so that they (hopefully) track both quests consistently.
