@@ -489,6 +489,7 @@ function Module:GetSectionQuests(week, section, chore, showCompleted)
                 bestEntry, bestState, bestWeek = unpack(tremove(byStatus[1], 1))
             elseif #byStatus[2] > 0 then
                 bestEntry, bestState, bestWeek = unpack(tremove(byStatus[2], 1))
+                section.completed = section.completed + 1
             else
                 for j = 1, #byStatus[0] do
                     bestEntry, bestState, bestWeek = unpack(byStatus[0][j])
