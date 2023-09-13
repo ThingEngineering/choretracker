@@ -378,6 +378,7 @@ end
 function Module:GetSections()
     local sections = {}
 
+    local showCompleted = Addon.db.profile.general.display.showCompleted
     local weeklyReset = time() + CDAT_GetSecondsUntilWeeklyReset()
     local week = Addon.db.global.questWeeks[weeklyReset] or {}
 
@@ -392,7 +393,7 @@ function Module:GetSections()
                 if chore.typeKey == 'drops' then
                     self:GetSectionDrops(section, chore)
                 else
-                    self:GetSectionQuests(week, section, chore)
+                    self:GetSectionQuests(week, section, chore, showCompleted)
                 end
             end
         end
@@ -460,76 +461,101 @@ function Module:GetSectionDrops(section, chore)
     end
 end
 
-function Module:GetSectionQuests(week, section, chore)
-    section.total = section.total + 1
+function Module:GetSectionQuests(week, section, chore, showCompleted)
+    local pick = chore.data.pick or 1
+    section.total = section.total + pick
 
-    local bestEntry
-    local bestState = nil
-    local bestWeek = nil
+    local byStatus = {
+        [0] = {},
+        [1] = {},
+        [2] = {},
+    }
+
     for _, choreEntry in ipairs(chore.data.entries) do
         local entryState = QuestsModule.quests[choreEntry.quest]
-        if bestState == nil or bestState.status < entryState.status then
-            bestEntry = choreEntry
-            bestState = entryState
-        end
-
-        local weekState = week[choreEntry.quest]
-        if weekState ~= nil and (bestWeek == nil or (bestWeek.status == 2 and weekState.status == 1)) then
-            bestWeek = weekState
+        if entryState ~= nil then
+            table.insert(byStatus[entryState.status], {
+                choreEntry,
+                entryState,
+                week[choreEntry.quest],
+            })
         end
     end
 
-    if bestState ~= nil and bestState.status == 2 then
-        section.completed = section.completed + 1
-    end
-
-    if bestState ~= nil and (
-            Addon.db.profile.general.display.showCompleted
-            or bestState.status < 2
-        ) then
-        table.insert(
-            section.entries,
-            self:GetEntryText(chore.translated, bestEntry, bestState, bestWeek, chore.data.inProgressQuestName)
-        )
-
-        if bestEntry.shoppingList ~= nil then
-            for _, bringMe in ipairs(bestEntry.shoppingList) do
-                local bringName = ''
-                if bringMe[3] == 'currency' then
-                    local currencyInfo = C_CurrencyInfo.GetCurrencyInfo(bringMe[2])
-                    bringName = currencyInfo.name
-                else
-                    local itemInfo = self:GetCachedItem(bringMe[2])
-                    if itemInfo.valid then
-                        bringName = ITEM_QUALITY_COLORS[itemInfo.quality].hex ..
-                            itemInfo.name
-                    else
-                        bringName = ITEM_QUALITY_COLORS[1].hex .. 'Item #' .. bringMe[2]
+    if #byStatus[0] > 0 or #byStatus[1] > 0 or #byStatus[2] > 0 then
+        for i = 1, pick do
+            local bestEntry, bestState, bestWeek
+            if #byStatus[1] > 0 then
+                bestEntry, bestState, bestWeek = unpack(tremove(byStatus[1], 1))
+            elseif #byStatus[2] > 0 then
+                bestEntry, bestState, bestWeek = unpack(tremove(byStatus[2], 1))
+            else
+                for j = 1, #byStatus[0] do
+                    bestEntry, bestState, bestWeek = unpack(byStatus[0][j])
+                    if bestWeek ~= nil and bestWeek.status > 0 then
+                        tremove(byStatus[0], j)
+                        break
                     end
                 end
 
-                local shoppingText = '    * Bring ' .. bringMe[1] .. 'x ' .. bringName .. '|r'
-                table.insert(section.entries, shoppingText)
-            end
-        elseif bestState.status == 1 and bestState.objectives ~= nil and #bestState.objectives > 1 then
-            for _, objective in ipairs(bestState.objectives) do
-                local objText = '    * '
-
-                if objective.type == 'item' or
-                    objective.type == 'monster' or
-                    objective.type == 'object'
-                then
-                    objText = objText ..
-                        self:GetPercentColor(objective.have, objective.need) ..
-                        objective.text
-                else
-                    objText = objText .. objective.type .. '|' .. objective.text ..
-                        '|' .. objective.have .. '|' .. objective.need
+                -- If we didn't find anything valid, use the first quest
+                if bestWeek == nil then
+                    bestEntry, bestState, bestWeek = unpack(tremove(byStatus[0], 1))
                 end
+            end
 
-                table.insert(section.entries, objText)
+            if bestState ~= nil and (showCompleted or bestState.status < 2) then
+                table.insert(
+                    section.entries,
+                    self:GetEntryText(chore.translated, bestEntry, bestState, bestWeek, chore.data.inProgressQuestName)
+                )
+
+                if bestEntry.shoppingList ~= nil then
+                    for _, bringMe in ipairs(bestEntry.shoppingList) do
+                        local bringName = ''
+                        if bringMe[3] == 'currency' then
+                            local currencyInfo = C_CurrencyInfo.GetCurrencyInfo(bringMe[2])
+                            bringName = currencyInfo.name
+                        else
+                            local itemInfo = self:GetCachedItem(bringMe[2])
+                            if itemInfo.valid then
+                                bringName = ITEM_QUALITY_COLORS[itemInfo.quality].hex ..
+                                    itemInfo.name
+                            else
+                                bringName = ITEM_QUALITY_COLORS[1].hex .. 'Item #' .. bringMe[2]
+                            end
+                        end
+
+                        local shoppingText = '    * Bring ' .. bringMe[1] .. 'x ' .. bringName .. '|r'
+                        table.insert(section.entries, shoppingText)
+                    end
+                elseif bestState.status == 1 and bestState.objectives ~= nil and #bestState.objectives > 1 then
+                    self:AddObjectives(section.entries, bestState.objectives)
+                elseif bestWeek ~= nil and bestWeek.objectives ~= nil and #bestWeek.objectives > 1 then
+                    self:AddObjectives(section.entries, bestWeek.objectives)
+                end
             end
         end
+    end
+end
+
+function Module:AddObjectives(entries, objectives)
+    for _, objective in ipairs(objectives) do
+        local objText = '    * '
+
+        if objective.type == 'item' or
+            objective.type == 'monster' or
+            objective.type == 'object'
+        then
+            objText = objText ..
+                self:GetPercentColor(objective.have, objective.need) ..
+                objective.text
+        else
+            objText = objText .. objective.type .. '|' .. objective.text ..
+                '|' .. objective.have .. '|' .. objective.need
+        end
+
+        table.insert(entries, objText)
     end
 end
 
@@ -571,6 +597,8 @@ function Module:GetEntryText(translated, entry, state, weekState, inProgressQues
         if weekState.objectives ~= nil and #weekState.objectives == 1 then
             local objective = weekState.objectives[1]
             thingString = '|cFFFFFFFF' .. objective.text
+        else
+            thingString = '|cFFFFFFFF' .. QuestUtils_GetQuestName(entry.quest)
         end
     elseif state.status == 1 and inProgressQuestName == false then
         thingString = QuestUtils_GetQuestName(entry.quest)
