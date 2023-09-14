@@ -425,7 +425,7 @@ function Module:GetSectionDrops(section, chore)
                         choreState.total = choreState.total + 1
 
                         local otherState = QuestsModule.quests[otherEntry.quest]
-                        if otherState.status == 2 then
+                        if otherState ~= nil and otherState.status == 2 then
                             section.completed = section.completed + 1
                             choreState.completed = choreState.completed + 1
                         end
@@ -442,7 +442,7 @@ function Module:GetSectionDrops(section, chore)
             section.total = section.total + 1
 
             choreState = QuestsModule.quests[choreEntry.quest]
-            if choreState.status == 2 then
+            if choreState ~= nil and choreState.status == 2 then
                 section.completed = section.completed + 1
             end
         end
