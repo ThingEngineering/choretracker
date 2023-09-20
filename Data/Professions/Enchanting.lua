@@ -38,6 +38,7 @@ Addon.data.chores.professionEnchanting = {
             quests = {
                 {
                     key = 'craft',
+                    skill = 45,
                     entries = {
                         { quest=72155 }, -- Spread the Enchantment
                         { quest=72172 }, -- Essence, Shards, and Chromatic Dust
@@ -47,6 +48,7 @@ Addon.data.chores.professionEnchanting = {
                 },
                 {
                     key = 'gather',
+                    skill = 25,
                     entries = {
                         { quest=66884 }, -- Fireproof Gear
                         { quest=66900 }, -- Enchanted Relics
