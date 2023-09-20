@@ -78,7 +78,7 @@ Addon.data.chores.choresDragonflight = {
                     },
                 },
             },
-        },
+        }, -- patch_10_1_0
         -- patch_10_0_7 = {
         --     name = L['patch_10_0_7'],
         --     quests = {
@@ -186,6 +186,77 @@ Addon.data.chores.choresDragonflight = {
                     },
                 },
             },
-        },
+        }, -- patch_10_0_0
+        {
+            key = 'catchAndRelease',
+            quests = {
+                {
+                    key = 'releaseAileron',
+                    defaultEnabled = false,
+                    useShoppingListAsName = true,
+                    entries = {
+                        {
+                            quest = 72826, -- Catch and Release: Aileron Seamoth (HTQ)
+                            shoppingList = { { 20, 194967 } }, -- 20x Aileron Seamoth
+                        },
+                    },
+                },
+                {
+                    key = 'releaseCerulean',
+                    defaultEnabled = false,
+                    useShoppingListAsName = true,
+                    entries = {
+                        {
+                            quest = 72825, -- Catch and Release: Cerulean Spinefish (HTQ)
+                            shoppingList = { { 20, 194968 } }, -- 20x Cerulean Spinefish
+                        },
+                    },
+                },
+                {
+                    key = 'releaseIslefin',
+                    defaultEnabled = false,
+                    useShoppingListAsName = true,
+                    entries = {
+                        {
+                            quest = 72823, -- Catch and Release: Islefin Dorado (HTQ)
+                            shoppingList = { { 20, 194970 } }, -- 20x Islefin Dorado
+                        },
+                    },
+                },
+                {
+                    key = 'releaseScalebelly',
+                    defaultEnabled = false,
+                    useShoppingListAsName = true,
+                    entries = {
+                        {
+                            quest = 72828, -- Catch and Release: Scalebelly Mackerel (HTQ)
+                            shoppingList = { { 20, 194730 } }, -- 20x Scalebelly Mackerel
+                        },
+                    },
+                },
+                {
+                    key = 'releaseTemporal',
+                    defaultEnabled = false,
+                    useShoppingListAsName = true,
+                    entries = {
+                        {
+                            quest = 72824, -- Catch and Release: Temporal Dragonhead (HTQ)
+                            shoppingList = { { 20, 194969 } }, -- 20x Temporal Dragonhead
+                         },
+                    },
+                },
+                {
+                    key = 'releaseThousandbite',
+                    defaultEnabled = false,
+                    useShoppingListAsName = true,
+                    entries = {
+                        {
+                            quest = 72827, -- Catch and Release: Thousandbite Piranha (HTQ)
+                            shoppingList = { { 20, 194966 } }, -- 20x Thousandbite Piranha
+                        },
+                    },
+                },
+            },
+        }, -- catchAndRelease
     },
 }

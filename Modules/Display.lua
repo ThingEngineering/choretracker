@@ -508,10 +508,11 @@ function Module:GetSectionQuests(week, section, chore, showCompleted)
             if bestState ~= nil and (showCompleted or bestState.status < 2) then
                 table.insert(
                     section.entries,
-                    self:GetEntryText(chore.translated, bestEntry, bestState, bestWeek, chore.data.inProgressQuestName)
+                    self:GetEntryText(chore.translated, bestEntry, bestState, bestWeek,
+                        chore.data.inProgressQuestName, chore.data.useShoppingListAsName)
                 )
 
-                if bestEntry.shoppingList ~= nil then
+                if chore.data.useShoppingListAsName ~= true and bestEntry.shoppingList ~= nil then
                     for _, bringMe in ipairs(bestEntry.shoppingList) do
                         local bringName = ''
                         if bringMe[3] == 'currency' then
@@ -573,7 +574,7 @@ function Module:GetDuration(t)
     return table.concat(parts, ' ')
 end
 
-function Module:GetEntryText(translated, entry, state, weekState, inProgressQuestName)
+function Module:GetEntryText(translated, entry, state, weekState, inProgressQuestName, useShoppingListAsName)
     local thingString = ''
     if state.status == 1 and state.objectives ~= nil and #state.objectives == 1 then
         local objective = state.objectives[1]
@@ -603,6 +604,17 @@ function Module:GetEntryText(translated, entry, state, weekState, inProgressQues
         end
     elseif state.status == 1 and inProgressQuestName == false then
         thingString = QuestUtils_GetQuestName(entry.quest)
+    elseif useShoppingListAsName == true then
+        local bringName = ''
+        local itemCount, itemId = unpack(entry.shoppingList[1])
+        local itemInfo = self:GetCachedItem(itemId)
+        if itemInfo.valid then
+            bringName = ITEM_QUALITY_COLORS[itemInfo.quality].hex .. itemInfo.name
+        else
+            bringName = ITEM_QUALITY_COLORS[1].hex .. 'Item #' .. itemId
+        end
+
+        thingString = '|cFFFFFFFF' .. itemCount .. 'x ' .. bringName
     else
         thingString = '|cFFFFFFFF' .. QuestUtils_GetQuestName(entry.quest)
     end
