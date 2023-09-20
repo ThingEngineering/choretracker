@@ -1,3 +1,11 @@
+v10.1.7.8
+---------
+- Added Dragonflight>Catch and Release chores (Tuskarr fish turn-ins).
+- Added skill requirements for Enchanting chores.
+- Fixed learning/unlearning professions not updating the display.
+- Fixed increasing level in a profession not updating the display.
+- Fixed some intermittent nil errors.
+
 v10.1.7.7
 ---------
 - Fixed completed quests not counting as completed.
