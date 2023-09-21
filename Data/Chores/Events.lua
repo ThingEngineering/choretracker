@@ -15,6 +15,35 @@ Addon.data.chores.choresEvents = {
     order = 10,
     categories = {
         {
+            key = 'holidays2',
+            dungeons = {
+                {
+                    key = 'crownChemicalCo',
+                    minimumLevel = 60,
+                    requiredEventIds = { 335, 423 },
+                    dungeonId = 288,
+                },
+                {
+                    key = 'corenDirebrew',
+                    minimumLevel = 60,
+                    requiredEventIds = { 372 },
+                    dungeonId = 287,
+                },
+                {
+                    key = 'headlessHorseman',
+                    minimumLevel = 60,
+                    requiredEventIds = { 324, 1405 },
+                    dungeonId = 285,
+                },
+                {
+                    key = 'frostLordAhune',
+                    minimumLevel = 60,
+                    requiredEventIds = { 141 },
+                    dungeonId = 286,
+                },
+            },
+        },
+        {
             key = 'holidays',
             quests = {
                 {

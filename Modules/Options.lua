@@ -300,7 +300,7 @@ function Module:GetChoreOptions(data, optionWidth, inline)
             parentKey = data.key .. ':' .. catData.key
         end
 
-        for _, key in ipairs({ 'drops', 'quests' }) do
+        for _, key in ipairs({ 'drops', 'dungeons', 'quests' }) do
             if catData[key] ~= nil then
                 local thisKey
                 if inline == true then

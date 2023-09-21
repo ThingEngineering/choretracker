@@ -1,6 +1,6 @@
 local addonName, Addon = ...
 local L = Addon.L
-local Module = Addon:NewModule('Quests')
+local Module = Addon:NewModule('Scanner')
 
 
 local CDAT_GetSecondsUntilWeeklyReset = C_DateAndTime.GetSecondsUntilWeeklyReset
@@ -10,6 +10,7 @@ local CQL_IsQuestFlaggedCompleted = C_QuestLog.IsQuestFlaggedCompleted
 
 local DATA_TYPES = {
     'drops',
+    'dungeons',
     'quests',
 }
 local STATUS_NOT_STARTED = 0
@@ -30,8 +31,10 @@ local PROFESSION_DRAGONFLIGHT = {
 }
 
 function Module:OnEnable()
+    self.dungeons = {}
     self.quests = {}
     self.questPaths = {}
+    self.scanDungeons = {}
     self.skillLines = {}
 
     self:RegisterBucketEvent(
@@ -40,7 +43,7 @@ function Module:OnEnable()
             'TRADE_SKILL_LIST_UPDATE',
         },
         1,
-        'InitializeQuests'
+        'InitializeData'
     )
     self:RegisterBucketEvent(
         {
@@ -49,19 +52,29 @@ function Module:OnEnable()
         1,
         'ScanQuests'
     )
+    self:RegisterBucketEvent(
+        {
+            'LFG_COMPLETION_REWARD',
+            'LFG_LOCK_INFO_RECEIVED',
+            'LFG_UPDATE_RANDOM_INFO',
+        },
+        1,
+        'ScanDungeons'
+    )
 end
 
 function Module:OnEnteringWorld()
-    self:InitializeQuests()
+    self:InitializeData()
 end
 
-function Module:InitializeQuests()
+function Module:InitializeData()
     local oldSkillLines = {}
     for key, value in pairs(self.skillLines) do
         oldSkillLines[key] = value
     end
 
     wipe(self.questPaths)
+    wipe(self.scanDungeons)
     wipe(self.skillLines)
 
     local professions = { GetProfessions() }
@@ -108,15 +121,21 @@ function Module:InitializeQuests()
         if sectionData.skillLineId == nil or self.skillLines[sectionData.skillLineId] ~= nil then
             for _, catData in ipairs(sectionData.categories) do
                 for _, typeKey in ipairs(DATA_TYPES) do
-                    for _, questData in ipairs(catData[typeKey] or {}) do
-                        local questKey = sectionKey .. '.' .. catData.key .. '.' .. typeKey .. '.' .. questData.key
+                    for _, choreData in ipairs(catData[typeKey] or {}) do
+                        local choreKey = sectionKey .. '.' .. catData.key .. '.' .. typeKey .. '.' .. choreData.key
                         
-                        for _, questEntry in ipairs(questData.entries) do
-                            self.questPaths[questEntry.quest] = questKey
+                        if choreData.entries ~= nil then
+                            for _, choreEntry in ipairs(choreData.entries) do
+                                self.questPaths[choreEntry.quest] = choreKey
+                            end
                         end
 
-                        if questData.requiredQuest then
-                            self.questPaths[questData.requiredQuest] = questKey
+                        if choreData.requiredQuest then
+                            self.questPaths[choreData.requiredQuest] = choreKey
+                        end
+
+                        if choreData.dungeonId then
+                            self.scanDungeons[choreData.dungeonId] = true
                         end
                     end
                 end
@@ -124,7 +143,18 @@ function Module:InitializeQuests()
         end
     end
     
+    self:ScanDungeons()
     self:ScanQuests(true)
+end
+
+function Module:ScanDungeons()
+    wipe(self.dungeons)
+    for dungeonId, _ in pairs(self.scanDungeons) do
+        if IsLFGDungeonJoinable(dungeonId) then
+            local doneToday = GetLFGDungeonRewards(dungeonId)
+            self.dungeons[dungeonId] = doneToday
+        end
+    end
 end
 
 function Module:ScanQuests(forceChanged)

@@ -2,7 +2,7 @@ local addonName, Addon = ...
 local L = Addon.L
 local Module = Addon:NewModule('Display', 'AceHook-3.0')
 
-local QuestsModule
+local ScannerModule
 local TimersModule
 
 local AceGUI = LibStub('AceGUI-3.0')
@@ -30,7 +30,7 @@ local STATUS_ICON = {
 }
 
 function Module:OnEnable()
-    QuestsModule = Addon:GetModule('Quests')
+    ScannerModule = Addon:GetModule('Scanner')
     TimersModule = Addon:GetModule('Timers')
 
     if not IsAddOnLoaded('Blizzard_Calendar') then
@@ -188,7 +188,7 @@ function Module:ConfigChanged()
     for _, sectionTemp in ipairs(self.sortedSections) do
         local sectionKey, sectionData = unpack(sectionTemp)
         if
-            (sectionData.skillLineId == nil or QuestsModule.skillLines[sectionData.skillLineId] ~= nil) and
+            (sectionData.skillLineId == nil or ScannerModule.skillLines[sectionData.skillLineId] ~= nil) and
             (sectionData.minimumLevel == nil or playerLevel >= sectionData.minimumLevel)
         then
             local header = ''
@@ -215,11 +215,10 @@ function Module:ConfigChanged()
             }
 
             for _, catData in ipairs(sectionData.categories) do
-                if catData.skillLineId == nil or QuestsModule.skillLines[catData.skillLineId] ~= nil then
-                    for _, typeKey in ipairs({ 'quests', 'drops' }) do
+                if catData.skillLineId == nil or ScannerModule.skillLines[catData.skillLineId] ~= nil then
+                    for _, typeKey in ipairs({ 'dungeons', 'quests', 'drops' }) do
                         for _, choreData in ipairs(catData[typeKey] or {}) do
-                            local choreEnabled = Addon.db.profile.chores[sectionKey][catData.key][typeKey]
-                            [choreData.key]
+                            local choreEnabled = Addon.db.profile.chores[sectionKey][catData.key][typeKey][choreData.key]
                             if choreEnabled == true and
                                 (
                                     choreData.requiredEventIds == nil or
@@ -231,7 +230,7 @@ function Module:ConfigChanged()
                                 ) and
                                 (
                                     choreData.skill == nil or
-                                    QuestsModule.skillLines[catData.skillLineId] >= choreData.skill
+                                    ScannerModule.skillLines[catData.skillLineId] >= choreData.skill
                                 )
                             then
                                 section.total = section.total + 1
@@ -388,10 +387,12 @@ function Module:GetSections()
         section.entries = {}
 
         for _, chore in ipairs(section.chores) do
-            local quest = QuestsModule.quests[chore.data.requiredQuest]
+            local quest = ScannerModule.quests[chore.data.requiredQuest]
             if chore.data.requiredQuest == nil or (quest ~= nil and quest.status == 2) then
                 if chore.typeKey == 'drops' then
                     self:GetSectionDrops(section, chore)
+                elseif chore.typeKey == 'dungeons' then
+                    self:GetSectionDungeons(section, chore)
                 else
                     self:GetSectionQuests(week, section, chore, showCompleted)
                 end
@@ -404,6 +405,30 @@ function Module:GetSections()
     end
 
     return sections
+end
+
+function Module:GetSectionDungeons(section, chore)
+    section.total = section.total + 1
+
+    local dungeonState = ScannerModule.dungeons[chore.data.dungeonId]
+    if dungeonState == true then
+        section.completed = section.completed + 1
+    end
+
+    if dungeonState ~= nil and (Addon.db.profile.general.display.showCompleted or dungeonState == false) then
+        local status = dungeonState == true and 2 or 0
+        local text = '- '
+        if Addon.db.profile.general.display.statusIcons == true then
+            text = text .. STATUS_ICON[status] .. ' '
+        end
+    
+        text = text .. STATUS_COLOR[status] .. chore.translated .. '|r'
+
+        table.insert(
+            section.entries,
+            text
+        )
+    end
 end
 
 function Module:GetSectionDrops(section, chore)
@@ -424,7 +449,7 @@ function Module:GetSectionDrops(section, chore)
                         section.total = section.total + 1
                         choreState.total = choreState.total + 1
 
-                        local otherState = QuestsModule.quests[otherEntry.quest]
+                        local otherState = ScannerModule.quests[otherEntry.quest]
                         if otherState ~= nil and otherState.status == 2 then
                             section.completed = section.completed + 1
                             choreState.completed = choreState.completed + 1
@@ -441,7 +466,7 @@ function Module:GetSectionDrops(section, chore)
         else
             section.total = section.total + 1
 
-            choreState = QuestsModule.quests[choreEntry.quest]
+            choreState = ScannerModule.quests[choreEntry.quest]
             if choreState ~= nil and choreState.status == 2 then
                 section.completed = section.completed + 1
             end
@@ -472,7 +497,7 @@ function Module:GetSectionQuests(week, section, chore, showCompleted)
     }
 
     for _, choreEntry in ipairs(chore.data.entries) do
-        local entryState = QuestsModule.quests[choreEntry.quest]
+        local entryState = ScannerModule.quests[choreEntry.quest]
         if entryState ~= nil then
             table.insert(byStatus[entryState.status], {
                 choreEntry,

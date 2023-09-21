@@ -67,6 +67,14 @@ function Addon:OnInitialize()
                 defaultDb.profile.chores[sectionKey][catData.key].drops = drops
             end
 
+            if catData.dungeons ~= nil then
+                local dungeons = {}
+                for _, dungeonData in ipairs(catData.dungeons) do
+                    dungeons[dungeonData.key] = dungeonData.defaultEnabled ~= false
+                end
+                defaultDb.profile.chores[sectionKey][catData.key].dungeons = dungeons
+            end
+
             if catData.quests ~= nil then
                 local quests = {}
                 for _, questData in ipairs(catData.quests) do

@@ -49,5 +49,5 @@ Data\Timers.lua
 
 Modules\Display.lua
 Modules\Options.lua
-Modules\Quests.lua
+Modules\Scanner.lua
 Modules\Timers.lua
