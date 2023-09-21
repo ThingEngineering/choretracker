@@ -12,7 +12,7 @@ local legionTimewalkingIds = { 1263, 1265, 1267, 1269, 1271, 1273, 1275, 1277 }
 Addon.data.chores.choresEvents = {
     key = 'events',
     name = L['section:events'],
-    order = 10,
+    order = 0,
     categories = {
         {
             key = 'holidays2',
