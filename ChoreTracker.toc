@@ -1,7 +1,7 @@
 ## Interface: 100107
 ## Title: ChoreTracker
 ## Notes: Keep track of your chores
-## Version: 10.1.7.9
+## Version: 10.1.7.10
 ## Author: Freddie
 ## IconTexture: Interface\AddOns\ChoreTracker\Assets\icon.blp
 ## SavedVariables: ChoreTrackerDB
@@ -20,6 +20,7 @@ Libs\AceEvent-3.0\AceEvent-3.0.xml
 Libs\AceHook-3.0\AceHook-3.0.xml
 Libs\AceLocale-3.0\AceLocale-3.0.xml
 Libs\AceTimer-3.0\AceTimer-3.0.xml
+Libs\LibCandyBar-3.0\lib.xml
 Libs\LibSharedMedia-3.0\lib.xml
 Libs\AceGUI-3.0-SharedMediaWidgets\widget.xml
 
