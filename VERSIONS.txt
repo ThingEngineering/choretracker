@@ -1,3 +1,7 @@
+v10.1.7.10b
+-----------
+- Fixed a bad TOC change.
+
 v10.1.7.10
 ----------
 - Fixed (maybe) the calendar time zone mess where events show as active way too
