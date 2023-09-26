@@ -18,6 +18,13 @@ local CDAT_GetCalendarTimeFromEpoch = C_DateAndTime.GetCalendarTimeFromEpoch
 local CDAT_GetCurrentCalendarTime = C_DateAndTime.GetCurrentCalendarTime
 local CDAT_GetSecondsUntilWeeklyReset = C_DateAndTime.GetSecondsUntilWeeklyReset
 
+local REGION_OFFSET = {
+    [1] = -(7 * 60 * 60), -- US events use PST (-0700 UTC)
+    --[2] = ??, -- KR
+    [3] = (1 * 60 * 60),  -- EU events use CEDT? (+0100 UTC)
+    --[4] = ??, -- TW
+}
+
 local STATUS_COLOR = {
     [0] = '|cFFFF2222',
     [1] = '|cFFFFFF00',
@@ -71,10 +78,6 @@ end
 function Module:OnEnteringWorld()
     self:ResetCalendar()
     self:UpdateZone()
-end
-
-function Module:GetLocalTime()
-    return CDAT_GetCalendarTimeFromEpoch(GetServerTime() * 1000000)
 end
 
 function Module:ResetCalendar()
@@ -165,8 +168,18 @@ function Module:ConfigChanged()
 
     self.activeEvents = self.activeEvents or {}
 
-    -- Check which events are active if the calendar is set to the correct year/month
-    local now = self:GetLocalTime()
+    -- If we have data about what timezone calendar events are actually in, mangle the
+    -- timezones a little to use the correct offset. FFS, Blizzard.
+    local unixTime = time()
+    local region = GetCurrentRegion()
+    if REGION_OFFSET[region] ~= nil then
+        local offset = self:GetTimeZoneOffset(unixTime)
+        unixTime = unixTime - offset + REGION_OFFSET[region]
+    end
+
+    local now = CDAT_GetCalendarTimeFromEpoch(unixTime * 1000000)
+
+    -- Check which events are active if the calendar is set to the correct year/month.
     local calendar = C_Calendar.GetMonthInfo(0)
     if now.year == calendar.year and now.month == calendar.month then
         local activeEvents = {}
@@ -261,6 +274,13 @@ function Module:ConfigChanged()
     end
 
     self:Redraw()
+end
+
+function Module:GetTimeZoneOffset(now)
+    local localDate = date('*t', now)
+    localDate.isdst = false
+    local utcDate = date('!*t', now)
+    return difftime(time(localDate), time(utcDate))
 end
 
 function Module:AnyActive(activeEvents, eventIds)
