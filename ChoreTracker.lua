@@ -96,7 +96,7 @@ function Addon:OnInitialize()
     self:RegisterChatCommand('chores', 'SlashCommand')
     self:RegisterChatCommand('choretracker', 'SlashCommand')
 
-    self.db = ADB:New('ChoreTrackerDB', defaultDb, true) -- default global profile
+    self.db = ADB:New("ChoreTrackerDB", defaultDb, true) -- default global profile
 
     -- register events, etc
     self:RegisterEvent('PLAYER_ENTERING_WORLD')
