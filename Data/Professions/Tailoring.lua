@@ -38,6 +38,7 @@ Addon.data.chores.professionTailoring = {
             quests = {
                 {
                     key = 'craft',
+                    skill = 50,
                     entries = {
                         { quest=70572 }, -- The Cold Does Bother Them, Actually
                         { quest=70582 }, -- Weave Well Enough Alone
@@ -47,6 +48,7 @@ Addon.data.chores.professionTailoring = {
                 },
                 {
                     key = 'gather',
+                    skill = 25,
                     entries = {
                         { quest=66899 }, -- Fuzzy Legs
                         { quest=66952 }, -- The Gnoll's Clothes
@@ -58,6 +60,7 @@ Addon.data.chores.professionTailoring = {
                 },
                 {
                     key = 'orders',
+                    skill = 25,
                     entries = {
                         { quest=70595 }, -- Tailoring Services Requested
                     },

@@ -38,6 +38,7 @@ Addon.data.chores.professionEngineering = {
             quests = {
                 {
                     key = 'craft',
+                    skill = 45,
                     entries = {
                         { quest=70539 }, -- And You Thought They Did Nothing
                         { quest=70540 }, -- An Engineer's Best Friend
@@ -47,6 +48,7 @@ Addon.data.chores.professionEngineering = {
                 },
                 {
                     key = 'gather',
+                    skill = 25,
                     entries = {
                         { quest=66890 }, -- Stolen Tools
                         { quest=66891 }, -- Explosive Ash
@@ -58,6 +60,7 @@ Addon.data.chores.professionEngineering = {
                 },
                 {
                     key = 'orders',
+                    skill = 25,
                     entries = {
                         { quest=70591 }, -- Engineering Services Requested
                     },
