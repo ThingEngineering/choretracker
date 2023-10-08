@@ -13,6 +13,7 @@ Addon.data.chores.choresDragonflight = {
             quests = {
                 {
                     key = 'dreamsurge',
+                    minimumLevel = 70,
                     entries = {
                         { quest=77251 }, -- Shaping the Dreamsurge
                     },
