@@ -165,6 +165,7 @@ Addon.data.chores.choresDragonflight = {
                 },
                 {
                     key = 'heroicDungeons',
+                    minimumLevel = 70,
                     entries = {
                         { quest = 76122 }, -- Fighting is its Own Reward
                     },
