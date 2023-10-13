@@ -47,6 +47,7 @@ Addon.data.chores.professionLeatherworking = {
                 },
                 {
                     key = 'gather',
+                    skill = 25,
                     entries = {
                         { quest=66363 }, -- Basilisk Bucklers
                         { quest=66364 }, -- To Fly a Kite
@@ -58,6 +59,7 @@ Addon.data.chores.professionLeatherworking = {
                 },
                 {
                     key = 'orders',
+                    skill = 25,
                     entries = {
                         { quest=70594 }, -- Leatherworking Services Requested
                     },

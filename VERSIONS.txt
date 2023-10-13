@@ -1,3 +1,9 @@
+v10.1.7.11
+----------
+- Added more profession chore skill level requirements.
+- Changed Fighting is its Own Reward to level 70 required.
+- Changed Shaping the Dreamsurge to level 70 required.
+
 v10.1.7.10b
 -----------
 - Fixed a bad TOC change.

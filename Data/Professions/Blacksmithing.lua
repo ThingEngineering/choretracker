@@ -58,6 +58,7 @@ Addon.data.chores.professionBlacksmithing = {
                 },
                 {
                     key = 'orders',
+                    skill = 25,
                     entries = {
                         { quest=70589 }, -- Blacksmithing Services Requested
                     },

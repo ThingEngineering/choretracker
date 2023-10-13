@@ -38,6 +38,7 @@ Addon.data.chores.professionInscription = {
             quests = {
                 {
                     key = 'craft',
+                    skill = 45,
                     entries = {
                         { quest=70558 }, -- Disillusioned Illusions
                         { quest=70559 }, -- Quill You Help?
@@ -47,6 +48,7 @@ Addon.data.chores.professionInscription = {
                 },
                 {
                     key = 'gather',
+                    skill = 25,
                     entries = {
                         { quest=66943 }, -- Wood for Writing
                         { quest=66944 }, -- Peacock Pigments
@@ -58,6 +60,7 @@ Addon.data.chores.professionInscription = {
                 },
                 {
                     key = 'orders',
+                    skill = 25,
                     entries = {
                         { quest=70592 }, -- Inscription Services Requested
                     },

@@ -13,6 +13,7 @@ Addon.data.chores.choresDragonflight = {
             quests = {
                 {
                     key = 'dreamsurge',
+                    minimumLevel = 70,
                     entries = {
                         { quest=77251 }, -- Shaping the Dreamsurge
                     },
@@ -164,6 +165,7 @@ Addon.data.chores.choresDragonflight = {
                 },
                 {
                     key = 'heroicDungeons',
+                    minimumLevel = 70,
                     entries = {
                         { quest = 76122 }, -- Fighting is its Own Reward
                     },

@@ -38,6 +38,7 @@ Addon.data.chores.professionJewelcrafting = {
             quests = {
                 {
                     key = 'craft',
+                    skill = 50,
                     entries = {
                         { quest=70562 }, -- The Plumbers, Mason
                         { quest=70563 }, -- The Exhibition
@@ -47,6 +48,7 @@ Addon.data.chores.professionJewelcrafting = {
                 },
                 {
                     key = 'gather',
+                    skill = 25,
                     entries = {
                         { quest=66516 }, -- Mundane Gems, I Think Not!
                         { quest=66949 }, -- Trinket Bandits
@@ -58,6 +60,7 @@ Addon.data.chores.professionJewelcrafting = {
                 },
                 {
                     key = 'orders',
+                    skill = 25,
                     entries = {
                         { quest=70593 }, -- Jewelcrafting Services Requested
                     },
