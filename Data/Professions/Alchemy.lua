@@ -37,16 +37,6 @@ Addon.data.chores.professionAlchemy = {
             },
             quests = {
                 {
-                    key = 'craft',
-                    skill = 50,
-                    entries = {
-                        { quest=70530 }, -- Examination Week
-                        { quest=70531 }, -- Mana Markets
-                        { quest=70532 }, -- Aiding the Raiding
-                        { quest=70533 }, -- Draught, Oiled Again
-                    },
-                },
-                {
                     key = 'gather',
                     skill = 25,
                     entries = {
@@ -56,6 +46,16 @@ Addon.data.chores.professionAlchemy = {
                         { quest=72427 }, -- Animated Infusion
                         { quest=75363, level=70 }, -- Deepflayer Dust [ZC]
                         { quest=75371, level=70 }, -- Fascinating Fungi [ZC]
+                    },
+                },
+                {
+                    key = 'provide',
+                    skill = 50,
+                    entries = {
+                        { quest=70530 }, -- Examination Week
+                        { quest=70531 }, -- Mana Markets
+                        { quest=70532 }, -- Aiding the Raiding
+                        { quest=70533 }, -- Draught, Oiled Again
                     },
                 },
                 {

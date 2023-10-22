@@ -37,16 +37,6 @@ Addon.data.chores.professionTailoring = {
             },
             quests = {
                 {
-                    key = 'craft',
-                    skill = 50,
-                    entries = {
-                        { quest=70572 }, -- The Cold Does Bother Them, Actually
-                        { quest=70582 }, -- Weave Well Enough Alone
-                        { quest=70586 }, -- Sew Many Cooks
-                        { quest=70587 }, -- A Knapsack Problem
-                    },
-                },
-                {
                     key = 'gather',
                     skill = 25,
                     entries = {
@@ -59,16 +49,26 @@ Addon.data.chores.professionTailoring = {
                     },
                 },
                 {
-                    key = 'orders',
-                    skill = 25,
+                    key = 'provide',
+                    skill = 50,
                     entries = {
-                        { quest=70595 }, -- Tailoring Services Requested
+                        { quest=70572 }, -- The Cold Does Bother Them, Actually
+                        { quest=70582 }, -- Weave Well Enough Alone
+                        { quest=70586 }, -- Sew Many Cooks
+                        { quest=70587 }, -- A Knapsack Problem
                     },
                 },
                 {
                     key = 'treatise',
                     entries = {
                         { quest=74115, item=194698 }, -- Draconic Treatise on Tailoring
+                    },
+                },
+                {
+                    key = 'orders',
+                    skill = 25,
+                    entries = {
+                        { quest=70595 }, -- Tailoring Services Requested
                     },
                 },
             },

@@ -37,16 +37,6 @@ Addon.data.chores.professionEngineering = {
             },
             quests = {
                 {
-                    key = 'craft',
-                    skill = 45,
-                    entries = {
-                        { quest=70539 }, -- And You Thought They Did Nothing
-                        { quest=70540 }, -- An Engineer's Best Friend
-                        { quest=70545 }, -- Blingtron 8000...?
-                        { quest=70557 }, -- No Scopes
-                    },
-                },
-                {
                     key = 'gather',
                     skill = 25,
                     entries = {
@@ -59,16 +49,26 @@ Addon.data.chores.professionEngineering = {
                     },
                 },
                 {
-                    key = 'orders',
-                    skill = 25,
+                    key = 'provide',
+                    skill = 45,
                     entries = {
-                        { quest=70591 }, -- Engineering Services Requested
+                        { quest=70539 }, -- And You Thought They Did Nothing
+                        { quest=70540 }, -- An Engineer's Best Friend
+                        { quest=70545 }, -- Blingtron 8000...?
+                        { quest=70557 }, -- No Scopes
                     },
                 },
                 {
                     key = 'treatise',
                     entries = {
                         { quest=74111, item=198510 }, -- Draconic Treatise on Engineering
+                    },
+                },
+                {
+                    key = 'orders',
+                    skill = 25,
+                    entries = {
+                        { quest=70591 }, -- Engineering Services Requested
                     },
                 },
             },

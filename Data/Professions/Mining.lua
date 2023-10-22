@@ -35,7 +35,7 @@ Addon.data.chores.professionMining = {
             },
             quests = {
                 {
-                    key = 'gather',
+                    key = 'provide',
                     skill = 45,
                     entries = {
                         { quest=70617 }, -- All Mine, Mine, Mine

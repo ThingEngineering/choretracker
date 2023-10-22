@@ -37,16 +37,6 @@ Addon.data.chores.professionInscription = {
             },
             quests = {
                 {
-                    key = 'craft',
-                    skill = 45,
-                    entries = {
-                        { quest=70558 }, -- Disillusioned Illusions
-                        { quest=70559 }, -- Quill You Help?
-                        { quest=70560 }, -- The Most Powerful Tool: Good Documentation
-                        { quest=70561 }, -- A Scribe's Tragedy
-                    },
-                },
-                {
                     key = 'gather',
                     skill = 25,
                     entries = {
@@ -59,16 +49,26 @@ Addon.data.chores.professionInscription = {
                     },
                 },
                 {
-                    key = 'orders',
-                    skill = 25,
+                    key = 'provide',
+                    skill = 45,
                     entries = {
-                        { quest=70592 }, -- Inscription Services Requested
+                        { quest=70558 }, -- Disillusioned Illusions
+                        { quest=70559 }, -- Quill You Help?
+                        { quest=70560 }, -- The Most Powerful Tool: Good Documentation
+                        { quest=70561 }, -- A Scribe's Tragedy
                     },
                 },
                 {
                     key = 'treatise',
                     entries = {
                         { quest=74105, item=194699 }, -- Draconic Treatise on Inscription
+                    },
+                },
+                {
+                    key = 'orders',
+                    skill = 25,
+                    entries = {
+                        { quest=70592 }, -- Inscription Services Requested
                     },
                 },
             },

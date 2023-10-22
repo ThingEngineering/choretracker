@@ -37,15 +37,6 @@ Addon.data.chores.professionLeatherworking = {
             },
             quests = {
                 {
-                    key = 'craft',
-                    entries = {
-                        { quest=70567 }, -- When You Give Bakar a Bone
-                        { quest=70568 }, -- Tipping the Scales
-                        { quest=70569 }, -- For Tristket, a Task Kit
-                        { quest=70571 }, -- Drums Here!
-                    },
-                },
-                {
                     key = 'gather',
                     skill = 25,
                     entries = {
@@ -58,16 +49,25 @@ Addon.data.chores.professionLeatherworking = {
                     },
                 },
                 {
-                    key = 'orders',
-                    skill = 25,
+                    key = 'provide',
                     entries = {
-                        { quest=70594 }, -- Leatherworking Services Requested
+                        { quest=70567 }, -- When You Give Bakar a Bone
+                        { quest=70568 }, -- Tipping the Scales
+                        { quest=70569 }, -- For Tristket, a Task Kit
+                        { quest=70571 }, -- Drums Here!
                     },
                 },
                 {
                     key = 'treatise',
                     entries = {
                         { quest=74113, item=194700 }, -- Draconic Treatise on Leatherworking
+                    },
+                },
+                {
+                    key = 'orders',
+                    skill = 25,
+                    entries = {
+                        { quest=70594 }, -- Leatherworking Services Requested
                     },
                 },
             },

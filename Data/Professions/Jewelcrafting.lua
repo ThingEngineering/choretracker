@@ -37,16 +37,6 @@ Addon.data.chores.professionJewelcrafting = {
             },
             quests = {
                 {
-                    key = 'craft',
-                    skill = 50,
-                    entries = {
-                        { quest=70562 }, -- The Plumbers, Mason
-                        { quest=70563 }, -- The Exhibition
-                        { quest=70564 }, -- Spectacular
-                        { quest=70565 }, -- Separation by Saturation
-                    },
-                },
-                {
                     key = 'gather',
                     skill = 25,
                     entries = {
@@ -59,16 +49,26 @@ Addon.data.chores.professionJewelcrafting = {
                     },
                 },
                 {
-                    key = 'orders',
-                    skill = 25,
+                    key = 'provide',
+                    skill = 50,
                     entries = {
-                        { quest=70593 }, -- Jewelcrafting Services Requested
+                        { quest=70562 }, -- The Plumbers, Mason
+                        { quest=70563 }, -- The Exhibition
+                        { quest=70564 }, -- Spectacular
+                        { quest=70565 }, -- Separation by Saturation
                     },
                 },
                 {
                     key = 'treatise',
                     entries = {
                         { quest=74112, item=194703 }, -- Draconic Treatise on Jewelcrafting
+                    },
+                },
+                {
+                    key = 'orders',
+                    skill = 25,
+                    entries = {
+                        { quest=70593 }, -- Jewelcrafting Services Requested
                     },
                 },
             },

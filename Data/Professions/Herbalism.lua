@@ -35,7 +35,7 @@ Addon.data.chores.professionHerbalism = {
             },
             quests = {
                 {
-                    key = 'gather',
+                    key = 'provide',
                     skill = 45,
                     entries = {
                         { quest=70613 }, -- Get Their Bark Before They Bite

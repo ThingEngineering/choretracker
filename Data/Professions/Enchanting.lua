@@ -37,16 +37,6 @@ Addon.data.chores.professionEnchanting = {
             },
             quests = {
                 {
-                    key = 'craft',
-                    skill = 45,
-                    entries = {
-                        { quest=72155 }, -- Spread the Enchantment
-                        { quest=72172 }, -- Essence, Shards, and Chromatic Dust
-                        { quest=72173 }, -- Braced for Enchantment
-                        { quest=72175 }, -- A Secpt-acular Time
-                    },
-                },
-                {
                     key = 'gather',
                     skill = 25,
                     entries = {
@@ -56,6 +46,16 @@ Addon.data.chores.professionEnchanting = {
                         { quest=72423 }, -- Weathering the Storm
                         { quest=75150, level=70 }, -- Incandescence [ZC]
                         { quest=75865, level=70 }, -- Relic Rustler [ZC]
+                    },
+                },
+                {
+                    key = 'provide',
+                    skill = 45,
+                    entries = {
+                        { quest=72155 }, -- Spread the Enchantment
+                        { quest=72172 }, -- Essence, Shards, and Chromatic Dust
+                        { quest=72173 }, -- Braced for Enchantment
+                        { quest=72175 }, -- A Secpt-acular Time
                     },
                 },
                 {

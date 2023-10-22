@@ -35,7 +35,7 @@ Addon.data.chores.professionSkinning = {
             },
             quests = {
                 {
-                    key = 'gather',
+                    key = 'provide',
                     skill = 45,
                     entries = {
                         { quest=70619 }, -- A Study of Leather

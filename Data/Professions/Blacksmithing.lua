@@ -37,15 +37,6 @@ Addon.data.chores.professionBlacksmithing = {
             },
             quests = {
                 {
-                    key = 'craft',
-                    entries = {
-                        { quest=70211 }, -- Stomping Explorers
-                        { quest=70233 }, -- Axe Shortage
-                        { quest=70234 }, -- All This Hammering
-                        { quest=70235 }, -- Repair Bill
-                    },
-                },
-                {
                     key = 'gather',
                     entries = {
                         { quest=66517 }, -- A New Source of Weapons
@@ -57,16 +48,25 @@ Addon.data.chores.professionBlacksmithing = {
                     },
                 },
                 {
-                    key = 'orders',
-                    skill = 25,
+                    key = 'provide',
                     entries = {
-                        { quest=70589 }, -- Blacksmithing Services Requested
+                        { quest=70211 }, -- Stomping Explorers
+                        { quest=70233 }, -- Axe Shortage
+                        { quest=70234 }, -- All This Hammering
+                        { quest=70235 }, -- Repair Bill
                     },
                 },
                 {
                     key = 'treatise',
                     entries = {
                         { quest=74109, item=198454 }, -- Draconic Treatise on Blacksmithing
+                    },
+                },
+                {
+                    key = 'orders',
+                    skill = 25,
+                    entries = {
+                        { quest=70589 }, -- Blacksmithing Services Requested
                     },
                 },
             },
