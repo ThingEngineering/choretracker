@@ -46,6 +46,7 @@ Addon.data.chores.professionAlchemy = {
                         { quest=72427 }, -- Animated Infusion
                         { quest=75363, level=70 }, -- Deepflayer Dust [ZC]
                         { quest=75371, level=70 }, -- Fascinating Fungi [ZC]
+                        { quest=77932, level=70 }, -- Warmth of Life [ED]
                     },
                 },
                 {

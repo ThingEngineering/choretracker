@@ -46,6 +46,8 @@ Addon.data.chores.professionInscription = {
                         { quest=72438 }, -- Tarasek Intentions
                         { quest=75149, level=70 }, -- Obsidian Essays [ZC]
                         { quest=75573, level=70 }, -- Proclamation Reclamation [ZC]
+                        { quest=77889, level=70 }, -- A Fiery Proposal [ED]
+                        { quest=77914, level=70 }, -- Burning Runes [ED]
                     },
                 },
                 {

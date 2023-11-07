@@ -46,6 +46,8 @@ Addon.data.chores.professionEngineering = {
                         { quest=72396 }, -- Horns of Plenty
                         { quest=75575, level=70 }, -- Ballistae Bits [ZC]
                         { quest=75608, level=70 }, -- Titan Trash or Titan Treasure [ZC]
+                        { quest=77891, level=70 }, -- An Unlikely Engineer [ED]
+                        { quest=77938, level=70 }, -- Fixing the Dream [ED]
                     },
                 },
                 {

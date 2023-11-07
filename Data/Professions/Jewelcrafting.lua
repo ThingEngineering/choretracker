@@ -46,6 +46,8 @@ Addon.data.chores.professionJewelcrafting = {
                         { quest=72428 }, -- Hornswog Hoarders
                         { quest=75362, level=70 }, -- Cephalo-crystalization [ZC]
                         { quest=75602, level=70 }, -- Chips off the Old Crystal Block [ZC]
+                        { quest=77892, level=70 }, -- Pearls of Great Value [ED]
+                        { quest=77912, level=70 }, -- Unmodern Jewelry [ED]
                     },
                 },
                 {

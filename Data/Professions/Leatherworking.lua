@@ -46,6 +46,7 @@ Addon.data.chores.professionLeatherworking = {
                         { quest=72407 }, -- Soaked in Success
                         { quest=75354, level=70 }, -- Mycelium Mastery [ZC]
                         { quest=75368, level=70 }, -- Stones and Scales [ZC]
+                        { quest=77946, level=70 }, -- Fibrous Thread [ED]
                     },
                 },
                 {
@@ -53,8 +54,9 @@ Addon.data.chores.professionLeatherworking = {
                     entries = {
                         { quest=70567 }, -- When You Give Bakar a Bone
                         { quest=70568 }, -- Tipping the Scales
-                        { quest=70569 }, -- For Tristket, a Task Kit
+                        { quest=70569 }, -- For Trisket, a Task Kit
                         { quest=70571 }, -- Drums Here!
+                        { quest=77945, level=70 }, -- Boots on the Ground [ED]
                     },
                 },
                 {

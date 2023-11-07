@@ -46,6 +46,8 @@ Addon.data.chores.professionEnchanting = {
                         { quest=72423 }, -- Weathering the Storm
                         { quest=75150, level=70 }, -- Incandescence [ZC]
                         { quest=75865, level=70 }, -- Relic Rustler [ZC]
+                        { quest=77910, level=70 }, -- Enchanted Shrubbery [ED]
+                        { quest=77937, level=70 }, -- Forbidden Sugar [ED]
                     },
                 },
                 {

@@ -46,6 +46,8 @@ Addon.data.chores.professionTailoring = {
                         { quest=72410 }, -- Pincers and Needles
                         { quest=75407, level=70 }, -- Silk Scavenging [ZC]
                         { quest=75600, level=70 }, -- Silk's Silk [ZC]
+                        { quest=77947, level=70 }, -- Primalist Fashion [ED]
+                        { quest=77949, level=70 }, -- Fashion Feathers [ED]
                     },
                 },
                 {

@@ -45,6 +45,7 @@ Addon.data.chores.professionBlacksmithing = {
                         { quest=72398 }, -- Rock and Stone
                         { quest=75148, level=70 }, -- Ancient Techniques [ZC]
                         { quest=75569, level=70 }, -- Blacksmith, Black Dragon [ZC]
+                        { quest=77936, level=70 }, -- A Warm Harvest [ED]
                     },
                 },
                 {
@@ -54,6 +55,7 @@ Addon.data.chores.professionBlacksmithing = {
                         { quest=70233 }, -- Axe Shortage
                         { quest=70234 }, -- All This Hammering
                         { quest=70235 }, -- Repair Bill
+                        { quest=77935, level=70 }, -- A-Sword-ed Needs [ED]
                     },
                 },
                 {
