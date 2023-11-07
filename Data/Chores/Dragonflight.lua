@@ -9,6 +9,18 @@ Addon.data.chores.choresDragonflight = {
     minimumLevel = 60,
     categories = {
         {
+            key = 'patch_10_2_0',
+            quests = {
+                {
+                    key = 'superbloom',
+                    minimumLevel = 70,
+                    entries = {
+                        { quest=78319 }, -- The Superbloom
+                    }
+                }
+            }
+        },
+        {
             key = 'patch_10_1_7',
             quests = {
                 {

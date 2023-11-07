@@ -19,6 +19,7 @@ L['category:patch_10_0_7'] = 'Patch 10.0.7'
 L['category:patch_10_1_0'] = 'Patch 10.1'
 L['category:patch_10_1_5'] = 'Patch 10.1.5'
 L['category:patch_10_1_7'] = 'Patch 10.1.7'
+L['category:patch_10_2_0'] = 'Patch 10.2.0'
 L['category:pvpBrawls'] = 'PvP Brawls'
 
 L['chore:dragonflight:catchAndRelease:quests:releaseAileron'] = 'Aileron Seamoth'
@@ -27,6 +28,8 @@ L['chore:dragonflight:catchAndRelease:quests:releaseIslefin'] = 'Islefin Dorado'
 L['chore:dragonflight:catchAndRelease:quests:releaseScalebelly'] = 'Scalebelly Mackerel'
 L['chore:dragonflight:catchAndRelease:quests:releaseTemporal'] = 'Temporal Dragonhead'
 L['chore:dragonflight:catchAndRelease:quests:releaseThousandbite'] = 'Thousandbite Piranha'
+
+L['chore:dragonflight:patch_10_2_0:quests:superbloom'] = 'Superbloom'
 
 L['chore:dragonflight:patch_10_1_7:quests:dreamsurge'] = 'Dreamsurge'
 
