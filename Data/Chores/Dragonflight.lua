@@ -12,12 +12,19 @@ Addon.data.chores.choresDragonflight = {
             key = 'patch_10_2_0',
             quests = {
                 {
+                    key = 'aWorthyAlly',
+                    minimumLevel = 70,
+                    entries = {
+                        { quest = 78444 }, -- A Worthy Ally: Dream Wardens
+                    },
+                },
+                {
                     key = 'superbloom',
                     minimumLevel = 70,
                     entries = {
                         { quest=78319 }, -- The Superbloom
                     }
-                }
+                },
             }
         },
         {

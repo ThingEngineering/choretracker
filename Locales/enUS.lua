@@ -29,6 +29,7 @@ L['chore:dragonflight:catchAndRelease:quests:releaseScalebelly'] = 'Scalebelly M
 L['chore:dragonflight:catchAndRelease:quests:releaseTemporal'] = 'Temporal Dragonhead'
 L['chore:dragonflight:catchAndRelease:quests:releaseThousandbite'] = 'Thousandbite Piranha'
 
+L['chore:dragonflight:patch_10_2_0:quests:aWorthyAlly'] = 'A Worthy Ally'
 L['chore:dragonflight:patch_10_2_0:quests:superbloom'] = 'Superbloom'
 
 L['chore:dragonflight:patch_10_1_7:quests:dreamsurge'] = 'Dreamsurge'
