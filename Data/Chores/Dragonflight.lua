@@ -130,6 +130,8 @@ Addon.data.chores.choresDragonflight = {
                         { quest = 75861 }, -- Aiding the Accord: Suffusion Camp
                         { quest = 77254 }, -- Aiding the Accord: Time Rift
                         { quest = 77976 }, -- Aiding the Accord: Dreamsurge
+                        { quest = 78446 }, -- Aiding the Accord: Superbloom
+                        { quest = 78447 }, -- Aiding the Accord: Emerald Bounty
                     },
                 },
                 {
