@@ -1,3 +1,8 @@
+v10.2.0.2
+---------
+- Added A Worthy Ally: Dream Wardens chore.
+- Added Sparks of Life: Emerald Dreams to Sparks of Life chore.
+
 v10.2.0.1
 ----------
 - Added Superbloom to Dragonflight chores.
