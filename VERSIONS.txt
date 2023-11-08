@@ -1,3 +1,11 @@
+v10.2.0.1
+----------
+- Added Superbloom to Dragonflight chores.
+- Added some Emerald Dream profession quests.
+- Renamed "Craft" quests to "Provide", makes more sense to me.
+- Removed some unused library files.
+- Updated TOC for 10.2.0.
+
 v10.1.7.11
 ----------
 - Added more profession chore skill level requirements.
