@@ -206,6 +206,7 @@ Addon.data.chores.choresDragonflight = {
                         { quest = 72649 }, -- Sparks of Life: Thaldraszus
                         { quest = 74871 }, -- Sparks of Life: The Forbidden Reach
                         { quest = 75305 }, -- Sparks of Life: Zaralek Cavern
+                        { quest = 78097 }, -- Sparks of Life: Emerald Dream
                     },
                 },
             },
