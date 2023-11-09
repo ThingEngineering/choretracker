@@ -37,7 +37,17 @@ Addon.data.chores.professionAlchemy = {
             },
             quests = {
                 {
-                    key = 'gather',
+                    key = 'provide',
+                    skill = 50,
+                    entries = {
+                        { quest=70530 }, -- Examination Week
+                        { quest=70531 }, -- Mana Markets
+                        { quest=70532 }, -- Aiding the Raiding
+                        { quest=70533 }, -- Draught, Oiled Again
+                    },
+                },
+                {
+                    key = 'task',
                     skill = 25,
                     entries = {
                         { quest=66937 }, -- Decaying News
@@ -47,16 +57,6 @@ Addon.data.chores.professionAlchemy = {
                         { quest=75363, level=70 }, -- Deepflayer Dust [ZC]
                         { quest=75371, level=70 }, -- Fascinating Fungi [ZC]
                         { quest=77932, level=70 }, -- Warmth of Life [ED]
-                    },
-                },
-                {
-                    key = 'provide',
-                    skill = 50,
-                    entries = {
-                        { quest=70530 }, -- Examination Week
-                        { quest=70531 }, -- Mana Markets
-                        { quest=70532 }, -- Aiding the Raiding
-                        { quest=70533 }, -- Draught, Oiled Again
                     },
                 },
                 {

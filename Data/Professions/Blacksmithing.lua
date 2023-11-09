@@ -37,7 +37,16 @@ Addon.data.chores.professionBlacksmithing = {
             },
             quests = {
                 {
-                    key = 'gather',
+                    key = 'provide',
+                    entries = {
+                        { quest=70211 }, -- Stomping Explorers
+                        { quest=70233 }, -- Axe Shortage
+                        { quest=70234 }, -- All This Hammering
+                        { quest=70235 }, -- Repair Bill
+                    },
+                },
+                {
+                    key = 'task',
                     entries = {
                         { quest=66517 }, -- A New Source of Weapons
                         { quest=66897 }, -- Fuel for the Forge
@@ -45,17 +54,8 @@ Addon.data.chores.professionBlacksmithing = {
                         { quest=72398 }, -- Rock and Stone
                         { quest=75148, level=70 }, -- Ancient Techniques [ZC]
                         { quest=75569, level=70 }, -- Blacksmith, Black Dragon [ZC]
-                        { quest=77936, level=70 }, -- A Warm Harvest [ED]
-                    },
-                },
-                {
-                    key = 'provide',
-                    entries = {
-                        { quest=70211 }, -- Stomping Explorers
-                        { quest=70233 }, -- Axe Shortage
-                        { quest=70234 }, -- All This Hammering
-                        { quest=70235 }, -- Repair Bill
                         { quest=77935, level=70 }, -- A-Sword-ed Needs [ED]
+                        { quest=77936, level=70 }, -- A Warm Harvest [ED]
                     },
                 },
                 {

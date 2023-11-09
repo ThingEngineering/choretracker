@@ -37,7 +37,17 @@ Addon.data.chores.professionInscription = {
             },
             quests = {
                 {
-                    key = 'gather',
+                    key = 'provide',
+                    skill = 45,
+                    entries = {
+                        { quest=70558 }, -- Disillusioned Illusions
+                        { quest=70559 }, -- Quill You Help?
+                        { quest=70560 }, -- The Most Powerful Tool: Good Documentation
+                        { quest=70561 }, -- A Scribe's Tragedy
+                    },
+                },
+                {
+                    key = 'task',
                     skill = 25,
                     entries = {
                         { quest=66943 }, -- Wood for Writing
@@ -48,16 +58,6 @@ Addon.data.chores.professionInscription = {
                         { quest=75573, level=70 }, -- Proclamation Reclamation [ZC]
                         { quest=77889, level=70 }, -- A Fiery Proposal [ED]
                         { quest=77914, level=70 }, -- Burning Runes [ED]
-                    },
-                },
-                {
-                    key = 'provide',
-                    skill = 45,
-                    entries = {
-                        { quest=70558 }, -- Disillusioned Illusions
-                        { quest=70559 }, -- Quill You Help?
-                        { quest=70560 }, -- The Most Powerful Tool: Good Documentation
-                        { quest=70561 }, -- A Scribe's Tragedy
                     },
                 },
                 {

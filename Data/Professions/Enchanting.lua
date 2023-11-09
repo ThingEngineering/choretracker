@@ -37,7 +37,17 @@ Addon.data.chores.professionEnchanting = {
             },
             quests = {
                 {
-                    key = 'gather',
+                    key = 'provide',
+                    skill = 45,
+                    entries = {
+                        { quest=72155 }, -- Spread the Enchantment
+                        { quest=72172 }, -- Essence, Shards, and Chromatic Dust
+                        { quest=72173 }, -- Braced for Enchantment
+                        { quest=72175 }, -- A Secpt-acular Time
+                    },
+                },
+                {
+                    key = 'task',
                     skill = 25,
                     entries = {
                         { quest=66884 }, -- Fireproof Gear
@@ -48,16 +58,6 @@ Addon.data.chores.professionEnchanting = {
                         { quest=75865, level=70 }, -- Relic Rustler [ZC]
                         { quest=77910, level=70 }, -- Enchanted Shrubbery [ED]
                         { quest=77937, level=70 }, -- Forbidden Sugar [ED]
-                    },
-                },
-                {
-                    key = 'provide',
-                    skill = 45,
-                    entries = {
-                        { quest=72155 }, -- Spread the Enchantment
-                        { quest=72172 }, -- Essence, Shards, and Chromatic Dust
-                        { quest=72173 }, -- Braced for Enchantment
-                        { quest=72175 }, -- A Secpt-acular Time
                     },
                 },
                 {

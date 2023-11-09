@@ -37,7 +37,17 @@ Addon.data.chores.professionJewelcrafting = {
             },
             quests = {
                 {
-                    key = 'gather',
+                    key = 'provide',
+                    skill = 50,
+                    entries = {
+                        { quest=70562 }, -- The Plumbers, Mason
+                        { quest=70563 }, -- The Exhibition
+                        { quest=70564 }, -- Spectacular
+                        { quest=70565 }, -- Separation by Saturation
+                    },
+                },
+                {
+                    key = 'task',
                     skill = 25,
                     entries = {
                         { quest=66516 }, -- Mundane Gems, I Think Not!
@@ -48,16 +58,6 @@ Addon.data.chores.professionJewelcrafting = {
                         { quest=75602, level=70 }, -- Chips off the Old Crystal Block [ZC]
                         { quest=77892, level=70 }, -- Pearls of Great Value [ED]
                         { quest=77912, level=70 }, -- Unmodern Jewelry [ED]
-                    },
-                },
-                {
-                    key = 'provide',
-                    skill = 50,
-                    entries = {
-                        { quest=70562 }, -- The Plumbers, Mason
-                        { quest=70563 }, -- The Exhibition
-                        { quest=70564 }, -- Spectacular
-                        { quest=70565 }, -- Separation by Saturation
                     },
                 },
                 {

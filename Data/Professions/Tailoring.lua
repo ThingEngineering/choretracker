@@ -37,7 +37,17 @@ Addon.data.chores.professionTailoring = {
             },
             quests = {
                 {
-                    key = 'gather',
+                    key = 'provide',
+                    skill = 50,
+                    entries = {
+                        { quest=70572 }, -- The Cold Does Bother Them, Actually
+                        { quest=70582 }, -- Weave Well Enough Alone
+                        { quest=70586 }, -- Sew Many Cooks
+                        { quest=70587 }, -- A Knapsack Problem
+                    },
+                },
+                {
+                    key = 'task',
                     skill = 25,
                     entries = {
                         { quest=66899 }, -- Fuzzy Legs
@@ -48,16 +58,6 @@ Addon.data.chores.professionTailoring = {
                         { quest=75600, level=70 }, -- Silk's Silk [ZC]
                         { quest=77947, level=70 }, -- Primalist Fashion [ED]
                         { quest=77949, level=70 }, -- Fashion Feathers [ED]
-                    },
-                },
-                {
-                    key = 'provide',
-                    skill = 50,
-                    entries = {
-                        { quest=70572 }, -- The Cold Does Bother Them, Actually
-                        { quest=70582 }, -- Weave Well Enough Alone
-                        { quest=70586 }, -- Sew Many Cooks
-                        { quest=70587 }, -- A Knapsack Problem
                     },
                 },
                 {

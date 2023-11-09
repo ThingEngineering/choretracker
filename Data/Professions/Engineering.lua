@@ -37,7 +37,17 @@ Addon.data.chores.professionEngineering = {
             },
             quests = {
                 {
-                    key = 'gather',
+                    key = 'provide',
+                    skill = 45,
+                    entries = {
+                        { quest=70539 }, -- And You Thought They Did Nothing
+                        { quest=70540 }, -- An Engineer's Best Friend
+                        { quest=70545 }, -- Blingtron 8000...?
+                        { quest=70557 }, -- No Scopes
+                    },
+                },
+                {
+                    key = 'task',
                     skill = 25,
                     entries = {
                         { quest=66890 }, -- Stolen Tools
@@ -48,16 +58,6 @@ Addon.data.chores.professionEngineering = {
                         { quest=75608, level=70 }, -- Titan Trash or Titan Treasure [ZC]
                         { quest=77891, level=70 }, -- An Unlikely Engineer [ED]
                         { quest=77938, level=70 }, -- Fixing the Dream [ED]
-                    },
-                },
-                {
-                    key = 'provide',
-                    skill = 45,
-                    entries = {
-                        { quest=70539 }, -- And You Thought They Did Nothing
-                        { quest=70540 }, -- An Engineer's Best Friend
-                        { quest=70545 }, -- Blingtron 8000...?
-                        { quest=70557 }, -- No Scopes
                     },
                 },
                 {
