@@ -20,6 +20,11 @@ Addon.data.timers = {
         offset = 30 * 60,
     },
     {
+        key = 'superbloom',
+        interval = 60 * 60,
+        duration = 15 * 60,
+    },
+    {
         key = 'timeRift',
         interval = 60 * 60,
         duration = 15 * 60,
