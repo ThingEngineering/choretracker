@@ -1,3 +1,7 @@
+v10.2.0.4
+---------
+- Added Blooming Dreadseeds chore.
+
 v10.2.0.3
 ---------
 - Added Superbloom timer.
