@@ -19,6 +19,13 @@ Addon.data.chores.choresDragonflight = {
                     },
                 },
                 {
+                    key = 'bloomingDreamseeds',
+                    minimumLevel = 70,
+                    entries = {
+                        { quest = 78821 }, -- Blooming Dreamseeds
+                    }
+                },
+                {
                     key = 'superbloom',
                     minimumLevel = 70,
                     entries = {
