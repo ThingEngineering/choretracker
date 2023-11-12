@@ -55,6 +55,12 @@ Addon.data.chores.choresDragonflight = {
                         { quest=77836, item=207030 }, -- HTQ, Dilated Time Capsule
                     },
                 },
+                {
+                    key = 'timeRiftAccount',
+                    entries = {
+                        { quest=77236 }, -- When Time Needs Mending
+                    },
+                },
             },
         },
         {
