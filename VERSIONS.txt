@@ -1,3 +1,10 @@
+v10.2.0.5
+---------
+- Added Primalist Future chore.
+- Added Sniffenseeking chore.
+- Added Time Rift (Account) chore.
+- Added Dreamsurge timer.
+
 v10.2.0.4
 ---------
 - Added Blooming Dreadseeds chore.
