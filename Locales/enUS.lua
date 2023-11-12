@@ -38,6 +38,7 @@ L['chore:dragonflight:patch_10_1_7:quests:dreamsurge'] = 'Dreamsurge'
 L['chore:dragonflight:patch_10_1_5:quests:timeRift'] = 'Time Rift'
 L['chore:dragonflight:patch_10_1_5:quests:timeRiftAccount'] = 'Time Rift (Account)'
 
+L['chore:dragonflight:patch_10_1_0:drops:sniffenseeking'] = 'Sniffenseeking'
 L['chore:dragonflight:patch_10_1_0:quests:aWorthyAlly'] = 'A Worthy Ally'
 L['chore:dragonflight:patch_10_1_0:quests:barter'] = 'Bartering'
 L['chore:dragonflight:patch_10_1_0:quests:fyrakkAssault'] = 'Fyrakk: Assault'

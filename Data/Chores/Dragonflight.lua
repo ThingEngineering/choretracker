@@ -65,6 +65,17 @@ Addon.data.chores.choresDragonflight = {
         },
         {
             key = 'patch_10_1_0',
+            drops = {
+                {
+                    key = 'sniffenseeking',
+                    groupSameItem = true,
+                    entries = {
+                        { quest=75747, item=205288 }, -- Sniffenseeking #1
+                        { quest=75748, item=205288 }, -- Sniffenseeking #2
+                        { quest=75749, item=205288 }, -- Sniffenseeking #3
+                    },
+                },
+            },
             quests = {
                 {
                     key = 'aWorthyAlly',
