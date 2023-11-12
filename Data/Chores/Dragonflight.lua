@@ -144,6 +144,18 @@ Addon.data.chores.choresDragonflight = {
         --     },
         -- },
         {
+            key = 'patch_10_0_5',
+            quests = {
+                {
+                    key = 'primalistFuture',
+                    inProgressQuestName = false,
+                    entries = {
+                        { quest=74378 }, -- Resisting the Storm
+                    }
+                }
+            },
+        },
+        {
             key = 'patch_10_0_0',
             quests = {
                 {
