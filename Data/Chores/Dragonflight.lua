@@ -52,7 +52,7 @@ Addon.data.chores.choresDragonflight = {
                 {
                     key = 'timeRift',
                     entries = {
-                        { quest=77836, item=207030 }, -- HTQ, Dilated Time Capsule
+                        { quest=77836, item=209856 }, -- HTQ, Dilated Time Pod
                     },
                 },
                 {
