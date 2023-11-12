@@ -9,6 +9,11 @@ Addon.data.timers = {
         duration = 15 * 60,
     },
     {
+        key = 'dreamsurge',
+        interval = 30 * 60,
+        duration = 5 * 60,
+    },
+    {
         key = 'dragonbaneKeep',
         interval = 120 * 60,
         duration = 15 * 60,

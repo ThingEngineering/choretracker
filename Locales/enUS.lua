@@ -95,6 +95,7 @@ L['chore:professions:event:quests:darkmoonFaire'] = 'Darkmoon Faire'
 
 L['timer:communityFeast'] = 'Community Feast'
 L['timer:dragonbaneKeep'] = 'Dragonbane Keep'
+L['timer:dreamsurge'] = 'Dreamsurge'
 L['timer:researchersUnderFire'] = 'Researchers Under Fire'
 L['timer:superbloom'] = 'Superbloom'
 L['timer:timeRift'] = 'Time Rift'
