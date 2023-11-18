@@ -1,3 +1,8 @@
+v10.2.0.6
+---------
+- Added Shipments x1 (Great Cates!) chore.
+- Added Shipments x5 (Crate of the Art) chore.
+
 v10.2.0.5
 ---------
 - Added Primalist Future chore.
