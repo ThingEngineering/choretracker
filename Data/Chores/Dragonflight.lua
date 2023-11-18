@@ -32,7 +32,21 @@ Addon.data.chores.choresDragonflight = {
                         { quest=78319 }, -- The Superbloom
                     }
                 },
-            }
+                {
+                    key = 'shipments1',
+                    minimumLevel = 70,
+                    entries = {
+                        { quest=78427 }, -- Great Crates!
+                    }
+                },
+                {
+                    key = 'shipments5',
+                    minimumLevel = 70,
+                    entries = {
+                        { quest=78428 }, -- Crate of the Art
+                    }
+                },
+            },
         },
         {
             key = 'patch_10_1_7',

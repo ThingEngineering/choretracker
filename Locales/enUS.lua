@@ -33,6 +33,8 @@ L['chore:dragonflight:catchAndRelease:quests:releaseThousandbite'] = 'Thousandbi
 L['chore:dragonflight:patch_10_2_0:quests:aWorthyAlly'] = 'A Worthy Ally'
 L['chore:dragonflight:patch_10_2_0:quests:bloomingDreamseeds'] = 'Plant Seeds'
 L['chore:dragonflight:patch_10_2_0:quests:superbloom'] = 'Superbloom'
+L['chore:dragonflight:patch_10_2_0:quests:shipments1'] = 'Shipments x1'
+L['chore:dragonflight:patch_10_2_0:quests:shipments5'] = 'Shipments x5'
 
 L['chore:dragonflight:patch_10_1_7:quests:dreamsurge'] = 'Dreamsurge'
 
