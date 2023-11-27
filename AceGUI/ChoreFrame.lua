@@ -170,14 +170,14 @@ do
         else
             setCollapseTexture(self)
             self.content:Show()
+        end
 
-            if status.locked then
-                setLockedTexture(self)
-                self.resizeButton:Hide()
-            else
-                setUnlockedTexture(self)
-                self.resizeButton:Show()
-            end
+        if status.locked then
+            setLockedTexture(self)
+            self.resizeButton:Hide()
+        else
+            setUnlockedTexture(self)
+            self.resizeButton:Show()
         end
     end
 
