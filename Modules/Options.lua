@@ -124,6 +124,12 @@ function Module:CreateOptions()
                         inline = true,
                         order = newOrder(),
                         args = {
+                            showCompletedSections = {
+                                name = L['option:general:showCompletedSections'],
+                                type = 'toggle',
+                                order = newOrder(),
+                                -- width = WIDTH_4_PER_ROW,
+                            },
                             showCompleted = {
                                 name = L['option:general:showCompleted'],
                                 type = 'toggle',

@@ -2,6 +2,7 @@ local L = LibStub('AceLocale-3.0'):NewLocale('ChoreTracker', 'enUS', true)
 
 L['key_binding:toggle'] = 'Toggle ChoreTracker window'
 
+L['option:general:showCompletedSections'] = 'Show completed sections'
 L['option:general:showCompleted'] = 'Show completed chores'
 L['option:general:statusIcons'] = 'Use status icons'
 

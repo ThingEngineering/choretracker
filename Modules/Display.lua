@@ -397,7 +397,8 @@ end
 function Module:GetSections()
     local sections = {}
 
-    local showCompleted = Addon.db.profile.general.display.showCompleted
+    local showCompletedSections = Addon.db.profile.general.display.showCompletedSections
+    local showCompletedChores = Addon.db.profile.general.display.showCompleted
     local weeklyReset = time() + CDAT_GetSecondsUntilWeeklyReset()
     local week = Addon.db.global.questWeeks[weeklyReset] or {}
 
@@ -414,12 +415,12 @@ function Module:GetSections()
                 elseif chore.typeKey == 'dungeons' then
                     self:GetSectionDungeons(section, chore)
                 else
-                    self:GetSectionQuests(week, section, chore, showCompleted)
+                    self:GetSectionQuests(week, section, chore, showCompletedChores)
                 end
             end
         end
 
-        if section.total > 0 then
+        if section.total > 0 and (showCompletedSections == true or section.completed < section.total) then
             table.insert(sections, section)
         end
     end
