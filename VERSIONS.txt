@@ -1,3 +1,10 @@
+v10.2.0.7
+---------
+- Added a missing Alchemy weekly chore.
+- Added Skinning Magma Cobra/Verdant Gladewarden chores.
+- Added "Show completed sections" option.
+- Added minimum levels for timers.
+
 v10.2.0.6
 ---------
 - Added Shipments x1 (Great Cates!) chore.

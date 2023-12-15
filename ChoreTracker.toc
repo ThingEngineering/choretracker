@@ -1,7 +1,7 @@
 ## Interface: 100200
 ## Title: ChoreTracker
 ## Notes: Keep track of your chores
-## Version: 10.2.0.6
+## Version: 10.2.0.7
 ## Author: Freddie
 ## IconTexture: Interface\AddOns\ChoreTracker\Assets\icon.blp
 ## SavedVariables: ChoreTrackerDB
