@@ -40,7 +40,7 @@ function Module:OnEnable()
     ScannerModule = Addon:GetModule('Scanner')
     TimersModule = Addon:GetModule('Timers')
 
-    if not IsAddOnLoaded('Blizzard_Calendar') then
+    if not C_AddOns.IsAddOnLoaded('Blizzard_Calendar') then
         UIParentLoadAddOn('Blizzard_Calendar')
     end
 
