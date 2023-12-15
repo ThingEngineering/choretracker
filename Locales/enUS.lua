@@ -98,6 +98,9 @@ L['chore:professions:dragonflight:quests:provide'] = 'Provide'
 L['chore:professions:dragonflight:quests:task'] = 'Task'
 L['chore:professions:dragonflight:quests:treatise'] = 'Treatise'
 
+L['chore:professions:dragonflight:quests:skinMagmaCobra'] = 'Skin Magma Cobra'
+L['chore:professions:dragonflight:quests:skinVerdantGladewarden'] = 'Skin Verdant Gladewarden'
+
 L['chore:professions:event:quests:darkmoonFaire'] = 'Darkmoon Faire'
 
 L['timer:communityFeast'] = 'Community Feast'

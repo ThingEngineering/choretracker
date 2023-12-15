@@ -50,6 +50,20 @@ Addon.data.chores.professionSkinning = {
                         { quest=74114, item=201023 }, -- Draconic Treatise on Skinning
                     },
                 },
+                {
+                    key = 'skinMagmaCobra',
+                    skill = 1,
+                    entries = {
+                        { quest=74235, item=205413 }, -- Obsidian Cobraskin
+                    }
+                },
+                {
+                    key = 'skinVerdantGladewarden',
+                    skill = 1,
+                    entries = {
+                        { quest=78397, item=210456 }, -- Dreaming Antler Fragment
+                    }
+                },
             },
         },
         {
