@@ -38,8 +38,18 @@ Addon.data.chores.choresEvents = {
                 {
                     key = 'frostLordAhune',
                     minimumLevel = 60,
-                    requiredEventIds = { 141 },
+                    requiredEventIds = { 341 }, -- Midsummer Fire Festival
                     dungeonId = 286,
+                },
+            },
+            quests = {
+                {
+                    key = 'meanOne',
+                    minimumLevel = 30,
+                    requiredEventIds = { 141 }, -- Feast of Winter Veil
+                    entries = {
+                        { quest = 7043 }, -- You're a Mean One...
+                    }
                 },
             },
         },

@@ -75,6 +75,7 @@ L['chore:events:holidays2:dungeons:corenDirebrew'] = 'Coren Direbrew'
 L['chore:events:holidays2:dungeons:crownChemicalCo'] = 'Crown Chemical Co.'
 L['chore:events:holidays2:dungeons:headlessHorseman'] = 'Headless Horseman'
 L['chore:events:holidays2:dungeons:frostLordAhune'] = 'Frost Lord Ahune'
+L['chore:events:holidays2:quests:meanOne'] = 'Stolen Treats'
 
 L['chore:events:pvpBrawls:quests:arathiBlizzard'] = 'Arathi Blizzard'
 L['chore:events:pvpBrawls:quests:classicAshran'] = 'Classic Ashran'
