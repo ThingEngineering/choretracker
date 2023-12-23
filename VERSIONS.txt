@@ -1,3 +1,7 @@
+v10.2.0.9
+---------
+- Fixed "Show completed sections" option spamming your chat window.
+
 v10.2.0.8
 ---------
 - Added Stolen Treats (You're a Mean One...) holiday chore.
