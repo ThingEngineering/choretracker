@@ -20,6 +20,12 @@ local FONT_FLAGS = {
     ['THICKOUTLINE'] = 'Thick Outline'
 }
 
+local OBJECTIVES = {
+    ['ALL'] = 'All',
+    ['INCOMPLETE'] = 'Incomplete',
+    ['NONE'] = 'None',
+}
+
 local STRATA = {
     ['BACKGROUND'] = 'Background',
     ['LOW'] = 'Low',
@@ -128,19 +134,26 @@ function Module:CreateOptions()
                                 name = L['option:general:showCompletedSections'],
                                 type = 'toggle',
                                 order = newOrder(),
-                                -- width = WIDTH_4_PER_ROW,
+                                width = WIDTH_3_PER_ROW,
                             },
                             showCompleted = {
                                 name = L['option:general:showCompleted'],
                                 type = 'toggle',
                                 order = newOrder(),
-                                -- width = WIDTH_4_PER_ROW,
+                                width = WIDTH_3_PER_ROW,
                             },
                             statusIcons = {
                                 name = L['option:general:statusIcons'],
                                 type = 'toggle',
                                 order = newOrder(),
-                                -- width = WIDTH_4_PER_ROW,
+                                width = WIDTH_3_PER_ROW,
+                            },
+                            showObjectives = {
+                                name = 'Show chore objectives',
+                                type = 'select',
+                                order = newOrder(),
+                                values = OBJECTIVES,
+                                -- sorting = STRATA_ORDER,
                             },
                         },
                     },

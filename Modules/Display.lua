@@ -402,6 +402,7 @@ function Module:GetSections()
 
     local showCompletedSections = Addon.db.profile.general.display.showCompletedSections
     local showCompletedChores = Addon.db.profile.general.display.showCompleted
+    local showObjectives = Addon.db.profile.general.display.showObjectives
     local weeklyReset = time() + CDAT_GetSecondsUntilWeeklyReset()
     local week = Addon.db.global.questWeeks[weeklyReset] or {}
 
@@ -418,7 +419,7 @@ function Module:GetSections()
                 elseif chore.typeKey == 'dungeons' then
                     self:GetSectionDungeons(section, chore)
                 else
-                    self:GetSectionQuests(week, section, chore, showCompletedChores)
+                    self:GetSectionQuests(week, section, chore, showCompletedChores, showObjectives)
                 end
             end
         end
@@ -510,7 +511,7 @@ function Module:GetSectionDrops(section, chore)
     end
 end
 
-function Module:GetSectionQuests(week, section, chore, showCompleted)
+function Module:GetSectionQuests(week, section, chore, showCompleted, showObjectives)
     local pick = chore.data.pick or 1
     section.total = section.total + pick
 
@@ -581,32 +582,38 @@ function Module:GetSectionQuests(week, section, chore, showCompleted)
                         table.insert(section.entries, shoppingText)
                     end
                 elseif bestState.status == 1 and bestState.objectives ~= nil and #bestState.objectives > 1 then
-                    self:AddObjectives(section.entries, bestState.objectives)
+                    self:AddObjectives(section.entries, bestState.objectives, showObjectives)
                 elseif bestWeek ~= nil and bestWeek.objectives ~= nil and #bestWeek.objectives > 1 then
-                    self:AddObjectives(section.entries, bestWeek.objectives)
+                    self:AddObjectives(section.entries, bestWeek.objectives, showObjectives)
                 end
             end
         end
     end
 end
 
-function Module:AddObjectives(entries, objectives)
+function Module:AddObjectives(entries, objectives, showObjectives)
+    if showObjectives == 'NONE' then return end
+
     for _, objective in ipairs(objectives) do
-        local objText = '    * '
+        local objText
 
         if objective.type == 'item' or
             objective.type == 'monster' or
             objective.type == 'object'
         then
-            objText = objText ..
-                self:GetPercentColor(objective.have, objective.need) ..
-                objective.text
+            if showObjectives == 'ALL' or objective.have < objective.need then
+                objText = '    * ' ..
+                    self:GetPercentColor(objective.have, objective.need) ..
+                    objective.text
+            end
         else
             objText = objText .. objective.type .. '|' .. objective.text ..
                 '|' .. objective.have .. '|' .. objective.need
         end
 
-        table.insert(entries, objText)
+        if objText ~= nil then
+            table.insert(entries, objText)
+        end
     end
 end
 

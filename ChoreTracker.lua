@@ -25,6 +25,7 @@ local defaultDb = {
             display = {
                 showCompleted = false,
                 showCompletedSections = true,
+                showObjectives = 'ALL',
                 statusIcons = true,
             },
             appearance = {

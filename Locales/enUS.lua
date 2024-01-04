@@ -4,6 +4,7 @@ L['key_binding:toggle'] = 'Toggle ChoreTracker window'
 
 L['option:general:showCompletedSections'] = 'Show completed sections'
 L['option:general:showCompleted'] = 'Show completed chores'
+L['option:general:showObjectives'] = 'Show chore objectives'
 L['option:general:statusIcons'] = 'Use status icons'
 
 L['section:events'] = 'Events'
