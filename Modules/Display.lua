@@ -581,10 +581,12 @@ function Module:GetSectionQuests(week, section, chore, showCompleted, showObject
                         local shoppingText = '    * Bring ' .. bringMe[1] .. 'x ' .. bringName .. '|r'
                         table.insert(section.entries, shoppingText)
                     end
-                elseif bestState.status == 1 and bestState.objectives ~= nil and #bestState.objectives > 1 then
-                    self:AddObjectives(section.entries, bestState.objectives, showObjectives)
-                elseif bestWeek ~= nil and bestWeek.objectives ~= nil and #bestWeek.objectives > 1 then
-                    self:AddObjectives(section.entries, bestWeek.objectives, showObjectives)
+                elseif bestState.status == 1 then
+                    if bestState.objectives ~= nil and #bestState.objectives > 1 then
+                        self:AddObjectives(section.entries, bestState.objectives, showObjectives)
+                    elseif bestWeek ~= nil and bestWeek.objectives ~= nil and #bestWeek.objectives > 1 then
+                        self:AddObjectives(section.entries, bestWeek.objectives, showObjectives)
+                    end
                 end
             end
         end
