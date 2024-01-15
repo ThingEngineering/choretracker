@@ -1,3 +1,7 @@
+v10.2.0.11
+----------
+- Fixed showing objectives for completed quests (GH3, thanks blindauer).
+
 v10.2.0.10
 ----------
 - Added "Show chore objectives" option.
