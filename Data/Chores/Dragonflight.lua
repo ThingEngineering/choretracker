@@ -9,6 +9,18 @@ Addon.data.chores.choresDragonflight = {
     minimumLevel = 60,
     categories = {
         {
+            key = 'patch_10_2_5',
+            quests = {
+                {
+                    key = 'bigDig',
+                    minimumLevel = 70,
+                    entries = {
+                        { quest = 79226 }, -- The Big Dig: Traitor's Rest
+                    },
+                },
+            },
+        },
+        {
             key = 'patch_10_2_0',
             quests = {
                 {
@@ -23,28 +35,28 @@ Addon.data.chores.choresDragonflight = {
                     minimumLevel = 70,
                     entries = {
                         { quest = 78821 }, -- Blooming Dreamseeds
-                    }
+                    },
                 },
                 {
                     key = 'superbloom',
                     minimumLevel = 70,
                     entries = {
                         { quest=78319 }, -- The Superbloom
-                    }
+                    },
                 },
                 {
                     key = 'shipments1',
                     minimumLevel = 70,
                     entries = {
                         { quest=78427 }, -- Great Crates!
-                    }
+                    },
                 },
                 {
                     key = 'shipments5',
                     minimumLevel = 70,
                     entries = {
                         { quest=78428 }, -- Crate of the Art
-                    }
+                    },
                 },
             },
         },
@@ -165,8 +177,8 @@ Addon.data.chores.choresDragonflight = {
                     inProgressQuestName = false,
                     entries = {
                         { quest=74378 }, -- Resisting the Storm
-                    }
-                }
+                    },
+                },
             },
         },
         {
