@@ -9,6 +9,20 @@ Addon.data.chores.choresDragonflight = {
     minimumLevel = 60,
     categories = {
         {
+            key = 'patch_10_2_6',
+            quests = {
+                {
+                    key = 'lastHurrah',
+                    minimumLevel = 70,
+                    entries = {
+                        { quest = 80385 }, -- Last Hurrah: Dragon Isles
+			            { quest = 80386 }, -- Last Hurrah: Zaralek Caverns and Time Rifts
+			            { quest = 80388 }, -- Last Hurrah: Emerald Dream
+                    },
+                },
+            },
+        },
+        {
             key = 'patch_10_2_5',
             quests = {
                 {
@@ -201,9 +215,6 @@ Addon.data.chores.choresDragonflight = {
                         { quest = 77976 }, -- Aiding the Accord: Dreamsurge
                         { quest = 78446 }, -- Aiding the Accord: Superbloom
                         { quest = 78447 }, -- Aiding the Accord: Emerald Bounty
-                        { quest = 80385 }, -- Last Hurrah: Dragon Isles
-			{ quest = 80386 }, -- Last Hurrah: Zaralek Caverns and Time Rifts
-			{ quest = 80388 }, -- Last Hurrah: Emerald Dream
                     },
                 },
                 {

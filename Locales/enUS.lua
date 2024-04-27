@@ -24,6 +24,7 @@ L['category:patch_10_1_5'] = 'Patch 10.1.5'
 L['category:patch_10_1_7'] = 'Patch 10.1.7'
 L['category:patch_10_2_0'] = 'Patch 10.2.0'
 L['category:patch_10_2_5'] = 'Patch 10.2.5'
+L['category:patch_10_2_6'] = 'Patch 10.2.6'
 L['category:pvpBrawls'] = 'PvP Brawls'
 
 L['chore:dragonflight:catchAndRelease:quests:releaseAileron'] = 'Aileron Seamoth'
@@ -32,6 +33,8 @@ L['chore:dragonflight:catchAndRelease:quests:releaseIslefin'] = 'Islefin Dorado'
 L['chore:dragonflight:catchAndRelease:quests:releaseScalebelly'] = 'Scalebelly Mackerel'
 L['chore:dragonflight:catchAndRelease:quests:releaseTemporal'] = 'Temporal Dragonhead'
 L['chore:dragonflight:catchAndRelease:quests:releaseThousandbite'] = 'Thousandbite Piranha'
+
+L['chore:dragonflight:patch_10_2_6:quests:lastHurrah'] = 'Last Hurrah'
 
 L['chore:dragonflight:patch_10_2_5:quests:bigDig'] = 'The Big Dig'
 
