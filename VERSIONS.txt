@@ -1,3 +1,8 @@
+v10.2.6.2
+---------
+- Added Last Hurrah to Chores > Events.
+- Removed Last Hurrah quests from Aiding the Accord.
+
 v10.2.6.1
 ---------
 - Added Timewalking Raids to Chores > Events.
