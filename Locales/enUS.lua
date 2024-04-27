@@ -72,6 +72,7 @@ L['chore:events:holidays:quests:battlegrounds'] = 'Battlegrounds'
 L['chore:events:holidays:quests:mythicDungeons'] = 'Mythic Dungeons'
 L['chore:events:holidays:quests:pvpPetBattles'] = 'PvP Pet Battles'
 L['chore:events:holidays:quests:timewalkingDungeons'] = 'Timewalking Dungeons'
+L['chore:events:holidays:quests:timewalkingRaids'] = 'Timewalking Raids'
 L['chore:events:holidays:quests:timewalkingTurnIn'] = 'Timewalking Turn-in'
 L['chore:events:holidays:quests:worldQuests'] = 'World Quests'
 

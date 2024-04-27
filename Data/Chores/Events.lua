@@ -99,6 +99,14 @@ Addon.data.chores.choresEvents = {
                     },
                 },
                 {
+                    key = 'timewalkingRaids',
+                    minimumLevel = 70,
+                    requiredEventIds = tbcTimewalkingIds,
+                    entries = {
+                        { quest = 47523 }, -- Disturbance Detected: Black Temple
+                    },
+                },
+                {
                     key = 'timewalkingTurnIn',
                     minimumLevel = 30,
                     requiredEventIds = tbcTimewalkingIds,
@@ -116,6 +124,14 @@ Addon.data.chores.choresEvents = {
                     },
                 },
                 {
+                    key = 'timewalkingRaids',
+                    minimumLevel = 70,
+                    requiredEventIds = wotlkTimewalkingIds,
+                    entries = {
+                        { quest = 50316 }, -- Disturbance Detected: Ulduar
+                    },
+                },
+                {
                     key = 'timewalkingTurnIn',
                     minimumLevel = 30,
                     requiredEventIds = wotlkTimewalkingIds,
@@ -130,6 +146,14 @@ Addon.data.chores.choresEvents = {
                     requiredEventIds = cataTimewalkingIds,
                     entries = {
                         { quest = 72810 }, -- A Shattered Path Through Time
+                    },
+                },
+                {
+                    key = 'timewalkingRaids',
+                    minimumLevel = 70,
+                    requiredEventIds = cataTimewalkingIds,
+                    entries = {
+                        { quest = 57637 }, -- Disturbance Detected: Firelands
                     },
                 },
                 {
