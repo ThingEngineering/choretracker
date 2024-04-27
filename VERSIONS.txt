@@ -1,3 +1,8 @@
+v10.2.6.1
+---------
+- Added Timewalking Raids to Chores > Events.
+- Added new Aiding the Accord (Last Hurrah) quests (thanks Sluimerstand).
+
 v10.2.5.1
 ---------
 - Added The Big Dig: Traitor's Rest weekly chore.
