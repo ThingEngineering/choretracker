@@ -148,6 +148,12 @@ function Module:CreateOptions()
                                 order = newOrder(),
                                 width = WIDTH_3_PER_ROW,
                             },
+                            awakenedTimers = {
+                                name = L['option:general:awakenedTimers'],
+                                type = 'toggle',
+                                order = newOrder(),
+                                width = WIDTH_3_PER_ROW,
+                            },
                             showObjectives = {
                                 name = 'Show chore objectives',
                                 type = 'select',

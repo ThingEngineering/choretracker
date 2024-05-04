@@ -8,14 +8,14 @@ Addon.data.timers = {
         minimumLevel = 60,
         interval = 90 * 60,
         duration = 15 * 60,
-        awakenedQuest = 80385, -- Last Hurrah: Dragon Isles
+        awakenedMap = 2522, -- Vault of the Incarnates
     },
     {
         key = 'dragonbaneKeep',
         minimumLevel = 60,
         interval = 120 * 60,
         duration = 15 * 60,
-        awakenedQuest = 80385, -- Last Hurrah: Dragon Isles
+        awakenedMap = 2522, -- Vault of the Incarnates
     },
     {
         key = 'researchersUnderFire',
@@ -23,28 +23,28 @@ Addon.data.timers = {
         interval = 60 * 60,
         duration = 25 * 60,
         offset = 30 * 60,
-        awakenedQuest = 80386, -- Last Hurrah: Zaralek Caverns and Time Rifts
+        awakenedMap = 2569, -- Aberrus, the Shadowed Crucible
     },
     {
         key = 'timeRift',
         minimumLevel = 60,
         interval = 60 * 60,
         duration = 15 * 60,
-        awakenedQuest = 80386, -- Last Hurrah: Zaralek Caverns and Time Rifts
+        awakenedMap = 2569, -- Aberrus, the Shadowed Crucible
     },
     {
         key = 'superbloom',
         minimumLevel = 70,
         interval = 60 * 60,
         duration = 15 * 60,
-        awakenedQuest = 80388, -- Last Hurrah: Emerald Dream
+        awakenedMap = 2549, -- Amirdrassil, the Dream's Hope
     },
     {
         key = 'dreamsurge',
         minimumLevel = 70,
         interval = 30 * 60,
         duration = 5 * 60,
-        awakenedQuest = 80388, -- Last Hurrah: Emerald Dream
+        awakenedMap = 2549, -- Amirdrassil, the Dream's Hope
     },
     {
         key = 'bigDig',

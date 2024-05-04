@@ -17,6 +17,7 @@ local CDAT_CompareCalendarTime = C_DateAndTime.CompareCalendarTime
 local CDAT_GetCalendarTimeFromEpoch = C_DateAndTime.GetCalendarTimeFromEpoch
 local CDAT_GetCurrentCalendarTime = C_DateAndTime.GetCurrentCalendarTime
 local CDAT_GetSecondsUntilWeeklyReset = C_DateAndTime.GetSecondsUntilWeeklyReset
+local CMI_GetModifiedInstanceInfoFromMapID = C_ModifiedInstance.GetModifiedInstanceInfoFromMapID
 
 local REGION_OFFSET = {
     [1] = -(7 * 60 * 60), -- US events use PST (-0700 UTC)
@@ -308,6 +309,7 @@ function Module:Redraw(changed)
 
     -- Timers
     if #self.enabledTimers > 0 then
+        local awakenedTimers = Addon.db.profile.general.display.awakenedTimers
         local timerFrame = self:GetSectionFrame('timers')
 
         if changed == nil or changed.timers ~= nil then
@@ -315,24 +317,29 @@ function Module:Redraw(changed)
 
             local now = time()
             for _, timerData in ipairs(self.enabledTimers) do
-                local name = L['timer:' .. timerData.key]
-                local timer = TimersModule.timers[timerData.key]
+                if (awakenedTimers == false or
+                    timerData.awakenedMap == nil or
+                    CMI_GetModifiedInstanceInfoFromMapID(timerData.awakenedMap) ~= nil
+                ) then
+                    local name = L['timer:' .. timerData.key]
+                    local timer = TimersModule.timers[timerData.key]
 
-                local labelText
+                    local labelText
 
-                if timer == nil then
-                    labelText = '|cFF888888[|r???|cFF888888]|r ' .. STATUS_COLOR[0] .. name .. '|r'
-                elseif timer.startsAt <= now and timer.endsAt >= now then
-                    labelText = '|cFF888888[|r' .. STATUS_COLOR[2] .. self:GetDuration(timer.endsAt - now) ..
-                        '|cFF888888]|r ' .. STATUS_COLOR[2] .. name .. '|r'
-                    -- timeText = self:GetDuration(timer.endsAt - now)
-                else
-                    local color = (timer.startsAt - now) <= 300 and STATUS_COLOR[1] or ''
-                    labelText = '|cFF888888[|r' .. color .. self:GetDuration(timer.startsAt - now) ..
-                        '|r|cFF888888]|r ' .. name .. '|r'
+                    if timer == nil then
+                        labelText = '|cFF888888[|r???|cFF888888]|r ' .. STATUS_COLOR[0] .. name .. '|r'
+                    elseif timer.startsAt <= now and timer.endsAt >= now then
+                        labelText = '|cFF888888[|r' .. STATUS_COLOR[2] .. self:GetDuration(timer.endsAt - now) ..
+                            '|cFF888888]|r ' .. STATUS_COLOR[2] .. name .. '|r'
+                        -- timeText = self:GetDuration(timer.endsAt - now)
+                    else
+                        local color = (timer.startsAt - now) <= 300 and STATUS_COLOR[1] or ''
+                        labelText = '|cFF888888[|r' .. color .. self:GetDuration(timer.startsAt - now) ..
+                            '|r|cFF888888]|r ' .. name .. '|r'
+                    end
+
+                    self:AddLine(timerFrame, labelText)
                 end
-
-                self:AddLine(timerFrame, labelText)
             end
         end
 
