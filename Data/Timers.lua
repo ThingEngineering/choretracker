@@ -46,4 +46,11 @@ Addon.data.timers = {
         duration = 5 * 60,
         awakenedQuest = 80388, -- Last Hurrah: Emerald Dream
     },
+    {
+        key = 'bigDig',
+        minimumLevel = 70,
+        interval = 60 * 60,
+        duration = 25 * 60,
+        offset = 30 * 60,
+    },
 }

@@ -113,6 +113,7 @@ L['chore:professions:dragonflight:quests:skinVerdantGladewarden'] = 'Skin Verdan
 
 L['chore:professions:event:quests:darkmoonFaire'] = 'Darkmoon Faire'
 
+L['timer:bigDig'] = 'Big Dig'
 L['timer:communityFeast'] = 'Community Feast'
 L['timer:dragonbaneKeep'] = 'Dragonbane Keep'
 L['timer:dreamsurge'] = 'Dreamsurge'
