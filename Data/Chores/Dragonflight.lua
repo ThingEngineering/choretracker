@@ -7,6 +7,10 @@ Addon.data.chores.choresDragonflight = {
     name = EXPANSION_NAME9,
     order = 19,
     minimumLevel = 60,
+    filter = function()
+        -- no Remix: Pandaria aura
+        return C_UnitAuras.GetPlayerAuraBySpellID(424143) == nil
+    end,
     categories = {
         {
             key = 'patch_10_2_6',

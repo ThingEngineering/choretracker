@@ -13,6 +13,10 @@ Addon.data.chores.choresEvents = {
     key = 'events',
     name = L['section:events'],
     order = 0,
+    filter = function()
+        -- no Remix: Pandaria aura
+        return C_UnitAuras.GetPlayerAuraBySpellID(424143) == nil
+    end,
     categories = {
         {
             key = 'holidays2',
