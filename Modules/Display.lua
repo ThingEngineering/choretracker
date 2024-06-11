@@ -202,8 +202,16 @@ function Module:ConfigChanged()
     for _, sectionTemp in ipairs(self.sortedSections) do
         local sectionKey, sectionData = unpack(sectionTemp)
         if
-            (sectionData.skillLineId == nil or ScannerModule.skillLines[sectionData.skillLineId] ~= nil) and
-            (sectionData.minimumLevel == nil or playerLevel >= sectionData.minimumLevel)
+            (
+                sectionData.skillLineId == nil or
+                ScannerModule.skillLines[sectionData.skillLineId] ~= nil
+            ) and (
+                sectionData.minimumLevel == nil or
+                playerLevel >= sectionData.minimumLevel
+            ) and (
+                sectionData.filter == nil or
+                sectionData.filter() == true
+            )
         then
             local header = ''
             if sectionData.texture then
