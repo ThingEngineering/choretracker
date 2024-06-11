@@ -1,3 +1,9 @@
+v10.2.7.1
+---------
+- Added Remix: Pandaria chores.
+- Fixed showing non-remix chores for remix characters.
+- Fixed empty quest names, they now get "???" instead.
+
 v10.2.6.3
 ---------
 - Added Big Dig timer.
