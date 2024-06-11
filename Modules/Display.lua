@@ -648,6 +648,11 @@ function Module:GetDuration(t)
 end
 
 function Module:GetEntryText(translated, entry, state, weekState, inProgressQuestName, useShoppingListAsName)
+    local questName = QuestUtils_GetQuestName(entry.quest)
+    if questName == nil or questName == '' then
+        questName = '???'
+    end
+    
     local thingString = ''
     if state.status == 1 and state.objectives ~= nil and #state.objectives == 1 then
         local objective = state.objectives[1]
@@ -673,10 +678,10 @@ function Module:GetEntryText(translated, entry, state, weekState, inProgressQues
             local objective = weekState.objectives[1]
             thingString = '|cFFFFFFFF' .. objective.text
         else
-            thingString = '|cFFFFFFFF' .. QuestUtils_GetQuestName(entry.quest)
+            thingString = '|cFFFFFFFF' .. questName
         end
     elseif state.status == 1 and inProgressQuestName == false then
-        thingString = QuestUtils_GetQuestName(entry.quest)
+        thingString = questName
     elseif useShoppingListAsName == true then
         local bringName = ''
         local itemCount, itemId = unpack(entry.shoppingList[1])
@@ -689,7 +694,7 @@ function Module:GetEntryText(translated, entry, state, weekState, inProgressQues
 
         thingString = '|cFFFFFFFF' .. itemCount .. 'x ' .. bringName
     else
-        thingString = '|cFFFFFFFF' .. QuestUtils_GetQuestName(entry.quest)
+        thingString = '|cFFFFFFFF' .. questName
     end
     
     if thingString == '' then thingString = '|cFFFFFFFF???' end
