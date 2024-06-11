@@ -32,6 +32,7 @@ ChoreTracker.lua
 
 Data\Chores\Dragonflight.lua
 Data\Chores\Events.lua
+Data\Chores\Remix_Pandaria.lua
 Data\Professions\Alchemy.lua
 Data\Professions\Archaeology.lua
 Data\Professions\Blacksmithing.lua
