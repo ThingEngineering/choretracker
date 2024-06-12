@@ -6,7 +6,7 @@ Addon.data.chores.choresRemixPandaria = {
     key = 'remixPandaria',
     name = 'Remix: Pandaria',
     order = 100,
-    minimumLevel = 60,
+    minimumLevel = 10,
     filter = function()
         -- yes Remix: Pandaria aura
         return C_UnitAuras.GetPlayerAuraBySpellID(424143) ~= nil
