@@ -133,3 +133,5 @@ L['timer:dreamsurge'] = 'Dreamsurge'
 L['timer:researchersUnderFire'] = 'Researchers Under Fire'
 L['timer:superbloom'] = 'Superbloom'
 L['timer:timeRift'] = 'Time Rift'
+
+L['objective:defeat_x'] = 'Defeat %s'

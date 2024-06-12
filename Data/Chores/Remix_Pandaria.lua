@@ -26,14 +26,14 @@ Addon.data.chores.choresRemixPandaria = {
                     key = 'dungeon',
                     minimumLevel = 10,
                     entries = {
-                        { quest = 80446 }, -- Last Hurrah: Dragon Isles
+                        { quest = 80446 }, -- Looking for Group
                     },
                 },
                 {
                     key = 'raid',
                     minimumLevel = 25,
                     entries = {
-                        { quest = 80447 }, -- Last Hurrah: Dragon Isles
+                        { quest = 80447 }, -- Looking for More
                     },
                 },
             },
@@ -45,42 +45,42 @@ Addon.data.chores.choresRemixPandaria = {
                     key = 'galleon',
                     minimumLevel = 10,
                     entries = {
-                        { quest = 32098 },
+                        { quest = 32098, encounter = { 725, 1 } },
                     },
                 },
                 {
                     key = 'sha',
                     minimumLevel = 10,
                     entries = {
-                        { quest = 32099 },
+                        { quest = 32099, encounter = { 691, 1 } },
                     },
                 },
                 {
                     key = 'nalak',
                     minimumLevel = 10,
                     entries = {
-                        { quest = 32518 },
+                        { quest = 32518, encounter = { 814, 1 } },
                     },
                 },
                 {
                     key = 'oondasta',
                     minimumLevel = 10,
                     entries = {
-                        { quest = 32519 },
+                        { quest = 32519, encounter = { 826, 1 } },
                     },
                 },
                 {
                     key = 'celestials',
                     minimumLevel = 10,
                     entries = {
-                        { quest = 33117 },
+                        { quest = 33117, encounter = { 858, 1 } },
                     },
                 },
                 {
                     key = 'ordos',
                     minimumLevel = 10,
                     entries = {
-                        { quest = 33118 },
+                        { quest = 33118, encounter = { 861, 1 } },
                     },
                 },
             },

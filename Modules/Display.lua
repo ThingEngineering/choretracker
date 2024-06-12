@@ -19,13 +19,14 @@ local CDAT_GetCurrentCalendarTime = C_DateAndTime.GetCurrentCalendarTime
 local CDAT_GetSecondsUntilWeeklyReset = C_DateAndTime.GetSecondsUntilWeeklyReset
 local CMI_GetModifiedInstanceInfoFromMapID = C_ModifiedInstance.GetModifiedInstanceInfoFromMapID
 
+local OBJECTIVE_DEFEAT_X = Addon.L['objective:defeat_x']
+
 local REGION_OFFSET = {
     [1] = -(7 * 60 * 60), -- US events use PST (-0700 UTC)
     --[2] = ??, -- KR
     [3] = (1 * 60 * 60),  -- EU events use CEDT? (+0100 UTC)
     --[4] = ??, -- TW
 }
-
 local STATUS_COLOR = {
     [0] = '|cFFFF2222',
     [1] = '|cFFFFFF00',
@@ -650,9 +651,14 @@ end
 function Module:GetEntryText(translated, entry, state, weekState, inProgressQuestName, useShoppingListAsName)
     local questName = QuestUtils_GetQuestName(entry.quest)
     if questName == nil or questName == '' then
-        questName = '???'
+        if entry.encounter then
+            local _, name = EJ_GetCreatureInfo(entry.encounter[2], entry.encounter[1])
+            questName = string.format(OBJECTIVE_DEFEAT_X, name)
+        else
+            questName = '???'
+        end
     end
-    
+
     local thingString = ''
     if state.status == 1 and state.objectives ~= nil and #state.objectives == 1 then
         local objective = state.objectives[1]
