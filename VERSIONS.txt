@@ -1,3 +1,12 @@
+v11.0.0.1
+---------
+- Added Events/Limited Time category.
+- Added Radiant Echoes events.
+- Fixed settings button.
+- Fixed settings slash command.
+- Updated Ace3 libraries.
+- Updated ToC for 11.0.0.
+
 v10.2.7.2
 ---------
 - Fixed Remix: Pandaria category's minimum level.
