@@ -135,8 +135,7 @@ function Addon:SlashCommand(command, editbox)
         displayModule:ToggleShown(true)
 
     elseif command == '' or command == nil then
-        local optionsModule = self:GetModule('Options')
-        InterfaceOptionsFrame_OpenToCategory(optionsModule.optionsFrame)
+        Settings.OpenToCategory(addonName)
 
     else
         print('ChoreTracker: unknown command')

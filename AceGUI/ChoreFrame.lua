@@ -1,3 +1,4 @@
+local addonName, addonTable = ...
 local AceGUI = LibStub('AceGUI-3.0')
 
 -- Lua APIs
@@ -281,7 +282,7 @@ do
         settingsButton:SetHighlightTexture([[Interface\Addons\ChoreTracker\Assets\gear]])
         setDesaturation(settingsButton)
 
-        settingsButton:SetScript('OnClick', function() InterfaceOptionsFrame_OpenToCategory(self.optionsFrame) end)
+        settingsButton:SetScript('OnClick', function() Settings.OpenToCategory(addonName) end)
 
         self.settingsButton = settingsButton
 
