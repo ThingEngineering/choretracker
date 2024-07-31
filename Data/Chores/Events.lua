@@ -19,6 +19,32 @@ Addon.data.chores.choresEvents = {
     end,
     categories = {
         {
+            key = 'limited',
+            quests = {
+                {
+                    key = 'radiantDragonblight',
+                    minimumLevel = 10,
+                    entries = {
+                        { quest = 82689 }, -- Only Darkness
+                    },
+                },
+                {
+                    key = 'radiantDustwallow',
+                    minimumLevel = 10,
+                    entries = {
+                        { quest = 82676 }, -- Broken Masquerade
+                    },
+                },
+                {
+                    key = 'radiantSearing',
+                    minimumLevel = 10,
+                    entries = {
+                        { quest = 78938 }, -- Champion of the Waterlords
+                    },
+                },
+            },
+        },
+        {
             key = 'holidays2',
             dungeons = {
                 {
