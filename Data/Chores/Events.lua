@@ -22,6 +22,13 @@ Addon.data.chores.choresEvents = {
             key = 'limited',
             quests = {
                 {
+                    key = 'radiantFirstKill',
+                    minimumLevel = 10,
+                    entries = {
+                        { quest = 84083, item=226256 }, -- Tracking quest
+                    },
+                },
+                {
                     key = 'radiantDragonblight',
                     minimumLevel = 10,
                     entries = {

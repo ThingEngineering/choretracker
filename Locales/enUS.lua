@@ -90,9 +90,10 @@ L['chore:events:holidays2:dungeons:headlessHorseman'] = 'Headless Horseman'
 L['chore:events:holidays2:dungeons:frostLordAhune'] = 'Frost Lord Ahune'
 L['chore:events:holidays2:quests:meanOne'] = 'Stolen Treats'
 
-L['chore:events:limited:quests:radiantDragonblight'] = 'Radiant Dragonblight'
-L['chore:events:limited:quests:radiantDustwallow'] = 'Radiant Dustwallow'
-L['chore:events:limited:quests:radiantSearing'] = 'Radiant Searing'
+L['chore:events:limited:quests:radiantDragonblight'] = 'RE: Dragonblight'
+L['chore:events:limited:quests:radiantDustwallow'] = 'RE: Dustwallow'
+L['chore:events:limited:quests:radiantFirstKill'] = 'RE: First kill'
+L['chore:events:limited:quests:radiantSearing'] = 'RE: Searing'
 
 L['chore:events:pvpBrawls:quests:arathiBlizzard'] = 'Arathi Blizzard'
 L['chore:events:pvpBrawls:quests:classicAshran'] = 'Classic Ashran'
