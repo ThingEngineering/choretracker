@@ -1,3 +1,7 @@
+v11.0.0.3
+---------
+- Change how modules are initialized to hopefully fix a weird error (GH9).
+
 v11.0.0.2
 ---------
 - Added Radiant Echoes first boss kill.
