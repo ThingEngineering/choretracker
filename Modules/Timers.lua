@@ -1,10 +1,15 @@
 local addonName, Addon = ...
 local L = Addon.L
-local Module = Addon:NewModule('Timers', 'AceTimer-3.0')
+local Module = Addon:NewModule(
+    'Timers',
+    {
+        timers = {},
+    },
+    'AceTimer-3.0'
+)
 
 
 function Module:OnEnable()
-    self.timers = {}
 end
 
 function Module:OnEnteringWorld()

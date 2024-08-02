@@ -1,6 +1,15 @@
 local addonName, Addon = ...
 local L = Addon.L
-local Module = Addon:NewModule('Scanner')
+local Module = Addon:NewModule(
+    'Scanner',
+    {
+        dungeons = {},
+        quests = {},
+        questPaths = {},
+        scanDungeons = {},
+        skillLines = {},
+    }
+)
 
 
 local CDAT_GetSecondsUntilWeeklyReset = C_DateAndTime.GetSecondsUntilWeeklyReset
@@ -31,12 +40,6 @@ local PROFESSION_DRAGONFLIGHT = {
 }
 
 function Module:OnEnable()
-    self.dungeons = {}
-    self.quests = {}
-    self.questPaths = {}
-    self.scanDungeons = {}
-    self.skillLines = {}
-
     self:RegisterBucketEvent(
         {
             'SKILL_LINES_CHANGED',

@@ -1,6 +1,16 @@
 local addonName, Addon = ...
 local L = Addon.L
-local Module = Addon:NewModule('Display', 'AceHook-3.0')
+local Module = Addon:NewModule(
+    'Display',
+    {
+        dontShow = false,
+        enabledTimers = {},
+        itemCache = {},
+        itemRequested = {},
+        sectionFrames = {},
+    },
+    'AceHook-3.0'
+)
 
 local ScannerModule
 local TimersModule
@@ -45,12 +55,6 @@ function Module:OnEnable()
     if not C_AddOns.IsAddOnLoaded('Blizzard_Calendar') then
         UIParentLoadAddOn('Blizzard_Calendar')
     end
-
-    self.dontShow = false
-    self.enabledTimers = {}
-    self.itemCache = {}
-    self.itemRequested = {}
-    self.sectionFrames = {}
 
     Addon.db.RegisterCallback(self, 'OnProfileChanged', 'ConfigChanged')
     Addon.db.RegisterCallback(self, 'OnProfileCopied', 'ConfigChanged')
