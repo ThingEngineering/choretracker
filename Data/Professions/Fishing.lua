@@ -6,7 +6,7 @@ Addon.data.chores.professionFishing = {
     key = 'professions',
     order = 122,
     skillLineId = 356,
-    texture = GetSpellTexture(271616),
+    texture = C_Spell.GetSpellTexture(271616),
     categories = {
         {
             key = 'event',

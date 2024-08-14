@@ -6,7 +6,7 @@ Addon.data.chores.professionEnchanting = {
     key = 'professions',
     order = 102,
     skillLineId = 333,
-    texture = GetSpellTexture(7411),
+    texture = C_Spell.GetSpellTexture(7411),
     categories = {
         {
             key = 'dragonflight',

@@ -6,7 +6,7 @@ Addon.data.chores.professionHerbalism = {
     key = 'professions',
     order = 104,
     skillLineId = 182,
-    texture = GetSpellTexture(2366),
+    texture = C_Spell.GetSpellTexture(2366),
     categories = {
         {
             key = 'dragonflight',

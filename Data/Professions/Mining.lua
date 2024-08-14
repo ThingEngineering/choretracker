@@ -6,7 +6,7 @@ Addon.data.chores.professionMining = {
     key = 'professions',
     order = 108,
     skillLineId = 186,
-    texture = GetSpellTexture(2575),
+    texture = C_Spell.GetSpellTexture(2575),
     categories = {
         {
             key = 'dragonflight',

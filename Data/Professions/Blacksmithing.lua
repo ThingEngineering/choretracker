@@ -6,7 +6,7 @@ Addon.data.chores.professionBlacksmithing = {
     key = 'professions',
     order = 101,
     skillLineId = 164,
-    texture = GetSpellTexture(2018),
+    texture = C_Spell.GetSpellTexture(2018),
     categories = {
         {
             key = 'dragonflight',

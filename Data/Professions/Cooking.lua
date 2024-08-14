@@ -6,7 +6,7 @@ Addon.data.chores.professionCooking = {
     key = 'professions',
     order = 121,
     skillLineId = 185,
-    texture = GetSpellTexture(2550),
+    texture = C_Spell.GetSpellTexture(2550),
     categories = {
         {
             key = 'event',

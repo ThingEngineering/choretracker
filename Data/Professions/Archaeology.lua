@@ -6,7 +6,7 @@ Addon.data.chores.professionArchaeology = {
     key = 'professions',
     order = 120,
     skillLineId = 794,
-    texture = GetSpellTexture(80836),
+    texture = C_Spell.GetSpellTexture(80836),
     categories = {
         {
             key = 'event',

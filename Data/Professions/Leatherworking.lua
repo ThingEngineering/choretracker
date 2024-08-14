@@ -6,7 +6,7 @@ Addon.data.chores.professionLeatherworking = {
     key = 'professions',
     order = 107,
     skillLineId = 165,
-    texture = GetSpellTexture(2108),
+    texture = C_Spell.GetSpellTexture(2108),
     categories = {
         {
             key = 'dragonflight',

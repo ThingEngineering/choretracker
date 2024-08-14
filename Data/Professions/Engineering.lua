@@ -6,7 +6,7 @@ Addon.data.chores.professionEngineering = {
     key = 'professions',
     order = 103,
     skillLineId = 202,
-    texture = GetSpellTexture(4036),
+    texture = C_Spell.GetSpellTexture(4036),
     categories = {
         {
             key = 'dragonflight',
