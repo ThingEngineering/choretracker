@@ -686,7 +686,7 @@ function Module:GetEntryText(translated, entry, state, weekState, inProgressQues
             thingString = thingString .. '|cFFFFFFFFItem #' .. entry.item
         end
     elseif state.status == 0 and weekState ~= nil then
-        if weekState.objectives ~= nil and #weekState.objectives == 1 then
+        if inProgressQuestName ~= false and weekState.objectives ~= nil and #weekState.objectives == 1 then
             local objective = weekState.objectives[1]
             thingString = '|cFFFFFFFF' .. objective.text
         else

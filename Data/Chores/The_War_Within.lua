@@ -14,6 +14,7 @@ Addon.data.chores.choresWarWithin = {
                 {
                     key = 'dungeon',
                     minimumLevel = 80,
+                    inProgressQuestName = false,
                     entries = {
                         { quest = 83465 }, -- Ara-Kara, City of Echoes
                         { quest = 83436 }, -- Cinderbrew Meadery
@@ -28,6 +29,7 @@ Addon.data.chores.choresWarWithin = {
                 {
                     key = 'worldsoul',
                     minimumLevel = 80,
+                    inProgressQuestName = false,
                     entries = {
                         { quest = 82511 }, -- Worldsoul: Awakening Machine
                         { quest = 82453 }, -- Worldsoul: Encore!
