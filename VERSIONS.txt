@@ -1,3 +1,13 @@
+v11.0.2.2
+---------
+- Added TWW Dungeon chore.
+- Added TWW Worldsoul chore.
+- Added TWW Theater Troupe timer.
+- Changed timer options to have one group per expansion.
+- Changed non-TWW timers to default off.
+- Removed awakened timers.
+- Removed Remix filter from Dragonflight chores.
+
 v11.0.2.1
 ---------
 - Fixed GetSpellTexture errors.
