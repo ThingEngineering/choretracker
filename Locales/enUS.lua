@@ -33,6 +33,7 @@ L['category:pvpBrawls'] = 'PvP Brawls'
 L['category:worldBosses'] = 'World Bosses'
 
 L['chore:warWithin:patch_11_0_0:quests:dungeon'] = 'Dungeon'
+L['chore:warWithin:patch_11_0_0:quests:theaterTroupe'] = 'Theater Troupe'
 L['chore:warWithin:patch_11_0_0:quests:worldsoul'] = 'Worldsoul'
 
 L['chore:dragonflight:catchAndRelease:quests:releaseAileron'] = 'Aileron Seamoth'

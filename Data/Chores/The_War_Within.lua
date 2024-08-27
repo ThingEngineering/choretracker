@@ -27,6 +27,13 @@ Addon.data.chores.choresWarWithin = {
                     },
                 },
                 {
+                    key = 'theaterTroupe',
+                    minimumLevel = 70,
+                    entries = {
+                        { quest = 83240 }, -- The Theater Troupe
+                    },
+                },
+                {
                     key = 'worldsoul',
                     minimumLevel = 80,
                     inProgressQuestName = false,
