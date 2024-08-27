@@ -5,6 +5,7 @@ Addon:SetDefaultModuleLibraries('AceBucket-3.0', 'AceEvent-3.0')
 
 Addon.data = {
     chores = {},
+    timers = {},
 }
 Addon.L = LibStub('AceLocale-3.0'):GetLocale(addonName)
 
@@ -90,8 +91,11 @@ function Addon:OnInitialize()
         end
     end
 
-    for _, timer in ipairs(self.data.timers) do
-        defaultDb.profile.timers[timer.key] = true
+    for _, category in pairs(self.data.timers) do
+        defaultDb.profile.timers[category.key] = {}
+        for _, timer in ipairs(category.timers) do
+            defaultDb.profile.timers[category.key][timer.key] = category.key == 'warWithin'
+        end
     end
 
     -- DevTools_Dump(defaultDb)

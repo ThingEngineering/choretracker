@@ -36,23 +36,25 @@ function Module:UpdateTimers()
     local now = time()
     local weeklyReset = now + C_DateAndTime.GetSecondsUntilWeeklyReset() + 1
 
-    for _, event in ipairs(Addon.data.timers) do
-        local lastStart = weeklyReset + (event.offset or 0)
-        local lastEnd = lastStart + event.duration
-        local nextStart = lastStart - event.interval
-        local nextEnd = lastEnd - event.interval
+    for _, category in pairs(Addon.data.timers) do
+        for _, event in ipairs(category.timers) do
+            local lastStart = weeklyReset + (event.offset or 0)
+            local lastEnd = lastStart + event.duration
+            local nextStart = lastStart - event.interval
+            local nextEnd = lastEnd - event.interval
 
-        while nextEnd > now do
-            lastStart = nextStart
-            lastEnd = nextEnd
-            nextStart = nextStart - event.interval
-            nextEnd = nextEnd - event.interval
+            while nextEnd > now do
+                lastStart = nextStart
+                lastEnd = nextEnd
+                nextStart = nextStart - event.interval
+                nextEnd = nextEnd - event.interval
+            end
+
+            self.timers[event.key] = {
+                startsAt = lastStart,
+                endsAt = lastEnd,
+            }
         end
-
-        self.timers[event.key] = {
-            startsAt = lastStart,
-            endsAt = lastEnd,
-        }
     end
 
     self:SendMessage('ChoreTracker_Data_Updated', 'timers')

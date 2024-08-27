@@ -48,7 +48,8 @@ Data\Professions\Leatherworking.lua
 Data\Professions\Mining.lua
 Data\Professions\Skinning.lua
 Data\Professions\Tailoring.lua
-Data\Timers.lua
+Data\Timers\Dragonflight.lua
+Data\Timers\The_War_Within.lua
 
 Modules\Display.lua
 Modules\Options.lua

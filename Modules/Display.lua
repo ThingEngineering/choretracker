@@ -281,12 +281,14 @@ function Module:ConfigChanged()
     
     -- Timers
     wipe(self.enabledTimers)
-    for _, timerData in ipairs(Addon.data.timers) do
-        if Addon.db.profile.timers[timerData.key] == true and (
-            timerData.minimumLevel == nil or
-            playerLevel >= timerData.minimumLevel
-        ) then
-            table.insert(self.enabledTimers, timerData)
+    for _, category in pairs(Addon.data.timers) do
+        for _, timerData in ipairs(category.timers) do
+            if Addon.db.profile.timers[category.key][timerData.key] == true and (
+                timerData.minimumLevel == nil or
+                playerLevel >= timerData.minimumLevel
+            ) then
+                table.insert(self.enabledTimers, timerData)
+            end
         end
     end
 

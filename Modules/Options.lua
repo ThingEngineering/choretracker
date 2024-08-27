@@ -283,7 +283,10 @@ function Module:CreateOptions()
                 name = 'Timers',
                 type = 'group',
                 order = newOrder(),
-                args = self:GetAllTimerOptions(),
+                args = {
+                    warWithin = self:GetTimerOptions(Addon.data.timers.warWithin),
+                    dragonflight = self:GetTimerOptions(Addon.data.timers.dragonflight),
+                },
             },
         },
     }
@@ -369,11 +372,17 @@ function Module:AddSubOptions(optionsTable, parentKey, key, data, optionWidth)
     end
 end
 
-function Module:GetAllTimerOptions()
-    local args = {}
+function Module:GetTimerOptions(data)
+    local options = {
+        name = data.name or L[data.key],
+        type = 'group',
+        inline = true,
+        order = newOrder(),
+        args = {},
+    }
 
-    for _, timer in ipairs(Addon.data.timers) do
-        args[timer.key] = {
+    for _, timer in ipairs(data.timers) do
+        options.args[timer.key] = {
             name = L['timer:' .. timer.key],
             type = 'toggle',
             order = newOrder(),
@@ -381,5 +390,5 @@ function Module:GetAllTimerOptions()
         }
     end
 
-    return args
+    return options
 end

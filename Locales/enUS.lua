@@ -136,6 +136,8 @@ L['chore:remixPandaria:worldBosses:quests:oondasta'] = 'Oondasta'
 L['chore:remixPandaria:worldBosses:quests:ordos'] = 'Ordos'
 L['chore:remixPandaria:worldBosses:quests:sha'] = 'Sha of Anger'
 
+L['timer:theaterTroupe'] = 'Theater Troupe'
+
 L['timer:bigDig'] = 'Big Dig'
 L['timer:communityFeast'] = 'Community Feast'
 L['timer:dragonbaneKeep'] = 'Dragonbane Keep'
