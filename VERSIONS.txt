@@ -1,3 +1,14 @@
+v11.0.2.3
+---------
+- Added TWW Awakening the Machine chore.
+- Added TWW Spreading the Light chore.
+- Added TWW Theater Troupe chore.
+- Added TWW Severed Threads chores (pact + weekly).
+- Changed TWW Dungeon chore to always show the quest name instead of some random
+  objective.
+- Changed TWW Worldsoul chore to show "Choose a quest!" instead of a cached quest,
+  it's a per-character choice.
+
 v11.0.2.2
 ---------
 - Added TWW Dungeon chore.
