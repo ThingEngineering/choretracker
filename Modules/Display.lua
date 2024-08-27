@@ -527,7 +527,7 @@ function Module:GetSectionDrops(section, chore)
 
             table.insert(
                 section.entries,
-                self:GetEntryText(entryTranslated, choreEntry, choreState)
+                self:GetEntryText(entryTranslated, choreEntry, choreState, nil, {})
             )
         end
     end
@@ -581,7 +581,12 @@ function Module:GetSectionQuests(week, section, chore, showCompleted, showObject
                 table.insert(
                     section.entries,
                     self:GetEntryText(chore.translated, bestEntry, bestState, bestWeek,
-                        chore.data.inProgressQuestName, chore.data.useShoppingListAsName)
+                        {
+                            alwaysQuestName = chore.data.alwaysQuestName,
+                            inProgressQuestName = chore.data.inProgressQuestName,
+                            useShoppingListAsName = chore.data.useShoppingListAsName,
+                        }
+                    )
                 )
 
                 if chore.data.useShoppingListAsName ~= true and bestEntry.shoppingList ~= nil then
@@ -654,7 +659,8 @@ function Module:GetDuration(t)
     return table.concat(parts, ' ')
 end
 
-function Module:GetEntryText(translated, entry, state, weekState, inProgressQuestName, useShoppingListAsName)
+function Module:GetEntryText(translated, entry, state, weekState, options)
+    -- options = { inProgressQuestName, useShoppingListAsName }
     local questName = QuestUtils_GetQuestName(entry.quest)
     if questName == nil or questName == '' then
         if entry.encounter then
@@ -666,7 +672,9 @@ function Module:GetEntryText(translated, entry, state, weekState, inProgressQues
     end
 
     local thingString = ''
-    if state.status == 1 and state.objectives ~= nil and #state.objectives == 1 then
+    if state.status == 1 and options.alwaysQuestName then
+        thingString = '|cFFFFFFFF' .. questName
+    elseif state.status == 1 and state.objectives ~= nil and #state.objectives == 1 then
         local objective = state.objectives[1]
         thingString = self:GetPercentColor(objective.have, objective.need, true) .. objective.text
     elseif entry.item ~= nil then
@@ -686,15 +694,15 @@ function Module:GetEntryText(translated, entry, state, weekState, inProgressQues
             thingString = thingString .. '|cFFFFFFFFItem #' .. entry.item
         end
     elseif state.status == 0 and weekState ~= nil then
-        if inProgressQuestName ~= false and weekState.objectives ~= nil and #weekState.objectives == 1 then
+        if weekState.objectives ~= nil and #weekState.objectives == 1 then
             local objective = weekState.objectives[1]
             thingString = '|cFFFFFFFF' .. objective.text
         else
             thingString = '|cFFFFFFFF' .. questName
         end
-    elseif state.status == 1 and inProgressQuestName == false then
+    elseif state.status == 1 and options.inProgressQuestName == false then
         thingString = questName
-    elseif useShoppingListAsName == true then
+    elseif options.useShoppingListAsName == true then
         local bringName = ''
         local itemCount, itemId = unpack(entry.shoppingList[1])
         local itemInfo = self:GetCachedItem(itemId)
@@ -718,7 +726,7 @@ function Module:GetEntryText(translated, entry, state, weekState, inProgressQues
 
     final = final .. STATUS_COLOR[state.status]
 
-    if not (inProgressQuestName == false and state.status == 1) then
+    if not (options.inProgressQuestName == false and state.status == 1) then
         final = final .. translated .. '|r: '
     end
 
