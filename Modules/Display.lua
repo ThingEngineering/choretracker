@@ -622,7 +622,8 @@ function Module:AddObjectives(entries, objectives, showObjectives)
 
         if objective.type == 'item' or
             objective.type == 'monster' or
-            objective.type == 'object'
+            objective.type == 'object' or
+            objective.type == 'progressbar'
         then
             if showObjectives == 'ALL' or objective.have < objective.need then
                 objText = '    * ' ..
