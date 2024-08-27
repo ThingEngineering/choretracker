@@ -12,9 +12,30 @@ Addon.data.chores.choresWarWithin = {
             key = 'patch_11_0_0',
             quests = {
                 {
+                    key = 'awakeningTheMachine',
+                    minimumLevel = 80,
+                    entries = {
+                        { quest = 83333 }, -- Gearing Up for Trouble
+                    }
+                },
+                {
+                    key = 'spreadingTheLight',
+                    minimumLevel = 80,
+                    entries = {
+                        { quest = 76586 }, -- Spreading the Light
+                    }
+                },
+                {
+                    key = 'theaterTroupe',
+                    minimumLevel = 70,
+                    entries = {
+                        { quest = 83240 }, -- The Theater Troupe
+                    },
+                },
+                {
                     key = 'dungeon',
                     minimumLevel = 80,
-                    inProgressQuestName = false,
+                    alwaysQuestName = true,
                     entries = {
                         { quest = 83465 }, -- Ara-Kara, City of Echoes
                         { quest = 83436 }, -- Cinderbrew Meadery
@@ -27,16 +48,8 @@ Addon.data.chores.choresWarWithin = {
                     },
                 },
                 {
-                    key = 'theaterTroupe',
-                    minimumLevel = 70,
-                    entries = {
-                        { quest = 83240 }, -- The Theater Troupe
-                    },
-                },
-                {
                     key = 'worldsoul',
                     minimumLevel = 80,
-                    inProgressQuestName = false,
                     entries = {
                         { quest = 82511 }, -- Worldsoul: Awakening Machine
                         { quest = 82453 }, -- Worldsoul: Encore!

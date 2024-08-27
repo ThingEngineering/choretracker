@@ -32,8 +32,10 @@ L['category:patch_11_0_0'] = 'Patch 11.0.0'
 L['category:pvpBrawls'] = 'PvP Brawls'
 L['category:worldBosses'] = 'World Bosses'
 
-L['chore:warWithin:patch_11_0_0:quests:dungeon'] = 'Dungeon'
+L['chore:warWithin:patch_11_0_0:quests:awakeningTheMachine'] = 'Awakening the Machine'
+L['chore:warWithin:patch_11_0_0:quests:spreadingTheLight'] = 'Spreading the Light'
 L['chore:warWithin:patch_11_0_0:quests:theaterTroupe'] = 'Theater Troupe'
+L['chore:warWithin:patch_11_0_0:quests:dungeon'] = 'Dungeon'
 L['chore:warWithin:patch_11_0_0:quests:worldsoul'] = 'Worldsoul'
 
 L['chore:dragonflight:catchAndRelease:quests:releaseAileron'] = 'Aileron Seamoth'
