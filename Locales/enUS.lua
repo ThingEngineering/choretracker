@@ -1,4 +1,4 @@
-local L = LibStub('AceLocale-3.0'):NewLocale('ChoreTracker', 'enUS', true)
+local L = LibStub('AceLocale-3.0'):NewLocale('ChoreTracker', 'enUS', true, true)
 
 L['key_binding:toggle'] = 'Toggle ChoreTracker window'
 
@@ -35,6 +35,8 @@ L['category:worldBosses'] = 'World Bosses'
 L['chore:warWithin:patch_11_0_0:quests:awakeningTheMachine'] = 'Awakening the Machine'
 L['chore:warWithin:patch_11_0_0:quests:spreadingTheLight'] = 'Spreading the Light'
 L['chore:warWithin:patch_11_0_0:quests:theaterTroupe'] = 'Theater Troupe'
+L['chore:warWithin:patch_11_0_0:quests:spiderPact'] = 'Spider Pact'
+L['chore:warWithin:patch_11_0_0:quests:spiderWeekly'] = 'Spider Weekly'
 L['chore:warWithin:patch_11_0_0:quests:dungeon'] = 'Dungeon'
 L['chore:warWithin:patch_11_0_0:quests:worldsoul'] = 'Worldsoul'
 
@@ -152,3 +154,7 @@ L['timer:timeRift'] = 'Time Rift'
 L['objective:defeat_x'] = 'Defeat %s'
 
 L['choose_quest'] = 'Choose a quest!'
+
+L['questName:80544'] = 'The Weaver'
+L['questName:80545'] = 'The General'
+L['questName:80546'] = 'The Vizier'

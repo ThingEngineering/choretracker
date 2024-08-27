@@ -33,6 +33,24 @@ Addon.data.chores.choresWarWithin = {
                     },
                 },
                 {
+                    key = 'spiderPact',
+                    minimumLevel = 80,
+                    entries = {
+                        { quest = 80544 }, -- The Weaver
+                        { quest = 80545 }, -- The General
+                        { quest = 80546 }, -- The Vizier
+                    },
+                },
+                {
+                    key = 'spiderWeekly',
+                    minimumLevel = 80,
+                    entries = {
+                        { quest = 80670 }, -- Eyes of the Weaver
+                        { quest = 80671 }, -- Blade of the General
+                        { quest = 80672 }, -- Hand of the Vizier
+                    },
+                },
+                {
                     key = 'dungeon',
                     minimumLevel = 80,
                     alwaysQuestName = true,

@@ -662,7 +662,13 @@ function Module:GetEntryText(translated, entry, state, weekState, options)
             local _, name = EJ_GetCreatureInfo(entry.encounter[2], entry.encounter[1])
             questName = string.format(OBJECTIVE_DEFEAT_X, name)
         else
-            questName = '???'
+            -- This will just return the key if there's no translation entry, check for that
+            local translatedName = L['questName:' .. entry.quest]
+            if translatedName:find('^questName') == nil then
+                questName = translatedName
+            else
+                questName = '???'
+            end
         end
     end
 
