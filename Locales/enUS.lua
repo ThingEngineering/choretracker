@@ -32,6 +32,9 @@ L['category:patch_11_0_0'] = 'Patch 11.0.0'
 L['category:pvpBrawls'] = 'PvP Brawls'
 L['category:worldBosses'] = 'World Bosses'
 
+L['chore:warWithin:patch_11_0_0:quests:dungeon'] = 'Dungeon'
+L['chore:warWithin:patch_11_0_0:quests:worldsoul'] = 'Worldsoul'
+
 L['chore:dragonflight:catchAndRelease:quests:releaseAileron'] = 'Aileron Seamoth'
 L['chore:dragonflight:catchAndRelease:quests:releaseCerulean'] = 'Cerulean Spinefish'
 L['chore:dragonflight:catchAndRelease:quests:releaseIslefin'] = 'Islefin Dorado'

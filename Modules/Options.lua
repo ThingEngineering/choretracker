@@ -251,6 +251,7 @@ function Module:CreateOptions()
                 childGroups = 'tab',
                 order = newOrder(),
                 args = {
+                    choresWarWithin = self:GetChoreOptions(Addon.data.chores.choresWarWithin, WIDTH_3_PER_ROW, true),
                     choresDragonflight = self:GetChoreOptions(Addon.data.chores.choresDragonflight, WIDTH_3_PER_ROW, true),
                     choresEvents = self:GetChoreOptions(Addon.data.chores.choresEvents, WIDTH_3_PER_ROW, true),
                     choresRemixPandaria = self:GetChoreOptions(Addon.data.chores.choresRemixPandaria, WIDTH_3_PER_ROW, true),
