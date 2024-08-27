@@ -50,6 +50,7 @@ Addon.data.chores.choresWarWithin = {
                 {
                     key = 'worldsoul',
                     minimumLevel = 80,
+                    chooseQuest = true,
                     entries = {
                         { quest = 82511 }, -- Worldsoul: Awakening Machine
                         { quest = 82453 }, -- Worldsoul: Encore!

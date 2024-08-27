@@ -580,13 +580,7 @@ function Module:GetSectionQuests(week, section, chore, showCompleted, showObject
             if bestState ~= nil and (showCompleted or bestState.status < 2) then
                 table.insert(
                     section.entries,
-                    self:GetEntryText(chore.translated, bestEntry, bestState, bestWeek,
-                        {
-                            alwaysQuestName = chore.data.alwaysQuestName,
-                            inProgressQuestName = chore.data.inProgressQuestName,
-                            useShoppingListAsName = chore.data.useShoppingListAsName,
-                        }
-                    )
+                    self:GetEntryText(chore.translated, bestEntry, bestState, bestWeek, chore.data)
                 )
 
                 if chore.data.useShoppingListAsName ~= true and bestEntry.shoppingList ~= nil then
@@ -693,6 +687,8 @@ function Module:GetEntryText(translated, entry, state, weekState, options)
         else
             thingString = thingString .. '|cFFFFFFFFItem #' .. entry.item
         end
+    elseif state.status == 0 and options.chooseQuest then
+        thingString = '|cFFFFFFFF' .. L['choose_quest']
     elseif state.status == 0 and weekState ~= nil then
         if weekState.objectives ~= nil and #weekState.objectives == 1 then
             local objective = weekState.objectives[1]
