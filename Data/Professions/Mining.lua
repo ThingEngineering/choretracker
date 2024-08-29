@@ -17,11 +17,11 @@ Addon.data.chores.professionMining = {
                     key = 'gather',
                     groupSameItem = true,
                     entries = {
-                        { quest=83050, item=224583 }, -- Slab of Slate
-                        { quest=83051, item=224583 }, -- Slab of Slate
-                        { quest=83052, item=224583 }, -- Slab of Slate
-                        { quest=83053, item=224583 }, -- Slab of Slate
                         { quest=83054, item=224583 }, -- Slab of Slate
+                        { quest=83053, item=224583 }, -- Slab of Slate
+                        { quest=83052, item=224583 }, -- Slab of Slate
+                        { quest=83051, item=224583 }, -- Slab of Slate
+                        { quest=83050, item=224583 }, -- Slab of Slate
                         { quest=83049, item=224584 }, -- Erosion Polished Slate
                     },
                 },
