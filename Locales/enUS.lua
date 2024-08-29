@@ -116,6 +116,11 @@ L['chore:events:pvpBrawls:quests:southshoreVsTarrenMill'] = 'Southshore vs. Tarr
 L['chore:events:pvpBrawls:quests:templeOfHotmogu'] = 'Temple of Hotmogu'
 L['chore:events:pvpBrawls:quests:warsongScramble'] = 'Warsong Scramble'
 
+L['chore:professions:warWithin:drops:gather'] = 'Gather'
+
+L['chore:professions:warWithin:quests:orders'] = 'Orders'
+L['chore:professions:warWithin:quests:treatise'] = 'Treatise'
+
 L['chore:professions:dragonflight:drops:forbiddenReach'] = 'Forbidden Reach'
 L['chore:professions:dragonflight:drops:gather'] = 'Gather'
 L['chore:professions:dragonflight:drops:mob'] = 'Mobs'

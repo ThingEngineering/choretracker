@@ -9,12 +9,41 @@ Addon.data.chores.professionMining = {
     texture = C_Spell.GetSpellTexture(2575),
     categories = {
         {
+            key = 'warWithin',
+            name = EXPANSION_NAME10,
+            skillLineId = 2881,
+            drops = {
+                {
+                    key = 'gather',
+                    groupSameItem = true,
+                    entries = {
+                        { quest=83050, item=224583 }, -- Slab of Slate
+                        { quest=83051, item=224583 }, -- Slab of Slate
+                        { quest=83052, item=224583 }, -- Slab of Slate
+                        { quest=83053, item=224583 }, -- Slab of Slate
+                        { quest=83054, item=224583 }, -- Slab of Slate
+                        { quest=83049, item=224584 }, -- Erosion Polished Slate
+                    },
+                },
+            },
+            quests = {
+                {
+                    key = 'treatise',
+                    defaultEnabled = false,
+                    entries = {
+                        { quest=83733, item=222553 }, -- Algari Treatise on Mining
+                    },
+                },
+            },
+        },
+        {
             key = 'dragonflight',
             name = EXPANSION_NAME9,
             skillLineId = 2833,
             drops = {
                 {
                     key = 'gather',
+                    defaultEnabled = false,
                     groupSameItem = true,
                     entries = {
                         { quest=72160, item=201300 }, -- Iridescent Ore Fragments
@@ -37,6 +66,7 @@ Addon.data.chores.professionMining = {
                 {
                     key = 'provide',
                     skill = 45,
+                    defaultEnabled = false,
                     entries = {
                         { quest=70617 }, -- All Mine, Mine, Mine
                         { quest=70618 }, -- The Call of the Forge
@@ -46,6 +76,7 @@ Addon.data.chores.professionMining = {
                 },
                 {
                     key = 'treatise',
+                    defaultEnabled = false,
                     entries = {
                         { quest=74106, item=194708 }, -- Draconic Treatise on Mining
                     },

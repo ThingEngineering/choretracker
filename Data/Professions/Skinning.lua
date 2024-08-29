@@ -9,6 +9,34 @@ Addon.data.chores.professionSkinning = {
     texture = C_Spell.GetSpellTexture(8613),
     categories = {
         {
+            key = 'warWithin',
+            name = EXPANSION_NAME10,
+            skillLineId = 2882,
+            drops = {
+                {
+                    key = 'gather',
+                    groupSameItem = true,
+                    entries = {
+                        { quest=81459, item=224780 }, -- Toughened Tempest Pelt
+                        { quest=81460, item=224780 }, -- Toughened Tempest Pelt
+                        { quest=81461, item=224780 }, -- Toughened Tempest Pelt
+                        { quest=81462, item=224780 }, -- Toughened Tempest Pelt
+                        { quest=81463, item=224780 }, -- Toughened Tempest Pelt
+                        { quest=81464, item=224781 }, -- Abyssal Fur
+                    },
+                },
+            },
+            quests = {
+                {
+                    key = 'treatise',
+                    defaultEnabled = false,
+                    entries = {
+                        { quest=83734, item=222649 }, -- Algari Treatise on Skinning
+                    },
+                },
+            },
+        },
+        {
             key = 'dragonflight',
             name = EXPANSION_NAME9,
             skillLineId = 2834,

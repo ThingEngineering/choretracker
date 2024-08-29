@@ -9,6 +9,34 @@ Addon.data.chores.professionHerbalism = {
     texture = C_Spell.GetSpellTexture(2366),
     categories = {
         {
+            key = 'warWithin',
+            name = EXPANSION_NAME10,
+            skillLineId = 2877,
+            drops = {
+                {
+                    key = 'gather',
+                    groupSameItem = true,
+                    entries = {
+                        { quest=81416, item=224264 }, -- Deepgrove Rose Petal
+                        { quest=81417, item=224264 }, -- Deepgrove Rose Petal
+                        { quest=81418, item=224264 }, -- Deepgrove Rose Petal
+                        { quest=81419, item=224264 }, -- Deepgrove Rose Petal
+                        { quest=81420, item=224264 }, -- Deepgrove Rose Petal
+                        { quest=81421, item=224265 }, -- Deepgrove Rose
+                    },
+                },
+            },
+            quests = {
+                {
+                    key = 'treatise',
+                    defaultEnabled = false,
+                    entries = {
+                        { quest=83729, item=222552 }, -- Algari Treatise on Herbalism
+                    },
+                },
+            },
+        },
+        {
             key = 'dragonflight',
             name = EXPANSION_NAME9,
             skillLineId = 2832,
