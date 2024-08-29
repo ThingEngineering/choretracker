@@ -13,6 +13,9 @@ local ADB = LibStub('AceDB-3.0')
 local LSM = LibStub('LibSharedMedia-3.0')
 
 local defaultDb = {
+    char = {
+        skillLines = {},
+    },
     global = {
         questWeeks = {},
     },

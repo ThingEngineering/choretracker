@@ -209,7 +209,7 @@ function Module:ConfigChanged()
         if
             (
                 sectionData.skillLineId == nil or
-                ScannerModule.skillLines[sectionData.skillLineId] ~= nil
+                Addon.db.char.skillLines[sectionData.skillLineId] ~= nil
             ) and (
                 sectionData.minimumLevel == nil or
                 playerLevel >= sectionData.minimumLevel
@@ -242,7 +242,7 @@ function Module:ConfigChanged()
             }
 
             for _, catData in ipairs(sectionData.categories) do
-                if catData.skillLineId == nil or ScannerModule.skillLines[catData.skillLineId] ~= nil then
+                if catData.skillLineId == nil or Addon.db.char.skillLines[catData.skillLineId] ~= nil then
                     for _, typeKey in ipairs({ 'dungeons', 'quests', 'drops' }) do
                         for _, choreData in ipairs(catData[typeKey] or {}) do
                             local choreEnabled = Addon.db.profile.chores[sectionKey][catData.key][typeKey][choreData.key]
@@ -257,7 +257,7 @@ function Module:ConfigChanged()
                                 ) and
                                 (
                                     choreData.skill == nil or
-                                    ScannerModule.skillLines[catData.skillLineId] >= choreData.skill
+                                    Addon.db.char.skillLines[catData.skillLineId] >= choreData.skill
                                 )
                             then
                                 section.total = section.total + 1

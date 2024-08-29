@@ -7,7 +7,6 @@ local Module = Addon:NewModule(
         quests = {},
         questPaths = {},
         scanDungeons = {},
-        skillLines = {},
     }
 )
 
@@ -91,7 +90,7 @@ function Module:OnEnable()
             'TRADE_SKILL_LIST_UPDATE',
         },
         1,
-        'InitializeData'
+        'UpdateSkillLines'
     )
     self:RegisterBucketEvent(
         {
@@ -115,27 +114,34 @@ function Module:OnEnteringWorld()
     self:InitializeData()
 end
 
-function Module:InitializeData()
+local firstSkillLines = true
+function Module:UpdateSkillLines()
+    -- Don't scan on the first event, it triggers when entering world for the first time
+    if firstSkillLines == true then
+        firstSkillLines = false
+        return
+    end
+
     local oldSkillLines = {}
-    for key, value in pairs(self.skillLines) do
+    for key, value in pairs(Addon.db.char.skillLines) do
         oldSkillLines[key] = value
     end
 
     wipe(self.questPaths)
     wipe(self.scanDungeons)
-    wipe(self.skillLines)
+    wipe(Addon.db.char.skillLines)
 
     local professions = { GetProfessions() }
     for i = 1, 5 do
         local professionId = professions[i]
         if professionId ~= nil then
-            local _, _, skillLevel, _, _, _, skillLineId = GetProfessionInfo(professionId)
-            self.skillLines[skillLineId] = true
+            local _, _, _, _, _, _, skillLineId = GetProfessionInfo(professionId)
+            Addon.db.char.skillLines[skillLineId] = true
 
             for _, childSkillLineId in ipairs(PROFESSION_SKILL_LINES[skillLineId] or {}) do
                 local childInfo = CTSUI_GetProfessionInfoBySkillLineID(childSkillLineId)
                 if childInfo ~= nil and childInfo.skillLevel > 0 then
-                    self.skillLines[childSkillLineId] = childInfo.skillLevel
+                    Addon.db.char.skillLines[childSkillLineId] = childInfo.skillLevel
                 end
             end
         end
@@ -144,14 +150,14 @@ function Module:InitializeData()
     local linesChanged = false
     -- Check for unlearned skills
     for key, _ in pairs(oldSkillLines) do
-        if self.skillLines[key] == nil then
+        if Addon.db.char.skillLines[key] == nil then
             linesChanged = true
             break
         end
     end
 
     -- Check for learned skills or skill level increases
-    for key, value in pairs(self.skillLines) do
+    for key, value in pairs(Addon.db.char.skillLines) do
         if oldSkillLines[key] == nil or
             (type(oldSkillLines[key] == 'number') and type(value) == 'number' and oldSkillLines[key] < value)
         then
@@ -163,9 +169,11 @@ function Module:InitializeData()
     if linesChanged then
         self:SendMessage('ChoreTracker_Config_Changed', 'skill lines')
     end
+end
 
+function Module:InitializeData()
     for sectionKey, sectionData in pairs(Addon.data.chores) do
-        if sectionData.skillLineId == nil or self.skillLines[sectionData.skillLineId] ~= nil then
+        if sectionData.skillLineId == nil or Addon.db.char.skillLines[sectionData.skillLineId] ~= nil then
             for _, catData in ipairs(sectionData.categories) do
                 for _, typeKey in ipairs(DATA_TYPES) do
                     for _, choreData in ipairs(catData[typeKey] or {}) do
