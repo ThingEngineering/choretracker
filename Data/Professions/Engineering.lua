@@ -9,6 +9,36 @@ Addon.data.chores.professionEngineering = {
     texture = C_Spell.GetSpellTexture(4036),
     categories = {
         {
+            key = 'warWithin',
+            name = EXPANSION_NAME10,
+            skillLineId = 2875,
+            drops = {
+                {
+                    key = 'mob/treasure',
+                    entries = {
+                        { quest=83261, item=225229 }, -- Earthen Induction Coil
+                        { quest=83260, item=225228 }, -- Rust-Locked Mechanism
+                    },
+                },
+            },
+            quests = {
+                {
+                    key = 'treatise',
+                    defaultEnabled = false,
+                    entries = {
+                        { quest=83728, item=222621 }, -- Algari Treatise on Engineering
+                    },
+                },
+                {
+                    key = 'orders',
+                    skill = 25,
+                    entries = {
+                        { quest=84128 }, -- Engineering Services Requested
+                    },
+                },
+            },
+        },
+        {
             key = 'dragonflight',
             name = EXPANSION_NAME9,
             skillLineId = 2827,

@@ -9,6 +9,36 @@ Addon.data.chores.professionJewelcrafting = {
     texture = C_Spell.GetSpellTexture(25229),
     categories = {
         {
+            key = 'warWithin',
+            name = EXPANSION_NAME10,
+            skillLineId = 2879,
+            drops = {
+                {
+                    key = 'mob/treasure',
+                    entries = {
+                        { quest=83266, item=225225 }, -- Deepstone Fragment
+                        { quest=83265, item=225224 }, -- Diaphanous Gem Shards
+                    },
+                },
+            },
+            quests = {
+                {
+                    key = 'treatise',
+                    defaultEnabled = false,
+                    entries = {
+                        { quest=83731, item=222551 }, -- Algari Treatise on Jewelcrafting
+                    },
+                },
+                {
+                    key = 'orders',
+                    skill = 25,
+                    entries = {
+                        { quest=84130 }, -- Jewelcrafting Services Requested
+                    },
+                },
+            },
+        },
+        {
             key = 'dragonflight',
             name = EXPANSION_NAME9,
             skillLineId = 2829,

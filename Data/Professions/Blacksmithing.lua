@@ -9,6 +9,36 @@ Addon.data.chores.professionBlacksmithing = {
     texture = C_Spell.GetSpellTexture(2018),
     categories = {
         {
+            key = 'warWithin',
+            name = EXPANSION_NAME10,
+            skillLineId = 2872,
+            drops = {
+                {
+                    key = 'mob/treasure',
+                    entries = {
+                        { quest=83257, item=225232 }, -- Coreway Billet
+                        { quest=83256, item=225233 }, -- Dense Bladestone
+                    },
+                },
+            },
+            quests = {
+                {
+                    key = 'treatise',
+                    defaultEnabled = false,
+                    entries = {
+                        { quest=83726, item=222554 }, -- Algari Treatise on Blacksmithing
+                    },
+                },
+                {
+                    key = 'orders',
+                    skill = 25,
+                    entries = {
+                        { quest=84127 }, -- Blacksmithing Services Requested
+                    },
+                },
+            },
+        },
+        {
             key = 'dragonflight',
             name = EXPANSION_NAME9,
             skillLineId = 2822,

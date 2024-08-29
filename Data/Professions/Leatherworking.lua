@@ -9,6 +9,36 @@ Addon.data.chores.professionLeatherworking = {
     texture = C_Spell.GetSpellTexture(2108),
     categories = {
         {
+            key = 'warWithin',
+            name = EXPANSION_NAME10,
+            skillLineId = 2880,
+            drops = {
+                {
+                    key = 'mob/treasure',
+                    entries = {
+                        { quest=83268, item=225222 }, -- Stone-Leather Swatch
+                        { quest=83267, item=225223 }, -- Sturdy Nerubian Carapace
+                    },
+                },
+            },
+            quests = {
+                {
+                    key = 'treatise',
+                    defaultEnabled = false,
+                    entries = {
+                        { quest=83732, item=222549 }, -- Algari Treatise on Leatherworking
+                    },
+                },
+                {
+                    key = 'orders',
+                    skill = 25,
+                    entries = {
+                        { quest=84131 }, -- Leatherworking Services Requested
+                    },
+                },
+            },
+        },
+        {
             key = 'dragonflight',
             name = EXPANSION_NAME9,
             skillLineId = 2830,

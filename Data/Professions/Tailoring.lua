@@ -9,6 +9,36 @@ Addon.data.chores.professionTailoring = {
     texture = C_Spell.GetSpellTexture(3908),
     categories = {
         {
+            key = 'warWithin',
+            name = EXPANSION_NAME10,
+            skillLineId = 2883,
+            drops = {
+                {
+                    key = 'mob/treasure',
+                    entries = {
+                        { quest=83270, item=225220 }, -- Chitin Needle
+                        { quest=83269, item=225221 }, -- Spool of Webweave
+                    },
+                },
+            },
+            quests = {
+                {
+                    key = 'treatise',
+                    defaultEnabled = false,
+                    entries = {
+                        { quest=83735, item=222547 }, -- Algari Treatise on Tailoring
+                    },
+                },
+                {
+                    key = 'orders',
+                    skill = 25,
+                    entries = {
+                        { quest=84132 }, -- Tailoring Services Requested
+                    },
+                },
+            },
+        },
+        {
             key = 'dragonflight',
             name = EXPANSION_NAME9,
             skillLineId = 2831,

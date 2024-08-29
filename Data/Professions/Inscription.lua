@@ -9,6 +9,36 @@ Addon.data.chores.professionInscription = {
     texture = C_Spell.GetSpellTexture(45357),
     categories = {
         {
+            key = 'warWithin',
+            name = EXPANSION_NAME10,
+            skillLineId = 2878,
+            drops = {
+                {
+                    key = 'mob/treasure',
+                    entries = {
+                        { quest=83264, item=225226 }, -- Striated Inkstone
+                        { quest=83262, item=225227 }, -- Wax-Sealed Records
+                    },
+                },
+            },
+            quests = {
+                {
+                    key = 'treatise',
+                    defaultEnabled = false,
+                    entries = {
+                        { quest=83730, item=222548 }, -- Algari Treatise on Inscription
+                    },
+                },
+                {
+                    key = 'orders',
+                    skill = 25,
+                    entries = {
+                        { quest=84129 }, -- Inscription Services Requested
+                    },
+                },
+            },
+        },
+        {
             key = 'dragonflight',
             name = EXPANSION_NAME9,
             skillLineId = 2828,
