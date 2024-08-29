@@ -436,7 +436,7 @@ function Module:GetSections()
         for _, chore in ipairs(section.chores) do
             local quest = ScannerModule.quests[chore.data.requiredQuest]
             if chore.data.requiredQuest == nil or (quest ~= nil and quest.status == 2) then
-                if chore.typeKey == 'drops' then
+                if chore.typeKey == 'drops' or chore.data.groupSameItem == true then
                     self:GetSectionDrops(section, chore)
                 elseif chore.typeKey == 'dungeons' then
                     self:GetSectionDungeons(section, chore)
