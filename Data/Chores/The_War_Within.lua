@@ -13,7 +13,7 @@ Addon.data.chores.choresWarWithin = {
             quests = {
                 {
                     key = 'awakeningTheMachine',
-                    minimumLevel = 80,
+                    minimumLevel = 70,
                     entries = {
                         { quest = 83333 }, -- Gearing Up for Trouble
                     }
@@ -67,7 +67,7 @@ Addon.data.chores.choresWarWithin = {
                 },
                 {
                     key = 'worldsoul',
-                    minimumLevel = 80,
+                    minimumLevel = 70,
                     chooseQuest = true,
                     entries = {
                         { quest = 82511 }, -- Worldsoul: Awakening Machine
