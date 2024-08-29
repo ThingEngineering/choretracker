@@ -117,6 +117,7 @@ L['chore:events:pvpBrawls:quests:templeOfHotmogu'] = 'Temple of Hotmogu'
 L['chore:events:pvpBrawls:quests:warsongScramble'] = 'Warsong Scramble'
 
 L['chore:professions:warWithin:drops:gather'] = 'Gather'
+L['chore:professions:warWithin:drops:mob/treasure'] = 'Mobs/Treasures'
 
 L['chore:professions:warWithin:quests:orders'] = 'Orders'
 L['chore:professions:warWithin:quests:treatise'] = 'Treatise'

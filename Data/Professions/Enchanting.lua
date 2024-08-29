@@ -9,6 +9,41 @@ Addon.data.chores.professionEnchanting = {
     texture = C_Spell.GetSpellTexture(7411),
     categories = {
         {
+            key = 'warWithin',
+            name = EXPANSION_NAME10,
+            skillLineId = 2874,
+            drops = {
+                {
+                    key = 'gather',
+                    groupSameItem = true,
+                    entries = {
+                        { quest=84290, item=227659 }, -- Fleeting Arcane Manifestation
+                        { quest=84291, item=227659 }, -- Fleeting Arcane Manifestation
+                        { quest=84292, item=227659 }, -- Fleeting Arcane Manifestation
+                        { quest=84293, item=227659 }, -- Fleeting Arcane Manifestation
+                        { quest=84294, item=227659 }, -- Fleeting Arcane Manifestation
+                        { quest=84295, item=227661 }, -- Gleaming Telluric Crystal
+                    },
+                },
+                {
+                    key = 'mob/treasure',
+                    entries = {
+                        { quest=83259, item=225230 }, -- Crystalline Repository
+                        { quest=83258, item=225231 }, -- Powdered Fulgurance
+                    },
+                },
+            },
+            quests = {
+                {
+                    key = 'treatise',
+                    defaultEnabled = false,
+                    entries = {
+                        { quest=83727, item=222550 }, -- Algari Treatise on Enchanting
+                    },
+                },
+            },
+        },
+        {
             key = 'dragonflight',
             name = EXPANSION_NAME9,
             skillLineId = 2825,

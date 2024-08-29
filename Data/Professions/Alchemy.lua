@@ -9,6 +9,36 @@ Addon.data.chores.professionAlchemy = {
     texture = C_Spell.GetSpellTexture(2259),
     categories = {
         {
+            key = 'warWithin',
+            name = EXPANSION_NAME10,
+            skillLineId = 2871,
+            drops = {
+                {
+                    key = 'mob/treasure',
+                    entries = {
+                        { quest=83253, item=225234 }, -- Alchemical Sediment
+                        { quest=83255, item=225235 }, -- Deepstone Crucible
+                    },
+                },
+            },
+            quests = {
+                {
+                    key = 'treatise',
+                    defaultEnabled = false,
+                    entries = {
+                        { quest=83725, item=222546 }, -- Algari Treatise on Alchemy
+                    },
+                },
+                {
+                    key = 'orders',
+                    skill = 25,
+                    entries = {
+                        { quest=84133 }, -- Alchemy Services Requested
+                    },
+                },
+            },
+        },
+        {
             key = 'dragonflight',
             name = EXPANSION_NAME9,
             skillLineId = 2823,
