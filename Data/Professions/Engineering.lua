@@ -31,7 +31,6 @@ Addon.data.chores.professionEngineering = {
                 },
                 {
                     key = 'orders',
-                    skill = 25,
                     entries = {
                         { quest=84128 }, -- Engineering Services Requested
                     },

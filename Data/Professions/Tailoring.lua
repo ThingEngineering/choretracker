@@ -31,7 +31,6 @@ Addon.data.chores.professionTailoring = {
                 },
                 {
                     key = 'orders',
-                    skill = 25,
                     entries = {
                         { quest=84132 }, -- Tailoring Services Requested
                     },

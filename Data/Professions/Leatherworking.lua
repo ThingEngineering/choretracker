@@ -31,7 +31,6 @@ Addon.data.chores.professionLeatherworking = {
                 },
                 {
                     key = 'orders',
-                    skill = 25,
                     entries = {
                         { quest=84131 }, -- Leatherworking Services Requested
                     },

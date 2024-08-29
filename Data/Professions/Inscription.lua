@@ -31,7 +31,6 @@ Addon.data.chores.professionInscription = {
                 },
                 {
                     key = 'orders',
-                    skill = 25,
                     entries = {
                         { quest=84129 }, -- Inscription Services Requested
                     },

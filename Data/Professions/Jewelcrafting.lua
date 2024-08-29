@@ -31,7 +31,6 @@ Addon.data.chores.professionJewelcrafting = {
                 },
                 {
                     key = 'orders',
-                    skill = 25,
                     entries = {
                         { quest=84130 }, -- Jewelcrafting Services Requested
                     },
