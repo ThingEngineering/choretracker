@@ -1,3 +1,10 @@
+v11.0.2.5
+---------
+- Added TWW Delve Keys chore.
+- Changed quest scanning to be more robust.
+- Changed profession scanning to _only_ run when you open the professions window.
+- Fixed TWW profession order quests, they don't actually have a skill requirement.
+
 v11.0.2.4
 ---------
 - Added TWW profession chores (gather, drops, orders, and treatise).
