@@ -84,6 +84,10 @@ local PROFESSION_SKILL_LINES = {
 }
 
 function Module:OnEnable()
+    self:RegisterEvent('QUEST_ACCEPTED')
+    self:RegisterEvent('QUEST_REMOVED')
+    self:RegisterEvent('QUEST_TURNED_IN')
+
     self:RegisterBucketEvent(
         {
             'SKILL_LINES_CHANGED',
@@ -94,10 +98,10 @@ function Module:OnEnable()
     )
     self:RegisterBucketEvent(
         {
-            'QUEST_LOG_UPDATE', -- spammy quest log updates
+            'UNIT_QUEST_LOG_CHANGED', -- spammy quest log updates
         },
-        1,
-        'ScanQuests'
+        2,
+        'UNIT_QUEST_LOG_CHANGED'
     )
     self:RegisterBucketEvent(
         {
@@ -112,6 +116,27 @@ end
 
 function Module:OnEnteringWorld()
     self:InitializeData()
+end
+
+function Module:QUEST_ACCEPTED(_, questId)
+    self:UpdateQuest(questId, nil, STATUS_IN_PROGRESS)
+    self:SendMessage('ChoreTracker_Data_Updated', 'quests')
+end
+
+function Module:QUEST_REMOVED(_, questId)
+    self:UpdateQuest(questId, nil, STATUS_NOT_STARTED)
+    self:SendMessage('ChoreTracker_Data_Updated', 'quests')
+end
+
+function Module:QUEST_TURNED_IN(_, questId)
+    self:UpdateQuest(questId, nil, STATUS_COMPLETED)
+    self:SendMessage('ChoreTracker_Data_Updated', 'quests')
+end
+
+function Module:UNIT_QUEST_LOG_CHANGED(targets)
+    if targets.player then
+        self:ScanQuests()
+    end
 end
 
 local firstSkillLines = true
@@ -212,113 +237,131 @@ function Module:ScanDungeons()
     end
 end
 
-function Module:ScanQuests(forceChanged)
+function Module:GetWeek()
     local weeklyReset = time() + CDAT_GetSecondsUntilWeeklyReset()
     Addon.db.global.questWeeks[weeklyReset] = Addon.db.global.questWeeks[weeklyReset] or {}
-    local week = Addon.db.global.questWeeks[weeklyReset]
+    return Addon.db.global.questWeeks[weeklyReset]
+end
 
+function Module:ScanQuests(forceChanged)
     local anyChanges = false
+    local week = self:GetWeek()
+
     for questId, _ in pairs(self.questPaths) do
-        local oldData = self.quests[questId]
-        local newData = {
-            status = STATUS_NOT_STARTED,
-        }
-
-        if CQL_IsQuestFlaggedCompleted(questId) then
-            newData.status = STATUS_COMPLETED
-        elseif CQL_IsOnQuest(questId) then
-            newData.status = STATUS_IN_PROGRESS
-            local objectives = CQL_GetQuestObjectives(questId)
-            if objectives ~= nil then
-                newData.objectives = {}
-                for _, objective in ipairs(objectives) do
-                    if objective ~= nil then
-                        local objectiveData = {
-                            type = objective.type,
-                            text = gsub(
-                                objective.text,
-                                ":18:18:0:2%|a",
-                                ":0:0:0:2|a"
-                            ),objective.text,
-                        }
-
-                        if objective.type == 'progressbar' then
-                            objectiveData.have = GetQuestProgressBarPercent(questId)
-                            objectiveData.need = 100
-                        else
-                            objectiveData.have = objective.numFulfilled
-                            objectiveData.need = objective.numRequired
-                        end
-
-                        table.insert(newData.objectives, objectiveData)
-                    end
-                end
-            end
-        end
-
-        local basicChanged = oldData == nil or oldData.status ~= newData.status
-
-        local objectivesChanged = false
-        if basicChanged == false and newData.objectives ~= nil then
-            if oldData.objectives == nil then
-                objectivesChanged = true
-            elseif #oldData.objectives ~= #newData.objectives then
-                objectivesChanged = true
-            else
-                for i = 1, #oldData.objectives do
-                    local oldObjective = oldData.objectives[i]
-                    local newObjective = newData.objectives[i]
-
-                    if oldObjective.type ~= newObjective.type or
-                        oldObjective.text ~= newObjective.text or
-                        oldObjective.have ~= newObjective.have or
-                        oldObjective.need ~= newObjective.need
-                    then
-                        -- print('objective changed!')
-                        objectivesChanged = true
-                        break
-                    end
-                end
-            end
-        end
-
-        if basicChanged or objectivesChanged then
+        local questHadChanges = self:UpdateQuest(questId, week)
+        if questHadChanges == true then
             anyChanges = true
-            self.quests[questId] = newData
-            
-            -- Store the data for other characters if the quest is at least started
-            if newData.status > 0 then
-                local weekData = week[questId]
-                if weekData == nil or
-                    (weekData.status == STATUS_COMPLETED and newData.status == STATUS_IN_PROGRESS) or
-                    (weekData.objectives == nil and newData.objectives ~= nil)
-                then
-                    -- Copy the table in and reset objectives
-                    weekData = {
-                        questId = questId,
-                        status = newData.status,
-                        objectives = {}
-                    }
-
-                    if newData.objectives ~= nil then
-                        self:AddObjectives(weekData, newData)
-                    end
-
-                    week[questId] = weekData
-                elseif weekData ~= nil and
-                       weekData.status == STATUS_IN_PROGRESS and newData.status == STATUS_IN_PROGRESS and
-                       weekData.objectives ~= nil and newData.objectives ~= nil
-                then
-                    weekData.objectives = {}
-                    self:AddObjectives(weekData, newData)
-                end
-            end
         end
     end
 
     if anyChanges or forceChanged then
         self:SendMessage('ChoreTracker_Data_Updated', 'quests')
     end
+end
+
+function Module:UpdateQuest(questId, week, forceStatus)
+    if week == nil then
+        week = self:GetWeek()
+    end
+
+    local oldData = self.quests[questId]
+    local newData = {
+        status = forceStatus or STATUS_NOT_STARTED,
+    }
+
+    if newData.status == STATUS_COMPLETED or CQL_IsQuestFlaggedCompleted(questId) then
+        newData.status = STATUS_COMPLETED
+    elseif newData.status == STATUS_IN_PROGRESS or CQL_IsOnQuest(questId) then
+        newData.status = STATUS_IN_PROGRESS
+        local objectives = CQL_GetQuestObjectives(questId)
+        if objectives ~= nil then
+            newData.objectives = {}
+            for _, objective in ipairs(objectives) do
+                if objective ~= nil then
+                    local objectiveData = {
+                        type = objective.type,
+                        text = gsub(
+                            objective.text,
+                            ":18:18:0:2%|a",
+                            ":0:0:0:2|a"
+                        ),objective.text,
+                    }
+
+                    if objective.type == 'progressbar' then
+                        objectiveData.have = GetQuestProgressBarPercent(questId)
+                        objectiveData.need = 100
+                    else
+                        objectiveData.have = objective.numFulfilled
+                        objectiveData.need = objective.numRequired
+                    end
+
+                    table.insert(newData.objectives, objectiveData)
+                end
+            end
+        end
+    end
+
+    local basicChanged = oldData == nil or oldData.status ~= newData.status
+
+    local objectivesChanged = false
+    if basicChanged == false and newData.objectives ~= nil then
+        if oldData.objectives == nil then
+            objectivesChanged = true
+        elseif #oldData.objectives ~= #newData.objectives then
+            objectivesChanged = true
+        else
+            for i = 1, #oldData.objectives do
+                local oldObjective = oldData.objectives[i]
+                local newObjective = newData.objectives[i]
+
+                if oldObjective.type ~= newObjective.type or
+                    oldObjective.text ~= newObjective.text or
+                    oldObjective.have ~= newObjective.have or
+                    oldObjective.need ~= newObjective.need
+                then
+                    -- print('objective changed!')
+                    objectivesChanged = true
+                    break
+                end
+            end
+        end
+    end
+
+    local anyChanges = false
+    if basicChanged or objectivesChanged then
+        anyChanges = true
+        self.quests[questId] = newData
+        
+        -- Store the data for other characters if the quest is at least started
+        if newData.status > 0 then
+            local weekData = week[questId]
+            if weekData == nil or
+                (weekData.status == STATUS_COMPLETED and newData.status == STATUS_IN_PROGRESS) or
+                (weekData.objectives == nil and newData.objectives ~= nil)
+            then
+                -- Copy the table in and reset objectives
+                weekData = {
+                    questId = questId,
+                    status = newData.status,
+                    objectives = {}
+                }
+
+                if newData.objectives ~= nil then
+                    self:AddObjectives(weekData, newData)
+                end
+
+                week[questId] = weekData
+            elseif weekData ~= nil and
+                   weekData.status == STATUS_IN_PROGRESS and newData.status == STATUS_IN_PROGRESS and
+                   weekData.objectives ~= nil and newData.objectives ~= nil
+            then
+                weekData.objectives = {}
+                self:AddObjectives(weekData, newData)
+            end
+        end
+    end
+
+    return anyChanges
 end
 
 function Module:AddObjectives(weekData, newData)
