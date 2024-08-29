@@ -90,8 +90,7 @@ function Module:OnEnable()
 
     self:RegisterBucketEvent(
         {
-            'SKILL_LINES_CHANGED',
-            'TRADE_SKILL_LIST_UPDATE',
+            'TRADE_SKILL_SHOW',
         },
         1,
         'UpdateSkillLines'
@@ -139,14 +138,7 @@ function Module:UNIT_QUEST_LOG_CHANGED(targets)
     end
 end
 
-local firstSkillLines = true
 function Module:UpdateSkillLines()
-    -- Don't scan on the first event, it triggers when entering world for the first time
-    if firstSkillLines == true then
-        firstSkillLines = false
-        return
-    end
-
     local oldSkillLines = {}
     for key, value in pairs(Addon.db.char.skillLines) do
         oldSkillLines[key] = value
