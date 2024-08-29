@@ -16,6 +16,7 @@ local CDAT_GetSecondsUntilWeeklyReset = C_DateAndTime.GetSecondsUntilWeeklyReset
 local CQL_GetQuestObjectives = C_QuestLog.GetQuestObjectives
 local CQL_IsOnQuest = C_QuestLog.IsOnQuest
 local CQL_IsQuestFlaggedCompleted = C_QuestLog.IsQuestFlaggedCompleted
+local CTSUI_GetProfessionInfoBySkillLineID = C_TradeSkillUI.GetProfessionInfoBySkillLineID
 
 local DATA_TYPES = {
     'drops',
@@ -25,18 +26,62 @@ local DATA_TYPES = {
 local STATUS_NOT_STARTED = 0
 local STATUS_IN_PROGRESS = 1
 local STATUS_COMPLETED = 2
-local PROFESSION_DRAGONFLIGHT = {
-    [171] = 2823, -- Alchemy
-    [164] = 2822, -- Blacksmithing
-    [333] = 2825, -- Enchanting
-    [202] = 2827, -- Engineering
-    [182] = 2832, -- Herbalism
-    [773] = 2828, -- Inscription
-    [755] = 2829, -- Jewelcrafting
-    [165] = 2830, -- Leatherworking
-    [186] = 2833, -- Mining
-    [393] = 2834, -- Skinning
-    [197] = 2831, -- Tailoring
+local PROFESSION_SKILL_LINES = {
+    -- Alchemy
+    [171] = {
+        2823, -- Dragon Isles
+        2871, -- Khaz Algar
+    },
+    -- Blacksmithing
+    [164] = {
+        2822, -- Dragon Isles
+        2872, -- Khaz Algar
+    },
+    -- Enchanting
+    [333] = {
+        2825, -- Dragon Isles
+        2874, -- Khaz Algar
+    },
+    -- Engineering
+    [202] = {
+        2827, -- Dragon Isles
+        2875, -- Khaz Algar
+    },
+    -- Herbalism
+    [182] = {
+        2832, -- Dragon Isles
+        2877, -- Khaz Algar
+    },
+    -- Inscription
+    [773] = {
+        2828, -- Dragon Isles
+        2878, -- Khaz Algar
+    },
+    -- Jewelcrafting
+    [755] = {
+        2829, -- Dragon Isles
+        2879, -- Khaz Algar
+    },
+    -- Leatherworking
+    [165] = {
+        2830, -- Dragon Isles
+        2880, -- Khaz Algar
+    },
+    -- Mining
+    [186] = {
+        2833, -- Dragon Isles
+        2881, -- Khaz Algar
+    },
+    -- Skinning
+    [393] = {
+        2834, -- Dragon Isles
+        2882, -- Khaz Algar
+    },
+    -- Tailoring
+    [197] = {
+        2831, -- Dragon Isles
+        2883, -- Khaz Algar
+    },
 }
 
 function Module:OnEnable()
@@ -84,14 +129,13 @@ function Module:InitializeData()
     for i = 1, 5 do
         local professionId = professions[i]
         if professionId ~= nil then
-            local _, _, skillLevel, _, _, _, skillLineId, _, _, _, subName = GetProfessionInfo(professionId)
+            local _, _, skillLevel, _, _, _, skillLineId = GetProfessionInfo(professionId)
             self.skillLines[skillLineId] = true
 
-            local dfId = PROFESSION_DRAGONFLIGHT[skillLineId]
-            if dfId ~= nil then
-                local expectedName = C_TradeSkillUI.GetTradeSkillDisplayName(dfId)
-                if expectedName == subName then
-                    self.skillLines[dfId] = skillLevel
+            for _, childSkillLineId in ipairs(PROFESSION_SKILL_LINES[skillLineId] or {}) do
+                local childInfo = CTSUI_GetProfessionInfoBySkillLineID(childSkillLineId)
+                if childInfo ~= nil and childInfo.skillLevel > 0 then
+                    self.skillLines[childSkillLineId] = childInfo.skillLevel
                 end
             end
         end
