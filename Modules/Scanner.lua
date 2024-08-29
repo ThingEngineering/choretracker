@@ -97,7 +97,15 @@ function Module:OnEnable()
     )
     self:RegisterBucketEvent(
         {
-            'UNIT_QUEST_LOG_CHANGED', -- spammy quest log updates
+            'ENCOUNTER_LOOT_RECEIVED',
+            'QUEST_LOG_UPDATE', -- spammy quest log updates
+        },
+        2,
+        'ScanQuests'
+    )
+    self:RegisterBucketEvent(
+        {
+            'UNIT_QUEST_LOG_CHANGED', -- spammy quest log updates part 2?
         },
         2,
         'UNIT_QUEST_LOG_CHANGED'
