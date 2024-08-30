@@ -98,6 +98,7 @@ function Module:OnEnable()
     self:RegisterBucketEvent(
         {
             'ENCOUNTER_LOOT_RECEIVED',
+            'ITEM_PUSH',
             'QUEST_LOG_UPDATE', -- spammy quest log updates
         },
         2,
