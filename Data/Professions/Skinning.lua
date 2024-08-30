@@ -28,6 +28,17 @@ Addon.data.chores.professionSkinning = {
             },
             quests = {
                 {
+                    key = 'task',
+                    skill = 25,
+                    entries = {
+                        { quest=83097 }, -- Cinder and Storm 
+                        { quest=83100 }, -- Cracking the Shell 
+                        { quest=82993 }, -- From Shadows 
+                        { quest=83098 }, -- Snap and Crackle 
+                        { quest=82992 }, -- Stormcharged Goods
+                        },
+                },
+                {
                     key = 'treatise',
                     defaultEnabled = false,
                     entries = {

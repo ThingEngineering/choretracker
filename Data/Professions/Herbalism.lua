@@ -28,6 +28,17 @@ Addon.data.chores.professionHerbalism = {
             },
             quests = {
                 {
+                    key = 'task',
+                    skill = 25,
+                    entries = {
+                        { quest=82970 }, -- A Bloom and A Blossom
+                        { quest=82962 }, -- A Handful of Luredrops
+                        { quest=82965 }, -- Light and Shadow
+                        { quest=82958 }, -- Little Blessings
+                        { quest=82916 }, -- When Fungi Bloom
+                    },
+                },
+                {
                     key = 'treatise',
                     defaultEnabled = false,
                     entries = {
