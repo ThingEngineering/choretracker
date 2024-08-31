@@ -25,77 +25,6 @@ local DATA_TYPES = {
 local STATUS_NOT_STARTED = 0
 local STATUS_IN_PROGRESS = 1
 local STATUS_COMPLETED = 2
-local PROFESSION_SKILL_LINES = {
-    -- Alchemy
-    [171] = {
-        2823, -- Dragon Isles
-        2871, -- Khaz Algar
-    },
-    -- Blacksmithing
-    [164] = {
-        2822, -- Dragon Isles
-        2872, -- Khaz Algar
-    },
-    -- Enchanting
-    [333] = {
-        2825, -- Dragon Isles
-        2874, -- Khaz Algar
-    },
-    -- Engineering
-    [202] = {
-        2827, -- Dragon Isles
-        2875, -- Khaz Algar
-    },
-    -- Herbalism
-    [182] = {
-        2832, -- Dragon Isles
-        2877, -- Khaz Algar
-    },
-    -- Inscription
-    [773] = {
-        2828, -- Dragon Isles
-        2878, -- Khaz Algar
-    },
-    -- Jewelcrafting
-    [755] = {
-        2829, -- Dragon Isles
-        2879, -- Khaz Algar
-    },
-    -- Leatherworking
-    [165] = {
-        2830, -- Dragon Isles
-        2880, -- Khaz Algar
-    },
-    -- Mining
-    [186] = {
-        2833, -- Dragon Isles
-        2881, -- Khaz Algar
-    },
-    -- Skinning
-    [393] = {
-        2834, -- Dragon Isles
-        2882, -- Khaz Algar
-    },
-    -- Tailoring
-    [197] = {
-        2831, -- Dragon Isles
-        2883, -- Khaz Algar
-    },
-}
-local SKILL_LINE_SPELLS = {
-    -- Dragon Isles
-    [2823] = 366261, -- Alchemy
-    [2822] = 365677, -- Blacksmithing
-    [2825] = 366255, -- Enchanting
-    [2827] = 366254, -- Engineering
-    [2832] = 366242, -- Herbalism
-    [2828] = 366251, -- Inscription
-    [2829] = 366250, -- Jewelcrafting
-    [2830] = 366249, -- Leatherworking
-    [2833] = 366264, -- Mining
-    [2834] = 366263, -- Skinning
-    [2831] = 366258, -- Tailoring
-}
 
 function Module:OnEnable()
     self:RegisterEvent('QUEST_ACCEPTED')
@@ -183,7 +112,7 @@ function Module:UpdateSkillLines()
             local _, _, skillLevel, _, _, _, skillLineId, _, _, _, currentSkillLineName = GetProfessionInfo(professionId)
             skillLines[skillLineId] = true
 
-            for _, childSkillLineId in ipairs(PROFESSION_SKILL_LINES[skillLineId] or {}) do
+            for _, childSkillLineId in ipairs(Addon.data.professionSkillLines[skillLineId] or {}) do
                 local childName = C_TradeSkillUI.GetTradeSkillDisplayName(childSkillLineId)
                 if childName == currentSkillLineName then
                     skillLines[childSkillLineId] = skillLevel
@@ -194,8 +123,8 @@ function Module:UpdateSkillLines()
                         if childInfo.skillLevel > 0 then
                             skillLines[childSkillLineId] = childInfo.skillLevel
                         -- Fall back to checking if the character knows the relevant spell
-                        elseif SKILL_LINE_SPELLS[childSkillLineId] then
-                            if IsSpellKnown(SKILL_LINE_SPELLS[childSkillLineId]) then
+                        elseif Addon.data.skillLineSpell[childSkillLineId] then
+                            if IsSpellKnown(Addon.data.skillLineSpell[childSkillLineId]) then
                                 skillLines[childSkillLineId] = oldSkillLines[childSkillLineId] or -1
                             end
                         end
