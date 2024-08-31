@@ -1,3 +1,15 @@
+v11.0.2.6
+---------
+- Added TWW gathering task chores.
+- Added TWW Rollin' Down in the Deeps chore.
+- Added TWW Sparks of War chore.
+- Added TWW Beledar's Shadow timer.
+- Changed profession scanning to be more robust and less forgetful.
+- Fixed level requirements on several TWW chores.
+- Removed unavailable DF chores (Aiding the Accord, Last Hurrah, Sparks of Life).
+- Removed Radiant Echoes chores.
+- Removed Remix: Pandaria chores.
+
 v11.0.2.5
 ---------
 - Added TWW Delve Keys chore.
