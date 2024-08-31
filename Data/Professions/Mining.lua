@@ -31,11 +31,11 @@ Addon.data.chores.professionMining = {
                     key = 'task',
                     skill = 25,
                     entries = {
-                        { quest=83103 }, -- Acquiring Aqirite 
-                        { quest=83102 }, -- Bismuth is Business 
-                        { quest=83104 }, -- Identifying Ironclaw 
+                        { quest=83103 }, -- Acquiring Aqirite
+                        { quest=83102 }, -- Bismuth is Business
+                        { quest=83104 }, -- Identifying Ironclaw
                         { quest=83106 }, -- Null Pebble Excavation
-                        { quest=83106 }, -- Rush-order Requisition 
+                        { quest=83106 }, -- Rush-order Requisition
                     },
                 },
                 {

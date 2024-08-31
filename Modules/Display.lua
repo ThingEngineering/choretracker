@@ -243,6 +243,15 @@ function Module:ConfigChanged()
 
             for _, catData in ipairs(sectionData.categories) do
                 if catData.skillLineId == nil or Addon.db.char.skillLines[catData.skillLineId] ~= nil then
+                    -- Show an info message about missing skill level
+                    if Addon.db.char.skillLines[catData.skillLineId] == -1 then
+                        table.insert(section.chores, {
+                            data = {},
+                            translated = L['missing_skill_level'],
+                            typeKey = 'warning',
+                        })
+                    end
+
                     for _, typeKey in ipairs({ 'dungeons', 'quests', 'drops' }) do
                         for _, choreData in ipairs(catData[typeKey] or {}) do
                             local choreEnabled = Addon.db.profile.chores[sectionKey][catData.key][typeKey][choreData.key]
@@ -434,14 +443,18 @@ function Module:GetSections()
         section.entries = {}
 
         for _, chore in ipairs(section.chores) do
-            local quest = ScannerModule.quests[chore.data.requiredQuest]
-            if chore.data.requiredQuest == nil or (quest ~= nil and quest.status == 2) then
-                if chore.typeKey == 'drops' or chore.data.groupSameItem == true then
-                    self:GetSectionDrops(section, chore)
-                elseif chore.typeKey == 'dungeons' then
-                    self:GetSectionDungeons(section, chore)
-                else
-                    self:GetSectionQuests(week, section, chore, showCompletedChores, showObjectives)
+            if chore.typeKey == 'warning' then
+                table.insert(section.entries, chore.translated)
+            else
+                local quest = ScannerModule.quests[chore.data.requiredQuest]
+                if chore.data.requiredQuest == nil or (quest ~= nil and quest.status == 2) then
+                    if chore.typeKey == 'drops' or chore.data.groupSameItem == true then
+                        self:GetSectionDrops(section, chore)
+                    elseif chore.typeKey == 'dungeons' then
+                        self:GetSectionDungeons(section, chore)
+                    else
+                        self:GetSectionQuests(week, section, chore, showCompletedChores, showObjectives)
+                    end
                 end
             end
         end
@@ -543,7 +556,7 @@ function Module:GetSectionQuests(week, section, chore, showCompleted, showObject
         [2] = {},
     }
 
-    for _, choreEntry in ipairs(chore.data.entries) do
+    for _, choreEntry in ipairs(chore.data.entries or {}) do
         local entryState = ScannerModule.quests[choreEntry.quest]
         if entryState ~= nil then
             table.insert(byStatus[entryState.status], {

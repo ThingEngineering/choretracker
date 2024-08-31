@@ -36,7 +36,7 @@ Addon.data.chores.professionSkinning = {
                         { quest=82993 }, -- From Shadows 
                         { quest=83098 }, -- Snap and Crackle 
                         { quest=82992 }, -- Stormcharged Goods
-                        },
+                    },
                 },
                 {
                     key = 'treatise',

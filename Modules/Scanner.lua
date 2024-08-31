@@ -82,6 +82,20 @@ local PROFESSION_SKILL_LINES = {
         2883, -- Khaz Algar
     },
 }
+local SKILL_LINE_SPELLS = {
+    -- Dragon Isles
+    [2823] = 366261, -- Alchemy
+    [2822] = 365677, -- Blacksmithing
+    [2825] = 366255, -- Enchanting
+    [2827] = 366254, -- Engineering
+    [2832] = 366242, -- Herbalism
+    [2828] = 366251, -- Inscription
+    [2829] = 366250, -- Jewelcrafting
+    [2830] = 366249, -- Leatherworking
+    [2833] = 366264, -- Mining
+    [2834] = 366263, -- Skinning
+    [2831] = 366258, -- Tailoring
+}
 
 function Module:OnEnable()
     self:RegisterEvent('QUEST_ACCEPTED')
@@ -90,11 +104,14 @@ function Module:OnEnable()
 
     self:RegisterBucketEvent(
         {
+            'SKILL_LINE_SPECS_RANKS_CHANGED',
+            'SKILL_LINES_CHANGED',
             'TRADE_SKILL_SHOW',
         },
         1,
         'UpdateSkillLines'
     )
+
     self:RegisterBucketEvent(
         {
             'ENCOUNTER_LOOT_RECEIVED',
@@ -123,7 +140,10 @@ function Module:OnEnable()
 end
 
 function Module:OnEnteringWorld()
-    self:InitializeData()
+    local linesChanged = self:UpdateSkillLines()
+    if linesChanged == false then
+        self:InitializeData()
+    end
 end
 
 function Module:QUEST_ACCEPTED(_, questId)
@@ -148,26 +168,38 @@ function Module:UNIT_QUEST_LOG_CHANGED(targets)
 end
 
 function Module:UpdateSkillLines()
+    local skillLines = Addon.db.char.skillLines
     local oldSkillLines = {}
-    for key, value in pairs(Addon.db.char.skillLines) do
+    for key, value in pairs(skillLines) do
         oldSkillLines[key] = value
     end
 
-    wipe(self.questPaths)
-    wipe(self.scanDungeons)
-    wipe(Addon.db.char.skillLines)
+    wipe(skillLines)
 
     local professions = { GetProfessions() }
     for i = 1, 5 do
         local professionId = professions[i]
         if professionId ~= nil then
-            local _, _, _, _, _, _, skillLineId = GetProfessionInfo(professionId)
-            Addon.db.char.skillLines[skillLineId] = true
+            local _, _, skillLevel, _, _, _, skillLineId, _, _, _, currentSkillLineName = GetProfessionInfo(professionId)
+            skillLines[skillLineId] = true
 
             for _, childSkillLineId in ipairs(PROFESSION_SKILL_LINES[skillLineId] or {}) do
-                local childInfo = CTSUI_GetProfessionInfoBySkillLineID(childSkillLineId)
-                if childInfo ~= nil and childInfo.skillLevel > 0 then
-                    Addon.db.char.skillLines[childSkillLineId] = childInfo.skillLevel
+                local childName = C_TradeSkillUI.GetTradeSkillDisplayName(childSkillLineId)
+                if childName == currentSkillLineName then
+                    skillLines[childSkillLineId] = skillLevel
+                else
+                    local childInfo = CTSUI_GetProfessionInfoBySkillLineID(childSkillLineId)
+                    if childInfo ~= nil then
+                        -- This is only populated after opening a profession window
+                        if childInfo.skillLevel > 0 then
+                            skillLines[childSkillLineId] = childInfo.skillLevel
+                        -- Fall back to checking if the character knows the relevant spell
+                        elseif SKILL_LINE_SPELLS[childSkillLineId] then
+                            if IsSpellKnown(SKILL_LINE_SPELLS[childSkillLineId]) then
+                                skillLines[childSkillLineId] = -1
+                            end
+                        end
+                    end
                 end
             end
         end
@@ -176,14 +208,14 @@ function Module:UpdateSkillLines()
     local linesChanged = false
     -- Check for unlearned skills
     for key, _ in pairs(oldSkillLines) do
-        if Addon.db.char.skillLines[key] == nil then
+        if skillLines[key] == nil then
             linesChanged = true
             break
         end
     end
 
     -- Check for learned skills or skill level increases
-    for key, value in pairs(Addon.db.char.skillLines) do
+    for key, value in pairs(skillLines) do
         if oldSkillLines[key] == nil or
             (type(oldSkillLines[key] == 'number') and type(value) == 'number' and oldSkillLines[key] < value)
         then
@@ -194,10 +226,16 @@ function Module:UpdateSkillLines()
 
     if linesChanged then
         self:SendMessage('ChoreTracker_Config_Changed', 'skill lines')
+        self:InitializeData()
     end
+
+    return linesChanged
 end
 
 function Module:InitializeData()
+    wipe(self.questPaths)
+    wipe(self.scanDungeons)
+
     for sectionKey, sectionData in pairs(Addon.data.chores) do
         if sectionData.skillLineId == nil or Addon.db.char.skillLines[sectionData.skillLineId] ~= nil then
             for _, catData in ipairs(sectionData.categories) do

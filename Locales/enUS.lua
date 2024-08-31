@@ -166,3 +166,5 @@ L['choose_quest'] = 'Choose a quest!'
 L['questName:80544'] = 'The Weaver'
 L['questName:80545'] = 'The General'
 L['questName:80546'] = 'The Vizier'
+
+L['missing_skill_level'] = '|cFFFF00FFOpen profession window!|r'
