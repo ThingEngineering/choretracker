@@ -20,7 +20,7 @@ Addon.data.chores.choresWarWithin = {
                 },
                 {
                     key = 'spreadingTheLight',
-                    minimumLevel = 80,
+                    minimumLevel = 70,
                     entries = {
                         { quest = 76586 }, -- Spreading the Light
                     }
@@ -34,7 +34,7 @@ Addon.data.chores.choresWarWithin = {
                 },
                 {
                     key = 'spiderPact',
-                    minimumLevel = 80,
+                    minimumLevel = 70,
                     entries = {
                         { quest = 80544 }, -- The Weaver
                         { quest = 80545 }, -- The General
@@ -43,7 +43,7 @@ Addon.data.chores.choresWarWithin = {
                 },
                 {
                     key = 'spiderWeekly',
-                    minimumLevel = 80,
+                    minimumLevel = 70,
                     entries = {
                         { quest = 80670 }, -- Eyes of the Weaver
                         { quest = 80671 }, -- Blade of the General
