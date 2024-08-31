@@ -7,25 +7,7 @@ Addon.data.chores.choresDragonflight = {
     name = EXPANSION_NAME9,
     order = 19,
     minimumLevel = 60,
-    -- filter = function()
-    --     -- no Remix: Pandaria aura
-    --     return C_UnitAuras.GetPlayerAuraBySpellID(424143) == nil
-    -- end,
     categories = {
-        {
-            key = 'patch_10_2_6',
-            quests = {
-                {
-                    key = 'lastHurrah',
-                    minimumLevel = 70,
-                    entries = {
-                        { quest = 80385 }, -- Last Hurrah: Dragon Isles
-			            { quest = 80386 }, -- Last Hurrah: Zaralek Caverns and Time Rifts
-			            { quest = 80388 }, -- Last Hurrah: Emerald Dream
-                    },
-                },
-            },
-        },
         {
             key = 'patch_10_2_5',
             quests = {
@@ -203,25 +185,6 @@ Addon.data.chores.choresDragonflight = {
             key = 'patch_10_0_0',
             quests = {
                 {
-                    key = 'aidingTheAccord',
-                    inProgressQuestName = false,
-                    entries = {
-                        { quest = 70750 }, -- Aiding the Accord
-                        { quest = 72068 }, -- Aiding the Accord: A Feast For All
-                        { quest = 72373 }, -- Aiding the Accord: A Hunt Is On
-                        { quest = 72374 }, -- Aiding the Accord: Dragonbane Keep
-                        { quest = 72375 }, -- Aiding the Accord: The Isles Call
-                        { quest = 75259 }, -- Aiding the Accord: Zskera Vaults
-                        { quest = 75859 }, -- Aiding the Accord: Sniffenseeking
-                        { quest = 75860 }, -- Aiding the Accord: Researchers Under Fire
-                        { quest = 75861 }, -- Aiding the Accord: Suffusion Camp
-                        { quest = 77254 }, -- Aiding the Accord: Time Rift
-                        { quest = 77976 }, -- Aiding the Accord: Dreamsurge
-                        { quest = 78446 }, -- Aiding the Accord: Superbloom
-                        { quest = 78447 }, -- Aiding the Accord: Emerald Bounty
-                    },
-                },
-                {
                     key = 'communityFeast',
                     entries = {
                         { quest = 70893, item=200095 }, -- HTQ
@@ -275,18 +238,6 @@ Addon.data.chores.choresDragonflight = {
                     key = 'showYourMettle',
                     entries = {
                         { quest = 70221 }, -- Show Your Mettle
-                    },
-                },
-                {
-                    key = 'sparksOfLife',
-                    entries = {
-                        { quest = 72646 }, -- Sparks of Life: The Waking Shores
-                        { quest = 72647 }, -- Sparks of Life: Ohn'ahran Plains
-                        { quest = 72648 }, -- Sparks of Life: Azure Span
-                        { quest = 72649 }, -- Sparks of Life: Thaldraszus
-                        { quest = 74871 }, -- Sparks of Life: The Forbidden Reach
-                        { quest = 75305 }, -- Sparks of Life: Zaralek Cavern
-                        { quest = 78097 }, -- Sparks of Life: Emerald Dream
                     },
                 },
             },

@@ -27,7 +27,6 @@ L['category:patch_10_1_5'] = 'Patch 10.1.5'
 L['category:patch_10_1_7'] = 'Patch 10.1.7'
 L['category:patch_10_2_0'] = 'Patch 10.2.0'
 L['category:patch_10_2_5'] = 'Patch 10.2.5'
-L['category:patch_10_2_6'] = 'Patch 10.2.6'
 L['category:patch_11_0_0'] = 'Patch 11.0.0'
 L['category:pvpBrawls'] = 'PvP Brawls'
 L['category:worldBosses'] = 'World Bosses'
@@ -47,8 +46,6 @@ L['chore:dragonflight:catchAndRelease:quests:releaseIslefin'] = 'Islefin Dorado'
 L['chore:dragonflight:catchAndRelease:quests:releaseScalebelly'] = 'Scalebelly Mackerel'
 L['chore:dragonflight:catchAndRelease:quests:releaseTemporal'] = 'Temporal Dragonhead'
 L['chore:dragonflight:catchAndRelease:quests:releaseThousandbite'] = 'Thousandbite Piranha'
-
-L['chore:dragonflight:patch_10_2_6:quests:lastHurrah'] = 'Last Hurrah'
 
 L['chore:dragonflight:patch_10_2_5:quests:bigDig'] = 'The Big Dig'
 
@@ -72,7 +69,6 @@ L['chore:dragonflight:patch_10_1_0:quests:fyrakkShipment'] = 'Fyrakk: Shipment'
 
 L['chore:dragonflight:patch_10_0_5:quests:primalistFuture'] = 'Primalist Future'
 
-L['chore:dragonflight:patch_10_0_0:quests:aidingTheAccord'] = 'Aiding the Accord'
 L['chore:dragonflight:patch_10_0_0:quests:communityFeast'] = 'Community Feast'
 L['chore:dragonflight:patch_10_0_0:quests:dragonAllegiance'] = 'Dragon: Allegiance'
 L['chore:dragonflight:patch_10_0_0:quests:dragonKey'] = 'Dragon: Key Turn-in'
@@ -82,7 +78,6 @@ L['chore:dragonflight:patch_10_0_0:quests:grandHuntRare'] = 'Grand Hunt: Rare'
 L['chore:dragonflight:patch_10_0_0:quests:grandHuntEpic'] = 'Grand Hunt: Epic'
 L['chore:dragonflight:patch_10_0_0:quests:heroicDungeons'] = 'Heroic Dungeons'
 L['chore:dragonflight:patch_10_0_0:quests:showYourMettle'] = 'Show Your Mettle'
-L['chore:dragonflight:patch_10_0_0:quests:sparksOfLife'] = 'Sparks of Life'
 
 L['chore:events:holidays:quests:arenaSkirmishes'] = 'Arena Skirmishes'
 L['chore:events:holidays:quests:battlegrounds'] = 'Battlegrounds'
@@ -98,11 +93,6 @@ L['chore:events:holidays2:dungeons:crownChemicalCo'] = 'Crown Chemical Co.'
 L['chore:events:holidays2:dungeons:headlessHorseman'] = 'Headless Horseman'
 L['chore:events:holidays2:dungeons:frostLordAhune'] = 'Frost Lord Ahune'
 L['chore:events:holidays2:quests:meanOne'] = 'Stolen Treats'
-
-L['chore:events:limited:quests:radiantDragonblight'] = 'RE: Dragonblight'
-L['chore:events:limited:quests:radiantDustwallow'] = 'RE: Dustwallow'
-L['chore:events:limited:quests:radiantFirstKill'] = 'RE: First kill'
-L['chore:events:limited:quests:radiantSearing'] = 'RE: Searing'
 
 L['chore:events:pvpBrawls:quests:arathiBlizzard'] = 'Arathi Blizzard'
 L['chore:events:pvpBrawls:quests:classicAshran'] = 'Classic Ashran'
@@ -138,16 +128,6 @@ L['chore:professions:dragonflight:quests:skinMagmaCobra'] = 'Skin Magma Cobra'
 L['chore:professions:dragonflight:quests:skinVerdantGladewarden'] = 'Skin Verdant Gladewarden'
 
 L['chore:professions:event:quests:darkmoonFaire'] = 'Darkmoon Faire'
-
-L['chore:remixPandaria:dailies:quests:scenario'] = 'Daily Scenario'
-L['chore:remixPandaria:dailies:quests:dungeon'] = 'Daily Dungeon'
-L['chore:remixPandaria:dailies:quests:raid'] = 'Daily Raid'
-L['chore:remixPandaria:worldBosses:quests:celestials'] = 'Celestials'
-L['chore:remixPandaria:worldBosses:quests:galleon'] = 'Galleon'
-L['chore:remixPandaria:worldBosses:quests:nalak'] = 'Nalak'
-L['chore:remixPandaria:worldBosses:quests:oondasta'] = 'Oondasta'
-L['chore:remixPandaria:worldBosses:quests:ordos'] = 'Ordos'
-L['chore:remixPandaria:worldBosses:quests:sha'] = 'Sha of Anger'
 
 L['timer:theaterTroupe'] = 'Theater Troupe'
 
