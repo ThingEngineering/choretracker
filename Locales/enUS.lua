@@ -34,6 +34,7 @@ L['category:worldBosses'] = 'World Bosses'
 L['chore:warWithin:patch_11_0_0:quests:awakeningTheMachine'] = 'Awakening the Machine'
 L['chore:warWithin:patch_11_0_0:quests:delveKeys'] = 'Delve Keys'
 L['chore:warWithin:patch_11_0_0:quests:dungeon'] = 'Dungeon'
+L['chore:warWithin:patch_11_0_0:quests:rollinDown'] = "Rollin' Down in the Deeps"
 L['chore:warWithin:patch_11_0_0:quests:sparksOfWar'] = 'Sparks of War'
 L['chore:warWithin:patch_11_0_0:quests:spiderPact'] = 'Spider Pact'
 L['chore:warWithin:patch_11_0_0:quests:spiderWeekly'] = 'Spider Weekly'

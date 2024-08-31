@@ -19,6 +19,13 @@ Addon.data.chores.choresWarWithin = {
                     }
                 },
                 {
+                    key = 'rollinDown',
+                    minimumLevel = 80,
+                    entries = {
+                        { quest = 82946 }, -- Rollin' Down in the Deeps
+                    }
+                },
+                {
                     key = 'spreadingTheLight',
                     minimumLevel = 70,
                     entries = {
@@ -119,6 +126,7 @@ Addon.data.chores.choresWarWithin = {
                 },
                 {
                     key = 'sparksOfWar',
+                    minimumLevel = 70,
                     entries = {
                         { quest=81793 }, -- Sparks of War: Isle of Dorn
                         { quest=81794 }, -- Sparks of War: The Ringing Deeps
