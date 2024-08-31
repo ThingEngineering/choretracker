@@ -196,7 +196,7 @@ function Module:UpdateSkillLines()
                         -- Fall back to checking if the character knows the relevant spell
                         elseif SKILL_LINE_SPELLS[childSkillLineId] then
                             if IsSpellKnown(SKILL_LINE_SPELLS[childSkillLineId]) then
-                                skillLines[childSkillLineId] = -1
+                                skillLines[childSkillLineId] = oldSkillLines[childSkillLineId] or -1
                             end
                         end
                     end
