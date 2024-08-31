@@ -7,6 +7,13 @@ Addon.data.timers.warWithin = {
     name = EXPANSION_NAME10,
     timers = {
         {
+            key = 'beledarsShadow',
+            minimumLevel = 70,
+            interval = 3 * 60 * 60,
+            duration = 30 * 60,
+            offset = 60 * 60,
+        },
+        {
             key = 'theaterTroupe',
             minimumLevel = 70,
             interval = 60 * 60,
