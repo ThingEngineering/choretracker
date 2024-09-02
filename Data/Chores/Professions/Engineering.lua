@@ -24,7 +24,6 @@ Addon.data.chores.professionEngineering = {
             quests = {
                 {
                     key = 'treatise',
-                    defaultEnabled = false,
                     entries = {
                         { quest=83728, item=222621 }, -- Algari Treatise on Engineering
                     },
@@ -44,6 +43,7 @@ Addon.data.chores.professionEngineering = {
             drops = {
                 {
                     key = 'mob',
+                    defaultEnabled = false,
                     entries = {
                         { quest=70516, item=198969, desc='Keeper' }, -- Keeper's Mark
                         { quest=70517, item=198970, desc='Dragonkin' }, -- Infinitely Attachable Pair o' Docks
@@ -51,6 +51,7 @@ Addon.data.chores.professionEngineering = {
                 },
                 {
                     key = 'treasure',
+                    defaultEnabled = false,
                     entries = {
                         { quest=66379, item=193902 }, -- Eroded Titan Gizmo
                         { quest=66380, item=193903 }, -- Watcher Power Core
@@ -68,6 +69,7 @@ Addon.data.chores.professionEngineering = {
                 {
                     key = 'provide',
                     skill = 45,
+                    defaultEnabled = false,
                     entries = {
                         { quest=70539 }, -- And You Thought They Did Nothing
                         { quest=70540 }, -- An Engineer's Best Friend
@@ -78,6 +80,7 @@ Addon.data.chores.professionEngineering = {
                 {
                     key = 'task',
                     skill = 25,
+                    defaultEnabled = false,
                     entries = {
                         { quest=66890 }, -- Stolen Tools
                         { quest=66891 }, -- Explosive Ash
@@ -91,6 +94,7 @@ Addon.data.chores.professionEngineering = {
                 },
                 {
                     key = 'treatise',
+                    defaultEnabled = false,
                     entries = {
                         { quest=74111, item=198510 }, -- Draconic Treatise on Engineering
                     },
@@ -98,6 +102,7 @@ Addon.data.chores.professionEngineering = {
                 {
                     key = 'orders',
                     skill = 25,
+                    defaultEnabled = false,
                     entries = {
                         { quest=70591 }, -- Engineering Services Requested
                     },

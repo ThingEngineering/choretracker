@@ -24,7 +24,6 @@ Addon.data.chores.professionInscription = {
             quests = {
                 {
                     key = 'treatise',
-                    defaultEnabled = false,
                     entries = {
                         { quest=83730, item=222548 }, -- Algari Treatise on Inscription
                     },
@@ -44,6 +43,7 @@ Addon.data.chores.professionInscription = {
             drops = {
                 {
                     key = 'mob',
+                    defaultEnabled = false,
                     entries = {
                         { quest=70518, item=198971, desc='Djaradin' }, -- Curious Djaradin Rune
                         { quest=70519, item=198972, desc='Dragonkin' }, -- Draconic Glamour
@@ -51,6 +51,7 @@ Addon.data.chores.professionInscription = {
                 },
                 {
                     key = 'treasure',
+                    defaultEnabled = false,
                     entries = {
                         { quest=66375, item=193904 }, -- Phoenix Feather Quill
                         { quest=66376, item=193905 }, -- Iskaaran Trading Ledger
@@ -68,6 +69,7 @@ Addon.data.chores.professionInscription = {
                 {
                     key = 'provide',
                     skill = 45,
+                    defaultEnabled = false,
                     entries = {
                         { quest=70558 }, -- Disillusioned Illusions
                         { quest=70559 }, -- Quill You Help?
@@ -78,6 +80,7 @@ Addon.data.chores.professionInscription = {
                 {
                     key = 'task',
                     skill = 25,
+                    defaultEnabled = false,
                     entries = {
                         { quest=66943 }, -- Wood for Writing
                         { quest=66944 }, -- Peacock Pigments
@@ -91,6 +94,7 @@ Addon.data.chores.professionInscription = {
                 },
                 {
                     key = 'treatise',
+                    defaultEnabled = false,
                     entries = {
                         { quest=74105, item=194699 }, -- Draconic Treatise on Inscription
                     },
@@ -98,6 +102,7 @@ Addon.data.chores.professionInscription = {
                 {
                     key = 'orders',
                     skill = 25,
+                    defaultEnabled = false,
                     entries = {
                         { quest=70592 }, -- Inscription Services Requested
                     },

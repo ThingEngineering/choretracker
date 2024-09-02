@@ -24,7 +24,6 @@ Addon.data.chores.professionLeatherworking = {
             quests = {
                 {
                     key = 'treatise',
-                    defaultEnabled = false,
                     entries = {
                         { quest=83732, item=222549 }, -- Algari Treatise on Leatherworking
                     },
@@ -44,6 +43,7 @@ Addon.data.chores.professionLeatherworking = {
             drops = {
                 {
                     key = 'mob',
+                    defaultEnabled = false,
                     entries = {
                         { quest=70522, item=198975, desc='Proto-Drake' }, -- Ossified Hide
                         { quest=70523, item=198976, desc='Slyvern & Vorquin' }, -- Exceedingly Soft Skin
@@ -51,6 +51,7 @@ Addon.data.chores.professionLeatherworking = {
                 },
                 {
                     key = 'treasure',
+                    defaultEnabled = false,
                     entries = {
                         { quest=66384, item=193910 }, -- Molted Dragon Scales
                         { quest=66385, item=193913 }, -- Preserved Animal Parts
@@ -67,6 +68,7 @@ Addon.data.chores.professionLeatherworking = {
             quests = {
                 {
                     key = 'provide',
+                    defaultEnabled = false,
                     entries = {
                         { quest=70567 }, -- When You Give Bakar a Bone
                         { quest=70568 }, -- Tipping the Scales
@@ -77,6 +79,7 @@ Addon.data.chores.professionLeatherworking = {
                 {
                     key = 'task',
                     skill = 25,
+                    defaultEnabled = false,
                     entries = {
                         { quest=66363 }, -- Basilisk Bucklers
                         { quest=66364 }, -- To Fly a Kite
@@ -90,6 +93,7 @@ Addon.data.chores.professionLeatherworking = {
                 },
                 {
                     key = 'treatise',
+                    defaultEnabled = false,
                     entries = {
                         { quest=74113, item=194700 }, -- Draconic Treatise on Leatherworking
                     },
@@ -97,6 +101,7 @@ Addon.data.chores.professionLeatherworking = {
                 {
                     key = 'orders',
                     skill = 25,
+                    defaultEnabled = false,
                     entries = {
                         { quest=70594 }, -- Leatherworking Services Requested
                     },

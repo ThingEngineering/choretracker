@@ -24,7 +24,6 @@ Addon.data.chores.professionTailoring = {
             quests = {
                 {
                     key = 'treatise',
-                    defaultEnabled = false,
                     entries = {
                         { quest=83735, item=222547 }, -- Algari Treatise on Tailoring
                     },
@@ -44,6 +43,7 @@ Addon.data.chores.professionTailoring = {
             drops = {
                 {
                     key = 'mob',
+                    defaultEnabled = false,
                     entries = {
                         { quest=70524, item=198977, desc='Centaur' }, -- Ohn'arhan Weave
                         { quest=70525, item=198978, desc='Gnoll' }, -- Stupidly Effective Stitchery
@@ -51,6 +51,7 @@ Addon.data.chores.professionTailoring = {
                 },
                 {
                     key = 'treasure',
+                    defaultEnabled = false,
                     entries = {
                         { quest=66386, item=193898 }, -- Umbral Bone Needle
                         { quest=66387, item=193899 }, -- Primalweave Spindle
@@ -68,6 +69,7 @@ Addon.data.chores.professionTailoring = {
                 {
                     key = 'provide',
                     skill = 50,
+                    defaultEnabled = false,
                     entries = {
                         { quest=70572 }, -- The Cold Does Bother Them, Actually
                         { quest=70582 }, -- Weave Well Enough Alone
@@ -78,6 +80,7 @@ Addon.data.chores.professionTailoring = {
                 {
                     key = 'task',
                     skill = 25,
+                    defaultEnabled = false,
                     entries = {
                         { quest=66899 }, -- Fuzzy Legs
                         { quest=66952 }, -- The Gnoll's Clothes
@@ -91,6 +94,7 @@ Addon.data.chores.professionTailoring = {
                 },
                 {
                     key = 'treatise',
+                    defaultEnabled = false,
                     entries = {
                         { quest=74115, item=194698 }, -- Draconic Treatise on Tailoring
                     },
@@ -98,6 +102,7 @@ Addon.data.chores.professionTailoring = {
                 {
                     key = 'orders',
                     skill = 25,
+                    defaultEnabled = false,
                     entries = {
                         { quest=70595 }, -- Tailoring Services Requested
                     },

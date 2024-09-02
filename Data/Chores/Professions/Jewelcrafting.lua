@@ -24,7 +24,6 @@ Addon.data.chores.professionJewelcrafting = {
             quests = {
                 {
                     key = 'treatise',
-                    defaultEnabled = false,
                     entries = {
                         { quest=83731, item=222551 }, -- Algari Treatise on Jewelcrafting
                     },
@@ -44,6 +43,7 @@ Addon.data.chores.professionJewelcrafting = {
             drops = {
                 {
                     key = 'mob',
+                    defaultEnabled = false,
                     entries = {
                         { quest=70520, item=198973, desc='Elemental' }, -- Incandescent Curio
                         { quest=70521, item=198974, desc='Dragonkin' }, -- Elegantly Engraved Embellishment
@@ -51,6 +51,7 @@ Addon.data.chores.professionJewelcrafting = {
                 },
                 {
                     key = 'treasure',
+                    defaultEnabled = false,
                     entries = {
                         { quest=66388, item=193909 }, -- Ancient Gem Fragments
                         { quest=66389, item=193907 }, -- Chipped Tyrstone
@@ -68,6 +69,7 @@ Addon.data.chores.professionJewelcrafting = {
                 {
                     key = 'provide',
                     skill = 50,
+                    defaultEnabled = false,
                     entries = {
                         { quest=70562 }, -- The Plumbers, Mason
                         { quest=70563 }, -- The Exhibition
@@ -78,6 +80,7 @@ Addon.data.chores.professionJewelcrafting = {
                 {
                     key = 'task',
                     skill = 25,
+                    defaultEnabled = false,
                     entries = {
                         { quest=66516 }, -- Mundane Gems, I Think Not!
                         { quest=66949 }, -- Trinket Bandits
@@ -91,6 +94,7 @@ Addon.data.chores.professionJewelcrafting = {
                 },
                 {
                     key = 'treatise',
+                    defaultEnabled = false,
                     entries = {
                         { quest=74112, item=194703 }, -- Draconic Treatise on Jewelcrafting
                     },
@@ -98,6 +102,7 @@ Addon.data.chores.professionJewelcrafting = {
                 {
                     key = 'orders',
                     skill = 25,
+                    defaultEnabled = false,
                     entries = {
                         { quest=70593 }, -- Jewelcrafting Services Requested
                     },
