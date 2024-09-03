@@ -27,6 +27,8 @@ AceGUI\ChoreFrame.lua
 AceGUI\FancyList.lua
 
 Locales\enUS.lua
+Locales\zhTW.lua
+Locales\zhCN.lua
 
 ChoreTracker.lua
 
