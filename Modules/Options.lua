@@ -110,6 +110,41 @@ function Module:GetDbSection(sighKey)
     return Addon.db.profile[sighKey]
 end
 
+function Module:SetAllChores(sectionKey, onlyCategory, value)
+    local section = Addon.data.chores[sectionKey]
+    for _, category in ipairs(section.categories) do
+        if onlyCategory == nil or category.key == onlyCategory then
+            local categoryOptions = Addon.db.profile.chores[sectionKey][category.key]
+            if categoryOptions == nil then
+                categoryOptions = {}
+                Addon.db.profile.chores[sectionKey][category.key] = categoryOptions
+            end
+
+            for _, typeKey in ipairs({ 'drops', 'quests' }) do
+                if category[typeKey] ~= nil then
+                    local typeOptions = categoryOptions[typeKey]
+                    if typeOptions == nil then
+                        typeOptions = {}
+                        categoryOptions[typeKey] = typeOptions
+                    end
+            
+                    for _, chore in ipairs(category[typeKey]) do
+                        typeOptions[chore.key] = value
+                    end
+                end
+            end
+        end
+    end
+end
+
+function Module:DisableChores(sectionKey, onlyCategory)
+    self:SetAllChores(sectionKey, onlyCategory, false)
+end
+
+function Module:EnableChores(sectionKey, onlyCategory)
+    self:SetAllChores(sectionKey, onlyCategory, true)
+end
+
 function Module:CreateOptions()
     self.options = {
         name = addonName,
@@ -124,38 +159,76 @@ function Module:CreateOptions()
                 type = 'group',
                 order = newOrder(),
                 args = {
+                    bulk = {
+                        name = L['option:bulkActions'],
+                        type = 'group',
+                        inline = true,
+                        order = newOrder(),
+                        args = {
+                            disableDragonflight = {
+                                name = L['option:bulkActions:dragonflightDisable'],
+                                type = 'execute',
+                                order = newOrder(),
+                                width = WIDTH_3_PER_ROW,
+                                func = function()
+                                    self:DisableChores('choresDragonflight')
+                                    for sectionKey, _ in pairs(Addon.data.chores) do
+                                        if sectionKey:find('^profession') then
+                                            self:DisableChores(sectionKey, 'dragonflight')
+                                        end
+                                    end
+                                    print('Disabled ALL Dragonflight chores!')
+                                end,
+                            },
+                            enableDragonflight = {
+                                name = L['option:bulkActions:dragonflightEnable'],
+                                type = 'execute',
+                                order = newOrder(),
+                                width = WIDTH_3_PER_ROW,
+                                func = function()
+                                    self:EnableChores('choresDragonflight')
+                                    for sectionKey, _ in pairs(Addon.data.chores) do
+                                        if sectionKey:find('^profession') then
+                                            self:EnableChores(sectionKey, 'dragonflight')
+                                        end
+                                    end
+                                    print('Enabled ALL Dragonflight chores!')
+                                end,
+                            },
+                        }
+                    },
                     display = {
-                        name = 'Display',
+                        name = L['option:display'],
                         type = 'group',
                         inline = true,
                         order = newOrder(),
                         args = {
                             showCompletedSections = {
-                                name = L['option:general:showCompletedSections'],
+                                name = L['option:display:showCompletedSections'],
                                 type = 'toggle',
                                 order = newOrder(),
                                 width = WIDTH_3_PER_ROW,
                             },
                             showCompleted = {
-                                name = L['option:general:showCompleted'],
+                                name = L['option:display:showCompleted'],
                                 type = 'toggle',
                                 order = newOrder(),
                                 width = WIDTH_3_PER_ROW,
                             },
                             statusIcons = {
-                                name = L['option:general:statusIcons'],
+                                name = L['option:display:statusIcons'],
                                 type = 'toggle',
                                 order = newOrder(),
                                 width = WIDTH_3_PER_ROW,
                             },
                             -- awakenedTimers = {
-                            --     name = L['option:general:awakenedTimers'],
+                            --     name = L['option:display:awakenedTimers'],
                             --     type = 'toggle',
                             --     order = newOrder(),
                             --     width = WIDTH_3_PER_ROW,
                             -- },
                             showObjectives = {
-                                name = 'Show chore objectives',
+                                name = L['option:display:showObjectives'],
                                 type = 'select',
                                 order = newOrder(),
                                 values = OBJECTIVES,
@@ -164,13 +237,13 @@ function Module:CreateOptions()
                         },
                     },
                     appearance = {
-                        name = 'Appearance',
+                        name = L['option:appearance'],
                         type = 'group',
                         inline = true,
                         order = newOrder(),
                         args = {
                             backgroundColor = {
-                                name = 'Background color',
+                                name = L['option:appearance:backgroundColor'],
                                 type = 'color',
                                 order = newOrder(),
                                 hasAlpha = true,
@@ -188,7 +261,7 @@ function Module:CreateOptions()
                                 end,
                             },
                             borderColor = {
-                                name = 'Border color',
+                                name = L['option:appearance:borderColor'],
                                 type = 'color',
                                 order = newOrder(),
                                 hasAlpha = true,
@@ -206,7 +279,7 @@ function Module:CreateOptions()
                                 end,
                             },
                             strata = {
-                                name = 'Strata',
+                                name = L['option:appearance:backgroundColor'],
                                 type = 'select',
                                 order = newOrder(),
                                 values = STRATA,
@@ -215,20 +288,20 @@ function Module:CreateOptions()
                         },
                     },
                     text = {
-                        name = 'Text',
+                        name = L['option:text'],
                         type = 'group',
                         inline = true,
                         order = newOrder(),
                         args = {
                             font = {
-                                name = 'Font',
+                                name = L['option:text:font'],
                                 type = 'select',
                                 order = newOrder(),
                                 dialogControl = 'LSM30_Font',
                                 values = LSM:HashTable('font'),
                             },
                             fontSize = {
-                                name = 'Font size',
+                                name = L['option:text:fontSize'],
                                 type = 'range',
                                 order = newOrder(),
                                 min = 8,
@@ -236,7 +309,7 @@ function Module:CreateOptions()
                                 step = 1,
                             },
                             fontStyle = {
-                                name = 'Font style',
+                                name = L['option:text:fontStyle'],
                                 type = 'select',
                                 order = newOrder(),
                                 values = FONT_FLAGS,
@@ -246,7 +319,7 @@ function Module:CreateOptions()
                 }
             },
             sectionChores = {
-                name = 'Chores',
+                name = L['section:chores'],
                 type = 'group',
                 childGroups = 'tab',
                 order = newOrder(),
@@ -257,7 +330,7 @@ function Module:CreateOptions()
                 },
             },
             sectionProfessions = {
-                name = 'Professions',
+                name = L['section:professions'],
                 type = 'group',
                 childGroups = 'tab',
                 order = newOrder(),
@@ -279,7 +352,7 @@ function Module:CreateOptions()
                 }
             },
             sectionTimers = {
-                name = 'Timers',
+                name = L['section:timers'],
                 type = 'group',
                 order = newOrder(),
                 args = {

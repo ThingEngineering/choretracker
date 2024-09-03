@@ -1,3 +1,9 @@
+v11.0.2.7
+---------
+- Added "Disable ALL DF chores" and "Enable ALL DF chores" buttons to options.
+- Changed Dragonflight profession chores to off by default.
+- Changed all options text to use locale strings for translations.
+
 v11.0.2.6
 ---------
 - Added TWW gathering task chores.

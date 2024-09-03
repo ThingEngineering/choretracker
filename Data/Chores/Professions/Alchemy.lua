@@ -24,7 +24,6 @@ Addon.data.chores.professionAlchemy = {
             quests = {
                 {
                     key = 'treatise',
-                    defaultEnabled = false,
                     entries = {
                         { quest=83725, item=222546 }, -- Algari Treatise on Alchemy
                     },
@@ -44,6 +43,7 @@ Addon.data.chores.professionAlchemy = {
             drops = {
                 {
                     key = 'mob',
+                    defaultEnabled = false,
                     entries = {
                         { quest=70504, item=198963, desc='Decayed' }, -- Decaying Phlegm
                         { quest=70511, item=198964, desc='Elemental' }, -- Elementious Splinter
@@ -51,6 +51,7 @@ Addon.data.chores.professionAlchemy = {
                 },
                 {
                     key = 'treasure',
+                    defaultEnabled = false,
                     entries = {
                         { quest=66373, item=193891 }, -- Experimental Substance
                         { quest=66374, item=193897 }, -- Reawakened Catalyst
@@ -68,6 +69,7 @@ Addon.data.chores.professionAlchemy = {
                 {
                     key = 'provide',
                     skill = 50,
+                    defaultEnabled = false,
                     entries = {
                         { quest=70530 }, -- Examination Week
                         { quest=70531 }, -- Mana Markets
@@ -78,6 +80,7 @@ Addon.data.chores.professionAlchemy = {
                 {
                     key = 'task',
                     skill = 25,
+                    defaultEnabled = false,
                     entries = {
                         { quest=66937 }, -- Decaying News
                         { quest=66938 }, -- Mammoth Marrow
@@ -91,6 +94,7 @@ Addon.data.chores.professionAlchemy = {
                 },
                 {
                     key = 'treatise',
+                    defaultEnabled = false,
                     entries = {
                         { quest=74108, item=194697 }, -- Draconic Treatise on Alchemy
                     },

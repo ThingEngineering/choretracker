@@ -36,7 +36,6 @@ Addon.data.chores.professionEnchanting = {
             quests = {
                 {
                     key = 'treatise',
-                    defaultEnabled = false,
                     entries = {
                         { quest=83727, item=222550 }, -- Algari Treatise on Enchanting
                     },
@@ -50,6 +49,7 @@ Addon.data.chores.professionEnchanting = {
             drops = {
                 {
                     key = 'mob',
+                    defaultEnabled = false,
                     entries = {
                         { quest=70514, item=198967, desc='Arcane' }, -- Primordial Aether
                         { quest=70515, item=198968, desc='Primalist' }, -- Primalist Charm
@@ -57,6 +57,7 @@ Addon.data.chores.professionEnchanting = {
                 },
                 {
                     key = 'treasure',
+                    defaultEnabled = false,
                     entries = {
                         { quest=66377, item=193900 }, -- Prismatic Focusing Shard
                         { quest=66378, item=193901 }, -- Primal Dust
@@ -74,6 +75,7 @@ Addon.data.chores.professionEnchanting = {
                 {
                     key = 'provide',
                     skill = 45,
+                    defaultEnabled = false,
                     entries = {
                         { quest=72155 }, -- Spread the Enchantment
                         { quest=72172 }, -- Essence, Shards, and Chromatic Dust
@@ -84,6 +86,7 @@ Addon.data.chores.professionEnchanting = {
                 {
                     key = 'task',
                     skill = 25,
+                    defaultEnabled = false,
                     entries = {
                         { quest=66884 }, -- Fireproof Gear
                         { quest=66900 }, -- Enchanted Relics
@@ -97,6 +100,7 @@ Addon.data.chores.professionEnchanting = {
                 },
                 {
                     key = 'treatise',
+                    defaultEnabled = false,
                     entries = {
                         { quest=74110, item=194702 }, -- Draconic Treatise on Enchanting
                     },

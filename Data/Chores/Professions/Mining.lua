@@ -40,7 +40,6 @@ Addon.data.chores.professionMining = {
                 },
                 {
                     key = 'treatise',
-                    defaultEnabled = false,
                     entries = {
                         { quest=83733, item=222553 }, -- Algari Treatise on Mining
                     },

@@ -24,7 +24,6 @@ Addon.data.chores.professionBlacksmithing = {
             quests = {
                 {
                     key = 'treatise',
-                    defaultEnabled = false,
                     entries = {
                         { quest=83726, item=222554 }, -- Algari Treatise on Blacksmithing
                     },
@@ -44,6 +43,7 @@ Addon.data.chores.professionBlacksmithing = {
             drops = {
                 {
                     key = 'mob',
+                    defaultEnabled = false,
                     entries = {
                         { quest=70513, item=198966, desc='Fire' }, -- Molten Globule
                         { quest=70512, item=198965, desc='Earth' }, -- Primeval Earth Fragment
@@ -51,6 +51,7 @@ Addon.data.chores.professionBlacksmithing = {
                 },
                 {
                     key = 'treasure',
+                    defaultEnabled = false,
                     entries = {
                         { quest=66382, item=192132 }, -- Draconium Blade Sharpener
                         { quest=66381, item=192131 }, -- Valdrakken Weapon Chain
@@ -67,6 +68,7 @@ Addon.data.chores.professionBlacksmithing = {
             quests = {
                 {
                     key = 'provide',
+                    defaultEnabled = false,
                     entries = {
                         { quest=70211 }, -- Stomping Explorers
                         { quest=70233 }, -- Axe Shortage
@@ -76,6 +78,7 @@ Addon.data.chores.professionBlacksmithing = {
                 },
                 {
                     key = 'task',
+                    defaultEnabled = false,
                     entries = {
                         { quest=66517 }, -- A New Source of Weapons
                         { quest=66897 }, -- Fuel for the Forge
@@ -89,6 +92,7 @@ Addon.data.chores.professionBlacksmithing = {
                 },
                 {
                     key = 'treatise',
+                    defaultEnabled = false,
                     entries = {
                         { quest=74109, item=198454 }, -- Draconic Treatise on Blacksmithing
                     },
@@ -96,6 +100,7 @@ Addon.data.chores.professionBlacksmithing = {
                 {
                     key = 'orders',
                     skill = 25,
+                    defaultEnabled = false,
                     entries = {
                         { quest=70589 }, -- Blacksmithing Services Requested
                     },

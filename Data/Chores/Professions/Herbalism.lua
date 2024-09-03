@@ -40,7 +40,6 @@ Addon.data.chores.professionHerbalism = {
                 },
                 {
                     key = 'treatise',
-                    defaultEnabled = false,
                     entries = {
                         { quest=83729, item=222552 }, -- Algari Treatise on Herbalism
                     },
@@ -54,6 +53,7 @@ Addon.data.chores.professionHerbalism = {
             drops = {
                 {
                     key = 'gather',
+                    defaultEnabled = false,
                     groupSameItem = true,
                     entries = {
                         { quest=71857, item=200677 }, -- Dreambloom Petal
@@ -76,6 +76,7 @@ Addon.data.chores.professionHerbalism = {
                 {
                     key = 'provide',
                     skill = 45,
+                    defaultEnabled = false,
                     entries = {
                         { quest=70613 }, -- Get Their Bark Before They Bite
                         { quest=70614 }, -- Bubble Craze
@@ -85,6 +86,7 @@ Addon.data.chores.professionHerbalism = {
                 },
                 {
                     key = 'treatise',
+                    defaultEnabled = false,
                     entries = {
                         { quest=74107, item=194704 }, -- Draconic Treatise on Herbalism
                     },

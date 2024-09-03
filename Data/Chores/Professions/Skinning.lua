@@ -40,7 +40,6 @@ Addon.data.chores.professionSkinning = {
                 },
                 {
                     key = 'treatise',
-                    defaultEnabled = false,
                     entries = {
                         { quest=83734, item=222649 }, -- Algari Treatise on Skinning
                     },
@@ -54,6 +53,7 @@ Addon.data.chores.professionSkinning = {
             drops = {
                 {
                     key = 'gather',
+                    defaultEnabled = false,
                     groupSameItem = true,
                     entries = {
                         { quest=70381, item=198837 }, -- Curious Hide Scraps
@@ -76,6 +76,7 @@ Addon.data.chores.professionSkinning = {
                 {
                     key = 'provide',
                     skill = 45,
+                    defaultEnabled = false,
                     entries = {
                         { quest=70619 }, -- A Study of Leather
                         { quest=70620 }, -- Scaling Up
@@ -85,6 +86,7 @@ Addon.data.chores.professionSkinning = {
                 },
                 {
                     key = 'treatise',
+                    defaultEnabled = false,
                     entries = {
                         { quest=74114, item=201023 }, -- Draconic Treatise on Skinning
                     },
@@ -92,6 +94,7 @@ Addon.data.chores.professionSkinning = {
                 {
                     key = 'skinMagmaCobra',
                     skill = 1,
+                    defaultEnabled = false,
                     entries = {
                         { quest=74235, item=205413 }, -- Obsidian Cobraskin
                     }
@@ -99,6 +102,7 @@ Addon.data.chores.professionSkinning = {
                 {
                     key = 'skinVerdantGladewarden',
                     skill = 1,
+                    defaultEnabled = false,
                     entries = {
                         { quest=78397, item=210456 }, -- Dreaming Antler Fragment
                     }
