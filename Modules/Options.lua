@@ -160,13 +160,13 @@ function Module:CreateOptions()
                 order = newOrder(),
                 args = {
                     bulk = {
-                        name = 'Bulk Actions',
+                        name = L['option:bulkActions'],
                         type = 'group',
                         inline = true,
                         order = newOrder(),
                         args = {
                             disableDragonflight = {
-                                name = L['option:general:dragonflightDisable'],
+                                name = L['option:bulkActions:dragonflightDisable'],
                                 type = 'execute',
                                 order = newOrder(),
                                 width = WIDTH_3_PER_ROW,
@@ -181,7 +181,7 @@ function Module:CreateOptions()
                                 end,
                             },
                             enableDragonflight = {
-                                name = L['option:general:dragonflightEnable'],
+                                name = L['option:bulkActions:dragonflightEnable'],
                                 type = 'execute',
                                 order = newOrder(),
                                 width = WIDTH_3_PER_ROW,
@@ -198,37 +198,37 @@ function Module:CreateOptions()
                         }
                     },
                     display = {
-                        name = 'Display',
+                        name = L['option:display'],
                         type = 'group',
                         inline = true,
                         order = newOrder(),
                         args = {
                             showCompletedSections = {
-                                name = L['option:general:showCompletedSections'],
+                                name = L['option:display:showCompletedSections'],
                                 type = 'toggle',
                                 order = newOrder(),
                                 width = WIDTH_3_PER_ROW,
                             },
                             showCompleted = {
-                                name = L['option:general:showCompleted'],
+                                name = L['option:display:showCompleted'],
                                 type = 'toggle',
                                 order = newOrder(),
                                 width = WIDTH_3_PER_ROW,
                             },
                             statusIcons = {
-                                name = L['option:general:statusIcons'],
+                                name = L['option:display:statusIcons'],
                                 type = 'toggle',
                                 order = newOrder(),
                                 width = WIDTH_3_PER_ROW,
                             },
                             -- awakenedTimers = {
-                            --     name = L['option:general:awakenedTimers'],
+                            --     name = L['option:display:awakenedTimers'],
                             --     type = 'toggle',
                             --     order = newOrder(),
                             --     width = WIDTH_3_PER_ROW,
                             -- },
                             showObjectives = {
-                                name = 'Show chore objectives',
+                                name = L['option:display:showObjectives'],
                                 type = 'select',
                                 order = newOrder(),
                                 values = OBJECTIVES,
@@ -237,13 +237,13 @@ function Module:CreateOptions()
                         },
                     },
                     appearance = {
-                        name = 'Appearance',
+                        name = L['option:appearance'],
                         type = 'group',
                         inline = true,
                         order = newOrder(),
                         args = {
                             backgroundColor = {
-                                name = 'Background color',
+                                name = L['option:appearance:backgroundColor'],
                                 type = 'color',
                                 order = newOrder(),
                                 hasAlpha = true,
@@ -261,7 +261,7 @@ function Module:CreateOptions()
                                 end,
                             },
                             borderColor = {
-                                name = 'Border color',
+                                name = L['option:appearance:borderColor'],
                                 type = 'color',
                                 order = newOrder(),
                                 hasAlpha = true,
@@ -279,7 +279,7 @@ function Module:CreateOptions()
                                 end,
                             },
                             strata = {
-                                name = 'Strata',
+                                name = L['option:appearance:backgroundColor'],
                                 type = 'select',
                                 order = newOrder(),
                                 values = STRATA,
@@ -288,20 +288,20 @@ function Module:CreateOptions()
                         },
                     },
                     text = {
-                        name = 'Text',
+                        name = L['option:text'],
                         type = 'group',
                         inline = true,
                         order = newOrder(),
                         args = {
                             font = {
-                                name = 'Font',
+                                name = L['option:text:font'],
                                 type = 'select',
                                 order = newOrder(),
                                 dialogControl = 'LSM30_Font',
                                 values = LSM:HashTable('font'),
                             },
                             fontSize = {
-                                name = 'Font size',
+                                name = L['option:text:fontSize'],
                                 type = 'range',
                                 order = newOrder(),
                                 min = 8,
@@ -309,7 +309,7 @@ function Module:CreateOptions()
                                 step = 1,
                             },
                             fontStyle = {
-                                name = 'Font style',
+                                name = L['option:text:fontStyle'],
                                 type = 'select',
                                 order = newOrder(),
                                 values = FONT_FLAGS,
@@ -319,7 +319,7 @@ function Module:CreateOptions()
                 }
             },
             sectionChores = {
-                name = 'Chores',
+                name = L['section:chores'],
                 type = 'group',
                 childGroups = 'tab',
                 order = newOrder(),
@@ -330,7 +330,7 @@ function Module:CreateOptions()
                 },
             },
             sectionProfessions = {
-                name = 'Professions',
+                name = L['section:professions'],
                 type = 'group',
                 childGroups = 'tab',
                 order = newOrder(),
@@ -352,7 +352,7 @@ function Module:CreateOptions()
                 }
             },
             sectionTimers = {
-                name = 'Timers',
+                name = L['section:timers'],
                 type = 'group',
                 order = newOrder(),
                 args = {

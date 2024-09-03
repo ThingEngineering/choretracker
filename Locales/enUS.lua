@@ -2,18 +2,33 @@ local L = LibStub('AceLocale-3.0'):NewLocale('ChoreTracker', 'enUS', true, true)
 
 L['key_binding:toggle'] = 'Toggle ChoreTracker window'
 
-L['option:general:awakenedTimers'] = 'Only show awakened timers'
-L['option:general:dragonflightDisable'] = 'Disable ALL DF chores'
-L['option:general:dragonflightEnable'] = 'Enable ALL DF chores'
-L['option:general:showCompletedSections'] = 'Show completed sections'
-L['option:general:showCompleted'] = 'Show completed chores'
-L['option:general:showObjectives'] = 'Show chore objectives'
-L['option:general:statusIcons'] = 'Use status icons'
+L['option:appearance'] = 'Appearance'
+L['option:appearance:backgroundColor'] = 'Background color'
+L['option:appearance:borderColor'] = 'Border color'
+L['option:appearance:strata'] = 'Strata'
 
-L['section:events'] = 'Events'
+L['option:bulkActions'] = 'Bulk Actions'
+L['option:bulkActions:dragonflightDisable'] = 'Disable ALL DF chores'
+L['option:bulkActions:dragonflightEnable'] = 'Enable ALL DF chores'
 
+L['option:display'] = 'Display'
+L['option:display:awakenedTimers'] = 'Only show awakened timers'
+L['option:display:showCompletedSections'] = 'Show completed sections'
+L['option:display:showCompleted'] = 'Show completed chores'
+L['option:display:showObjectives'] = 'Show chore objectives'
+L['option:display:statusIcons'] = 'Use status icons'
+
+L['option:text'] = 'Text'
+L['option:text:font'] = 'Font'
+L['option:text:fontSize'] = 'Font size'
+L['option:text:fontStyle'] = 'Font style'
+
+L['section:chores'] = 'Chores'
 L['section:drops'] = 'Drops'
+L['section:events'] = 'Events'
+L['section:professions'] = 'Professions'
 L['section:quests'] = 'Quests'
+L['section:timers'] = 'Timers'
 
 L['category:catchAndRelease'] = 'Catch and Release'
 L['category:dailies'] = 'Dailies'
