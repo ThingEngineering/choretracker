@@ -9,8 +9,8 @@ L['option:appearance:borderColor'] = '邊框顏色'
 L['option:appearance:strata'] = '框體層級'
 
 L['option:bulkActions'] = '批量操作'
-L['option:bulkActions:dragonflightDisable'] = '禁用巨龍時代的所有工作事項'
-L['option:bulkActions:dragonflightEnable'] = '啟用巨龍時代的所有工作事項'
+L['option:bulkActions:dragonflightDisable'] = '禁用巨龍崛起的所有工作事項'
+L['option:bulkActions:dragonflightEnable'] = '啟用巨龍崛起的所有工作事項'
 
 L['option:display'] = '顯示'
 L['option:display:awakenedTimers'] = '僅顯示正在進行中的計時器'
