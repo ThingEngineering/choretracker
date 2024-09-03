@@ -110,6 +110,41 @@ function Module:GetDbSection(sighKey)
     return Addon.db.profile[sighKey]
 end
 
+function Module:SetAllChores(sectionKey, onlyCategory, value)
+    local section = Addon.data.chores[sectionKey]
+    for _, category in ipairs(section.categories) do
+        if onlyCategory == nil or category.key == onlyCategory then
+            local categoryOptions = Addon.db.profile.chores[sectionKey][category.key]
+            if categoryOptions == nil then
+                categoryOptions = {}
+                Addon.db.profile.chores[sectionKey][category.key] = categoryOptions
+            end
+
+            for _, typeKey in ipairs({ 'drops', 'quests' }) do
+                if category[typeKey] ~= nil then
+                    local typeOptions = categoryOptions[typeKey]
+                    if typeOptions == nil then
+                        typeOptions = {}
+                        categoryOptions[typeKey] = typeOptions
+                    end
+            
+                    for _, chore in ipairs(category[typeKey]) do
+                        typeOptions[chore.key] = value
+                    end
+                end
+            end
+        end
+    end
+end
+
+function Module:DisableChores(sectionKey, onlyCategory)
+    self:SetAllChores(sectionKey, onlyCategory, false)
+end
+
+function Module:EnableChores(sectionKey, onlyCategory)
+    self:SetAllChores(sectionKey, onlyCategory, true)
+end
+
 function Module:CreateOptions()
     self.options = {
         name = addonName,
@@ -124,6 +159,44 @@ function Module:CreateOptions()
                 type = 'group',
                 order = newOrder(),
                 args = {
+                    bulk = {
+                        name = 'Bulk Actions',
+                        type = 'group',
+                        inline = true,
+                        order = newOrder(),
+                        args = {
+                            disableDragonflight = {
+                                name = L['option:general:dragonflightDisable'],
+                                type = 'execute',
+                                order = newOrder(),
+                                width = WIDTH_3_PER_ROW,
+                                func = function()
+                                    self:DisableChores('choresDragonflight')
+                                    for sectionKey, _ in pairs(Addon.data.chores) do
+                                        if sectionKey:find('^profession') then
+                                            self:DisableChores(sectionKey, 'dragonflight')
+                                        end
+                                    end
+                                    print('Disabled ALL Dragonflight chores!')
+                                end,
+                            },
+                            enableDragonflight = {
+                                name = L['option:general:dragonflightEnable'],
+                                type = 'execute',
+                                order = newOrder(),
+                                width = WIDTH_3_PER_ROW,
+                                func = function()
+                                    self:EnableChores('choresDragonflight')
+                                    for sectionKey, _ in pairs(Addon.data.chores) do
+                                        if sectionKey:find('^profession') then
+                                            self:EnableChores(sectionKey, 'dragonflight')
+                                        end
+                                    end
+                                    print('Enabled ALL Dragonflight chores!')
+                                end,
+                            },
+                        }
+                    },
                     display = {
                         name = 'Display',
                         type = 'group',

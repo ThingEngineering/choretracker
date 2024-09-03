@@ -3,6 +3,8 @@ local L = LibStub('AceLocale-3.0'):NewLocale('ChoreTracker', 'enUS', true, true)
 L['key_binding:toggle'] = 'Toggle ChoreTracker window'
 
 L['option:general:awakenedTimers'] = 'Only show awakened timers'
+L['option:general:dragonflightDisable'] = 'Disable ALL DF chores'
+L['option:general:dragonflightEnable'] = 'Enable ALL DF chores'
 L['option:general:showCompletedSections'] = 'Show completed sections'
 L['option:general:showCompleted'] = 'Show completed chores'
 L['option:general:showObjectives'] = 'Show chore objectives'
