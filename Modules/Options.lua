@@ -279,7 +279,7 @@ function Module:CreateOptions()
                                 end,
                             },
                             strata = {
-                                name = L['option:appearance:backgroundColor'],
+                                name = L['option:appearance:strata'],
                                 type = 'select',
                                 order = newOrder(),
                                 values = STRATA,
