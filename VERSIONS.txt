@@ -1,3 +1,9 @@
+v11.0.2.8
+---------
+- Added more Darkmoon Faire event chores.
+- Added zhCN localization (thanks EKE00372).
+- Added zhTW localization (thanks EKE00372).
+
 v11.0.2.7
 ---------
 - Added "Disable ALL DF chores" and "Enable ALL DF chores" buttons to options.
