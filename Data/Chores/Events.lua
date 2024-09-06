@@ -58,6 +58,185 @@ Addon.data.chores.choresEvents = {
             },
         },
         {
+            key = 'darkmoonFaire',
+            quests = {
+                {
+                    key = 'gameHammerTime',
+                    requiredEventIds = { 479 }, -- Darkmoon Faire
+                    alwaysQuestName = true,
+                    dailyQuest = true,
+                    entries = {
+                        { quest=29463 }, -- It's Hammer Time
+                    }
+                },
+                {
+                    key = 'gameHumanoidCannonball',
+                    requiredEventIds = { 479 }, -- Darkmoon Faire
+                    alwaysQuestName = true,
+                    dailyQuest = true,
+                    entries = {
+                        { quest=29436 }, -- The Humanoid Cannonball
+                    }
+                },
+                {
+                    key = 'gameHeShootsHeScores',
+                    requiredEventIds = { 479 }, -- Darkmoon Faire
+                    alwaysQuestName = true,
+                    dailyQuest = true,
+                    entries = {
+                        { quest=29438 }, -- He Shoots, He Scores!
+                    }
+                },
+                {
+                    key = 'gameTonkCommander',
+                    requiredEventIds = { 479 }, -- Darkmoon Faire
+                    alwaysQuestName = true,
+                    dailyQuest = true,
+                    entries = {
+                        { quest=29434 }, -- Tonk Commander
+                    }
+                },
+                {
+                    key = 'gameTargetTurtle',
+                    requiredEventIds = { 479 }, -- Darkmoon Faire
+                    alwaysQuestName = true,
+                    dailyQuest = true,
+                    entries = {
+                        { quest=29455 }, -- Target: Turtle
+                    }
+                },
+                {
+                    key = 'gameFirebirdsChallenge',
+                    requiredEventIds = { 479 }, -- Darkmoon Faire
+                    alwaysQuestName = true,
+                    dailyQuest = true,
+                    entries = {
+                        { quest=36481 }, -- Firebird's Challenge
+                    }
+                },
+                {
+                    key = 'race',
+                    requiredEventIds = { 479 }, -- Darkmoon Faire
+                    alwaysQuestName = true,
+                    dailyQuest = true,
+                    entries = {
+                        { quest=37910 }, -- The Real Race
+                    }
+                },
+                {
+                    key = 'bigRace',
+                    requiredEventIds = { 479 }, -- Darkmoon Faire
+                    alwaysQuestName = true,
+                    dailyQuest = true,
+                    entries = {
+                        { quest=37911 }, -- The Real Big Race
+                    }
+                },
+                {
+                    key = 'petBattleJeremy',
+                    requiredEventIds = { 479 }, -- Darkmoon Faire
+                    dailyQuest = true,
+                    entries = {
+                        { quest=32175, item=91086 }, -- Darkmoon Pet Battle!/Darkmoon Pet Supplies
+                    }
+                },
+                {
+                    key = 'petBattleChristoph',
+                    requiredEventIds = { 479 }, -- Darkmoon Faire
+                    dailyQuest = true,
+                    entries = {
+                        { quest=36471, item=116062 }, -- A New Darkmoon Challenger!/Greater Darkmoon Pet Supplies
+                    }
+                },
+                {
+                    key = 'testYourStrength',
+                    requiredEventIds = { 479 }, -- Darkmoon Faire
+                    entries = {
+                        { quest=29433 }, -- Test Your Strength
+                    }
+                },
+                {
+                    key = 'denMother',
+                    requiredEventIds = { 479 }, -- Darkmoon Faire
+                    entries = {
+                        { quest=33354 }, -- Den Mother's Demise
+                    }
+                },
+                {
+                    key = 'aTreatiseOnStrategy',
+                    requiredEventIds = { 479 }, -- Darkmoon Faire
+                    onlyItemName = true,
+                    entries = {
+                        { quest=29451, item=71715 }, -- The Master Strategist/A Treatise on Strategy
+                    }
+                },
+                {
+                    key = 'bannerOfTheFallen',
+                    requiredEventIds = { 479 }, -- Darkmoon Faire
+                    onlyItemName = true,
+                    entries = {
+                        { quest=29456, item=71951 }, -- A Captured Banner/Banner of the Fallen
+                    }
+                },
+                {
+                    key = 'capturedInsignia',
+                    requiredEventIds = { 479 }, -- Darkmoon Faire
+                    onlyItemName = true,
+                    entries = {
+                        { quest=29457, item=71952 }, -- The Enemy's Insignia/Captured Insignia
+                    }
+                },
+                {
+                    key = 'fallenAdventurersJournal',
+                    requiredEventIds = { 479 }, -- Darkmoon Faire
+                    onlyItemName = true,
+                    entries = {
+                        { quest=29458, item=71953 }, -- The Captured Journal/Fallen Adventurer's Journal
+                    }
+                },
+                {
+                    key = 'imbuedCrystal',
+                    requiredEventIds = { 479 }, -- Darkmoon Faire
+                    onlyItemName = true,
+                    entries = {
+                        { quest=29443, item=71635 }, -- A Curious Crystal/Imbued Crystal
+                    }
+                },
+                {
+                    key = 'monstrousEgg',
+                    requiredEventIds = { 479 }, -- Darkmoon Faire
+                    onlyItemName = true,
+                    entries = {
+                        { quest=29444, item=71636 }, -- An Exotic Egg/Monstrous Egg
+                    }
+                },
+                {
+                    key = 'mysteriousGrimoire',
+                    requiredEventIds = { 479 }, -- Darkmoon Faire
+                    onlyItemName = true,
+                    entries = {
+                        { quest=29445, item=71637 }, -- An Intriguing Grimoire/Mysterious Grimoire
+                    }
+                },
+                {
+                    key = 'ornateWeapon',
+                    requiredEventIds = { 479 }, -- Darkmoon Faire
+                    onlyItemName = true,
+                    entries = {
+                        { quest=29446, item=71638 }, -- A Wondrous Weapon/Ornate Weapon
+                    }
+                },
+                {
+                    key = 'soothsayersRunes',
+                    requiredEventIds = { 479 }, -- Darkmoon Faire
+                    onlyItemName = true,
+                    entries = {
+                        { quest=29464, item=71716 }, -- Tools of Divination/Soothsayer's Runes
+                    }
+                },
+            },
+        },
+        {
             key = 'holidays',
             quests = {
                 {

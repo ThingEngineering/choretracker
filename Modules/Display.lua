@@ -677,7 +677,7 @@ function Module:GetEntryText(translated, entry, state, weekState, options)
         else
             -- This will just return the key if there's no translation entry, check for that
             local translatedName = L['questName:' .. entry.quest]
-            if translatedName:find('^questName') == nil then
+            if translatedName:find('^questName:') == nil then
                 questName = translatedName
             else
                 questName = '???'
@@ -686,7 +686,7 @@ function Module:GetEntryText(translated, entry, state, weekState, options)
     end
 
     local thingString = ''
-    if state.status == 1 and options.alwaysQuestName then
+    if state.status <= 1 and options.alwaysQuestName then
         thingString = '|cFFFFFFFF' .. questName
     elseif state.status == 1 and state.objectives ~= nil and #state.objectives == 1 then
         local objective = state.objectives[1]
@@ -740,9 +740,16 @@ function Module:GetEntryText(translated, entry, state, weekState, options)
         final = final .. STATUS_ICON[state.status] .. ' '
     end
 
+    if options.dailyQuest then
+        final = final .. '|cFF00CFFF[D] '
+    end
+
     final = final .. STATUS_COLOR[state.status]
 
-    if not (options.inProgressQuestName == false and state.status == 1) then
+    if not (options.alwaysQuestName) and
+        not (options.inProgressQuestName == false and state.status == 1) and
+        not (options.onlyItemName == true and entry.item ~= nil)
+    then
         final = final .. translated .. '|r: '
     end
 
