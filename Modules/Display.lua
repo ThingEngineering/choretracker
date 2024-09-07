@@ -30,6 +30,7 @@ local CDAT_GetSecondsUntilWeeklyReset = C_DateAndTime.GetSecondsUntilWeeklyReset
 local CMI_GetModifiedInstanceInfoFromMapID = C_ModifiedInstance.GetModifiedInstanceInfoFromMapID
 
 local OBJECTIVE_DEFEAT_X = Addon.L['objective:defeat_x']
+local OBJECTIVE_BRING_X = Addon.L['objective:bring_x']
 
 local REGION_OFFSET = {
     [1] = -(7 * 60 * 60), -- US events use PST (-0700 UTC)
@@ -612,7 +613,7 @@ function Module:GetSectionQuests(week, section, chore, showCompleted, showObject
                             end
                         end
 
-                        local shoppingText = '    * Bring ' .. bringMe[1] .. 'x ' .. bringName .. '|r'
+                        local shoppingText = '    * ' .. string.format(OBJECTIVE_BRING_X, bringMe[1], bringName) .. '|r'
                         table.insert(section.entries, shoppingText)
                     end
                 elseif bestState.status == 1 then

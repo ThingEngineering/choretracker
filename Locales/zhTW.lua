@@ -163,6 +163,7 @@ L['timer:timeRift'] = '時間裂隙'
 L['objective:defeat_x'] = '擊敗 %s'
 
 L['choose_quest'] = '選擇一個任務！'
+L['objective:bring_x'] = '預先攜帶 %s個 %s'
 
 L['questName:80544'] = '絲織者'
 L['questName:80545'] = '將軍'

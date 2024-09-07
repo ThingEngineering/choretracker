@@ -182,6 +182,7 @@ L['timer:superbloom'] = 'Superbloom'
 L['timer:timeRift'] = 'Time Rift'
 
 L['objective:defeat_x'] = 'Defeat %s'
+L['objective:bring_x'] = 'Bring %sx %s'
 
 L['choose_quest'] = 'Choose a quest!'
 

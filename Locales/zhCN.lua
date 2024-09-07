@@ -160,6 +160,7 @@ L['timer:superbloom'] = '超然盛放'
 L['timer:timeRift'] = '时光裂隙'
 
 L['objective:defeat_x'] = '击败 %s'
+L['objective:bring_x'] = '预先携带 %s个 %s'
 
 L['choose_quest'] = '选择一个任务！'
 
