@@ -114,6 +114,7 @@ do
     local function OnAcquire(self)
         self.frame:SetParent(UIParent)
         self.frame:SetFrameStrata('LOW')
+        self.frame:SetClampedToScreen(true)
         self:ApplyStatus()
         self:EnableResize(true)
         self:Show()
