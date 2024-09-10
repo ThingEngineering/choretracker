@@ -12,6 +12,31 @@ Addon.data.chores.choresWarWithin = {
             key = 'patch_11_0_0',
             quests = {
                 {
+                    key = 'delveKeys',
+                    groupSameItem = true,
+                    entries = {
+                        { quest=84736, item=224172 }, -- Restored Coffer Key
+                        { quest=84737, item=224172 }, -- Restored Coffer Key
+                        { quest=84738, item=224172 }, -- Restored Coffer Key
+                        { quest=84739, item=224172 }, -- Restored Coffer Key
+                    },
+                },
+                {
+                    key = 'dungeon',
+                    minimumLevel = 80,
+                    alwaysQuestName = true,
+                    entries = {
+                        { quest = 83465 }, -- Ara-Kara, City of Echoes
+                        { quest = 83436 }, -- Cinderbrew Meadery
+                        { quest = 83469 }, -- City of Threads
+                        { quest = 83443 }, -- Darkflame Cleft
+                        { quest = 83458 }, -- Priory of the Sacred Flame
+                        { quest = 83459 }, -- The Dawnbreaker
+                        { quest = 83432 }, -- The Rookery
+                        { quest = 83457 }, -- The Stonevault
+                    },
+                },
+                {
                     key = 'emissary',
                     minimumLevel = 70,
                     chooseQuest = true,
@@ -56,6 +81,23 @@ Addon.data.chores.choresWarWithin = {
                     },
                 },
                 {
+                    key = 'specialAssignment',
+                    minimumLevel = 70,
+                    pick = 2,
+                    alwaysShowObjectives = true,
+                    removeText = L['remove_specialAssignment'],
+                    entries = {
+                        { quest = 82414, unlockQuest = 82159 }, -- Special Assignment: A Pound of Cure
+                        { quest = 82531, unlockQuest = 82161 }, -- Special Assignment: Bombs From Behind
+                        { quest = 82355, unlockQuest = 82146 }, -- Special Assignment: Cinderbee Surge
+                        { quest = 82852, unlockQuest = 82158 }, -- Special Assignment: Lynx Rescue
+                        { quest = 82787, unlockQuest = 82157 }, -- Special Assignment: Rise of the Colossals
+                        { quest = 81691, unlockQuest = 82155 }, -- Special Assignment: Shadows Below
+                        { quest = 81649, unlockQuest = 83069 }, -- Special Assignment: Titanic Resurgence
+                        { quest = 83229, unlockQuest = 82156 }, -- Special Assignment: When the Deeps Stir
+                    },
+                },
+                {
                     key = 'awakeningTheMachine',
                     minimumLevel = 70,
                     entries = {
@@ -77,13 +119,6 @@ Addon.data.chores.choresWarWithin = {
                     }
                 },
                 {
-                    key = 'theaterTroupe',
-                    minimumLevel = 70,
-                    entries = {
-                        { quest = 83240 }, -- The Theater Troupe
-                    },
-                },
-                {
                     key = 'spiderPact',
                     minimumLevel = 70,
                     entries = {
@@ -102,28 +137,10 @@ Addon.data.chores.choresWarWithin = {
                     },
                 },
                 {
-                    key = 'dungeon',
-                    minimumLevel = 80,
-                    alwaysQuestName = true,
+                    key = 'theaterTroupe',
+                    minimumLevel = 70,
                     entries = {
-                        { quest = 83465 }, -- Ara-Kara, City of Echoes
-                        { quest = 83436 }, -- Cinderbrew Meadery
-                        { quest = 83469 }, -- City of Threads
-                        { quest = 83443 }, -- Darkflame Cleft
-                        { quest = 83458 }, -- Priory of the Sacred Flame
-                        { quest = 83459 }, -- The Dawnbreaker
-                        { quest = 83432 }, -- The Rookery
-                        { quest = 83457 }, -- The Stonevault
-                    },
-                },
-                {
-                    key = 'delveKeys',
-                    groupSameItem = true,
-                    entries = {
-                        { quest=84736, item=224172 }, -- Restored Coffer Key
-                        { quest=84737, item=224172 }, -- Restored Coffer Key
-                        { quest=84738, item=224172 }, -- Restored Coffer Key
-                        { quest=84739, item=224172 }, -- Restored Coffer Key
+                        { quest = 83240 }, -- The Theater Troupe
                     },
                 },
                 {

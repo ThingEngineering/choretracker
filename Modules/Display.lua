@@ -441,6 +441,7 @@ function Module:GetSections()
         section.completed = 0
         section.total = 0
         section.entries = {}
+        section.usedQuests = {}
 
         for _, chore in ipairs(section.chores) do
             if chore.typeKey == 'warning' then
@@ -557,13 +558,21 @@ function Module:GetSectionQuests(week, section, chore, showCompleted, showObject
     }
 
     for _, choreEntry in ipairs(chore.data.entries or {}) do
-        local entryState = ScannerModule.quests[choreEntry.quest]
-        if entryState ~= nil then
-            table.insert(byStatus[entryState.status], {
-                choreEntry,
-                entryState,
-                week[choreEntry.quest],
-            })
+        local questIds = { choreEntry.quest }
+        if choreEntry.unlockQuest then tinsert(questIds, choreEntry.unlockQuest) end
+        
+        for index, questId in ipairs(questIds) do
+            local entryState = ScannerModule.quests[questId]
+            if entryState ~= nil and
+                (entryState.status > 0 or index == #questIds)
+            then
+                table.insert(byStatus[entryState.status], {
+                    choreEntry,
+                    entryState,
+                    week[questId],
+                })
+                break
+            end
         end
     end
 
@@ -616,7 +625,9 @@ function Module:GetSectionQuests(week, section, chore, showCompleted, showObject
                         table.insert(section.entries, shoppingText)
                     end
                 elseif bestState.status == 1 then
-                    if bestState.objectives ~= nil and #bestState.objectives > 1 then
+                    if bestState.objectives ~= nil and
+                        (#bestState.objectives > 1 or chore.data.alwaysShowObjectives)
+                    then
                         self:AddObjectives(section.entries, bestState.objectives, showObjectives)
                     elseif bestWeek ~= nil and bestWeek.objectives ~= nil and #bestWeek.objectives > 1 then
                         self:AddObjectives(section.entries, bestWeek.objectives, showObjectives)
@@ -683,12 +694,14 @@ function Module:GetEntryText(translated, entry, state, weekState, options)
                 questName = '???'
             end
         end
+    elseif options.removeText then
+        questName = questName:gsub(options.removeText, '')
     end
 
     local thingString = ''
     if state.status <= 1 and options.alwaysQuestName then
         thingString = '|cFFFFFFFF' .. questName
-    elseif state.status == 1 and state.objectives ~= nil and #state.objectives == 1 then
+    elseif state.status == 1 and state.objectives ~= nil and #state.objectives == 1 and not options.alwaysShowObjectives then
         local objective = state.objectives[1]
         thingString = self:GetPercentColor(objective.have, objective.need, true) .. objective.text
     elseif entry.item ~= nil then
@@ -746,8 +759,7 @@ function Module:GetEntryText(translated, entry, state, weekState, options)
 
     final = final .. STATUS_COLOR[state.status]
 
-    if not (options.alwaysQuestName) and
-        not (options.inProgressQuestName == false and state.status == 1) and
+    if not (options.inProgressQuestName == false and state.status == 1) and
         not (options.onlyItemName == true and entry.item ~= nil)
     then
         final = final .. translated .. '|r: '

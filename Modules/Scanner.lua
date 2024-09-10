@@ -15,6 +15,7 @@ local CDAT_GetSecondsUntilWeeklyReset = C_DateAndTime.GetSecondsUntilWeeklyReset
 local CQL_GetQuestObjectives = C_QuestLog.GetQuestObjectives
 local CQL_IsOnQuest = C_QuestLog.IsOnQuest
 local CQL_IsQuestFlaggedCompleted = C_QuestLog.IsQuestFlaggedCompleted
+local CTQ_GetQuestTimeLeftSeconds = C_TaskQuest.GetQuestTimeLeftSeconds
 local CTSUI_GetProfessionInfoBySkillLineID = C_TradeSkillUI.GetProfessionInfoBySkillLineID
 
 local DATA_TYPES = {
@@ -176,6 +177,9 @@ function Module:InitializeData()
                         if choreData.entries ~= nil then
                             for _, choreEntry in ipairs(choreData.entries) do
                                 self.questPaths[choreEntry.quest] = choreKey
+                                if choreEntry.unlockQuest then
+                                    self.questPaths[choreEntry.unlockQuest] = choreKey
+                                end
                             end
                         end
 
@@ -240,7 +244,10 @@ function Module:UpdateQuest(questId, week, forceStatus)
 
     if newData.status == STATUS_COMPLETED or CQL_IsQuestFlaggedCompleted(questId) then
         newData.status = STATUS_COMPLETED
-    elseif newData.status == STATUS_IN_PROGRESS or CQL_IsOnQuest(questId) then
+    elseif newData.status == STATUS_IN_PROGRESS or
+        CQL_IsOnQuest(questId) or
+        CTQ_GetQuestTimeLeftSeconds(questId)
+    then
         newData.status = STATUS_IN_PROGRESS
         local objectives = CQL_GetQuestObjectives(questId)
         if objectives ~= nil then

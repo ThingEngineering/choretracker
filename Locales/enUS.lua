@@ -54,6 +54,7 @@ L['chore:warWithin:patch_11_0_0:quests:dungeon'] = 'Dungeon'
 L['chore:warWithin:patch_11_0_0:quests:emissary'] = 'Emissary'
 L['chore:warWithin:patch_11_0_0:quests:rollinDown'] = "Rollin' Down in the Deeps"
 L['chore:warWithin:patch_11_0_0:quests:sparksOfWar'] = 'Sparks of War'
+L['chore:warWithin:patch_11_0_0:quests:specialAssignment'] = 'Special Assignment'
 L['chore:warWithin:patch_11_0_0:quests:spiderPact'] = 'Spider Pact'
 L['chore:warWithin:patch_11_0_0:quests:spiderWeekly'] = 'Spider Weekly'
 L['chore:warWithin:patch_11_0_0:quests:spreadingTheLight'] = 'Spreading the Light'
@@ -190,3 +191,4 @@ L['questName:80545'] = 'The General'
 L['questName:80546'] = 'The Vizier'
 
 L['missing_skill_level'] = '|cFFFF00FFOpen profession window!|r'
+L['remove_specialAssignment'] = 'Special Assignment: '
