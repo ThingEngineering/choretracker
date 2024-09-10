@@ -1,3 +1,12 @@
+v11.0.2.10
+----------
+- Added TWW Special Assignment chore.
+- Changed objectives to not show irrelevant optional ones.
+- Fixed being able to drag the frame off the screen.
+- Fixed lock button so that it actually disables/enables mouse events properly (GH6).
+- Fixed lock button not updating between locked/unlocked when minimized.
+- Updated zhCN/zhTW localizations (thanks Sefank).
+
 v11.0.2.9
 ---------
 - Changed "Worldsoul" chore to "Emissary" and added the missing weekly quests.
