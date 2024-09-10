@@ -1,3 +1,7 @@
+v11.0.2.11
+----------
+- Fixed zhCN locale error.
+
 v11.0.2.10
 ----------
 - Added TWW Special Assignment chore.
