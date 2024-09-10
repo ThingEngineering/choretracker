@@ -1,3 +1,7 @@
+v11.0.2.9
+---------
+- Changed "Worldsoul" chore to "Emissary" and added the missing weekly quests.
+
 v11.0.2.8
 ---------
 - Added more Darkmoon Faire event chores.
