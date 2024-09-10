@@ -22,6 +22,7 @@ local DATA_TYPES = {
     'dungeons',
     'quests',
 }
+local OPTIONAL_OBJECTIVE = OPTIONAL_QUEST_OBJECTIVE_DESCRIPTION:gsub('%%s', '.+'):gsub('([%(%)])', '%%%1')
 local STATUS_NOT_STARTED = 0
 local STATUS_IN_PROGRESS = 1
 local STATUS_COMPLETED = 2
@@ -245,14 +246,16 @@ function Module:UpdateQuest(questId, week, forceStatus)
         if objectives ~= nil then
             newData.objectives = {}
             for _, objective in ipairs(objectives) do
-                if objective ~= nil then
+                if objective ~= nil and (
+                    not objective.text or not string.match(objective.text, OPTIONAL_OBJECTIVE)
+                ) then
                     local objectiveData = {
                         type = objective.type,
                         text = gsub(
                             objective.text,
                             ":18:18:0:2%|a",
                             ":0:0:0:2|a"
-                        ),objective.text,
+                        ) ,objective.text,
                     }
 
                     if objective.type == 'progressbar' then
