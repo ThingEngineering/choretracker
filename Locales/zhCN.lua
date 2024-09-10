@@ -1,4 +1,5 @@
 local L = LibStub('AceLocale-3.0'):NewLocale('ChoreTracker', 'zhCN', false)
+if not L then return end -- don't remove this!
 
 L['key_binding:toggle'] = '切换 ChoreTracker 窗口'
 
