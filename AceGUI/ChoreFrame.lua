@@ -181,6 +181,8 @@ do
                 self.resizeButton:Show()
             end
         end
+
+        self.frame:EnableMouse(not status.locked)
     end
 
     local function OnWidthSet(self, width)
@@ -235,13 +237,12 @@ do
         frame:SetWidth(1)
         frame:SetHeight(1)
         frame:SetPoint('CENTER', UIParent, 'CENTER', 0, 0)
-        frame:EnableMouse()
+        frame:EnableMouse(true)
         frame:SetMovable(true)
         frame:SetResizable(true)
         -- frame:SetFrameStrata('BACKGROUND')
         frame:SetScript('OnMouseDown', frameOnMouseDown)
         frame:SetScript('OnMouseUp', frameOnMouseUp)
-
         frame:SetScript('OnShow', frameOnShow)
         frame:SetScript('OnHide', frameOnClose)
         frame:SetResizeBounds(200, 150)
