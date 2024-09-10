@@ -174,15 +174,19 @@ do
             self.content:Show()
 
             if status.locked then
-                setLockedTexture(self)
                 self.resizeButton:Hide()
             else
-                setUnlockedTexture(self)
                 self.resizeButton:Show()
             end
         end
 
-        self.frame:EnableMouse(not status.locked)
+        if status.locked then
+            self.frame:EnableMouse(false)
+            setLockedTexture(self)
+        else
+            self.frame:EnableMouse(true)
+            setUnlockedTexture(self)
+        end
     end
 
     local function OnWidthSet(self, width)
