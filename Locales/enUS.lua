@@ -36,6 +36,7 @@ L['category:event'] = 'Event'
 L['category:holidays'] = 'Weekly Holidays'
 L['category:holidays2'] = 'Holidays'
 L['category:limited'] = 'Limited Time'
+L['category:darkmoonFaire'] = 'Darkmoon Faire'
 L['category:patch_10_0_0'] = 'Patch 10.0.0'
 L['category:patch_10_0_5'] = 'Patch 10.0.5'
 L['category:patch_10_0_7'] = 'Patch 10.0.7'
@@ -183,6 +184,7 @@ L['timer:superbloom'] = 'Superbloom'
 L['timer:timeRift'] = 'Time Rift'
 
 L['objective:defeat_x'] = 'Defeat %s'
+L['objective:bring_x'] = 'Bring %sx %s'
 
 L['choose_quest'] = 'Choose a quest!'
 
