@@ -108,6 +108,14 @@ function Addon:OnInitialize()
 
     self.db = ADB:New('ChoreTrackerDB', defaultDb, true) -- default global profile
 
+    -- Clean up old weekly data
+    local cutoff = time() + (14 * 24 * 60 * 60)
+    for weekEnd, _ in pairs(self.db.global.questWeeks) do
+        if weekEnd < cutoff then
+            self.db.global.questWeeks[weekEnd] = nil
+        end
+    end
+
     -- register events, etc
     self:RegisterEvent('PLAYER_ENTERING_WORLD')
 end
