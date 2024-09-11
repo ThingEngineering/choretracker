@@ -630,9 +630,13 @@ function Module:GetSectionQuests(week, section, chore, showCompleted, showObject
                         (#bestState.objectives > 1 or chore.data.alwaysShowObjectives)
                     then
                         self:AddObjectives(section.entries, bestState.objectives, showObjectives)
-                    elseif bestWeek ~= nil and bestWeek.objectives ~= nil and #bestWeek.objectives > 1 then
+                    elseif bestWeek ~= nil and bestWeek.objectives ~= nil and
+                        (#bestWeek.objectives > 1 or chore.data.alwaysShowObjectives) then
                         self:AddObjectives(section.entries, bestWeek.objectives, showObjectives)
                     end
+                elseif bestWeek ~= nil and bestWeek.objectives ~= nil and
+                    (#bestWeek.objectives > 1 or chore.data.alwaysShowObjectives) then
+                    self:AddObjectives(section.entries, bestWeek.objectives, showObjectives)
                 end
             end
         end
