@@ -1,3 +1,10 @@
+v11.0.2.12
+----------
+- Added cleaning up of old data on login, the saved file should stop growing
+  quite so large.
+- Fixed some chores showing as in progress without a related quest.
+- Updated event quest IDs.
+
 v11.0.2.11
 ----------
 - Fixed zhCN locale error.
