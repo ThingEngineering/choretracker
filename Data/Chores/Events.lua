@@ -244,7 +244,7 @@ Addon.data.chores.choresEvents = {
                     minimumLevel = 70,
                     requiredEventIds = { 238 }, -- Arena Skirmish Bonus Event
                     entries = {
-                        { quest = 72720 }, -- The Arena Calls
+                        { quest = 83358 }, -- The Arena Calls
                     },
                 },
                 {
@@ -252,15 +252,23 @@ Addon.data.chores.choresEvents = {
                     minimumLevel = 70,
                     requiredEventIds = { 236 }, -- Battleground Bonus Event
                     entries = {
-                        { quest = 72723 }, -- A Call to Battle
+                        { quest = 83345 }, -- A Call to Battle
                     },
+                },
+                {
+                    key = 'delves',
+                    minimumLevel = 70,
+                    requiredEventIds = { 442 }, -- Delves Bonus Event
+                    entires = {
+                        { quest = 84776 }, -- A Call to Delves
+                    }
                 },
                 {
                     key = 'mythicDungeons',
                     minimumLevel = 70,
                     requiredEventIds = { 1335, 1352, 1353, 1354 }, -- Dragonflight Dungeon Event
                     entries = {
-                        { quest = 72722 }, -- Emissary of War
+                        { quest = 83347 }, -- Emissary of War
                     },
                 },
                 {
@@ -268,7 +276,15 @@ Addon.data.chores.choresEvents = {
                     minimumLevel = 70,
                     requiredEventIds = { 234 }, -- Pet Battle Bonus Event
                     entries = {
-                        { quest = 72721 }, -- The Very Best
+                        { quest = 83357 }, -- The Very Best
+                    },
+                },
+                {
+                    key = 'worldQuests',
+                    minimumLevel = 70,
+                    requiredEventIds = { 592, 613, 614, 615 }, -- World Quest Bonus Event
+                    entries = {
+                        { quest = 83366 }, -- The World Awaits
                     },
                 },
 
@@ -303,7 +319,7 @@ Addon.data.chores.choresEvents = {
                     minimumLevel = 70,
                     requiredEventIds = wotlkTimewalkingIds,
                     entries = {
-                        { quest = 72726 }, -- A Frozen Path Through Time
+                        { quest = 83365 }, -- A Frozen Path Through Time
                     },
                 },
                 {
@@ -328,7 +344,7 @@ Addon.data.chores.choresEvents = {
                     minimumLevel = 70,
                     requiredEventIds = cataTimewalkingIds,
                     entries = {
-                        { quest = 72810 }, -- A Shattered Path Through Time
+                        { quest = 83359 }, -- A Shattered Path Through Time
                     },
                 },
                 {
@@ -354,7 +370,7 @@ Addon.data.chores.choresEvents = {
                     minimumLevel = 70,
                     requiredEventIds = mopTimewalkingIds,
                     entries = {
-                        { quest = 72725 }, -- A Shrouded Path Through Time
+                        { quest = 83362 }, -- A Shrouded Path Through Time
                     },
                 },
                 {
@@ -371,7 +387,7 @@ Addon.data.chores.choresEvents = {
                     minimumLevel = 70,
                     requiredEventIds = wodTimewalkingIds,
                     entries = {
-                        { quest = 72724 }, -- A Savage Path Through Time
+                        { quest = 83364 }, -- A Savage Path Through Time
                     },
                 },
                 {
@@ -398,15 +414,6 @@ Addon.data.chores.choresEvents = {
                     requiredEventIds = legionTimewalkingIds,
                     entries = {
                         { quest = 64710, item = 187611 }, -- [Legion] Whispering Felflame Crystal
-                    },
-                },
-
-                {
-                    key = 'worldQuests',
-                    minimumLevel = 70,
-                    requiredEventIds = { 592, 613, 614, 615 }, -- World Quest Bonus Event
-                    entries = {
-                        { quest = 83366 }, -- The World Awaits
                     },
                 },
             },
