@@ -15,6 +15,7 @@ local CDAT_GetSecondsUntilWeeklyReset = C_DateAndTime.GetSecondsUntilWeeklyReset
 local CQL_GetQuestObjectives = C_QuestLog.GetQuestObjectives
 local CQL_IsOnQuest = C_QuestLog.IsOnQuest
 local CQL_IsQuestFlaggedCompleted = C_QuestLog.IsQuestFlaggedCompleted
+local CQL_IsWorldQuest = C_QuestLog.IsWorldQuest
 local CTQ_GetQuestTimeLeftSeconds = C_TaskQuest.GetQuestTimeLeftSeconds
 local CTSUI_GetProfessionInfoBySkillLineID = C_TradeSkillUI.GetProfessionInfoBySkillLineID
 
@@ -246,7 +247,7 @@ function Module:UpdateQuest(questId, week, forceStatus)
         newData.status = STATUS_COMPLETED
     elseif newData.status == STATUS_IN_PROGRESS or
         CQL_IsOnQuest(questId) or
-        CTQ_GetQuestTimeLeftSeconds(questId)
+        (CQL_IsWorldQuest(questId) and CTQ_GetQuestTimeLeftSeconds(questId))
     then
         newData.status = STATUS_IN_PROGRESS
         local objectives = CQL_GetQuestObjectives(questId)
