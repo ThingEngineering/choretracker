@@ -60,6 +60,7 @@ L['chore:warWithin:patch_11_0_0:quests:spiderPact'] = 'Spider Pact'
 L['chore:warWithin:patch_11_0_0:quests:spiderWeekly'] = 'Spider Weekly'
 L['chore:warWithin:patch_11_0_0:quests:spreadingTheLight'] = 'Spreading the Light'
 L['chore:warWithin:patch_11_0_0:quests:theaterTroupe'] = 'Theater Troupe'
+L['chore:warWithin:patch_11_0_0:quests:worldBoss'] = 'World Boss'
 
 L['chore:dragonflight:catchAndRelease:quests:releaseAileron'] = 'Aileron Seamoth'
 L['chore:dragonflight:catchAndRelease:quests:releaseCerulean'] = 'Cerulean Spinefish'

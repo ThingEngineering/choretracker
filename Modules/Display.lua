@@ -685,7 +685,7 @@ end
 
 function Module:GetEntryText(translated, entry, state, weekState, options)
     -- options = { inProgressQuestName, useShoppingListAsName }
-    local questName = QuestUtils_GetQuestName(entry.quest)
+    local questName = QuestUtils_GetQuestName(entry.nameQuest or entry.quest)
     if questName == nil or questName == '' then
         if entry.encounter then
             local _, name = EJ_GetCreatureInfo(entry.encounter[2], entry.encounter[1])

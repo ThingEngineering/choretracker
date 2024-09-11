@@ -12,6 +12,17 @@ Addon.data.chores.choresWarWithin = {
             key = 'patch_11_0_0',
             quests = {
                 {
+                    key = 'worldBoss',
+                    minimumLevel = 80,
+                    alwaysQuestName = true,
+                    entries = {
+                        { quest = 81624 }, -- Orta, the Broken Mountain
+                        { quest = 81630 }, -- Kordac, the Dormant Protector
+                        { quest = 81653 }, -- Shurrai, Atrocity of the Undersea
+                        { quest = 83466, nameQuest = 82653 }, -- Aggregation of Horrors
+                    }
+                },
+                {
                     key = 'delveKeys',
                     groupSameItem = true,
                     entries = {
