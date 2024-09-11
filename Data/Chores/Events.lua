@@ -406,7 +406,7 @@ Addon.data.chores.choresEvents = {
                     minimumLevel = 70,
                     requiredEventIds = { 592, 613, 614, 615 }, -- World Quest Bonus Event
                     entries = {
-                        { quest = 72728 }, -- The World Awaits
+                        { quest = 83366 }, -- The World Awaits
                     },
                 },
             },
