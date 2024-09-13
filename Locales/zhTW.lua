@@ -24,6 +24,7 @@ L['option:text:font'] = '字型'
 L['option:text:fontSize'] = '字型大小'
 L['option:text:fontStyle'] = '字型樣式'
 
+L['section:general'] = '通用'
 L['section:chores'] = '事項'
 L['section:drops'] = '掉落'
 L['section:events'] = '事件'

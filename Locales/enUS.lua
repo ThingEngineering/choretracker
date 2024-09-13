@@ -23,6 +23,7 @@ L['option:text:font'] = 'Font'
 L['option:text:fontSize'] = 'Font size'
 L['option:text:fontStyle'] = 'Font style'
 
+L['section:general'] = 'General'
 L['section:chores'] = 'Chores'
 L['section:drops'] = 'Drops'
 L['section:events'] = 'Events'
