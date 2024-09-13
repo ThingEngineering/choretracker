@@ -53,13 +53,14 @@ L['category:worldBosses'] = '世界首领'
 L['chore:warWithin:patch_11_0_0:quests:awakeningTheMachine'] = '主机觉醒'
 L['chore:warWithin:patch_11_0_0:quests:delveKeys'] = '地下堡钥匙'
 L['chore:warWithin:patch_11_0_0:quests:dungeon'] = '地下城'
+L['chore:warWithin:patch_11_0_0:quests:emissary'] = '特使'
 L['chore:warWithin:patch_11_0_0:quests:rollinDown'] = "滚滚深邃都是蜡"
 L['chore:warWithin:patch_11_0_0:quests:sparksOfWar'] = '战争火花'
+L['chore:warWithin:patch_11_0_0:quests:specialAssignment'] = '特别任务'
 L['chore:warWithin:patch_11_0_0:quests:spiderPact'] = '蜘蛛合约'
 L['chore:warWithin:patch_11_0_0:quests:spiderWeekly'] = '蜘蛛周常'
 L['chore:warWithin:patch_11_0_0:quests:spreadingTheLight'] = '散布圣光'
 L['chore:warWithin:patch_11_0_0:quests:theaterTroupe'] = '剧场巡演'
-L['chore:warWithin:patch_11_0_0:quests:worldsoul'] = '世界之魂'
 
 L['chore:dragonflight:catchAndRelease:quests:releaseAileron'] = '副翼海蛾鱼'
 L['chore:dragonflight:catchAndRelease:quests:releaseCerulean'] = '天蓝刺皮鱼'
@@ -124,6 +125,7 @@ L['chore:events:darkmoonFaire:quests:soothsayersRunes'] = "物品：占卜者符
 
 L['chore:events:holidays:quests:arenaSkirmishes'] = '竞技场练习赛'
 L['chore:events:holidays:quests:battlegrounds'] = '战场'
+L['chore:events:holidays:quests:delves'] = '地下堡'
 L['chore:events:holidays:quests:mythicDungeons'] = '史诗地下城'
 L['chore:events:holidays:quests:pvpPetBattles'] = 'PvP宠物战斗'
 L['chore:events:holidays:quests:timewalkingDungeons'] = '时空漫游地下城'
@@ -193,3 +195,4 @@ L['questName:80545'] = '将军'
 L['questName:80546'] = '宰相'
 
 L['missing_skill_level'] = '|cFFFF00FF打开专业窗口！|r'
+L['remove_specialAssignment'] = '特别任务：'
