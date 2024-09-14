@@ -155,7 +155,7 @@ function Module:CreateOptions()
         set = 'SetOption',
         args = {
             general = {
-                name = 'General',
+                name = L['section:general'],
                 type = 'group',
                 order = newOrder(),
                 args = {
