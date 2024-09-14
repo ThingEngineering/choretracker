@@ -1,3 +1,8 @@
+v11.0.2.14
+----------
+- Fixed TWW World Boss quest name.
+- Fixed Special Assignment: Titanic Resurgence not always showing up correctly.
+
 v11.0.2.13
 ----------
 - Added TWW World Boss chore.
