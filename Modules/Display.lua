@@ -560,6 +560,7 @@ function Module:GetSectionQuests(week, section, chore, showCompleted, showObject
 
     for _, choreEntry in ipairs(chore.data.entries or {}) do
         local questIds = { choreEntry.quest }
+        if choreEntry.actualQuest then tinsert(questIds, choreEntry.actualQuest) end
         if choreEntry.unlockQuest then tinsert(questIds, choreEntry.unlockQuest) end
         
         for index, questId in ipairs(questIds) do
@@ -685,7 +686,7 @@ end
 
 function Module:GetEntryText(translated, entry, state, weekState, options)
     -- options = { inProgressQuestName, useShoppingListAsName }
-    local questName = QuestUtils_GetQuestName(entry.nameQuest or entry.quest)
+    local questName = QuestUtils_GetQuestName(entry.actualQuest or entry.quest)
     if questName == nil or questName == '' then
         if entry.encounter then
             local _, name = EJ_GetCreatureInfo(entry.encounter[2], entry.encounter[1])

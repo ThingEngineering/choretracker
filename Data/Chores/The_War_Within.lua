@@ -19,7 +19,7 @@ Addon.data.chores.choresWarWithin = {
                         { quest = 81624 }, -- Orta, the Broken Mountain
                         { quest = 81630 }, -- Kordac, the Dormant Protector
                         { quest = 81653 }, -- Shurrai, Atrocity of the Undersea
-                        { quest = 83466, nameQuest = 82653 }, -- Aggregation of Horrors
+                        { quest = 83466, actualQuest = 82653 }, -- Aggregation of Horrors
                     }
                 },
                 {

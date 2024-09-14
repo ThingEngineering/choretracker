@@ -178,6 +178,10 @@ function Module:InitializeData()
                         if choreData.entries ~= nil then
                             for _, choreEntry in ipairs(choreData.entries) do
                                 self.questPaths[choreEntry.quest] = choreKey
+
+                                if choreEntry.actualQuest then
+                                    self.questPaths[choreEntry.actualQuest] = choreKey
+                                end
                                 if choreEntry.unlockQuest then
                                     self.questPaths[choreEntry.unlockQuest] = choreKey
                                 end
