@@ -104,7 +104,10 @@ Addon.data.chores.choresWarWithin = {
                         { quest = 82852, unlockQuest = 82158 }, -- Special Assignment: Lynx Rescue
                         { quest = 82787, unlockQuest = 82157 }, -- Special Assignment: Rise of the Colossals
                         { quest = 81691, unlockQuest = 82155 }, -- Special Assignment: Shadows Below
+                        -- Why are there 3?
+                        { quest = 81647, unlockQuest = 82154 }, -- Special Assignment: Titanic Resurgence
                         { quest = 81649, unlockQuest = 83069 }, -- Special Assignment: Titanic Resurgence
+                        { quest = 81650, unlockQuest = 83070 }, -- Special Assignment: Titanic Resurgence
                         { quest = 83229, unlockQuest = 82156 }, -- Special Assignment: When the Deeps Stir
                     },
                 },
