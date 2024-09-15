@@ -1,3 +1,8 @@
+v11.0.2.15
+----------
+- Added TWW Enchanting Tasks.
+- Reduced the minimum frame height from 150 to 100 (GH26).
+
 v11.0.2.14
 ----------
 - Fixed TWW World Boss quest name.
