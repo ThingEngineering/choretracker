@@ -249,7 +249,7 @@ do
         frame:SetScript('OnMouseUp', frameOnMouseUp)
         frame:SetScript('OnShow', frameOnShow)
         frame:SetScript('OnHide', frameOnClose)
-        frame:SetResizeBounds(200, 150)
+        frame:SetResizeBounds(200, 100)
         -- frame:SetToplevel(true)
 
         frame:SetBackdrop({
