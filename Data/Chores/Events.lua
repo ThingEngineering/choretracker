@@ -294,7 +294,7 @@ Addon.data.chores.choresEvents = {
                     minimumLevel = 70,
                     requiredEventIds = tbcTimewalkingIds,
                     entries = {
-                        { quest = 72727 }, -- A Burning Path Through Time
+                        { quest = 83363 }, -- A Burning Path Through Time
                     },
                 },
                 {
