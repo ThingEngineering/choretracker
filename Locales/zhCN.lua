@@ -62,6 +62,7 @@ L['chore:warWithin:patch_11_0_0:quests:spiderPact'] = '蜘蛛合约'
 L['chore:warWithin:patch_11_0_0:quests:spiderWeekly'] = '蜘蛛周常'
 L['chore:warWithin:patch_11_0_0:quests:spreadingTheLight'] = '散布圣光'
 L['chore:warWithin:patch_11_0_0:quests:theaterTroupe'] = '剧场巡演'
+L['chore:warWithin:patch_11_0_0:quests:worldBoss'] = '世界首领'
 
 L['chore:dragonflight:catchAndRelease:quests:releaseAileron'] = '副翼海蛾鱼'
 L['chore:dragonflight:catchAndRelease:quests:releaseCerulean'] = '天蓝刺皮鱼'
