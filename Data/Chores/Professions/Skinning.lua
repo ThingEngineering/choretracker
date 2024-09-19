@@ -44,6 +44,15 @@ Addon.data.chores.professionSkinning = {
                         { quest=83734, item=222649 }, -- Algari Treatise on Skinning
                     },
                 },
+                {
+                    key = 'skinSlatefang',
+                    minimumLevel = 72,
+                    skill = 1,
+                    defaultEnabled = true,
+                    entries = {
+                        { quest=84259, item=219013 }, -- Superb Beast Fang
+                    }
+                },
             },
         },
         {
