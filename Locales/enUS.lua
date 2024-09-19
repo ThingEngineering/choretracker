@@ -159,6 +159,7 @@ L['chore:professions:warWithin:drops:mob/treasure'] = 'Mobs/Treasures'
 L['chore:professions:warWithin:quests:orders'] = 'Orders'
 L['chore:professions:warWithin:quests:task'] = 'Task'
 L['chore:professions:warWithin:quests:treatise'] = 'Treatise'
+L['chore:professions:warWithin:quests:skinSlatefang'] = 'Skin Slatefang'
 
 L['chore:professions:dragonflight:drops:forbiddenReach'] = 'Forbidden Reach'
 L['chore:professions:dragonflight:drops:gather'] = 'Gather'
