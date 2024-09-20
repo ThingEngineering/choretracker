@@ -18,6 +18,7 @@ Addon.data.timers.warWithin = {
             minimumLevel = 70,
             interval = 60 * 60,
             duration = 10 * 60,
+            offset = 60, -- starts at xx:01
         },
     },
 }
