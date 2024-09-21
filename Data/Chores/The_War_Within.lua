@@ -144,6 +144,7 @@ Addon.data.chores.choresWarWithin = {
                 {
                     key = 'spiderWeekly',
                     minimumLevel = 70,
+                    alwaysShowObjectives = true,
                     entries = {
                         { quest = 80670 }, -- Eyes of the Weaver
                         { quest = 80671 }, -- Blade of the General
