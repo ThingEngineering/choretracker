@@ -649,15 +649,23 @@ function Module:AddObjectives(entries, objectives, showObjectives)
 
     for _, objective in ipairs(objectives) do
         local objText
+        local showThis = showObjectives == 'ALL' or objective.have < objective.need
 
         if objective.type == 'item' or
             objective.type == 'monster' or
-            objective.type == 'object' or
-            objective.type == 'progressbar'
+            objective.type == 'object'
         then
-            if showObjectives == 'ALL' or objective.have < objective.need then
+            if showThis then
                 objText = '    * ' ..
                     self:GetPercentColor(objective.have, objective.need) ..
+                    objective.text
+            end
+        elseif objective.type == 'progressbar' then
+            if showThis then
+                objText = '    * ' ..
+                    self:GetPercentColor(objective.have, objective.need) ..
+                    objective.have ..
+                    '% ' ..
                     objective.text
             end
         else
