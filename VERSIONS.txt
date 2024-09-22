@@ -1,3 +1,13 @@
+v11.0.2.17
+----------
+- Added Skin Slatefang profession chore.
+- Changed progress bar objectives (eg Spider Weekly) to show % at the start of the
+  objective text.
+- Changed Spider Weekly chore to always show objectives.
+- Updated timer for Theater Troupe, it starts at xx:01.
+- Updated minimum level for Theater Troupe chore (80).
+- Updated minimum level for Timewalking event chores (varies).
+
 v11.0.2.16
 ----------
 - Updated quest ID for A Burning Path Through Time.
