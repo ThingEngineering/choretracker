@@ -291,7 +291,7 @@ Addon.data.chores.choresEvents = {
                 -- TBC
                 {
                     key = 'timewalkingDungeons',
-                    minimumLevel = 70,
+                    minimumLevel = 80,
                     requiredEventIds = tbcTimewalkingIds,
                     entries = {
                         { quest = 83363 }, -- A Burning Path Through Time
@@ -299,7 +299,7 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'timewalkingRaids',
-                    minimumLevel = 70,
+                    minimumLevel = 30,
                     requiredEventIds = tbcTimewalkingIds,
                     entries = {
                         { quest = 47523 }, -- Disturbance Detected: Black Temple
@@ -316,7 +316,7 @@ Addon.data.chores.choresEvents = {
                 -- WotLK
                 {
                     key = 'timewalkingDungeons',
-                    minimumLevel = 70,
+                    minimumLevel = 80,
                     requiredEventIds = wotlkTimewalkingIds,
                     entries = {
                         { quest = 83365 }, -- A Frozen Path Through Time
@@ -324,7 +324,7 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'timewalkingRaids',
-                    minimumLevel = 70,
+                    minimumLevel = 30,
                     requiredEventIds = wotlkTimewalkingIds,
                     entries = {
                         { quest = 50316 }, -- Disturbance Detected: Ulduar
@@ -341,7 +341,7 @@ Addon.data.chores.choresEvents = {
                 -- Cata
                 {
                     key = 'timewalkingDungeons',
-                    minimumLevel = 70,
+                    minimumLevel = 80,
                     requiredEventIds = cataTimewalkingIds,
                     entries = {
                         { quest = 83359 }, -- A Shattered Path Through Time
@@ -349,7 +349,7 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'timewalkingRaids',
-                    minimumLevel = 70,
+                    minimumLevel = 35,
                     requiredEventIds = cataTimewalkingIds,
                     entries = {
                         { quest = 57637 }, -- Disturbance Detected: Firelands
@@ -367,7 +367,7 @@ Addon.data.chores.choresEvents = {
                 -- MoP
                 {
                     key = 'timewalkingDungeons',
-                    minimumLevel = 70,
+                    minimumLevel = 80,
                     requiredEventIds = mopTimewalkingIds,
                     entries = {
                         { quest = 83362 }, -- A Shrouded Path Through Time
@@ -384,7 +384,7 @@ Addon.data.chores.choresEvents = {
                 -- WoD
                 {
                     key = 'timewalkingDungeons',
-                    minimumLevel = 70,
+                    minimumLevel = 80,
                     requiredEventIds = wodTimewalkingIds,
                     entries = {
                         { quest = 83364 }, -- A Savage Path Through Time
@@ -402,7 +402,7 @@ Addon.data.chores.choresEvents = {
                 -- Legion
                 {
                     key = 'timewalkingDungeons',
-                    minimumLevel = 70,
+                    minimumLevel = 80,
                     requiredEventIds = legionTimewalkingIds,
                     entries = {
                         { quest = 72719 }, -- A Fel Path Through Time
