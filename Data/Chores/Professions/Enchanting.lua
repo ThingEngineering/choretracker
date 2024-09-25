@@ -40,6 +40,7 @@ Addon.data.chores.professionEnchanting = {
                     entries = {
                         { quest=84084 }, -- Just a Pinch
                         { quest=84085 }, -- The Power of Potential
+						{ quest=84086 }, -- A Rare Necessity
                     },
                 },
                 {
