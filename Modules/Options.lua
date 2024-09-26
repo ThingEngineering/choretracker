@@ -103,6 +103,8 @@ end
 function Module:GetDbSection(sighKey)
     if sighKey == 'sectionChores' or sighKey == 'sectionProfessions' then
         sighKey = 'chores'
+    elseif sighKey == 'sectionDelves' then
+        sighKey = 'delves'
     elseif sighKey == 'sectionTimers' then
         sighKey = 'timers'
     end
@@ -327,6 +329,33 @@ function Module:CreateOptions()
                     choresWarWithin = self:GetChoreOptions(Addon.data.chores.choresWarWithin, WIDTH_3_PER_ROW, true),
                     choresDragonflight = self:GetChoreOptions(Addon.data.chores.choresDragonflight, WIDTH_3_PER_ROW, true),
                     choresEvents = self:GetChoreOptions(Addon.data.chores.choresEvents, WIDTH_3_PER_ROW, true),
+                },
+            },
+            sectionDelves = {
+                name = L['section:delves'],
+                type = 'group',
+                order = newOrder(),
+                args = {
+                    bountiful = {
+                        name = L['option:bountifulDelves'],
+                        type = 'group',
+                        inline = true,
+                        order = newOrder(),
+                        args = {
+                            showDelves = {
+                                name = L['option:bountifulDelves:showDelves'],
+                                type = 'toggle',
+                                order = newOrder(),
+                                width = WIDTH_3_PER_ROW,
+                            },
+                            showKeys = {
+                                name = L['option:bountifulDelves:showKeys'],
+                                type = 'toggle',
+                                order = newOrder(),
+                                width = WIDTH_3_PER_ROW,
+                            },
+                        },
+                    },
                 },
             },
             sectionProfessions = {

@@ -5,6 +5,7 @@ Addon:SetDefaultModuleLibraries('AceBucket-3.0', 'AceEvent-3.0')
 
 Addon.data = {
     chores = {},
+    delves = {},
     timers = {},
 }
 Addon.L = LibStub('AceLocale-3.0'):GetLocale(addonName)
@@ -43,6 +44,12 @@ local defaultDb = {
                 fontSize = 12,
                 fontStyle = '',
             }
+        },
+        delves = {
+            bountiful = {
+                showDelves = true,
+                showKeys = true,
+            },
         },
         window = {
             height = nil,

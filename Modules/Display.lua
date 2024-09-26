@@ -3,6 +3,7 @@ local L = Addon.L
 local Module = Addon:NewModule(
     'Display',
     {
+        delvesEnabled = false,
         dontShow = false,
         enabledTimers = {},
         itemCache = {},
@@ -23,6 +24,7 @@ BINDING_NAME_CHORETRACKER_TOGGLE = Addon.L['key_binding:toggle']
 
 local CC_GetDayEvent = C_Calendar.GetDayEvent
 local CC_GetNumDayEvents = C_Calendar.GetNumDayEvents
+local CCI_GetCurrencyInfo = C_CurrencyInfo.GetCurrencyInfo
 local CDAT_CompareCalendarTime = C_DateAndTime.CompareCalendarTime
 local CDAT_GetCalendarTimeFromEpoch = C_DateAndTime.GetCalendarTimeFromEpoch
 local CDAT_GetCurrentCalendarTime = C_DateAndTime.GetCurrentCalendarTime
@@ -48,6 +50,7 @@ local STATUS_ICON = {
     [1] = '|TInterface\\Addons\\ChoreTracker\\Assets\\status_1.tga:0|t',
     [2] = '|TInterface\\Addons\\ChoreTracker\\Assets\\status_2.tga:0|t',
 }
+local KEY_ICON = '|T4622270:0|t'
 
 function Module:OnEnable()
     ScannerModule = Addon:GetModule('Scanner')
@@ -203,6 +206,9 @@ function Module:ConfigChanged()
 
     local playerLevel = UnitLevel('player')
 
+    -- Delves
+    self.delvesEnabled = playerLevel == 80
+
     -- Events
     self.sections = {}
     for _, sectionTemp in ipairs(self.sortedSections) do
@@ -288,7 +294,7 @@ function Module:ConfigChanged()
             end
         end
     end
-    
+
     -- Timers
     wipe(self.enabledTimers)
     for _, category in pairs(Addon.data.timers) do
@@ -370,6 +376,87 @@ function Module:Redraw(changed)
 
         table.insert(newChildren, timerFrame)
         seenFrames.timers = true
+    end
+
+    -- Points of Interest (Delves)
+    if self.delvesEnabled and Addon.db.profile.delves.bountiful.showDelves then
+        local delvesFrame = self:GetSectionFrame('delves')
+    
+        if changed == nil or changed.pois ~= nil then
+            delvesFrame:ReleaseChildren()
+
+            local showCompletedSections = Addon.db.profile.general.display.showCompletedSections
+            local showCompletedChores = Addon.db.profile.general.display.showCompleted
+            local showKeys = Addon.db.profile.delves.bountiful.showKeys
+            local showStatusIcons = Addon.db.profile.general.display.statusIcons
+
+            local completed = 0
+            local total = 0
+            local labelTexts = {}
+            for _, sectionData in pairs(Addon.data.delves) do
+                for _, mapData in ipairs(sectionData.zones) do
+                    local mapInfo = C_Map.GetMapInfo(mapData.uiMapId)
+                    for _, poi in ipairs(mapData.pois) do
+                        local labelText
+                        local status = -1
+
+                        local poiData = ScannerModule.pois[poi.active]
+                        if poiData ~= nil then
+                            -- available
+                            labelText = STATUS_COLOR[0] .. mapInfo.name .. '|r: ' .. poiData.name
+                            total = total + 1
+                            status = 0
+                        else
+                            poiData = ScannerModule.pois[poi.inactive]
+                            local quest = ScannerModule.quests[poi.quest]
+                            if quest ~= nil and quest.status == 2 then
+                                total = total + 1
+                                completed = completed + 1
+                                status = 2
+
+                                if showCompletedChores then
+                                    labelText = STATUS_COLOR[2] .. mapInfo.name .. '|r: ' .. poiData.name
+                                end
+                            end
+                        end
+                    
+                        if labelText ~= nil then
+                            local finalText = '- '
+
+                            if showStatusIcons == true then
+                                finalText = finalText .. STATUS_ICON[status] .. ' '
+                            end
+                            
+                            finalText = finalText .. labelText
+
+                            tinsert(labelTexts, finalText)
+                        end
+                    end
+                end
+            end
+            
+            if completed < total or showCompletedSections then
+                local prefix = self:GetPercentColor(completed, total)
+
+                local headerText = L['category:bountifulDelves']
+                if showKeys then
+                    local keyCount = CCI_GetCurrencyInfo(3028).quantity
+                    local keyColor = self:GetPercentColor(keyCount, total - completed)
+                    headerText = headerText .. ' |cFF888888[|r' .. keyColor .. keyCount .. '|r ' .. KEY_ICON .. '|cFF888888]|r'
+                end
+                headerText = headerText .. ' - ' .. prefix .. completed .. '|r|cFF888888/|r' .. prefix ..
+                    total .. '|r'
+
+                self:AddLine(delvesFrame, headerText, Addon.db.profile.general.text.fontSize + 1)
+
+                for _, labelText in ipairs(labelTexts) do
+                    self:AddLine(delvesFrame, labelText)
+                end
+            end
+        end
+
+        table.insert(newChildren, delvesFrame)
+        seenFrames.delves = true
     end
 
     -- Get categories and add them

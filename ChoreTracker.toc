@@ -50,6 +50,7 @@ Data\Chores\Professions\Leatherworking.lua
 Data\Chores\Professions\Mining.lua
 Data\Chores\Professions\Skinning.lua
 Data\Chores\Professions\Tailoring.lua
+Data\Delves\The_War_Within.lua
 Data\Timers\Dragonflight.lua
 Data\Timers\The_War_Within.lua
 

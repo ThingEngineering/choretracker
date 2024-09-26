@@ -4,13 +4,16 @@ local Module = Addon:NewModule(
     'Scanner',
     {
         dungeons = {},
+        pois = {},
         quests = {},
         questPaths = {},
         scanDungeons = {},
+        scanPois = {},
     }
 )
 
 
+local CAPI_GetAreaPOIInfo = C_AreaPoiInfo.GetAreaPOIInfo
 local CDAT_GetSecondsUntilWeeklyReset = C_DateAndTime.GetSecondsUntilWeeklyReset
 local CQL_GetQuestObjectives = C_QuestLog.GetQuestObjectives
 local CQL_IsOnQuest = C_QuestLog.IsOnQuest
@@ -43,7 +46,13 @@ function Module:OnEnable()
         1,
         'UpdateSkillLines'
     )
-
+    self:RegisterBucketEvent(
+        {
+            'AREA_POIS_UPDATED',
+        },
+        2,
+        'ScanPois'
+    )
     self:RegisterBucketEvent(
         {
             'ENCOUNTER_LOOT_RECEIVED',
@@ -167,6 +176,7 @@ end
 function Module:InitializeData()
     wipe(self.questPaths)
     wipe(self.scanDungeons)
+    wipe(self.scanPois)
 
     for sectionKey, sectionData in pairs(Addon.data.chores) do
         if sectionData.skillLineId == nil or Addon.db.char.skillLines[sectionData.skillLineId] ~= nil then
@@ -174,7 +184,7 @@ function Module:InitializeData()
                 for _, typeKey in ipairs(DATA_TYPES) do
                     for _, choreData in ipairs(catData[typeKey] or {}) do
                         local choreKey = sectionKey .. '.' .. catData.key .. '.' .. typeKey .. '.' .. choreData.key
-                        
+
                         if choreData.entries ~= nil then
                             for _, choreEntry in ipairs(choreData.entries) do
                                 self.questPaths[choreEntry.quest] = choreKey
@@ -200,8 +210,19 @@ function Module:InitializeData()
             end
         end
     end
-    
+
+    for _, sectionData in pairs(Addon.data.delves) do
+        for _, mapData in ipairs(sectionData.zones) do
+            for _, poi in ipairs(mapData.pois) do
+                self.scanPois[poi.active] = mapData.uiMapId
+                self.scanPois[poi.inactive] = mapData.uiMapId
+                self.questPaths[poi.quest] = true
+            end
+        end
+    end
+
     self:ScanDungeons()
+    self:ScanPois()
     self:ScanQuests(true)
 end
 
@@ -219,6 +240,26 @@ function Module:GetWeek()
     local weeklyReset = time() + CDAT_GetSecondsUntilWeeklyReset()
     Addon.db.global.questWeeks[weeklyReset] = Addon.db.global.questWeeks[weeklyReset] or {}
     return Addon.db.global.questWeeks[weeklyReset]
+end
+
+function Module:ScanPois()
+    local anyChanges = false
+
+    for areaPoiId, uiMapId in pairs(self.scanPois) do
+        -- { linkedUiMapId, name }
+        local poiInfo = CAPI_GetAreaPOIInfo(uiMapId, areaPoiId)
+        if poiInfo ~= nil and self.pois[areaPoiId] == nil then
+            anyChanges = true
+            self.pois[areaPoiId] = poiInfo
+        elseif poiInfo == nil and self.pois[areaPoiId] ~= nil then
+            anyChanges = true
+            self.pois[areaPoiId] = nil
+        end
+    end
+
+    if anyChanges then
+        self:SendMessage('ChoreTracker_Data_Updated', 'pois')
+    end
 end
 
 function Module:ScanQuests(forceChanged)
