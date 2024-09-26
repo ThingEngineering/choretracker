@@ -1,3 +1,9 @@
+v11.0.2.18
+----------
+- Added Bountiful Delves display.
+- Added new TWE Enchanting Task (thanks Sluimerstand).
+- Updated zhCN locale (thanks Sefank).
+
 v11.0.2.17
 ----------
 - Added Skin Slatefang profession chore.
@@ -25,7 +31,7 @@ v11.0.2.14
 v11.0.2.13
 ----------
 - Added TWW World Boss chore.
-- Update zhCN locale (thanks Sefank).
+- Updated zhCN locale (thanks Sefank).
 
 v11.0.2.12
 ----------
