@@ -5,7 +5,7 @@ local L = Addon.L
 Addon.data.chores.choresDragonflight = {
     key = 'dragonflight',
     name = EXPANSION_NAME9,
-    order = 19,
+    order = 21,
     minimumLevel = 60,
     categories = {
         {
