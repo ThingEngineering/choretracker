@@ -22,6 +22,8 @@ L['option:display:showCompleted'] = 'Show completed chores'
 L['option:display:showObjectives'] = 'Show chore objectives'
 L['option:display:statusIcons'] = 'Use status icons'
 
+L['option:sectionOrder'] = 'Section Order'
+
 L['option:text'] = 'Text'
 L['option:text:font'] = 'Font'
 L['option:text:fontSize'] = 'Font size'
@@ -30,12 +32,14 @@ L['option:text:fontStyle'] = 'Font style'
 L['section:general'] = 'General'
 L['section:chores'] = 'Chores'
 L['section:delves'] = 'Delves'
+L['section:dragonflight'] = EXPANSION_NAME9
 L['section:drops'] = 'Drops'
 L['section:events'] = 'Events'
 L['section:professions'] = 'Professions'
 L['section:pvp'] = 'PvP'
 L['section:quests'] = 'Quests'
 L['section:timers'] = 'Timers'
+L['section:warWithin'] = EXPANSION_NAME10
 
 L['category:bountifulDelves'] = 'Bountiful Delves'
 L['category:brawls'] = 'Brawls'

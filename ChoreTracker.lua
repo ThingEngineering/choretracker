@@ -13,6 +13,16 @@ Addon.L = LibStub('AceLocale-3.0'):GetLocale(addonName)
 local ADB = LibStub('AceDB-3.0')
 local LSM = LibStub('LibSharedMedia-3.0')
 
+local DEFAULT_SECTION_ORDER = {
+    'timers',
+    'events',
+    'delves',
+    'warWithin',
+    'professions',
+    'pvp',
+    'dragonflight',
+}
+
 local defaultDb = {
     char = {
         skillLines = {},
@@ -33,6 +43,9 @@ local defaultDb = {
                 showCompletedSections = true,
                 showObjectives = 'ALL',
                 statusIcons = true,
+            },
+            order = {
+                sections = DEFAULT_SECTION_ORDER,
             },
             appearance = {
                 backgroundColor = { r = 0, g = 0, b = 0, a = 0.7 },

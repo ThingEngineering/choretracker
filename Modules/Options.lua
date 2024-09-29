@@ -11,6 +11,16 @@ local LSM = LibStub('LibSharedMedia-3.0')
 local WIDTH_3_PER_ROW = 1.1
 local WIDTH_4_PER_ROW = 0.81
 
+local ALL_SECTIONS = {
+    'delves',
+    'dragonflight',
+    'events',
+    'professions',
+    'pvp',
+    'timers',
+    'warWithin',
+}
+
 local FONT_FLAGS = {
     [''] = 'None',
     ['MONOCHROME'] = 'Monochrome',
@@ -237,6 +247,13 @@ function Module:CreateOptions()
                                 -- sorting = STRATA_ORDER,
                             },
                         },
+                    },
+                    order = {
+                        name = L['option:sectionOrder'],
+                        type = 'group',
+                        inline = true,
+                        order = newOrder(),
+                        args = self:GetSectionOrderOptions(),
                     },
                     appearance = {
                         name = L['option:appearance'],
@@ -472,6 +489,60 @@ function Module:AddSubOptions(optionsTable, parentKey, key, data, optionWidth)
             width = optionWidth,
         }
     end
+end
+
+function Module:GetSectionOrderOptions()
+    local args = {}
+    local numSections = #ALL_SECTIONS
+
+    for i, section in ipairs(Addon.db.profile.general.order.sections) do
+        args['section'..i] = {
+            name = L['section:'..section],
+            type = 'description',
+            width = 'normal',
+            fontSize = 'medium',
+            order = newOrder(),
+        }
+        args['section'..i..'up'] = {
+            name = (i > 1) and 'Up' or ' ',
+            -- desc = 'text',
+            type = (i > 1) and 'execute' or 'description',
+            width = 'half',
+            func = function() self:MoveSection(i, 'up') end,
+            order = newOrder(),
+        }
+        args['section'..i..'down'] = {
+            name = (i < numSections) and 'Down' or ' ',
+            -- desc = 'text',
+            type = (i < numSections) and 'execute' or 'description',
+            width = 'half',
+            func = function() self:MoveSection(i, 'down') end,
+            order = newOrder(),
+        }
+        args["section"..i.."padding"] = {
+            name = '',
+            type = 'description',
+            width = 'normal',
+            fontSize = 'medium',
+            order = newOrder(),
+        }
+    end
+
+    return args
+end
+
+function Module:MoveSection(index, direction)
+    local sections = Addon.db.profile.general.order.sections
+    local key = tremove(sections, index)
+
+    if direction == 'up' then
+        tinsert(sections, index - 1, key)
+    else
+        tinsert(sections, index + 1, key)
+    end
+
+    self.options.args.general.args.order.args = self:GetSectionOrderOptions()
+    self:SendMessage('ChoreTracker_Config_Changed')
 end
 
 function Module:GetTimerOptions(data)

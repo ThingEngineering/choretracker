@@ -34,6 +34,29 @@ local CMI_GetModifiedInstanceInfoFromMapID = C_ModifiedInstance.GetModifiedInsta
 local OBJECTIVE_DEFEAT_X = Addon.L['objective:defeat_x']
 local OBJECTIVE_BRING_X = Addon.L['objective:bring_x']
 
+local SECTION_TO_CATEGORIES = {
+    dragonflight = { 'choresDragonflight' },
+    events = { 'choresEvents' },
+    pvp = { 'choresPvp' },
+    warWithin = { 'choresWarWithin' },
+    professions = {
+        'professionAlchemy',
+        'professionBlacksmithing',
+        'professionEnchanting',
+        'professionEngineering',
+        'professionHerbalism',
+        'professionInscription',
+        'professionJewelcrafting',
+        'professionLeatherworking',
+        'professionMining',
+        'professionSkinning',
+        'professionTailoring',
+        'professionArchaeology',
+        'professionCooking',
+        'professionFishing',
+    },
+}
+
 local REGION_OFFSET = {
     [1] = -(7 * 60 * 60), -- US events use PST (-0700 UTC)
     --[2] = ??, -- KR
@@ -335,50 +358,88 @@ function Module:Redraw(changed)
 
     -- local started = debugprofilestop()
 
+    local categories = self:GetSections()
+    local categoryMap = {}
+    for _, category in ipairs(categories) do
+        categoryMap[category.key] = category
+    end
+
     local newChildren = {}
     local seenFrames = {}
 
-    -- Timers
-    if #self.enabledTimers > 0 then
-        local awakenedTimers = Addon.db.profile.general.display.awakenedTimers
-        local timerFrame = self:GetSectionFrame('timers')
-
-        if changed == nil or changed.timers ~= nil then
-            timerFrame:ReleaseChildren()
-
-            local now = time()
-            for _, timerData in ipairs(self.enabledTimers) do
-                if (awakenedTimers == false or
-                    timerData.awakenedMap == nil or
-                    CMI_GetModifiedInstanceInfoFromMapID(timerData.awakenedMap) ~= nil
-                ) then
-                    local name = L['timer:' .. timerData.key]
-                    local timer = TimersModule.timers[timerData.key]
-
-                    local labelText
-
-                    if timer == nil then
-                        labelText = '|cFF888888[|r???|cFF888888]|r ' .. STATUS_COLOR[0] .. name .. '|r'
-                    elseif timer.startsAt <= now and timer.endsAt >= now then
-                        labelText = '|cFF888888[|r' .. STATUS_COLOR[2] .. self:GetDuration(timer.endsAt - now) ..
-                            '|cFF888888]|r ' .. STATUS_COLOR[2] .. name .. '|r'
-                        -- timeText = self:GetDuration(timer.endsAt - now)
-                    else
-                        local color = (timer.startsAt - now) <= 300 and STATUS_COLOR[1] or ''
-                        labelText = '|cFF888888[|r' .. color .. self:GetDuration(timer.startsAt - now) ..
-                            '|r|cFF888888]|r ' .. name .. '|r'
-                    end
-
-                    self:AddLine(timerFrame, labelText)
+    for _, section in ipairs(Addon.db.profile.general.order.sections) do
+        if section == 'timers' then
+            self:AddTimers(changed, newChildren, seenFrames)
+        elseif section == 'delves' then
+            self:AddDelves(changed, newChildren, seenFrames)
+            -- elseif section == 'events' then
+        else
+            local sectionCategories = SECTION_TO_CATEGORIES[section] or {}
+            for _, sectionCategory in ipairs(sectionCategories) do
+                local categoryData = categoryMap[sectionCategory]
+                if categoryData ~= nil then
+                    self:AddChores(changed, newChildren, seenFrames, categoryData)
                 end
             end
         end
-
-        table.insert(newChildren, timerFrame)
-        seenFrames.timers = true
     end
 
-    -- Points of Interest (Delves)
+    -- Release any unused frames
+    for key, sectionFrame in pairs(self.sectionFrames) do
+        if seenFrames[key] ~= true then
+            AceGUI:Release(sectionFrame)
+            self.sectionFrames[key] = nil
+        end
+    end
+
+    self.scrollFrame.children = newChildren
+    self.scrollFrame:DoLayout()
+
+    -- local ended = debugprofilestop()
+    -- print('redraw took ' .. (ended - started) .. 'ms')
+    
+    self.haveDrawn = true
+end
+
+function Module:GetSectionFrame(key)
+    local sectionFrame = self.sectionFrames[key]
+    if sectionFrame == nil then
+        sectionFrame = AceGUI:Create('SimpleGroup')
+        sectionFrame:SetParent(self.scrollFrame)
+        sectionFrame:SetLayout('FancyList')
+        sectionFrame:SetFullWidth(true)
+
+        sectionFrame.__key = key
+        sectionFrame.content.spacing = 4
+        
+        self.sectionFrames[key] = sectionFrame
+    end
+
+    return sectionFrame
+end
+
+function Module:AddChores(changed, newChildren, seenFrames, category)
+    local frameKey = 'category:' .. category.key
+    local catFrame = self:GetSectionFrame(frameKey)
+
+    if changed == nil or changed.quests ~= nil then
+        catFrame:ReleaseChildren()
+
+        local prefix = self:GetPercentColor(category.completed, category.total)
+        local headerText = category.header .. ' - ' .. prefix .. category.completed ..
+            '|r|cFF888888/|r' .. prefix .. category.total .. '|r'
+        self:AddLine(catFrame, headerText, Addon.db.profile.general.text.fontSize + 1)
+
+        for _, entry in ipairs(category.entries) do
+            self:AddLine(catFrame, entry)
+        end
+    end
+
+    table.insert(newChildren, catFrame)
+    seenFrames[frameKey] = true
+end
+
+function Module:AddDelves(changed, newChildren, seenFrames)
     if self.delvesEnabled and Addon.db.profile.delves.bountiful.showDelves then
         local delvesFrame = self:GetSectionFrame('delves')
     
@@ -458,62 +519,49 @@ function Module:Redraw(changed)
         table.insert(newChildren, delvesFrame)
         seenFrames.delves = true
     end
+end
 
-    -- Get categories and add them
-    local categories = self:GetSections()
-    for _, category in ipairs(categories) do
-        local frameKey = 'category:' .. category.key
-        local catFrame = self:GetSectionFrame(frameKey)
+function Module:AddTimers(changed, newChildren, seenFrames)
 
-        if changed == nil or changed.quests ~= nil then
-            catFrame:ReleaseChildren()
+    -- Timers
+    if #self.enabledTimers > 0 then
+        local awakenedTimers = Addon.db.profile.general.display.awakenedTimers
+        local timerFrame = self:GetSectionFrame('timers')
 
-            local prefix = self:GetPercentColor(category.completed, category.total)
-            local headerText = category.header .. ' - ' .. prefix .. category.completed ..
-                '|r|cFF888888/|r' .. prefix .. category.total .. '|r'
-            self:AddLine(catFrame, headerText, Addon.db.profile.general.text.fontSize + 1)
+        if changed == nil or changed.timers ~= nil then
+            timerFrame:ReleaseChildren()
 
-            for _, entry in ipairs(category.entries) do
-                self:AddLine(catFrame, entry)
+            local now = time()
+            for _, timerData in ipairs(self.enabledTimers) do
+                if (awakenedTimers == false or
+                    timerData.awakenedMap == nil or
+                    CMI_GetModifiedInstanceInfoFromMapID(timerData.awakenedMap) ~= nil
+                ) then
+                    local name = L['timer:' .. timerData.key]
+                    local timer = TimersModule.timers[timerData.key]
+
+                    local labelText
+
+                    if timer == nil then
+                        labelText = '|cFF888888[|r???|cFF888888]|r ' .. STATUS_COLOR[0] .. name .. '|r'
+                    elseif timer.startsAt <= now and timer.endsAt >= now then
+                        labelText = '|cFF888888[|r' .. STATUS_COLOR[2] .. self:GetDuration(timer.endsAt - now) ..
+                            '|cFF888888]|r ' .. STATUS_COLOR[2] .. name .. '|r'
+                        -- timeText = self:GetDuration(timer.endsAt - now)
+                    else
+                        local color = (timer.startsAt - now) <= 300 and STATUS_COLOR[1] or ''
+                        labelText = '|cFF888888[|r' .. color .. self:GetDuration(timer.startsAt - now) ..
+                            '|r|cFF888888]|r ' .. name .. '|r'
+                    end
+
+                    self:AddLine(timerFrame, labelText)
+                end
             end
         end
 
-        table.insert(newChildren, catFrame)
-        seenFrames[frameKey] = true
+        table.insert(newChildren, timerFrame)
+        seenFrames.timers = true
     end
-
-    -- Release any unused frames
-    for key, sectionFrame in pairs(self.sectionFrames) do
-        if seenFrames[key] ~= true then
-            AceGUI:Release(sectionFrame)
-            self.sectionFrames[key] = nil
-        end
-    end
-
-    self.scrollFrame.children = newChildren
-    self.scrollFrame:DoLayout()
-
-    -- local ended = debugprofilestop()
-    -- print('redraw took ' .. (ended - started) .. 'ms')
-    
-    self.haveDrawn = true
-end
-
-function Module:GetSectionFrame(key)
-    local sectionFrame = self.sectionFrames[key]
-    if sectionFrame == nil then
-        sectionFrame = AceGUI:Create('SimpleGroup')
-        sectionFrame:SetParent(self.scrollFrame)
-        sectionFrame:SetLayout('FancyList')
-        sectionFrame:SetFullWidth(true)
-
-        sectionFrame.__key = key
-        sectionFrame.content.spacing = 4
-        
-        self.sectionFrames[key] = sectionFrame
-    end
-
-    return sectionFrame
 end
 
 function Module:GetSections()
