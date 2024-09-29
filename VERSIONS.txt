@@ -1,3 +1,8 @@
+v11.0.2.19
+----------
+- Fixed event IDs for Events chores (GH32).
+- Fixed minimum levels for Events chores.
+
 v11.0.2.18
 ----------
 - Added Bountiful Delves display.
@@ -11,8 +16,8 @@ v11.0.2.17
   objective text.
 - Changed Spider Weekly chore to always show objectives.
 - Updated timer for Theater Troupe, it starts at xx:01.
-- Updated minimum level for Theater Troupe chore (80).
-- Updated minimum level for Timewalking event chores (varies).
+- Updated minimum level for Theater Troupe chore.
+- Updated minimum level for Timewalking event chores.
 
 v11.0.2.16
 ----------

@@ -158,16 +158,6 @@ Addon.data.chores.choresWarWithin = {
                         { quest = 83240 }, -- The Theater Troupe
                     },
                 },
-                {
-                    key = 'sparksOfWar',
-                    minimumLevel = 70,
-                    entries = {
-                        { quest=81793 }, -- Sparks of War: Isle of Dorn
-                        { quest=81794 }, -- Sparks of War: The Ringing Deeps
-                        { quest=81795 }, -- Sparks of War: Hallowfall
-                        { quest=81796 }, -- Sparks of War: Azj-Kahet
-                    },
-                }
             },
         },
     },

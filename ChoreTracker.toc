@@ -35,6 +35,7 @@ ChoreTracker.lua
 Data\Professions.lua
 Data\Chores\Dragonflight.lua
 Data\Chores\Events.lua
+Data\Chores\PvP.lua
 Data\Chores\The_War_Within.lua
 Data\Chores\Professions\Alchemy.lua
 Data\Chores\Professions\Archaeology.lua
