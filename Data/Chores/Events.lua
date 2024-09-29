@@ -241,16 +241,16 @@ Addon.data.chores.choresEvents = {
             quests = {
                 {
                     key = 'arenaSkirmishes',
-                    minimumLevel = 70,
-                    requiredEventIds = { 238 }, -- Arena Skirmish Bonus Event
+                    minimumLevel = 80,
+                    requiredEventIds = { 561, 610, 611, 612 }, -- Arena Skirmish Bonus Event
                     entries = {
                         { quest = 83358 }, -- The Arena Calls
                     },
                 },
                 {
                     key = 'battlegrounds',
-                    minimumLevel = 70,
-                    requiredEventIds = { 236 }, -- Battleground Bonus Event
+                    minimumLevel = 80,
+                    requiredEventIds = { 563, 602, 603, 604 }, -- Battleground Bonus Event
                     entries = {
                         { quest = 83345 }, -- A Call to Battle
                     },
@@ -258,30 +258,30 @@ Addon.data.chores.choresEvents = {
                 {
                     key = 'delves',
                     minimumLevel = 70,
-                    requiredEventIds = { 442 }, -- Delves Bonus Event
+                    requiredEventIds = { 1559, 1560, 1561, 1562 }, -- Delves Bonus Event
                     entires = {
                         { quest = 84776 }, -- A Call to Delves
                     }
                 },
                 {
                     key = 'mythicDungeons',
-                    minimumLevel = 70,
-                    requiredEventIds = { 1335, 1352, 1353, 1354 }, -- Dragonflight Dungeon Event
+                    minimumLevel = 80,
+                    requiredEventIds = { 1558, 1563, 1564, 1565 }, -- The War Within Dungeon Event
                     entries = {
                         { quest = 83347 }, -- Emissary of War
                     },
                 },
                 {
                     key = 'pvpPetBattles',
-                    minimumLevel = 70,
-                    requiredEventIds = { 234 }, -- Pet Battle Bonus Event
+                    minimumLevel = 80,
+                    requiredEventIds = { 565, 599, 600, 601 }, -- Pet Battle Bonus Event
                     entries = {
                         { quest = 83357 }, -- The Very Best
                     },
                 },
                 {
                     key = 'worldQuests',
-                    minimumLevel = 70,
+                    minimumLevel = 80,
                     requiredEventIds = { 592, 613, 614, 615 }, -- World Quest Bonus Event
                     entries = {
                         { quest = 83366 }, -- The World Awaits
@@ -423,7 +423,7 @@ Addon.data.chores.choresEvents = {
             quests = {
                 {
                     key = 'arathiBlizzard',
-                    minimumLevel = 70,
+                    minimumLevel = 80,
                     requiredEventIds = { 666, 673, 680, 697, 737 },
                     entries = {
                         { quest = 47148 }, -- Something Different
@@ -431,7 +431,7 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'classicAshran',
-                    minimumLevel = 70,
+                    minimumLevel = 80,
                     requiredEventIds = { 1120, 1121, 1122, 1123, 1124 },
                     entries = {
                         { quest = 47148 }, -- Something Different
@@ -439,7 +439,7 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'compStomp',
-                    minimumLevel = 70,
+                    minimumLevel = 80,
                     requiredEventIds = { 1234, 1235, 1236, 1237, 1238 },
                     entries = {
                         { quest = 47148 }, -- Something Different
@@ -447,7 +447,7 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'cookingImpossible',
-                    minimumLevel = 70,
+                    minimumLevel = 80,
                     requiredEventIds = { 1047, 1048, 1049, 1050, 1051 },
                     entries = {
                         { quest = 47148 }, -- Something Different
@@ -455,7 +455,7 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'deepSix',
-                    minimumLevel = 70,
+                    minimumLevel = 80,
                     requiredEventIds = { 702, 704, 705, 706, 736 },
                     entries = {
                         { quest = 47148 }, -- Something Different
@@ -463,7 +463,7 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'deepwindDunk',
-                    minimumLevel = 70,
+                    minimumLevel = 80,
                     requiredEventIds = { 1239, 1240, 1241, 1242, 1243 },
                     entries = {
                         { quest = 47148 }, -- Something Different
@@ -471,7 +471,7 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'gravityLapse',
-                    minimumLevel = 70,
+                    minimumLevel = 80,
                     requiredEventIds = { 659, 663, 670, 677, 684 },
                     entries = {
                         { quest = 47148 }, -- Something Different
@@ -479,7 +479,7 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'packedHouse',
-                    minimumLevel = 70,
+                    minimumLevel = 80,
                     requiredEventIds = { 667, 674, 681, 688, 701 },
                     entries = {
                         { quest = 47148 }, -- Something Different
@@ -487,7 +487,7 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'shadoPanShowdown',
-                    minimumLevel = 70,
+                    minimumLevel = 80,
                     requiredEventIds = { 1232, 1233, 1244, 1245, 1246, 1312 },
                     entries = {
                         { quest = 47148 }, -- Something Different
@@ -495,7 +495,7 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'southshoreVsTarrenMill',
-                    minimumLevel = 70,
+                    minimumLevel = 80,
                     requiredEventIds = { 660, 662, 669, 676, 683 },
                     entries = {
                         { quest = 47148 }, -- Something Different
@@ -503,7 +503,7 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'templeOfHotmogu',
-                    minimumLevel = 70,
+                    minimumLevel = 80,
                     requiredEventIds = { 1166, 1167, 1168, 1169, 1170 },
                     entries = {
                         { quest = 47148 }, -- Something Different
@@ -511,7 +511,7 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'warsongScramble',
-                    minimumLevel = 70,
+                    minimumLevel = 80,
                     requiredEventIds = { 664, 671, 678, 685, 1221 },
                     entries = {
                         { quest = 47148 }, -- Something Different
