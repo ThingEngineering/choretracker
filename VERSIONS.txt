@@ -1,3 +1,7 @@
+v11.0.2.19b
+----------
+- Fixed leftover duplicate chore entries.
+
 v11.0.2.19
 ----------
 - Added options to control section order.
