@@ -1,5 +1,9 @@
 v11.0.2.19
 ----------
+- Added options to control section order.
+- Added "Preserving" PvP weekly chores.
+- Changed Dragonflight chores to sort after The War Within.
+- Moved PvP chores to a new PvP section.
 - Fixed event IDs for Events chores (GH32).
 - Fixed minimum levels for Events chores.
 
