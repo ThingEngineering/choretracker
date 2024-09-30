@@ -1,3 +1,8 @@
+v11.0.2.20
+----------
+- Added an EARLY VERSION of auto-accepting some quests from the Adventure Journal.
+  Enable it in Options>General>Automation.
+
 v11.0.2.19b
 ----------
 - Fixed leftover duplicate chore entries.
