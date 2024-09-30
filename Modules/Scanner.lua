@@ -3,6 +3,7 @@ local L = Addon.L
 local Module = Addon:NewModule(
     'Scanner',
     {
+        autoAccept = {},
         dungeons = {},
         pois = {},
         quests = {},
@@ -174,6 +175,7 @@ function Module:UpdateSkillLines()
 end
 
 function Module:InitializeData()
+    wipe(self.autoAccept)
     wipe(self.questPaths)
     wipe(self.scanDungeons)
     wipe(self.scanPois)
@@ -186,8 +188,20 @@ function Module:InitializeData()
                         local choreKey = sectionKey .. '.' .. catData.key .. '.' .. typeKey .. '.' .. choreData.key
 
                         if choreData.entries ~= nil then
+                            local acceptKey = 'autoAccept:' .. sectionKey .. ':' .. catData.key .. ':' .. choreData.key
+                            local translation = L[acceptKey]
+                            local questIds = nil
+                            if translation ~= acceptKey then
+                                questIds = {}
+                                self.autoAccept[choreKey] = { translation, questIds }
+                            end
+
                             for _, choreEntry in ipairs(choreData.entries) do
                                 self.questPaths[choreEntry.quest] = choreKey
+                                
+                                if questIds ~= nil then
+                                    tinsert(questIds, choreEntry.quest)
+                                end
 
                                 if choreEntry.actualQuest then
                                     self.questPaths[choreEntry.actualQuest] = choreKey

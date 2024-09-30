@@ -335,6 +335,21 @@ function Module:CreateOptions()
                             },
                         },
                     },
+                    automation = {
+                        name = L['option:automation'],
+                        type = 'group',
+                        inline = true,
+                        order = newOrder(),
+                        args = {
+                            acceptQuests = {
+                                name = L['option:automation:acceptQuests'],
+                                desc = L['option:automation:acceptQuests:desc'],
+                                type = 'toggle',
+                                order = newOrder(),
+                                width = WIDTH_3_PER_ROW,
+                            },
+                        },
+                    }
                 }
             },
             sectionChores = {

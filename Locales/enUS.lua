@@ -7,6 +7,10 @@ L['option:appearance:backgroundColor'] = 'Background color'
 L['option:appearance:borderColor'] = 'Border color'
 L['option:appearance:strata'] = 'Strata'
 
+L['option:automation'] = 'Automation'
+L['option:automation:acceptQuests'] = '[BETA] Accept Quests'
+L['option:automation:acceptQuests:desc'] = 'Try to auto-accept quests from the Adventure Journal'
+
 L['option:bountifulDelves'] = 'Bountiful Delves'
 L['option:bountifulDelves:showDelves'] = 'Show Delves'
 L['option:bountifulDelves:showKeys'] = 'Show Keys'
@@ -212,3 +216,11 @@ L['questName:80546'] = 'The Vizier'
 
 L['missing_skill_level'] = '|cFFFF00FFOpen profession window!|r'
 L['remove_specialAssignment'] = 'Special Assignment: '
+
+-- Auto-Accept
+L['autoAccept:choresEvents:holidays:mythicDungeons'] = '^Bonus Event: Dungeons$'
+L['autoAccept:choresEvents:holidays:worldQuests'] = '^Bonus Event: World Quests$'
+L['autoAccept:choresPvp:weekly:battlegrounds'] = '^Bonus Event: Battlegrounds$'
+L['autoAccept:choresPvp:weekly:sparks'] = '^Sparks of War:'
+L['autoAccept:choresWarWithin:patch_11_0_0:dungeon'] = '^Biergoth in Dornogal'
+L['autoAccept:choresWarWithin:patch_11_0_0:theaterTroupe'] = '^Theater Troupe$'

@@ -55,6 +55,7 @@ Data\Delves\The_War_Within.lua
 Data\Timers\Dragonflight.lua
 Data\Timers\The_War_Within.lua
 
+Modules\AutoAccept.lua
 Modules\Display.lua
 Modules\Options.lua
 Modules\Scanner.lua
