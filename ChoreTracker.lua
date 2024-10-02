@@ -43,7 +43,7 @@ local defaultDb = {
                 strata = 'LOW',
             },
             automation = {
-                acceptQuests = false,
+                acceptQuests = true,
             },
             display = {
                 awakenedTimers = false,

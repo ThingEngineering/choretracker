@@ -8,8 +8,8 @@ L['option:appearance:borderColor'] = 'Border color'
 L['option:appearance:strata'] = 'Strata'
 
 L['option:automation'] = 'Automation'
-L['option:automation:acceptQuests'] = '[BETA] Accept Quests'
-L['option:automation:acceptQuests:desc'] = 'Try to auto-accept quests from the Adventure Journal'
+L['option:automation:acceptQuests'] = 'Auto-Start Quests'
+L['option:automation:acceptQuests:desc'] = 'Try to automatically start quests from the Adventure Journal'
 
 L['option:bountifulDelves'] = 'Bountiful Delves'
 L['option:bountifulDelves:showDelves'] = 'Show Delves'
