@@ -7,6 +7,7 @@ Addon.data.chores.choresDragonflight = {
     name = EXPANSION_NAME9,
     order = 21,
     minimumLevel = 60,
+    defaultEnabled = false,
     categories = {
         {
             key = 'patch_10_2_5',
@@ -247,7 +248,6 @@ Addon.data.chores.choresDragonflight = {
             quests = {
                 {
                     key = 'releaseAileron',
-                    defaultEnabled = false,
                     useShoppingListAsName = true,
                     entries = {
                         {
@@ -258,7 +258,6 @@ Addon.data.chores.choresDragonflight = {
                 },
                 {
                     key = 'releaseCerulean',
-                    defaultEnabled = false,
                     useShoppingListAsName = true,
                     entries = {
                         {
@@ -269,7 +268,6 @@ Addon.data.chores.choresDragonflight = {
                 },
                 {
                     key = 'releaseIslefin',
-                    defaultEnabled = false,
                     useShoppingListAsName = true,
                     entries = {
                         {
@@ -280,7 +278,6 @@ Addon.data.chores.choresDragonflight = {
                 },
                 {
                     key = 'releaseScalebelly',
-                    defaultEnabled = false,
                     useShoppingListAsName = true,
                     entries = {
                         {
@@ -291,7 +288,6 @@ Addon.data.chores.choresDragonflight = {
                 },
                 {
                     key = 'releaseTemporal',
-                    defaultEnabled = false,
                     useShoppingListAsName = true,
                     entries = {
                         {
@@ -302,7 +298,6 @@ Addon.data.chores.choresDragonflight = {
                 },
                 {
                     key = 'releaseThousandbite',
-                    defaultEnabled = false,
                     useShoppingListAsName = true,
                     entries = {
                         {

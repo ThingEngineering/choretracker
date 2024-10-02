@@ -6,6 +6,7 @@ Addon.data.chores.choresPvp = {
     key = 'pvp',
     name = L['section:pvp'],
     order = 50,
+    defaultEnabled = false,
     categories = {
         {
             key = 'weekly',

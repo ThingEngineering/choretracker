@@ -15,6 +15,172 @@ Addon.data.chores.choresEvents = {
     order = 0,
     categories = {
         {
+            key = 'holidays',
+            quests = {
+                {
+                    key = 'delves',
+                    minimumLevel = 80,
+                    requiredEventIds = { 1559, 1560, 1561, 1562 }, -- Delves Bonus Event
+                    entries = {
+                        { quest = 84776 }, -- A Call to Delves
+                    },
+                },
+                {
+                    key = 'mythicDungeons',
+                    minimumLevel = 80,
+                    requiredEventIds = { 1558, 1563, 1564, 1565 }, -- The War Within Dungeon Event
+                    entries = {
+                        { quest = 83347 }, -- Emissary of War
+                    },
+                },
+                {
+                    key = 'pvpPetBattles',
+                    minimumLevel = 80,
+                    requiredEventIds = { 565, 599, 600, 601 }, -- Pet Battle Bonus Event
+                    entries = {
+                        { quest = 83357 }, -- The Very Best
+                    },
+                },
+                {
+                    key = 'worldQuests',
+                    minimumLevel = 80,
+                    requiredEventIds = { 592, 613, 614, 615 }, -- World Quest Bonus Event
+                    entries = {
+                        { quest = 83366 }, -- The World Awaits
+                    },
+                },
+
+                -- TBC
+                {
+                    key = 'timewalkingDungeons',
+                    minimumLevel = 80,
+                    requiredEventIds = tbcTimewalkingIds,
+                    entries = {
+                        { quest = 83363 }, -- A Burning Path Through Time
+                    },
+                },
+                {
+                    key = 'timewalkingRaids',
+                    minimumLevel = 30,
+                    requiredEventIds = tbcTimewalkingIds,
+                    entries = {
+                        { quest = 47523 }, -- Disturbance Detected: Black Temple
+                    },
+                },
+                {
+                    key = 'timewalkingTurnIn',
+                    minimumLevel = 30,
+                    requiredEventIds = tbcTimewalkingIds,
+                    entries = {
+                        { quest = 40168, item = 129747 }, -- [TBC] The Swirling Vial
+                    },
+                },
+                -- WotLK
+                {
+                    key = 'timewalkingDungeons',
+                    minimumLevel = 80,
+                    requiredEventIds = wotlkTimewalkingIds,
+                    entries = {
+                        { quest = 83365 }, -- A Frozen Path Through Time
+                    },
+                },
+                {
+                    key = 'timewalkingRaids',
+                    minimumLevel = 30,
+                    requiredEventIds = wotlkTimewalkingIds,
+                    entries = {
+                        { quest = 50316 }, -- Disturbance Detected: Ulduar
+                    },
+                },
+                {
+                    key = 'timewalkingTurnIn',
+                    minimumLevel = 30,
+                    requiredEventIds = wotlkTimewalkingIds,
+                    entries = {
+                        { quest = 40173, item = 129928 }, -- [WotLK] The Unstable Prism
+                    },
+                },
+                -- Cata
+                {
+                    key = 'timewalkingDungeons',
+                    minimumLevel = 80,
+                    requiredEventIds = cataTimewalkingIds,
+                    entries = {
+                        { quest = 83359 }, -- A Shattered Path Through Time
+                    },
+                },
+                {
+                    key = 'timewalkingRaids',
+                    minimumLevel = 35,
+                    requiredEventIds = cataTimewalkingIds,
+                    entries = {
+                        { quest = 57637 }, -- Disturbance Detected: Firelands
+                    },
+                },
+                {
+                    key = 'timewalkingTurnIn',
+                    minimumLevel = 35,
+                    requiredEventIds = cataTimewalkingIds,
+                    entries = {
+                        { quest = 40786, item = 133377 }, -- [Cata-H] The Smoldering Ember
+                        { quest = 40787, item = 133378 }, -- [Cata-A] The Smoldering Ember
+                    },
+                },
+                -- MoP
+                {
+                    key = 'timewalkingDungeons',
+                    minimumLevel = 80,
+                    requiredEventIds = mopTimewalkingIds,
+                    entries = {
+                        { quest = 83362 }, -- A Shrouded Path Through Time
+                    },
+                },
+                {
+                    key = 'timewalkingTurnIn',
+                    minimumLevel = 35,
+                    requiredEventIds = mopTimewalkingIds,
+                    entries = {
+                        { quest = 45563, item = 143776 }, -- [MoP] The Shrouded Coin
+                    },
+                },
+                -- WoD
+                {
+                    key = 'timewalkingDungeons',
+                    minimumLevel = 80,
+                    requiredEventIds = wodTimewalkingIds,
+                    entries = {
+                        { quest = 83364 }, -- A Savage Path Through Time
+                    },
+                },
+                {
+                    key = 'timewalkingTurnIn',
+                    minimumLevel = 40,
+                    requiredEventIds = wodTimewalkingIds,
+                    entries = {
+                        { quest = 55498, item = 167921 }, -- [WoD-A] The Shimmering Crystal
+                        { quest = 55499, item = 167922 }, -- [WoD-H] The Shimmering Crystal
+                    },
+                },
+                -- Legion
+                {
+                    key = 'timewalkingDungeons',
+                    minimumLevel = 80,
+                    requiredEventIds = legionTimewalkingIds,
+                    entries = {
+                        { quest = 72719 }, -- A Fel Path Through Time
+                    },
+                },
+                {
+                    key = 'timewalkingTurnIn',
+                    minimumLevel = 45,
+                    requiredEventIds = legionTimewalkingIds,
+                    entries = {
+                        { quest = 64710, item = 187611 }, -- [Legion] Whispering Felflame Crystal
+                    },
+                },
+            },
+        },
+        {
             key = 'holidays2',
             dungeons = {
                 {
@@ -55,6 +221,7 @@ Addon.data.chores.choresEvents = {
         },
         {
             key = 'darkmoonFaire',
+            defaultEnabled = false,
             quests = {
                 {
                     key = 'gameHammerTime',
@@ -229,172 +396,6 @@ Addon.data.chores.choresEvents = {
                     entries = {
                         { quest=29464, item=71716 }, -- Tools of Divination/Soothsayer's Runes
                     }
-                },
-            },
-        },
-        {
-            key = 'holidays',
-            quests = {
-                {
-                    key = 'delves',
-                    minimumLevel = 80,
-                    requiredEventIds = { 1559, 1560, 1561, 1562 }, -- Delves Bonus Event
-                    entries = {
-                        { quest = 84776 }, -- A Call to Delves
-                    },
-                },
-                {
-                    key = 'mythicDungeons',
-                    minimumLevel = 80,
-                    requiredEventIds = { 1558, 1563, 1564, 1565 }, -- The War Within Dungeon Event
-                    entries = {
-                        { quest = 83347 }, -- Emissary of War
-                    },
-                },
-                {
-                    key = 'pvpPetBattles',
-                    minimumLevel = 80,
-                    requiredEventIds = { 565, 599, 600, 601 }, -- Pet Battle Bonus Event
-                    entries = {
-                        { quest = 83357 }, -- The Very Best
-                    },
-                },
-                {
-                    key = 'worldQuests',
-                    minimumLevel = 80,
-                    requiredEventIds = { 592, 613, 614, 615 }, -- World Quest Bonus Event
-                    entries = {
-                        { quest = 83366 }, -- The World Awaits
-                    },
-                },
-
-                -- TBC
-                {
-                    key = 'timewalkingDungeons',
-                    minimumLevel = 80,
-                    requiredEventIds = tbcTimewalkingIds,
-                    entries = {
-                        { quest = 83363 }, -- A Burning Path Through Time
-                    },
-                },
-                {
-                    key = 'timewalkingRaids',
-                    minimumLevel = 30,
-                    requiredEventIds = tbcTimewalkingIds,
-                    entries = {
-                        { quest = 47523 }, -- Disturbance Detected: Black Temple
-                    },
-                },
-                {
-                    key = 'timewalkingTurnIn',
-                    minimumLevel = 30,
-                    requiredEventIds = tbcTimewalkingIds,
-                    entries = {
-                        { quest = 40168, item = 129747 }, -- [TBC] The Swirling Vial
-                    },
-                },
-                -- WotLK
-                {
-                    key = 'timewalkingDungeons',
-                    minimumLevel = 80,
-                    requiredEventIds = wotlkTimewalkingIds,
-                    entries = {
-                        { quest = 83365 }, -- A Frozen Path Through Time
-                    },
-                },
-                {
-                    key = 'timewalkingRaids',
-                    minimumLevel = 30,
-                    requiredEventIds = wotlkTimewalkingIds,
-                    entries = {
-                        { quest = 50316 }, -- Disturbance Detected: Ulduar
-                    },
-                },
-                {
-                    key = 'timewalkingTurnIn',
-                    minimumLevel = 30,
-                    requiredEventIds = wotlkTimewalkingIds,
-                    entries = {
-                        { quest = 40173, item = 129928 }, -- [WotLK] The Unstable Prism
-                    },
-                },
-                -- Cata
-                {
-                    key = 'timewalkingDungeons',
-                    minimumLevel = 80,
-                    requiredEventIds = cataTimewalkingIds,
-                    entries = {
-                        { quest = 83359 }, -- A Shattered Path Through Time
-                    },
-                },
-                {
-                    key = 'timewalkingRaids',
-                    minimumLevel = 35,
-                    requiredEventIds = cataTimewalkingIds,
-                    entries = {
-                        { quest = 57637 }, -- Disturbance Detected: Firelands
-                    },
-                },
-                {
-                    key = 'timewalkingTurnIn',
-                    minimumLevel = 35,
-                    requiredEventIds = cataTimewalkingIds,
-                    entries = {
-                        { quest = 40786, item = 133377 }, -- [Cata-H] The Smoldering Ember
-                        { quest = 40787, item = 133378 }, -- [Cata-A] The Smoldering Ember
-                    },
-                },
-                -- MoP
-                {
-                    key = 'timewalkingDungeons',
-                    minimumLevel = 80,
-                    requiredEventIds = mopTimewalkingIds,
-                    entries = {
-                        { quest = 83362 }, -- A Shrouded Path Through Time
-                    },
-                },
-                {
-                    key = 'timewalkingTurnIn',
-                    minimumLevel = 35,
-                    requiredEventIds = mopTimewalkingIds,
-                    entries = {
-                        { quest = 45563, item = 143776 }, -- [MoP] The Shrouded Coin
-                    },
-                },
-                -- WoD
-                {
-                    key = 'timewalkingDungeons',
-                    minimumLevel = 80,
-                    requiredEventIds = wodTimewalkingIds,
-                    entries = {
-                        { quest = 83364 }, -- A Savage Path Through Time
-                    },
-                },
-                {
-                    key = 'timewalkingTurnIn',
-                    minimumLevel = 40,
-                    requiredEventIds = wodTimewalkingIds,
-                    entries = {
-                        { quest = 55498, item = 167921 }, -- [WoD-A] The Shimmering Crystal
-                        { quest = 55499, item = 167922 }, -- [WoD-H] The Shimmering Crystal
-                    },
-                },
-                -- Legion
-                {
-                    key = 'timewalkingDungeons',
-                    minimumLevel = 80,
-                    requiredEventIds = legionTimewalkingIds,
-                    entries = {
-                        { quest = 72719 }, -- A Fel Path Through Time
-                    },
-                },
-                {
-                    key = 'timewalkingTurnIn',
-                    minimumLevel = 45,
-                    requiredEventIds = legionTimewalkingIds,
-                    entries = {
-                        { quest = 64710, item = 187611 }, -- [Legion] Whispering Felflame Crystal
-                    },
                 },
             },
         },
