@@ -1,5 +1,10 @@
 local L = LibStub('AceLocale-3.0'):NewLocale('ChoreTracker', 'enUS', true, true)
 
+L['section:dragonflight'] = EXPANSION_NAME9
+L['section:warWithin'] = EXPANSION_NAME10
+
+L['auto_accept_message'] = 'ChoreTracker is now able to auto-accept some quests from the Suggested Content window, you can enable this in Options/General (one-time message)'
+
 L['key_binding:toggle'] = 'Toggle ChoreTracker window'
 
 L['option:appearance'] = 'Appearance'
@@ -36,14 +41,12 @@ L['option:text:fontStyle'] = 'Font style'
 L['section:general'] = 'General'
 L['section:chores'] = 'Chores'
 L['section:delves'] = 'Delves'
-L['section:dragonflight'] = EXPANSION_NAME9
 L['section:drops'] = 'Drops'
 L['section:events'] = 'Events'
 L['section:professions'] = 'Professions'
 L['section:pvp'] = 'PvP'
 L['section:quests'] = 'Quests'
 L['section:timers'] = 'Timers'
-L['section:warWithin'] = EXPANSION_NAME10
 
 L['category:bountifulDelves'] = 'Bountiful Delves'
 L['category:brawls'] = 'Brawls'

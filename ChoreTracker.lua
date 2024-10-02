@@ -43,7 +43,7 @@ local defaultDb = {
                 strata = 'LOW',
             },
             automation = {
-                acceptQuests = true,
+                acceptQuests = false,
             },
             display = {
                 awakenedTimers = false,
@@ -76,6 +76,7 @@ local defaultDb = {
             minimized = false,
         },
         desiredShown = true,
+        seenAutoAcceptMessage = false,
         chores = {},
         timers = {},
     }
@@ -148,6 +149,11 @@ function Addon:PLAYER_ENTERING_WORLD()
         if module.OnEnteringWorld ~= nil then
             module:OnEnteringWorld()
         end
+    end
+
+    if not Addon.db.global.seenAutoAcceptMessage then
+        C_Timer.After(5, function() print(Addon.L['auto_accept_message']) end)
+        Addon.db.global.seenAutoAcceptMessage = true
     end
 end
 

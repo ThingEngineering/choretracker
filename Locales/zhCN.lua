@@ -1,6 +1,11 @@
 local L = LibStub('AceLocale-3.0'):NewLocale('ChoreTracker', 'zhCN', false)
 if not L then return end -- don't remove this!
 
+L['section:dragonflight'] = EXPANSION_NAME9
+L['section:warWithin'] = EXPANSION_NAME10
+
+L['auto_accept_message'] = 'ChoreTracker is able to auto-accept some quests from the Suggested Content window, you can enable this in Options/General (one-time message)'
+
 L['key_binding:toggle'] = '切换 ChoreTracker 窗口'
 
 L['option:appearance'] = '外观'
