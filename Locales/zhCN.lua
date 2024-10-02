@@ -199,3 +199,12 @@ L['questName:80546'] = '宰相'
 
 L['missing_skill_level'] = '|cFFFF00FF打开专业窗口！|r'
 L['remove_specialAssignment'] = '特别任务：'
+
+-- Auto-Accept
+L['autoAccept:choresEvents:holidays:delves'] = '^假日活动：地下堡$'
+L['autoAccept:choresEvents:holidays:mythicDungeons'] = '^假日活动：地下城$'
+L['autoAccept:choresEvents:holidays:worldQuests'] = '^假日活动：世界任务$'
+L['autoAccept:choresPvp:weekly:battlegrounds'] = '^假日活动：战场$'
+L['autoAccept:choresPvp:weekly:sparks'] = '^战争火花：'
+L['autoAccept:choresWarWithin:patch_11_0_0:dungeon'] = '^多恩诺嘉尔的贝尔苟兹希望你'
+L['autoAccept:choresWarWithin:patch_11_0_0:theaterTroupe'] = '^剧场巡演$'

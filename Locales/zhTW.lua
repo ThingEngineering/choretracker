@@ -173,3 +173,12 @@ L['questName:80545'] = '將軍'
 L['questName:80546'] = '輔臣'
 
 L['missing_skill_level'] = '|cFFFF00FF打開專業視窗！|r'
+
+-- Auto-Accept
+L['autoAccept:choresEvents:holidays:delves'] = '^獎勵事件：探究$'
+L['autoAccept:choresEvents:holidays:mythicDungeons'] = '^獎勵事件：地城$'
+L['autoAccept:choresEvents:holidays:worldQuests'] = '^獎勵事件：世界任務$'
+L['autoAccept:choresPvp:weekly:battlegrounds'] = '^獎勵事件：戰場$'
+L['autoAccept:choresPvp:weekly:sparks'] = '^戰爭火花：'
+L['autoAccept:choresWarWithin:patch_11_0_0:dungeon'] = '^多恩諾加的畢爾果絲希望你'
+L['autoAccept:choresWarWithin:patch_11_0_0:theaterTroupe'] = '^劇團$'
