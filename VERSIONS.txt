@@ -1,3 +1,10 @@
+v11.0.2.22
+----------
+- Added a one-time message letting you know that auto accept is an option.
+- Changed which chores are enabled by default, no more Dragonflight/PvP/Darkmoon Faire.
+- Changed auto-accepted quests to be off by default again, it starts way too many quests.
+- Fixed Delves bonus event minimum level.
+
 v11.0.2.21
 ----------
 - Added Delves bonus event to auto-accept list.
