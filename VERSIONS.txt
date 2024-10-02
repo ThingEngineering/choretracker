@@ -1,3 +1,10 @@
+v11.0.2.21
+----------
+- Added Delves bonus event to auto-accept list.
+- Added zhCN/zhTW matchers for auto-accept. I have no idea if they work.
+- Changed auto-accepting quests to be on by default.
+- Fixed Delves bonus event not actually tracking the quest.
+
 v11.0.2.20
 ----------
 - Added an EARLY VERSION of auto-accepting some quests from the Adventure Journal.
