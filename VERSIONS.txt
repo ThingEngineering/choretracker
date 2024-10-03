@@ -1,3 +1,8 @@
+v11.0.2.23
+----------
+- Added auto-accept for Delves weekly quests.
+- Changed "Emissary" to be 3 separate groups (Archives/Delves/Worldsoul).
+
 v11.0.2.22
 ----------
 - Added a one-time message letting you know that auto accept is an option.
