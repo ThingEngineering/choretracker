@@ -33,27 +33,31 @@ Addon.data.chores.choresWarWithin = {
                     },
                 },
                 {
-                    key = 'dungeon',
+                    key = 'emissaryArchives',
                     minimumLevel = 80,
-                    alwaysQuestName = true,
                     entries = {
-                        { quest = 83465 }, -- Ara-Kara, City of Echoes
-                        { quest = 83436 }, -- Cinderbrew Meadery
-                        { quest = 83469 }, -- City of Threads
-                        { quest = 83443 }, -- Darkflame Cleft
-                        { quest = 83458 }, -- Priory of the Sacred Flame
-                        { quest = 83459 }, -- The Dawnbreaker
-                        { quest = 83432 }, -- The Rookery
-                        { quest = 83457 }, -- The Stonevault
+                        { quest = 82679 }, -- Archives: Seeking History
+                        { quest = 82678 }, -- Archives: The First Disc
                     },
                 },
                 {
-                    key = 'emissary',
-                    minimumLevel = 70,
-                    chooseQuest = true,
+                    key = 'emissaryDelves',
+                    minimumLevel = 80,
                     entries = {
-                        { quest = 82678 }, -- Archives: The First Disc
+                        { quest = 82746 }, -- Delves: Breaking Tough to Loot Stuff
+                        { quest = 82707 }, -- Delves: Earthen Defense
+                        { quest = 82710 }, -- Delves: Empire-ical Exploration
+                        { quest = 82706 }, -- Delves: Khaz Algar Research
+                        { quest = 82711 }, -- Delves: Lost and Found
                         { quest = 82708 }, -- Delves: Nerubian Menace
+                        { quest = 82709 }, -- Delves: Percussive Archaeology
+                        { quest = 82712 }, -- Delves: Trouble Up and Down Khaz Algar
+                    },
+                },
+                {
+                    key = 'emissaryWorldsoul',
+                    minimumLevel = 70,
+                    entries = {
                         { quest = 82511 }, -- Worldsoul: Awakening Machine
                         { quest = 82453 }, -- Worldsoul: Encore!
                         { quest = 82516 }, -- Worldsoul: Forging a Pact
@@ -112,20 +116,6 @@ Addon.data.chores.choresWarWithin = {
                     },
                 },
                 {
-                    key = 'awakeningTheMachine',
-                    minimumLevel = 70,
-                    entries = {
-                        { quest = 83333 }, -- Gearing Up for Trouble
-                    }
-                },
-                {
-                    key = 'rollinDown',
-                    minimumLevel = 80,
-                    entries = {
-                        { quest = 82946 }, -- Rollin' Down in the Deeps
-                    }
-                },
-                {
                     key = 'spreadingTheLight',
                     minimumLevel = 70,
                     entries = {
@@ -156,6 +146,35 @@ Addon.data.chores.choresWarWithin = {
                     minimumLevel = 80,
                     entries = {
                         { quest = 83240 }, -- The Theater Troupe
+                    },
+                },
+                {
+                    key = 'awakeningTheMachine',
+                    minimumLevel = 70,
+                    entries = {
+                        { quest = 83333 }, -- Gearing Up for Trouble
+                    }
+                },
+                {
+                    key = 'rollinDown',
+                    minimumLevel = 80,
+                    entries = {
+                        { quest = 82946 }, -- Rollin' Down in the Deeps
+                    }
+                },
+                {
+                    key = 'dungeon',
+                    minimumLevel = 80,
+                    alwaysQuestName = true,
+                    entries = {
+                        { quest = 83465 }, -- Ara-Kara, City of Echoes
+                        { quest = 83436 }, -- Cinderbrew Meadery
+                        { quest = 83469 }, -- City of Threads
+                        { quest = 83443 }, -- Darkflame Cleft
+                        { quest = 83458 }, -- Priory of the Sacred Flame
+                        { quest = 83459 }, -- The Dawnbreaker
+                        { quest = 83432 }, -- The Rookery
+                        { quest = 83457 }, -- The Stonevault
                     },
                 },
             },
