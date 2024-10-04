@@ -782,9 +782,12 @@ end
 function Module:AddObjectives(entries, objectives, showObjectives)
     if showObjectives == 'NONE' then return end
 
-    for _, objective in ipairs(objectives) do
+    local numObjectives = #objectives
+    for index, objective in ipairs(objectives) do
         local objText
-        local showThis = showObjectives == 'ALL' or objective.have < objective.need
+        local showThis = showObjectives == 'ALL' or
+            objective.have < objective.need or
+            (objective.have == objective.need and index == numObjectives)
 
         if objective.type == 'item' or
             objective.type == 'monster' or
