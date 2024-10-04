@@ -4,7 +4,7 @@ if not L then return end -- don't remove this!
 L['section:dragonflight'] = EXPANSION_NAME9
 L['section:warWithin'] = EXPANSION_NAME10
 
-L['auto_accept_message'] = 'ChoreTracker is able to auto-accept some quests from the Suggested Content window, you can enable this in Options/General (one-time message)'
+L['auto_accept_message'] = 'ChoreTracker 可从“推荐玩法”窗口中自动接受任务，您可以在选项-通用中启用该功能（此信息仅显示一次）'
 
 L['key_binding:toggle'] = '切换 ChoreTracker 窗口'
 
@@ -12,6 +12,14 @@ L['option:appearance'] = '外观'
 L['option:appearance:backgroundColor'] = '背景颜色'
 L['option:appearance:borderColor'] = '边框颜色'
 L['option:appearance:strata'] = '框体层级'
+
+L['option:automation'] = '自动化'
+L['option:automation:acceptQuests'] = '自动接受任务'
+L['option:automation:acceptQuests:desc'] = '尝试在“冒险指南”中自动接受任务'
+
+L['option:bountifulDelves'] = '丰裕地下堡'
+L['option:bountifulDelves:showDelves'] = '显示地下堡'
+L['option:bountifulDelves:showKeys'] = '显示钥匙'
 
 L['option:bulkActions'] = '批量操作'
 L['option:bulkActions:dragonflightDisable'] = '禁用所有巨龙时代内容'
@@ -24,6 +32,8 @@ L['option:display:showCompleted'] = '显示完成的任务事项'
 L['option:display:showObjectives'] = '显示任务目标'
 L['option:display:statusIcons'] = '使用状态图标'
 
+L['option:sectionOrder'] = '分类显示顺序'
+
 L['option:text'] = '文本'
 L['option:text:font'] = '字体'
 L['option:text:fontSize'] = '字体大小'
@@ -31,12 +41,15 @@ L['option:text:fontStyle'] = '字体样式'
 
 L['section:general'] = '通用'
 L['section:chores'] = '任务事项'
+L['section:delves'] = '地下堡'
 L['section:drops'] = '掉落'
 L['section:events'] = '事件'
 L['section:professions'] = '专业'
+L['section:pvp'] = 'PvP'
 L['section:quests'] = '任务'
 L['section:timers'] = '时间'
 
+L['category:bountifulDelves'] = '丰裕地下堡'
 L['category:brawls'] = '乱斗'
 L['category:catchAndRelease'] = '捉放鱼'
 L['category:dailies'] = '日常任务'
@@ -54,12 +67,15 @@ L['category:patch_10_1_7'] = '10.1.7版本'
 L['category:patch_10_2_0'] = '10.2.0版本'
 L['category:patch_10_2_5'] = '10.2.5版本'
 L['category:patch_11_0_0'] = '11.0.0版本'
+L['category:weekly'] = '周常'
 L['category:worldBosses'] = '世界首领'
 
 L['chore:warWithin:patch_11_0_0:quests:awakeningTheMachine'] = '主机觉醒'
 L['chore:warWithin:patch_11_0_0:quests:delveKeys'] = '地下堡钥匙'
 L['chore:warWithin:patch_11_0_0:quests:dungeon'] = '地下城'
-L['chore:warWithin:patch_11_0_0:quests:emissary'] = '特使'
+L['chore:warWithin:patch_11_0_0:quests:emissaryArchives'] = '档案馆？'
+L['chore:warWithin:patch_11_0_0:quests:emissaryDelves'] = '地下堡？'
+L['chore:warWithin:patch_11_0_0:quests:emissaryWorldsoul'] = '世界之魂？'
 L['chore:warWithin:patch_11_0_0:quests:rollinDown'] = "滚滚深邃都是蜡"
 L['chore:warWithin:patch_11_0_0:quests:specialAssignment'] = '特别任务'
 L['chore:warWithin:patch_11_0_0:quests:spiderPact'] = '蜘蛛合约'
@@ -129,8 +145,6 @@ L['chore:events:darkmoonFaire:quests:mysteriousGrimoire'] = '物品：神秘的�
 L['chore:events:darkmoonFaire:quests:ornateWeapon'] = '物品：精美的武器'
 L['chore:events:darkmoonFaire:quests:soothsayersRunes'] = "物品：占卜者符文"
 
-L['chore:events:holidays:quests:arenaSkirmishes'] = '竞技场练习赛'
-L['chore:events:holidays:quests:battlegrounds'] = '战场'
 L['chore:events:holidays:quests:delves'] = '地下堡'
 L['chore:events:holidays:quests:mythicDungeons'] = '史诗地下城'
 L['chore:events:holidays:quests:pvpPetBattles'] = 'PvP宠物战斗'
@@ -151,6 +165,7 @@ L['chore:professions:warWithin:drops:mob/treasure'] = '怪物/宝藏'
 L['chore:professions:warWithin:quests:orders'] = '订单'
 L['chore:professions:warWithin:quests:task'] = '任务'
 L['chore:professions:warWithin:quests:treatise'] = '论述'
+L['chore:professions:warWithin:quests:skinSlatefang'] = '剥皮：板岩之牙'
 
 L['chore:professions:dragonflight:drops:forbiddenReach'] = '禁忌离岛'
 L['chore:professions:dragonflight:drops:gather'] = '采集'
@@ -180,6 +195,9 @@ L['chore:pvp:brawls:quests:southshoreVsTarrenMill'] = '南海镇VS塔伦米尔'
 L['chore:pvp:brawls:quests:templeOfHotmogu'] = '魔古接力'
 L['chore:pvp:brawls:quests:warsongScramble'] = '战歌争夺战'
 
+L['chore:pvp:weekly:quests:arenaSkirmishes'] = '竞技场练习赛'
+L['chore:pvp:weekly:quests:battlegrounds'] = '战场'
+L['chore:pvp:weekly:quests:preserving'] = '历练'
 L['chore:pvp:weekly:quests:sparks'] = '战争火花'
 
 L['timer:beledarsShadow'] = "贝雷达尔之影"
@@ -212,4 +230,5 @@ L['autoAccept:choresEvents:holidays:worldQuests'] = '^假日活动：世界任�
 L['autoAccept:choresPvp:weekly:battlegrounds'] = '^假日活动：战场$'
 L['autoAccept:choresPvp:weekly:sparks'] = '^战争火花：'
 L['autoAccept:choresWarWithin:patch_11_0_0:dungeon'] = '^多恩诺嘉尔的贝尔苟兹希望你'
+L['autoAccept:choresWarWithin:patch_11_0_0:emissaryDelves'] = '^与多恩诺嘉尔的布莱恩'
 L['autoAccept:choresWarWithin:patch_11_0_0:theaterTroupe'] = '^剧场巡演$'
