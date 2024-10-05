@@ -24,6 +24,7 @@ Addon.data.chores.choresWarWithin = {
                 },
                 {
                     key = 'delveKeys',
+                    minimumLevel = 80,
                     groupSameItem = true,
                     entries = {
                         { quest=84736, item=224172 }, -- Restored Coffer Key
