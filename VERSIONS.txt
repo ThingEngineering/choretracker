@@ -1,3 +1,9 @@
+v11.0.2.24
+----------
+- Added Hallowfall Fishing Derby chores (not enabled by default).
+- Always show completed final objective if quest is in progress.
+- Fixed Delve Keys minimum level.
+
 v11.0.2.23
 ----------
 - Added auto-accept for Delves weekly quests.
