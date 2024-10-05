@@ -140,7 +140,7 @@ function Addon:OnInitialize()
     local ughSections = {}
     local seenSections = {}
     for _, section in ipairs(self.db.profile.general.order.sections) do
-        if not seenSections[section] then
+        if section ~= nil and not seenSections[section] then
             seenSections[section] = true
             tinsert(ughSections, section)
         end
@@ -148,7 +148,7 @@ function Addon:OnInitialize()
 
     for _, section in ipairs(DEFAULT_SECTION_ORDER) do
         if not seenSections[section] then
-            tinsert(ughSections, 0, section)
+            tinsert(ughSections, 1, section)
         end
     end
 
