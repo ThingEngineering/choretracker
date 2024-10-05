@@ -16,6 +16,7 @@ local LSM = LibStub('LibSharedMedia-3.0')
 local DEFAULT_SECTION_ORDER = {
     'timers',
     'events',
+    'hallowfallFishingDerby',
     'delves',
     'warWithin',
     'professions',
@@ -134,6 +135,24 @@ function Addon:OnInitialize()
     self:RegisterChatCommand('choretracker', 'SlashCommand')
 
     self.db = ADB:New('ChoreTrackerDB', defaultDb, true) -- default global profile
+
+    -- Fix section order
+    local ughSections = {}
+    local seenSections = {}
+    for _, section in ipairs(self.db.profile.general.order.sections) do
+        if not seenSections[section] then
+            seenSections[section] = true
+            tinsert(ughSections, section)
+        end
+    end
+
+    for _, section in ipairs(DEFAULT_SECTION_ORDER) do
+        if not seenSections[section] then
+            tinsert(ughSections, 0, section)
+        end
+    end
+
+    self.db.profile.general.order.sections = ughSections
 
     -- Clean up old weekly data
     local cutoff = time() - (14 * 24 * 60 * 60)

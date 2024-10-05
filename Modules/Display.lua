@@ -37,6 +37,7 @@ local OBJECTIVE_BRING_X = Addon.L['objective:bring_x']
 local SECTION_TO_CATEGORIES = {
     dragonflight = { 'choresDragonflight' },
     events = { 'choresEvents' },
+    hallowfallFishingDerby = { 'choresHallowfallFishingDerby' },
     pvp = { 'choresPvp' },
     warWithin = { 'choresWarWithin' },
     professions = {
