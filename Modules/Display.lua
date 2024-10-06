@@ -443,7 +443,7 @@ end
 function Module:AddDelves(changed, newChildren, seenFrames)
     if self.delvesEnabled and Addon.db.profile.delves.bountiful.showDelves then
         local delvesFrame = self:GetSectionFrame('delves')
-    
+
         if changed == nil or changed.pois ~= nil then
             delvesFrame:ReleaseChildren()
 
@@ -517,8 +517,10 @@ function Module:AddDelves(changed, newChildren, seenFrames)
             end
         end
 
-        table.insert(newChildren, delvesFrame)
-        seenFrames.delves = true
+        if #delvesFrame.children > 0 then
+            table.insert(newChildren, delvesFrame)
+            seenFrames.delves = true
+        end
     end
 end
 
