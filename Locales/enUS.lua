@@ -230,6 +230,8 @@ L['remove_specialAssignment'] = 'Special Assignment: '
 -- Auto-Accept
 L['autoAccept:choresEvents:holidays:delves'] = '^Bonus Event: Delves$'
 L['autoAccept:choresEvents:holidays:mythicDungeons'] = '^Bonus Event: Dungeons$'
+L['autoAccept:choresEvents:holidays:pvpPetBattles'] = '^Bonus Event: Pet Battles$'
+L['autoAccept:choresEvents:holidays:timewalkingDungeons'] = '^Bonus Event: Timewalking$'
 L['autoAccept:choresEvents:holidays:worldQuests'] = '^Bonus Event: World Quests$'
 L['autoAccept:choresPvp:weekly:battlegrounds'] = '^Bonus Event: Battlegrounds$'
 L['autoAccept:choresPvp:weekly:sparks'] = '^Sparks of War:'
