@@ -1,3 +1,10 @@
+v11.0.2.26
+----------
+- Added auto-accept for pet battles/timewalking weekly quests.
+- Fixed Mining "Rush-order Requisition" quest ID.
+- Fixed big blank area in window when all Bountiful Delves are completed for the day.
+- Updated zhCN locale (thanks Sefank).
+
 v11.0.2.25
 ----------
 - Fixed window being blank in some cases.
