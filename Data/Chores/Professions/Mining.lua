@@ -34,8 +34,8 @@ Addon.data.chores.professionMining = {
                         { quest=83103 }, -- Acquiring Aqirite
                         { quest=83102 }, -- Bismuth is Business
                         { quest=83104 }, -- Identifying Ironclaw
+                        { quest=83105 }, -- Rush-order Requisition
                         { quest=83106 }, -- Null Pebble Excavation
-                        { quest=83106 }, -- Rush-order Requisition
                     },
                 },
                 {
