@@ -745,37 +745,39 @@ function Module:GetSectionQuests(week, section, chore, showCompleted, showObject
                     self:GetEntryText(chore.translated, bestEntry, bestState, bestWeek, chore.data)
                 )
 
-                if chore.data.useShoppingListAsName ~= true and bestEntry.shoppingList ~= nil then
-                    for _, bringMe in ipairs(bestEntry.shoppingList) do
-                        local bringName = ''
-                        if bringMe[3] == 'currency' then
-                            local currencyInfo = C_CurrencyInfo.GetCurrencyInfo(bringMe[2])
-                            bringName = currencyInfo.name
-                        else
-                            local itemInfo = self:GetCachedItem(bringMe[2])
-                            if itemInfo.valid then
-                                bringName = ITEM_QUALITY_COLORS[itemInfo.quality].hex ..
-                                    itemInfo.name
+                if bestState.status < 2 then
+                    if chore.data.useShoppingListAsName ~= true and bestEntry.shoppingList ~= nil then
+                        for _, bringMe in ipairs(bestEntry.shoppingList) do
+                            local bringName = ''
+                            if bringMe[3] == 'currency' then
+                                local currencyInfo = C_CurrencyInfo.GetCurrencyInfo(bringMe[2])
+                                bringName = currencyInfo.name
                             else
-                                bringName = ITEM_QUALITY_COLORS[1].hex .. 'Item #' .. bringMe[2]
+                                local itemInfo = self:GetCachedItem(bringMe[2])
+                                if itemInfo.valid then
+                                    bringName = ITEM_QUALITY_COLORS[itemInfo.quality].hex ..
+                                        itemInfo.name
+                                else
+                                    bringName = ITEM_QUALITY_COLORS[1].hex .. 'Item #' .. bringMe[2]
+                                end
                             end
-                        end
 
-                        local shoppingText = '    * ' .. string.format(OBJECTIVE_BRING_X, bringMe[1], bringName) .. '|r'
-                        table.insert(section.entries, shoppingText)
-                    end
-                elseif bestState.status == 1 then
-                    if bestState.objectives ~= nil and
-                        (#bestState.objectives > 1 or chore.data.alwaysShowObjectives)
-                    then
-                        self:AddObjectives(section.entries, bestState.objectives, showObjectives)
+                            local shoppingText = '    * ' .. string.format(OBJECTIVE_BRING_X, bringMe[1], bringName) .. '|r'
+                            table.insert(section.entries, shoppingText)
+                        end
+                    elseif bestState.status == 1 then
+                        if bestState.objectives ~= nil and
+                            (#bestState.objectives > 1 or chore.data.alwaysShowObjectives)
+                        then
+                            self:AddObjectives(section.entries, bestState.objectives, showObjectives)
+                        elseif bestWeek ~= nil and bestWeek.objectives ~= nil and
+                            (#bestWeek.objectives > 1 or chore.data.alwaysShowObjectives) then
+                            self:AddObjectives(section.entries, bestWeek.objectives, showObjectives)
+                        end
                     elseif bestWeek ~= nil and bestWeek.objectives ~= nil and
                         (#bestWeek.objectives > 1 or chore.data.alwaysShowObjectives) then
                         self:AddObjectives(section.entries, bestWeek.objectives, showObjectives)
                     end
-                elseif bestWeek ~= nil and bestWeek.objectives ~= nil and
-                    (#bestWeek.objectives > 1 or chore.data.alwaysShowObjectives) then
-                    self:AddObjectives(section.entries, bestWeek.objectives, showObjectives)
                 end
             end
         end
