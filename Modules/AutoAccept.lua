@@ -106,13 +106,19 @@ end
 
 function Module:CheckSuggestion(suggestion, offset, index)
     -- print(offset, index, suggestion.title)
+    local acceptQuest = L['autoAccept:acceptQuest']
+    local startQuest = L['autoAccept:startQuest']
 
     for choreKey, acceptData in pairs(ScannerModule.autoAccept) do
         local parts = { strsplit('.', choreKey) }
         local enabled = Addon.db.profile.chores[parts[1]][parts[2]][parts[3]][parts[4]]
         if enabled == true then
             local matchString, questIds = unpack(acceptData)
-            if strmatch(suggestion.title, matchString) or strmatch(suggestion.description, matchString) then
+            if (suggestion.buttonText == acceptQuest or
+                suggestion.buttonText == startQuest) and
+                (strmatch(suggestion.title, matchString) or
+                strmatch(suggestion.description, matchString))
+            then
                 local start = true
                 for _, questId in ipairs(questIds) do
                     local questStatus = ScannerModule.quests[questId]

@@ -228,6 +228,8 @@ L['missing_skill_level'] = '|cFFFF00FFOpen profession window!|r'
 L['remove_specialAssignment'] = 'Special Assignment: '
 
 -- Auto-Accept
+L['autoAccept:acceptQuest'] = 'Accept Quest'
+L['autoAccept:startQuest'] = 'Start Quest'
 L['autoAccept:choresEvents:holidays:delves'] = '^Bonus Event: Delves$'
 L['autoAccept:choresEvents:holidays:mythicDungeons'] = '^Bonus Event: Dungeons$'
 L['autoAccept:choresEvents:holidays:pvpPetBattles'] = '^Bonus Event: Pet Battles$'
