@@ -1,3 +1,9 @@
+v11.0.2.27
+----------
+- Fixed trying to start quests with buttons other than "Accept Quest" or "Start Quest".
+- Fixed showing objectives for completed chores.
+- Updated zhCN/zhTW locale.
+
 v11.0.2.26
 ----------
 - Added auto-accept for pet battles/timewalking weekly quests.
