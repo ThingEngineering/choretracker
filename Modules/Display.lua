@@ -242,12 +242,9 @@ function Module:ConfigChanged()
                 sectionData.skillLineId == nil or
                 Addon.db.char.skillLines[sectionData.skillLineId] ~= nil
             ) and (
-                sectionData.minimumLevel == nil or
-                playerLevel >= sectionData.minimumLevel
-            ) and (
                 sectionData.filter == nil or
                 sectionData.filter() == true
-            )
+            ) and self:PlayerLevelOk(sectionData, playerLevel)
         then
             local header = ''
             if sectionData.texture then
@@ -292,13 +289,9 @@ function Module:ConfigChanged()
                                     self:AnyActive(self.activeEvents, choreData.requiredEventIds)
                                 ) and
                                 (
-                                    choreData.minimumLevel == nil or
-                                    playerLevel >= choreData.minimumLevel
-                                ) and
-                                (
                                     choreData.skill == nil or
                                     Addon.db.char.skillLines[catData.skillLineId] >= choreData.skill
-                                )
+                                ) and self:PlayerLevelOk(choreData, playerLevel)
                             then
                                 section.total = section.total + 1
                                 table.insert(section.chores, {
@@ -323,10 +316,9 @@ function Module:ConfigChanged()
     wipe(self.enabledTimers)
     for _, category in pairs(Addon.data.timers) do
         for _, timerData in ipairs(category.timers) do
-            if Addon.db.profile.timers[category.key][timerData.key] == true and (
-                timerData.minimumLevel == nil or
-                playerLevel >= timerData.minimumLevel
-            ) then
+            if Addon.db.profile.timers[category.key][timerData.key] == true and
+                self:PlayerLevelOk(timerData, playerLevel)
+            then
                 table.insert(self.enabledTimers, timerData)
             end
         end
@@ -967,6 +959,10 @@ function Module:GetCachedItem(itemId)
     self.itemCache[itemId] = itemInfo
 
     return itemInfo
+end
+
+function Module:PlayerLevelOk(data, playerLevel)
+    return data.minimumLevel == nil or playerLevel >= data.minimumLevel
 end
 
 -- Global function for key binding
