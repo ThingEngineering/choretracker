@@ -167,6 +167,7 @@ Addon.data.chores.choresWarWithin = {
                     key = 'dungeon',
                     minimumLevel = 80,
                     alwaysQuestName = true,
+                    oncePerAccount = true, -- rewards suck
                     entries = {
                         { quest = 83465 }, -- Ara-Kara, City of Echoes
                         { quest = 83436 }, -- Cinderbrew Meadery
