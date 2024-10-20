@@ -2,6 +2,7 @@ local _, Addon = ...
 local L = Addon.L
 
 
+local anniversaryIds = { 590, 1587, 1588, 1589, 1590, 438 }
 local classicTimewalkingIds = { 1508, 1583, 1584, 1585 }
 local tbcTimewalkingIds = { 559, 622, 623, 624 }
 local wotlkTimewalkingIds = { 562, 616, 617, 618 }
@@ -242,6 +243,106 @@ Addon.data.chores.choresEvents = {
                     entries = {
                         { quest = 7043 }, -- You're a Mean One...
                     }
+                },
+            },
+        },
+        {
+            key = 'anniversary',
+            quests = {
+                {
+                    key = 'meetGreet',
+                    requiredEventIds = anniversaryIds,
+                    oncePerAccount = true,
+                    entries = {
+                        { quest = 84254 }, -- Meet and Greet
+                    },
+                },
+                {
+                    key = 'shopping',
+                    requiredEventIds = anniversaryIds,
+                    oncerPerWarband = true,
+                    entries = {
+                        { quest = 84489 }, -- Shopping Squee!
+                    },
+                },
+                {
+                    key = 'truth',
+                    requiredEventIds = anniversaryIds,
+                    oncePerAccount = true,
+                    entries = {
+                        { quest = 84735 }, -- Truth of the Dark Irons
+                    },
+                },
+                {
+                    key = 'celebrate',
+                    requiredEventIds = anniversaryIds,
+                    dailyQuest = true,
+                    entries = {
+                        { quest = 84616 }, -- Celebrate Good Fun!
+                    },
+                },
+                {
+                    key = 'chromieCodex',
+                    minimumLevel = 10,
+                    requiredEventIds = anniversaryIds,
+                    entries = {
+                        { quest = 82783 }, -- Chromie's Codex
+                    },
+                },
+                {
+                    key = 'soldier',
+                    minimumLevel = 10,
+                    requiredEventIds = anniversaryIds,
+                    entries = {
+                        { quest = 57300 }, -- Soldier of Time
+                    },
+                },
+                {
+                    key = 'originals',
+                    requiredEventIds = anniversaryIds,
+                    entries = {
+                        { quest = 47253 }, -- The Originals [A]
+                        { quest = 47254 }, -- The Originals [H]
+                    },
+                },
+                {
+                    key = 'timely',
+                    requiredEventIds = anniversaryIds,
+                    entries = {
+                        { quest = 60215 }, -- Timely Gate Crashers
+                    },
+                },
+                {
+                    key = 'azuregosKill',
+                    minimumLevel = 15,
+                    requiredEventIds = anniversaryIds,
+                    entries = {
+                        { quest = 47462 },
+                    },
+                },
+                {
+                    key = 'doomwalkerKill',
+                    minimumLevel = 15,
+                    requiredEventIds = anniversaryIds,
+                    entries = {
+                        { quest = 60214 },
+                    },
+                },
+                {
+                    key = 'dragonsOfNightmareKill',
+                    minimumLevel = 15,
+                    requiredEventIds = anniversaryIds,
+                    entries = {
+                        { quest = 47463 },
+                    },
+                },
+                {
+                    key = 'lordKazzakKill',
+                    minimumLevel = 15,
+                    requiredEventIds = anniversaryIds,
+                    entries = {
+                        { quest = 47461 },
+                    },
                 },
             },
         },
