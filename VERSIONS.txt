@@ -1,3 +1,11 @@
+v11.0.2.28
+----------
+- Added Anniversary chores.
+- Added Classic Timewalking dungeon/raid quests.
+- Added Delves "Only if you have keys" option.
+- Changed TWW dungeon weekly to once per account, the rewards suck after that.
+- Changed "Mythic Dungeons" to "Dungeons" as it now includes heroics.
+
 v11.0.2.27
 ----------
 - Fixed trying to start quests with buttons other than "Accept Quest" or "Start Quest".
