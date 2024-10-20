@@ -19,6 +19,7 @@ local CDAT_GetSecondsUntilWeeklyReset = C_DateAndTime.GetSecondsUntilWeeklyReset
 local CQL_GetQuestObjectives = C_QuestLog.GetQuestObjectives
 local CQL_IsOnQuest = C_QuestLog.IsOnQuest
 local CQL_IsQuestFlaggedCompleted = C_QuestLog.IsQuestFlaggedCompleted
+local CQL_IsQuestFlaggedCompletedOnAccount = C_QuestLog.IsQuestFlaggedCompletedOnAccount
 local CQL_IsWorldQuest = C_QuestLog.IsWorldQuest
 local CTQ_GetQuestTimeLeftSeconds = C_TaskQuest.GetQuestTimeLeftSeconds
 local CTSUI_GetProfessionInfoBySkillLineID = C_TradeSkillUI.GetProfessionInfoBySkillLineID
@@ -300,6 +301,7 @@ function Module:UpdateQuest(questId, week, forceStatus)
     local oldData = self.quests[questId]
     local newData = {
         status = forceStatus or STATUS_NOT_STARTED,
+        accountCompleted = CQL_IsQuestFlaggedCompletedOnAccount(questId),
     }
 
     if newData.status == STATUS_COMPLETED or CQL_IsQuestFlaggedCompleted(questId) then
@@ -322,7 +324,7 @@ function Module:UpdateQuest(questId, week, forceStatus)
                             objective.text,
                             ":18:18:0:2%|a",
                             ":0:0:0:2|a"
-                        ) ,objective.text,
+                        ),
                     }
 
                     if objective.type == 'progressbar' then

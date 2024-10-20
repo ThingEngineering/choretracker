@@ -695,15 +695,22 @@ function Module:GetSectionQuests(week, section, chore, showCompleted, showObject
         
         for index, questId in ipairs(questIds) do
             local entryState = ScannerModule.quests[questId]
-            if entryState ~= nil and
-                (entryState.status > 0 or index == #questIds)
-            then
-                table.insert(byStatus[entryState.status], {
-                    choreEntry,
-                    entryState,
-                    week[questId],
-                })
-                break
+            if entryState ~= nil then
+                if chore.data.oncePerAccount and entryState.accountCompleted then
+                    entryState = {
+                        objectives = entryState.objectives,
+                        status = 2,
+                    }
+                end
+
+                if entryState.status > 0 or index == #questIds then
+                    table.insert(byStatus[entryState.status], {
+                        choreEntry,
+                        entryState,
+                        week[questId],
+                    })
+                    break
+                end
             end
         end
     end
