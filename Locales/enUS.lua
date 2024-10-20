@@ -17,6 +17,7 @@ L['option:automation:acceptQuests'] = 'Auto-Start Quests'
 L['option:automation:acceptQuests:desc'] = 'Try to automatically start quests from the Adventure Journal'
 
 L['option:bountifulDelves'] = 'Bountiful Delves'
+L['option:bountifulDelves:onlyWithKeys'] = 'Only if you have keys'
 L['option:bountifulDelves:showDelves'] = 'Show Delves'
 L['option:bountifulDelves:showKeys'] = 'Show Keys'
 

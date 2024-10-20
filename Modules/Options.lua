@@ -388,6 +388,12 @@ function Module:CreateOptions()
                                 order = newOrder(),
                                 width = WIDTH_3_PER_ROW,
                             },
+                            onlyWithKeys = {
+                                name = L['option:bountifulDelves:onlyWithKeys'],
+                                type = 'toggle',
+                                order = newOrder(),
+                                width = WIDTH_3_PER_ROW,
+                            },
                         },
                     },
                 },

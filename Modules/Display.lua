@@ -439,6 +439,7 @@ function Module:AddDelves(changed, newChildren, seenFrames)
         if changed == nil or changed.pois ~= nil then
             delvesFrame:ReleaseChildren()
 
+            local onlyWithKeys = Addon.db.profile.delves.bountiful.onlyWithKeys
             local showCompletedSections = Addon.db.profile.general.display.showCompletedSections
             local showCompletedChores = Addon.db.profile.general.display.showCompleted
             local showKeys = Addon.db.profile.delves.bountiful.showKeys
@@ -488,13 +489,16 @@ function Module:AddDelves(changed, newChildren, seenFrames)
                     end
                 end
             end
-            
-            if completed < total or showCompletedSections then
+
+            local keyCount = CCI_GetCurrencyInfo(3028).quantity
+
+            if (completed < total or showCompletedSections) and
+                (not onlyWithKeys or keyCount > 0)
+            then
                 local prefix = self:GetPercentColor(completed, total)
 
                 local headerText = L['category:bountifulDelves']
                 if showKeys then
-                    local keyCount = CCI_GetCurrencyInfo(3028).quantity
                     local keyColor = self:GetPercentColor(keyCount, total - completed)
                     headerText = headerText .. ' |cFF888888[|r' .. keyColor .. keyCount .. '|r ' .. KEY_ICON .. '|cFF888888]|r'
                 end

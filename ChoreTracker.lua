@@ -64,6 +64,7 @@ local defaultDb = {
         },
         delves = {
             bountiful = {
+                onlyWithKeys = false,
                 showDelves = true,
                 showKeys = true,
             },
