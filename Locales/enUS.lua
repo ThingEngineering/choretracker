@@ -164,7 +164,7 @@ L['chore:events:darkmoonFaire:quests:ornateWeapon'] = 'Item: Ornate Weapon'
 L['chore:events:darkmoonFaire:quests:soothsayersRunes'] = "Item: Soothsayer's Runes"
 
 L['chore:events:holidays:quests:delves'] = 'Delves'
-L['chore:events:holidays:quests:mythicDungeons'] = 'Mythic Dungeons'
+L['chore:events:holidays:quests:mythicDungeons'] = 'Dungeons'
 L['chore:events:holidays:quests:pvpPetBattles'] = 'PvP Pet Battles'
 L['chore:events:holidays:quests:timewalkingDungeons'] = 'Timewalking Dungeons'
 L['chore:events:holidays:quests:timewalkingRaids'] = 'Timewalking Raids'
