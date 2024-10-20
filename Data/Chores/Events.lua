@@ -2,6 +2,7 @@ local _, Addon = ...
 local L = Addon.L
 
 
+local classicTimewalkingIds = { 1508, 1583, 1584, 1585 }
 local tbcTimewalkingIds = { 559, 622, 623, 624 }
 local wotlkTimewalkingIds = { 562, 616, 617, 618 }
 local cataTimewalkingIds = { 587, 628, 629, 630 }
@@ -50,6 +51,31 @@ Addon.data.chores.choresEvents = {
                     },
                 },
 
+                -- Classic
+                {
+                    key = 'timewalkingDungeons',
+                    minimumLevel = 80,
+                    requiredEventIds = classicTimewalkingIds,
+                    entries = {
+                        { quest = 83274 }, -- An Original Path Through Time
+                    },
+                },
+                {
+                    key = 'timewalkingRaids',
+                    minimumLevel = 30,
+                    requiredEventIds = classicTimewalkingIds,
+                    entries = {
+                        { quest = 82817 }, -- Disturbance Detected: Blackrock Depths
+                    },
+                },
+                -- {
+                --     key = 'timewalkingTurnIn',
+                --     minimumLevel = 30,
+                --     requiredEventIds = classicTimewalkingIds,
+                --     entries = {
+                --         { quest = 0, item = 0 }, -- [Classic] ??
+                --     },
+                -- },
                 -- TBC
                 {
                     key = 'timewalkingDungeons',
