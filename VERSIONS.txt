@@ -1,3 +1,8 @@
+v11.0.5.1
+---------
+- Fixed Anniversary event IDs.
+- Updated ToC for 11.0.5.
+
 v11.0.2.28
 ----------
 - Added Anniversary chores.
