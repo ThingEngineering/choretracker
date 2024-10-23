@@ -923,10 +923,16 @@ function Module:GetEntryText(translated, entry, state, weekState, options)
     if not (options.inProgressQuestName == false and state.status == 1) and
         not (options.onlyItemName == true and entry.item ~= nil)
     then
-        final = final .. translated .. '|r: '
+        final = final .. translated
+        if not options.noText then
+            final = final .. '|r: '
+        end
     end
 
-    final = final .. thingString .. '|r'
+    if not options.noText then
+        final = final .. thingString .. '|r'
+    end
+
     return final
 end
 
