@@ -14,15 +14,6 @@ Addon.data.chores.choresAnniversary = {
             key = 'anniversary',
             quests = {
                 {
-                    key = 'celebrate',
-                    requiredEventIds = anniversaryIds,
-                    alwaysShowObjectives = true,
-                    dailyQuest = true,
-                    entries = {
-                        { quest = 84616 }, -- Celebrate Good Fun!
-                    },
-                },
-                {
                     key = 'reflect',
                     requiredEventIds = anniversaryIds,
                     dailyQuest = true,
@@ -31,9 +22,16 @@ Addon.data.chores.choresAnniversary = {
                     },
                 },
                 {
+                    key = 'celebrate',
+                    requiredEventIds = anniversaryIds,
+                    dailyQuest = true,
+                    entries = {
+                        { quest = 84616 }, -- Celebrate Good Fun!
+                    },
+                },
+                {
                     key = 'meetGreet',
                     requiredEventIds = anniversaryIds,
-                    oncePerAccount = true,
                     entries = {
                         { quest = 84254 }, -- Meet and Greet
                     },
@@ -69,14 +67,14 @@ Addon.data.chores.choresAnniversary = {
                         { quest = 57300 }, -- Soldier of Time
                     },
                 },
-                {
-                    key = 'originals',
-                    requiredEventIds = anniversaryIds,
-                    entries = {
-                        { quest = 47253 }, -- The Originals [A]
-                        { quest = 47254 }, -- The Originals [H]
-                    },
-                },
+                -- {
+                --     key = 'originals',
+                --     requiredEventIds = anniversaryIds,
+                --     entries = {
+                --         { quest = 47253 }, -- The Originals [A]
+                --         { quest = 47254 }, -- The Originals [H]
+                --     },
+                -- },
                 {
                     key = 'timely',
                     requiredEventIds = anniversaryIds,
@@ -85,12 +83,12 @@ Addon.data.chores.choresAnniversary = {
                     },
                 },
                 {
-                    key = 'azuregosKill',
+                    key = 'archavonKill',
                     minimumLevel = 15,
                     noText = true,
                     requiredEventIds = anniversaryIds,
                     entries = {
-                        { quest = 47462 },
+                        { quest = 84256 },
                     },
                 },
                 {
@@ -100,6 +98,24 @@ Addon.data.chores.choresAnniversary = {
                     requiredEventIds = anniversaryIds,
                     entries = {
                         { quest = 60214 },
+                    },
+                },
+                {
+                    key = 'shaOfAngerKill',
+                    minimumLevel = 15,
+                    noText = true,
+                    requiredEventIds = anniversaryIds,
+                    entries = {
+                        { quest = 84282 },
+                    },
+                },
+                {
+                    key = 'azuregosKill',
+                    minimumLevel = 15,
+                    noText = true,
+                    requiredEventIds = anniversaryIds,
+                    entries = {
+                        { quest = 47462 },
                     },
                 },
                 {

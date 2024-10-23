@@ -864,7 +864,7 @@ function Module:GetEntryText(translated, entry, state, weekState, options)
         thingString = '|cFFFFFFFF' .. questName
     elseif state.status == 1 and state.objectives ~= nil and #state.objectives == 1 and not options.alwaysShowObjectives then
         local objective = state.objectives[1]
-        thingString = self:GetPercentColor(objective.have, objective.need, true) .. objective.text
+        thingString = self:GetPercentColor(objective.have, objective.need, true) .. self:ObjectiveText(objective)
     elseif entry.item ~= nil then
         local itemInfo = self:GetCachedItem(entry.item)
 
@@ -886,7 +886,7 @@ function Module:GetEntryText(translated, entry, state, weekState, options)
     elseif state.status == 0 and weekState ~= nil then
         if weekState.objectives ~= nil and #weekState.objectives == 1 then
             local objective = weekState.objectives[1]
-            thingString = '|cFFFFFFFF' .. objective.text
+            thingString = '|cFFFFFFFF' .. self:ObjectiveText(objective)
         else
             thingString = '|cFFFFFFFF' .. questName
         end
@@ -943,6 +943,14 @@ function Module:GetPercentColor(a, b, ignoreZero)
         return STATUS_COLOR[1]
     else
         return STATUS_COLOR[2]
+    end
+end
+
+function Module:ObjectiveText(objective)
+    if objective.type == 'progressbar' then
+        return objective.have .. '% ' .. objective.text
+    else
+        return objective.text
     end
 end
 
