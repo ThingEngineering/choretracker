@@ -2,7 +2,7 @@ local _, Addon = ...
 local L = Addon.L
 
 
-local anniversaryIds = { 590, 1587, 1588, 1589, 1590, 438 }
+local anniversaryIds = { 590, 1500, 1501, 1509, 1587, 1588, 1589, 1590, 1592, 1593, 1594, 1595 }
 local classicTimewalkingIds = { 1508, 1583, 1584, 1585 }
 local tbcTimewalkingIds = { 559, 622, 623, 624 }
 local wotlkTimewalkingIds = { 562, 616, 617, 618 }
