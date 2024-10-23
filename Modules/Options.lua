@@ -12,6 +12,7 @@ local WIDTH_3_PER_ROW = 1.1
 local WIDTH_4_PER_ROW = 0.81
 
 local ALL_SECTIONS = {
+    'anniversary',
     'delves',
     'dragonflight',
     'events',
@@ -360,9 +361,10 @@ function Module:CreateOptions()
                 args = {
                     choresWarWithin = self:GetChoreOptions(Addon.data.chores.choresWarWithin, WIDTH_3_PER_ROW, true),
                     choresHallowfallFishingDerby = self:GetChoreOptions(Addon.data.chores.choresHallowfallFishingDerby, WIDTH_3_PER_ROW, true),
-                    choresDragonflight = self:GetChoreOptions(Addon.data.chores.choresDragonflight, WIDTH_3_PER_ROW, true),
+                    choresAnniversary = self:GetChoreOptions(Addon.data.chores.choresAnniversary, WIDTH_3_PER_ROW, true),
                     choresEvents = self:GetChoreOptions(Addon.data.chores.choresEvents, WIDTH_3_PER_ROW, true),
                     choresPvp = self:GetChoreOptions(Addon.data.chores.choresPvp, WIDTH_3_PER_ROW, true),
+                    choresDragonflight = self:GetChoreOptions(Addon.data.chores.choresDragonflight, WIDTH_3_PER_ROW, true),
                 },
             },
             sectionDelves = {

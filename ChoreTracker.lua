@@ -15,6 +15,7 @@ local LSM = LibStub('LibSharedMedia-3.0')
 
 local DEFAULT_SECTION_ORDER = {
     'timers',
+    'anniversary',
     'events',
     'hallowfallFishingDerby',
     'delves',

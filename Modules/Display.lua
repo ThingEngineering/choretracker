@@ -35,6 +35,7 @@ local OBJECTIVE_DEFEAT_X = Addon.L['objective:defeat_x']
 local OBJECTIVE_BRING_X = Addon.L['objective:bring_x']
 
 local SECTION_TO_CATEGORIES = {
+    anniversary = { 'choresAnniversary' },
     dragonflight = { 'choresDragonflight' },
     events = { 'choresEvents' },
     hallowfallFishingDerby = { 'choresHallowfallFishingDerby' },

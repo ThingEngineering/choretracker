@@ -34,10 +34,11 @@ ChoreTracker.lua
 
 Data\Professions.lua
 Data\Chores\Dragonflight.lua
-Data\Chores\Events.lua
 Data\Chores\HallowfallFishingDerby.lua
 Data\Chores\PvP.lua
 Data\Chores\The_War_Within.lua
+Data\Chores\Events\Anniversary.lua
+Data\Chores\Events\Events.lua
 Data\Chores\Professions\Alchemy.lua
 Data\Chores\Professions\Archaeology.lua
 Data\Chores\Professions\Blacksmithing.lua
