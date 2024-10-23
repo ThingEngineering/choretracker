@@ -1,3 +1,9 @@
+v11.0.5.2
+---------
+- Added Archavon/Sha of Anger tracking quests.
+- Moved Anniversary chores to its own section.
+- Various Anniversary tweaks.
+
 v11.0.5.1
 ---------
 - Fixed Anniversary event IDs.
