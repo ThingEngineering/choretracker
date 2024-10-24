@@ -54,7 +54,7 @@ Addon.data.chores.choresEvents = {
                 -- Classic
                 {
                     key = 'timewalkingDungeons',
-                    minimumLevel = 80,
+                    minimumLevel = 1,
                     requiredEventIds = classicTimewalkingIds,
                     entries = {
                         { quest = 83274 }, -- An Original Path Through Time
@@ -68,14 +68,14 @@ Addon.data.chores.choresEvents = {
                         { quest = 82817 }, -- Disturbance Detected: Blackrock Depths
                     },
                 },
-                -- {
-                --     key = 'timewalkingTurnIn',
-                --     minimumLevel = 30,
-                --     requiredEventIds = classicTimewalkingIds,
-                --     entries = {
-                --         { quest = 0, item = 0 }, -- [Classic] ??
-                --     },
-                -- },
+                {
+                    key = 'timewalkingTurnIn',
+                    minimumLevel = 1,
+                    requiredEventIds = classicTimewalkingIds,
+                    entries = {
+                        { quest = 83285, item = 225348 }, -- [Classic] The Ancient Scroll
+                    },
+                },
                 -- TBC
                 {
                     key = 'timewalkingDungeons',
