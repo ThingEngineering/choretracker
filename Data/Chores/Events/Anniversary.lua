@@ -18,7 +18,8 @@ Addon.data.chores.choresAnniversary = {
                     dailyQuest = true,
                     requiredEventIds = anniversaryIds,
                     entries = {
-                        { quest = 43461 }, -- A Time to Reflect
+                        { quest = 43323 }, -- A Time to Reflect [A]
+                        { quest = 43461 }, -- A Time to Reflect [H]
                     },
                 },
                 {
