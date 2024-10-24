@@ -1,3 +1,8 @@
+v11.0.5.4
+---------
+- Fixed Celebrate chore showing when you already have the buff (GH37).
+- Fixed Reflect chore only working for Horde (thanks hitboxr).
+
 v11.0.5.3
 ---------
 - Added "Show Anniversary account completed" option.
