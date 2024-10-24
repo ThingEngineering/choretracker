@@ -567,6 +567,7 @@ end
 function Module:GetSections()
     local sections = {}
 
+    local showAnniversaryAccount = Addon.db.profile.general.display.showAnniversaryAccount
     local showCompletedSections = Addon.db.profile.general.display.showCompletedSections
     local showCompletedChores = Addon.db.profile.general.display.showCompleted
     local showObjectives = Addon.db.profile.general.display.showObjectives
@@ -590,7 +591,7 @@ function Module:GetSections()
                     elseif chore.typeKey == 'dungeons' then
                         self:GetSectionDungeons(section, chore)
                     else
-                        self:GetSectionQuests(week, section, chore, showCompletedChores, showObjectives)
+                        self:GetSectionQuests(week, section, chore, showAnniversaryAccount, showCompletedChores, showObjectives)
                     end
                 end
             end
@@ -683,7 +684,7 @@ function Module:GetSectionDrops(section, chore)
     end
 end
 
-function Module:GetSectionQuests(week, section, chore, showCompleted, showObjectives)
+function Module:GetSectionQuests(week, section, chore, showAnniversaryAccount, showCompleted, showObjectives)
     local pick = chore.data.pick or 1
     section.total = section.total + pick
 
@@ -701,7 +702,10 @@ function Module:GetSectionQuests(week, section, chore, showCompleted, showObject
         for index, questId in ipairs(questIds) do
             local entryState = ScannerModule.quests[questId]
             if entryState ~= nil then
-                if chore.data.oncePerAccount and entryState.accountCompleted then
+                if entryState.accountCompleted and (
+                    chore.data.oncePerAccount or
+                    (chore.data.anniversaryAccount and not showAnniversaryAccount)
+                ) then
                     entryState = {
                         objectives = entryState.objectives,
                         status = 2,

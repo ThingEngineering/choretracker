@@ -234,12 +234,12 @@ function Module:CreateOptions()
                                 order = newOrder(),
                                 width = WIDTH_3_PER_ROW,
                             },
-                            -- awakenedTimers = {
-                            --     name = L['option:display:awakenedTimers'],
-                            --     type = 'toggle',
-                            --     order = newOrder(),
-                            --     width = WIDTH_3_PER_ROW,
-                            -- },
+                            showAnniversaryAccount = {
+                                name = L['option:display:showAnniversaryAccount'],
+                                type = 'toggle',
+                                order = newOrder(),
+                                width = 2.2,
+                            },
                             showObjectives = {
                                 name = L['option:display:showObjectives'],
                                 type = 'select',

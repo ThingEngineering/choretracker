@@ -49,6 +49,7 @@ local defaultDb = {
             },
             display = {
                 awakenedTimers = false,
+                showAnniversaryAccount = false,
                 showCompleted = false,
                 showCompletedSections = true,
                 showObjectives = 'ALL',

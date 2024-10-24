@@ -15,22 +15,23 @@ Addon.data.chores.choresAnniversary = {
             quests = {
                 {
                     key = 'reflect',
-                    requiredEventIds = anniversaryIds,
                     dailyQuest = true,
+                    requiredEventIds = anniversaryIds,
                     entries = {
                         { quest = 43461 }, -- A Time to Reflect
                     },
                 },
                 {
                     key = 'celebrate',
-                    requiredEventIds = anniversaryIds,
                     dailyQuest = true,
+                    requiredEventIds = anniversaryIds,
                     entries = {
                         { quest = 84616 }, -- Celebrate Good Fun!
                     },
                 },
                 {
                     key = 'meetGreet',
+                    anniversaryAccount = true,
                     requiredEventIds = anniversaryIds,
                     entries = {
                         { quest = 84254 }, -- Meet and Greet
@@ -38,6 +39,7 @@ Addon.data.chores.choresAnniversary = {
                 },
                 {
                     key = 'shopping',
+                    anniversaryAccount = true,
                     requiredEventIds = anniversaryIds,
                     entries = {
                         { quest = 84489 }, -- Shopping Squee!
@@ -45,8 +47,8 @@ Addon.data.chores.choresAnniversary = {
                 },
                 {
                     key = 'truth',
+                    anniversaryAccount = true,
                     requiredEventIds = anniversaryIds,
-                    oncePerAccount = true,
                     entries = {
                         { quest = 84735 }, -- Truth of the Dark Irons
                     },
@@ -54,6 +56,7 @@ Addon.data.chores.choresAnniversary = {
                 {
                     key = 'chromieCodex',
                     minimumLevel = 10,
+                    anniversaryAccount = true,
                     requiredEventIds = anniversaryIds,
                     entries = {
                         { quest = 82783 }, -- Chromie's Codex
@@ -62,6 +65,7 @@ Addon.data.chores.choresAnniversary = {
                 {
                     key = 'soldier',
                     minimumLevel = 10,
+                    anniversaryAccount = true,
                     requiredEventIds = anniversaryIds,
                     entries = {
                         { quest = 57300 }, -- Soldier of Time
@@ -77,9 +81,10 @@ Addon.data.chores.choresAnniversary = {
                 -- },
                 {
                     key = 'timely',
+                    anniversaryAccount = true,
                     requiredEventIds = anniversaryIds,
                     entries = {
-                        { quest = 60215 }, -- Timely Gate Crashers
+                        { quest = 60215, lockoutQuest = 84606 }, -- Timely Gate Crashers
                     },
                 },
                 {

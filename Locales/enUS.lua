@@ -27,8 +27,9 @@ L['option:bulkActions:dragonflightEnable'] = 'Enable ALL DF chores'
 
 L['option:display'] = 'Display'
 L['option:display:awakenedTimers'] = 'Only show awakened timers'
-L['option:display:showCompletedSections'] = 'Show completed sections'
+L['option:display:showAnniversaryAccount'] = 'Show Anniversary account completed'
 L['option:display:showCompleted'] = 'Show completed chores'
+L['option:display:showCompletedSections'] = 'Show completed sections'
 L['option:display:showObjectives'] = 'Show chore objectives'
 L['option:display:statusIcons'] = 'Use status icons'
 
