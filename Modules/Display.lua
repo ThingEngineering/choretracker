@@ -271,7 +271,9 @@ function Module:ConfigChanged()
             }
 
             for _, catData in ipairs(sectionData.categories) do
-                if catData.skillLineId == nil or Addon.db.char.skillLines[catData.skillLineId] ~= nil then
+                if catData.skillLineId == nil or
+                    Addon.db.char.skillLines[catData.skillLineId] ~= nil
+                then
                     -- Show an info message about missing skill level
                     if Addon.db.char.skillLines[catData.skillLineId] == -1 then
                         table.insert(section.chores, {
@@ -284,15 +286,20 @@ function Module:ConfigChanged()
                     for _, typeKey in ipairs({ 'dungeons', 'quests', 'drops' }) do
                         for _, choreData in ipairs(catData[typeKey] or {}) do
                             local choreEnabled = Addon.db.profile.chores[sectionKey][catData.key][typeKey][choreData.key]
-                            if choreEnabled == true and
-                                (
+                            if choreEnabled == true
+                                and (
                                     choreData.requiredEventIds == nil or
                                     self:AnyActive(self.activeEvents, choreData.requiredEventIds)
-                                ) and
-                                (
+                                )
+                                and (
                                     choreData.skill == nil or
                                     Addon.db.char.skillLines[catData.skillLineId] >= choreData.skill
-                                ) and self:PlayerLevelOk(choreData, playerLevel)
+                                )
+                                and (
+                                    choreData.filter == nil or
+                                    choreData.filter() == true
+                                )
+                                and self:PlayerLevelOk(choreData, playerLevel)
                             then
                                 section.total = section.total + 1
                                 table.insert(section.chores, {

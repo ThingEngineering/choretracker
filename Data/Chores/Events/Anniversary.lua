@@ -4,6 +4,7 @@ local L = Addon.L
 
 local anniversaryIds = { 590, 1500, 1501, 1509, 1587, 1588, 1589, 1590, 1592, 1593, 1594, 1595 }
 
+local CUA_GetPlayerAuraBySpellID = C_UnitAuras.GetPlayerAuraBySpellID
 
 Addon.data.chores.choresAnniversary = {
     key = 'anniversary',
@@ -29,6 +30,9 @@ Addon.data.chores.choresAnniversary = {
                     entries = {
                         { quest = 84616 }, -- Celebrate Good Fun!
                     },
+                    filter = function()
+                        return CUA_GetPlayerAuraBySpellID(455050) == nil
+                    end,
                 },
                 {
                     key = 'meetGreet',
