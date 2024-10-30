@@ -35,7 +35,7 @@ Addon.data.chores.choresWarWithin = {
                 },
                 {
                     key = 'emissaryArchives',
-                    minimumLevel = 80,
+                    minimumLevel = 70,
                     entries = {
                         { quest = 82679 }, -- Archives: Seeking History
                         { quest = 82678 }, -- Archives: The First Disc
@@ -43,7 +43,7 @@ Addon.data.chores.choresWarWithin = {
                 },
                 {
                     key = 'emissaryDelves',
-                    minimumLevel = 80,
+                    minimumLevel = 70,
                     entries = {
                         { quest = 82746 }, -- Delves: Breaking Tough to Loot Stuff
                         { quest = 82707 }, -- Delves: Earthen Defense
