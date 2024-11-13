@@ -1,3 +1,7 @@
+v11.0.5.6
+---------
+- Added auto-accept for Comp Stomp brawl and Battlegrounds weekly.
+
 v11.0.5.5
 ---------
 - Added The Originals to anniversary world boss.
