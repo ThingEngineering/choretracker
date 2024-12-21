@@ -180,7 +180,12 @@ L['chore:events:holidays2:dungeons:corenDirebrew'] = 'Coren Direbrew'
 L['chore:events:holidays2:dungeons:crownChemicalCo'] = 'Crown Chemical Co.'
 L['chore:events:holidays2:dungeons:headlessHorseman'] = 'Headless Horseman'
 L['chore:events:holidays2:dungeons:frostLordAhune'] = 'Frost Lord Ahune'
+
 L['chore:events:holidays2:quests:meanOne'] = 'Stolen Treats'
+L['chore:events:holidays2:quests:grumpus'] = 'Grumpus'
+L['chore:events:holidays2:quests:menacingGrumplings'] = 'Grumplings'
+L['chore:events:holidays2:quests:whatHorriblePresents'] = 'Presents'
+L['chore:events:holidays2:quests:whereAreTheChildren'] = 'Children'
 
 L['chore:professions:warWithin:drops:gather'] = 'Gather'
 L['chore:professions:warWithin:drops:mob/treasure'] = 'Mobs/Treasures'
