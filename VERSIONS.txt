@@ -1,3 +1,10 @@
+v11.0.7.1
+---------
+- Added Siren Isle chores.
+- Added Horde ID for "You're a Mean One..." quest.
+- Added Feast of Winter Veil garrison daily quests.
+- Updated ToC for 11.0.7.
+
 v11.0.5.6
 ---------
 - Added auto-accept for Comp Stomp brawl and Battlegrounds weekly.
