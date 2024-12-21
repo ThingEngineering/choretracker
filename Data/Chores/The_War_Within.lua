@@ -9,6 +9,58 @@ Addon.data.chores.choresWarWithin = {
     minimumLevel = 70,
     categories = {
         {
+            key = 'patch_11_0_7',
+            quests = {
+                {
+                    key = 'specialAssignment',
+                    minimumLevel = 80,
+                    entries = {
+                        {
+                            quest = 85113, -- Special Assignment: Storm's a Brewin
+                            unlockQuest = 84852, -- Legacy of the Vrykul
+                        },
+                    },
+                },
+                {
+                    key = 'storm',
+                    minimumLevel = 80,
+                    requiredQuest = 85070, -- Storm available?
+                    pick = 2,
+                    entries = {
+                        { quest = 84225 }, -- Eggstinction
+                        { quest = 84241 }, -- Shoreline Stand
+                    },
+                },
+                {
+                    key = 'weeklies',
+                    minimumLevel = 80,
+                    pick = 5,
+                    entries = {
+                        -- Vrykul
+                        { quest = 84248 }, -- A Ritual of Runes
+                        { quest = 83932 }, -- Historical Documents
+                        { quest = 84432 }, -- Longship Landing
+                        { quest = 84680 }, -- Rock 'n Stone Revival
+                        { quest = 84222 }, -- Secure the Perimeter
+                    },
+                },
+                    -- -- Naga
+                    -- { quest = 84252 }, -- Peak Precision
+                    -- { quest = 84430 }, -- Crystal Crusade
+                    -- { quest = 84627 }, -- Three Heads of the Deep
+                    -- { quest = 84850 }, -- Serpent's Wrath
+                    -- { quest = 85051 }, -- Beach Comber
+                    -- { quest = 85589 }, -- Ruffled Pages
+                    -- -- Pirate
+                    -- { quest = 83753 }, -- Cannon Karma
+                    -- { quest = 83827 }, -- Silence the Song
+                    -- { quest = 84001 }, -- Cart Blanche
+                    -- { quest = 84299 }, -- Pirate Plunder
+                    -- { quest = 84619 }, -- Ooker Dooker Literature Club
+                    -- { quest = 84851 }, -- Tides of Greed
+            },
+        },
+        {
             key = 'patch_11_0_0',
             quests = {
                 {
