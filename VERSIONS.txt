@@ -1,3 +1,7 @@
+v11.0.7.2
+---------
+- Added Naga/Pirate quests to Siren Isle chores.
+
 v11.0.7.1
 ---------
 - Added Siren Isle chores.
