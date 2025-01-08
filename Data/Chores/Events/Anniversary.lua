@@ -76,19 +76,13 @@ Addon.data.chores.choresAnniversary = {
                         { quest = 57300 }, -- Soldier of Time
                     },
                 },
-                -- {
-                --     key = 'originals',
-                --     requiredEventIds = anniversaryIds,
-                --     entries = {
-                --         { quest = 47253 }, -- The Originals [A]
-                --         { quest = 47254 }, -- The Originals [H]
-                --     },
-                -- },
                 {
                     key = 'timely',
                     anniversaryAccount = true,
                     requiredEventIds = anniversaryIds,
                     entries = {
+                        { quest = 47253 }, -- The Originals [A]
+                        { quest = 47254 }, -- The Originals [H]
                         { quest = 60215, lockoutQuest = 84606 }, -- Timely Gate Crashers
                     },
                 },

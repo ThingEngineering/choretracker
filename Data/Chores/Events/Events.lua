@@ -240,7 +240,40 @@ Addon.data.chores.choresEvents = {
                     minimumLevel = 30,
                     requiredEventIds = { 141 }, -- Feast of Winter Veil
                     entries = {
-                        { quest = 7043 }, -- You're a Mean One...
+                        { quest = 7043 }, -- [A] You're a Mean One...
+                        { quest = 6983 }, -- [H] You're a Mean One...
+                    }
+                },
+                {
+                    key = 'grumpus',
+                    minimumLevel = 40,
+                    requiredEventIds = { 141 }, -- Feast of Winter Veil
+                    entries = {
+                        { quest = 39651 }, -- Grumpus
+                    }
+                },
+                {
+                    key = 'menacingGrumplings',
+                    minimumLevel = 40,
+                    requiredEventIds = { 141 }, -- Feast of Winter Veil
+                    entries = {
+                        { quest = 39649 }, -- Menacing Grumplings
+                    }
+                },
+                {
+                    key = 'whatHorriblePresents',
+                    minimumLevel = 40,
+                    requiredEventIds = { 141 }, -- Feast of Winter Veil
+                    entries = {
+                        { quest = 39668 }, -- What Horrible Presents!
+                    }
+                },
+                {
+                    key = 'whereAreTheChildren',
+                    minimumLevel = 40,
+                    requiredEventIds = { 141 }, -- Feast of Winter Veil
+                    entries = {
+                        { quest = 39648 }, -- Where Are the Children?
                     }
                 },
             },

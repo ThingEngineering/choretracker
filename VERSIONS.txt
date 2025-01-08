@@ -1,3 +1,23 @@
+v11.0.7.2
+---------
+- Added Naga/Pirate quests to Siren Isle chores.
+
+v11.0.7.1
+---------
+- Added Siren Isle chores.
+- Added Horde ID for "You're a Mean One..." quest.
+- Added Feast of Winter Veil garrison daily quests.
+- Updated ToC for 11.0.7.
+
+v11.0.5.6
+---------
+- Added auto-accept for Comp Stomp brawl and Battlegrounds weekly.
+
+v11.0.5.5
+---------
+- Added The Originals to anniversary world boss.
+- Fixed minimum levels on Archives/Delves.
+
 v11.0.5.4
 ---------
 - Fixed Celebrate chore showing when you already have the buff (GH37).
