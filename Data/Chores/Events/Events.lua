@@ -54,9 +54,10 @@ Addon.data.chores.choresEvents = {
                 -- Classic
                 {
                     key = 'timewalkingDungeons',
-                    minimumLevel = 1,
+                    minimumLevel = 10,
                     requiredEventIds = classicTimewalkingIds,
                     entries = {
+                        { quest = 85947 }, -- An Original Journey Through Time
                         { quest = 83274 }, -- An Original Path Through Time
                     },
                 },
@@ -70,7 +71,7 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'timewalkingTurnIn',
-                    minimumLevel = 1,
+                    minimumLevel = 10,
                     requiredEventIds = classicTimewalkingIds,
                     entries = {
                         { quest = 83285, item = 225348 }, -- [Classic] The Ancient Scroll
@@ -79,9 +80,10 @@ Addon.data.chores.choresEvents = {
                 -- TBC
                 {
                     key = 'timewalkingDungeons',
-                    minimumLevel = 80,
+                    minimumLevel = 10,
                     requiredEventIds = tbcTimewalkingIds,
                     entries = {
+                        { quest = 85948 }, -- A Burning Journey Through Time
                         { quest = 83363 }, -- A Burning Path Through Time
                     },
                 },
@@ -95,7 +97,7 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'timewalkingTurnIn',
-                    minimumLevel = 30,
+                    minimumLevel = 10,
                     requiredEventIds = tbcTimewalkingIds,
                     entries = {
                         { quest = 40168, item = 129747 }, -- [TBC] The Swirling Vial
@@ -104,9 +106,10 @@ Addon.data.chores.choresEvents = {
                 -- WotLK
                 {
                     key = 'timewalkingDungeons',
-                    minimumLevel = 80,
+                    minimumLevel = 10,
                     requiredEventIds = wotlkTimewalkingIds,
                     entries = {
+                        { quest = 85949 }, -- A Frozen Journey Through Time
                         { quest = 83365 }, -- A Frozen Path Through Time
                     },
                 },
@@ -120,7 +123,7 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'timewalkingTurnIn',
-                    minimumLevel = 30,
+                    minimumLevel = 10,
                     requiredEventIds = wotlkTimewalkingIds,
                     entries = {
                         { quest = 40173, item = 129928 }, -- [WotLK] The Unstable Prism
@@ -129,15 +132,16 @@ Addon.data.chores.choresEvents = {
                 -- Cata
                 {
                     key = 'timewalkingDungeons',
-                    minimumLevel = 80,
+                    minimumLevel = 10,
                     requiredEventIds = cataTimewalkingIds,
                     entries = {
+                        { quest = 86556 }, -- A Shattered Journey Through Time
                         { quest = 83359 }, -- A Shattered Path Through Time
                     },
                 },
                 {
                     key = 'timewalkingRaids',
-                    minimumLevel = 35,
+                    minimumLevel = 30,
                     requiredEventIds = cataTimewalkingIds,
                     entries = {
                         { quest = 57637 }, -- Disturbance Detected: Firelands
@@ -145,7 +149,7 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'timewalkingTurnIn',
-                    minimumLevel = 35,
+                    minimumLevel = 10,
                     requiredEventIds = cataTimewalkingIds,
                     entries = {
                         { quest = 40786, item = 133377 }, -- [Cata-H] The Smoldering Ember
@@ -155,15 +159,16 @@ Addon.data.chores.choresEvents = {
                 -- MoP
                 {
                     key = 'timewalkingDungeons',
-                    minimumLevel = 80,
+                    minimumLevel = 10,
                     requiredEventIds = mopTimewalkingIds,
                     entries = {
+                        { quest = 86560 }, -- A Shrouded Journey Through Time
                         { quest = 83362 }, -- A Shrouded Path Through Time
                     },
                 },
                 {
                     key = 'timewalkingTurnIn',
-                    minimumLevel = 35,
+                    minimumLevel = 10,
                     requiredEventIds = mopTimewalkingIds,
                     entries = {
                         { quest = 45563, item = 143776 }, -- [MoP] The Shrouded Coin
@@ -172,15 +177,16 @@ Addon.data.chores.choresEvents = {
                 -- WoD
                 {
                     key = 'timewalkingDungeons',
-                    minimumLevel = 80,
+                    minimumLevel = 10,
                     requiredEventIds = wodTimewalkingIds,
                     entries = {
+                        { quest = 86563 }, -- A Savage Journey Through Time
                         { quest = 83364 }, -- A Savage Path Through Time
                     },
                 },
                 {
                     key = 'timewalkingTurnIn',
-                    minimumLevel = 40,
+                    minimumLevel = 10,
                     requiredEventIds = wodTimewalkingIds,
                     entries = {
                         { quest = 55498, item = 167921 }, -- [WoD-A] The Shimmering Crystal
@@ -190,15 +196,16 @@ Addon.data.chores.choresEvents = {
                 -- Legion
                 {
                     key = 'timewalkingDungeons',
-                    minimumLevel = 80,
+                    minimumLevel = 10,
                     requiredEventIds = legionTimewalkingIds,
                     entries = {
-                        { quest = 72719 }, -- A Fel Path Through Time
+                        { quest = 86564 }, -- A Fel Journey Through Time
+                        { quest = 83360 }, -- A Fel Path Through Time
                     },
                 },
                 {
                     key = 'timewalkingTurnIn',
-                    minimumLevel = 45,
+                    minimumLevel = 10,
                     requiredEventIds = legionTimewalkingIds,
                     entries = {
                         { quest = 64710, item = 187611 }, -- [Legion] Whispering Felflame Crystal
