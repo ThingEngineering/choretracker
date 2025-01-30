@@ -161,4 +161,10 @@ function Module:ScanJournal()
     wipe(self.tryAccepting)
 
     CAJ_UpdateSuggestions(false)
+    -- The initial event isn't triggering sometimes, do it manually if we have suggestions
+    C_Timer.After(2, function()
+        if C_AdventureJournal.GetNumAvailableSuggestions() > 0 then
+            self:AJ_REFRESH_DISPLAY()
+        end
+    end)
 end
