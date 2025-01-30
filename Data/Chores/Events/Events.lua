@@ -59,6 +59,7 @@ Addon.data.chores.choresEvents = {
                     entries = {
                         { quest = 85947 }, -- An Original Journey Through Time
                         { quest = 83274 }, -- An Original Path Through Time
+                        { quest = 86731 }, -- An Original Path Through Time [??]
                     },
                 },
                 {
