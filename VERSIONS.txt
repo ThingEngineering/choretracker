@@ -1,3 +1,9 @@
+v11.0.7.3
+---------
+- Added Timewalking Journey quests (sub-80).
+- Added new Classic Timewalking quest.
+- Fixed (maybe) auto-accept not triggering sometimes.
+
 v11.0.7.2
 ---------
 - Added Naga/Pirate quests to Siren Isle chores.
