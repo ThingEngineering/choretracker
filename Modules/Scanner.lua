@@ -192,9 +192,15 @@ function Module:InitializeData()
                             local acceptKey = 'autoAccept:' .. sectionKey .. ':' .. catData.key .. ':' .. choreData.key
                             local translation = L[acceptKey]
                             local questIds = nil
+                            
                             if translation ~= acceptKey then
-                                questIds = {}
-                                self.autoAccept[choreKey] = { translation, questIds }
+                                -- Handle chores with multiple entries like Timewalking
+                                if self.autoAccept[choreKey] == nil then
+                                    questIds = {}
+                                    self.autoAccept[choreKey] = { translation, questIds }
+                                else
+                                    questIds = self.autoAccept[choreKey][2]
+                                end
                             end
 
                             for _, choreEntry in ipairs(choreData.entries) do
