@@ -215,3 +215,7 @@ function Addon:SlashCommand(command, editbox)
 
     end
 end
+
+function ChoreTracker_OnAddonCompartmentClick()
+    Addon:SlashCommand('toggle', _)
+end
