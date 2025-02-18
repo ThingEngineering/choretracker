@@ -22,6 +22,7 @@ Libs\AceLocale-3.0\AceLocale-3.0.xml
 Libs\AceTimer-3.0\AceTimer-3.0.xml
 Libs\LibSharedMedia-3.0\lib.xml
 Libs\AceGUI-3.0-SharedMediaWidgets\widget.xml
+Libs\LibDataBroker-1.1\LibDataBroker-1.1.lua
 
 AceGUI\ChoreFrame.lua
 AceGUI\FancyList.lua

@@ -12,6 +12,7 @@ Addon.L = LibStub('AceLocale-3.0'):GetLocale(addonName)
 
 local ADB = LibStub('AceDB-3.0')
 local LSM = LibStub('LibSharedMedia-3.0')
+local LDB = LibStub("LibDataBroker-1.1")
 
 local DEFAULT_SECTION_ORDER = {
     'timers',
@@ -167,6 +168,17 @@ function Addon:OnInitialize()
 
     -- register events, etc
     self:RegisterEvent('PLAYER_ENTERING_WORLD')
+
+    -- LibDataBroker plugin
+    local CT_ADDON = self
+    local CT_LDB = LDB:NewDataObject("ChoreTracker", {
+        type = "data source",
+        text = "ChoreTracker",
+        icon = "Interface\\AddOns\\ChoreTracker\\Assets\\icon.tga",
+        OnClick = function(_, button) 
+            CT_ADDON:GetModule('Display'):ToggleShown(true)
+        end,
+    })
 end
 
 function Addon:PLAYER_ENTERING_WORLD()
