@@ -31,6 +31,7 @@ L['option:display:showCompletedSections'] = '显示已完成的分类'
 L['option:display:showCompleted'] = '显示完成的任务事项'
 L['option:display:showObjectives'] = '显示任务目标'
 L['option:display:statusIcons'] = '使用状态图标'
+L['option:display:showMiniMapIcon'] = '显示小地图图标'
 
 L['option:sectionOrder'] = '分类显示顺序'
 
@@ -241,3 +242,6 @@ L['autoAccept:choresPvp:weekly:sparks'] = '^战争火花：'
 L['autoAccept:choresWarWithin:patch_11_0_0:dungeon'] = '^多恩诺嘉尔的贝尔苟兹希望你'
 L['autoAccept:choresWarWithin:patch_11_0_0:emissaryDelves'] = '^与多恩诺嘉尔的布莱恩'
 L['autoAccept:choresWarWithin:patch_11_0_0:theaterTroupe'] = '^剧场巡演$'
+
+L['tooltip:toggleWindow'] = '左键点击切换 ChoreTracker 窗口'
+L['tooltip:showOptions'] = '右键点击打开 ChoreTracker 选项'

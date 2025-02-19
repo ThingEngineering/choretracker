@@ -216,6 +216,19 @@ function Module:CreateOptions()
                         inline = true,
                         order = newOrder(),
                         args = {
+                            showMiniMapIcon = {
+                                name = L['option:display:showMiniMapIcon'],
+                                type = 'toggle',
+                                order = newOrder(),
+                                width = WIDTH_3_PER_ROW,
+                                set = function(info, val)
+                                    Addon.db.profile.minimap.hide = not val
+                                    Addon:ToggleMiniMapIcon(val)
+                                end,
+                                get = function(info)
+                                    return not Addon.db.profile.minimap.hide
+                                end,
+                            },
                             showCompletedSections = {
                                 name = L['option:display:showCompletedSections'],
                                 type = 'toggle',
