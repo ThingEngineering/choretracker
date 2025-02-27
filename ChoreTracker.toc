@@ -5,6 +5,7 @@
 ## Author: Freddie
 ## IconTexture: Interface\AddOns\ChoreTracker\Assets\icon.blp
 ## SavedVariables: ChoreTrackerDB
+## AddonCompartmentFunc: ChoreTracker_OnAddonCompartmentClick
 
 Libs\LibStub\LibStub.lua
 Libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
