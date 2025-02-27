@@ -73,12 +73,19 @@ L['category:patch_10_2_0'] = 'Patch 10.2.0'
 L['category:patch_10_2_5'] = 'Patch 10.2.5'
 L['category:patch_11_0_0'] = 'Patch 11.0.0'
 L['category:patch_11_0_7'] = 'Patch 11.0.7'
+L['category:patch_11_1_0'] = 'Patch 11.1.0'
 L['category:weekly'] = 'Weekly'
 L['category:worldBosses'] = 'World Bosses'
 
-L['chore:warWithin:patch_11_0_7:quests:specialAssignment'] = 'Special'
-L['chore:warWithin:patch_11_0_7:quests:storm'] = 'Storm'
-L['chore:warWithin:patch_11_0_7:quests:weeklies'] = 'Weekly'
+L['chore:warWithin:patch_11_1_0:quests:cartelChoose'] = '[Um] Cartel Contract'
+L['chore:warWithin:patch_11_1_0:quests:chett'] = '[Um] C.H.E.T.T.'
+L['chore:warWithin:patch_11_1_0:quests:specialAssignment'] = '[Um] Special'
+L['chore:warWithin:patch_11_1_0:quests:weeklies'] = '[Um] Weekly'
+L['chore:warWithin:patch_11_1_0:quests:worldBoss'] = '[Um] World Boss'
+
+L['chore:warWithin:patch_11_0_7:quests:specialAssignment'] = '[SI] Special'
+L['chore:warWithin:patch_11_0_7:quests:storm'] = '[SI] Storm'
+L['chore:warWithin:patch_11_0_7:quests:weeklies'] = '[SI] Weekly'
 
 L['chore:warWithin:patch_11_0_0:quests:awakeningTheMachine'] = 'Awakening the Machine'
 L['chore:warWithin:patch_11_0_0:quests:delveKeys'] = 'Delve Keys'
@@ -234,6 +241,7 @@ L['chore:pvp:weekly:quests:preserving'] = 'Preserving'
 L['chore:pvp:weekly:quests:sparks'] = 'Sparks of War'
 
 L['timer:beledarsShadow'] = "Beledar's Shadow"
+L['timer:surgePricing'] = '[Um] Surge Pricing'
 L['timer:theaterTroupe'] = 'Theater Troupe'
 
 L['timer:bigDig'] = 'Big Dig'

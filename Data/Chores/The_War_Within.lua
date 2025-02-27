@@ -9,6 +9,51 @@ Addon.data.chores.choresWarWithin = {
     minimumLevel = 70,
     categories = {
         {
+            key = 'patch_11_1_0',
+            minimumLevel = 80,
+            quests = {
+                {
+                    key = 'cartelChoose',
+                    minimumLevel = 80,
+                    entries = {
+                        { quest = 84948 }, -- Contract Work
+                        -- 84951?
+                    },
+                },
+                {
+                    key = 'chett',
+                    minimumLevel = 80,
+                    entries = {
+                        { quest = 87296 }, -- C.H.E.T.T. List?
+                    },
+                },
+                {
+                    key = 'specialAssignment',
+                    minimumLevel = 80,
+                    entries = {
+                        {
+                            quest = 85487, -- Boom! Headshot!
+                            unlockQuest = 85489, -- Capstone 1 - Unlock
+                        },
+                        {
+                            quest = 85488, -- Security Detail
+                            unlockQuest = 85490, -- Capstone 2 - Unlock
+                        },
+                    },
+                },
+                {
+                    key = 'weeklies',
+                    minimumLevel = 80,
+                    pick = 3,
+                    entries = {
+                        { quest = 85869 }, -- Many Jobs, Handle It! [S&H]
+                        { quest = 85879 }, -- Reduce, Resuse, Resell [SCRAP]
+                        { quest = 86775 }, -- Urge to Surge [S&H]
+                    },
+                },
+            },
+        },
+        {
             key = 'patch_11_0_7',
             quests = {
                 {
@@ -106,11 +151,11 @@ Addon.data.chores.choresWarWithin = {
                         { quest = 82746 }, -- Delves: Breaking Tough to Loot Stuff
                         { quest = 82707 }, -- Delves: Earthen Defense
                         { quest = 82710 }, -- Delves: Empire-ical Exploration
-                        { quest = 82706 }, -- Delves: Khaz Algar Research
                         { quest = 82711 }, -- Delves: Lost and Found
                         { quest = 82708 }, -- Delves: Nerubian Menace
                         { quest = 82709 }, -- Delves: Percussive Archaeology
                         { quest = 82712 }, -- Delves: Trouble Up and Down Khaz Algar
+                        { quest = 82706 }, -- Delves: Worldwide Research
                     },
                 },
                 {
@@ -118,12 +163,17 @@ Addon.data.chores.choresWarWithin = {
                     minimumLevel = 70,
                     entries = {
                         { quest = 82511 }, -- Worldsoul: Awakening Machine
+                        { quest = 87419 }, -- Worldsoul: Delves
+                        { quest = 87417 }, -- Worldsoul: Dungeons
                         { quest = 82453 }, -- Worldsoul: Encore!
                         { quest = 82516 }, -- Worldsoul: Forging a Pact
                         { quest = 82458 }, -- Worldsoul: Renown
                         { quest = 82482 }, -- Worldsoul: Snuffling
                         { quest = 82483 }, -- Worldsoul: Spreading the Light
+                        { quest = 87423 }, -- Worldsoul: Undermine Explorer
+                        { quest = 87422 }, -- Worldsoul: Undermine World Quests
                         { quest = 82512 }, -- Worldsoul: World Boss
+                        { quest = 87424 }, -- Worldsoul: World Bosses
                         { quest = 82452 }, -- Worldsoul: World Quests
                         { quest = 82491 }, -- Worldsoul: Ara-Kara, City of Echoes [N]
                         { quest = 82494 }, -- Worldsoul: Ara-Kara, City of Echoes [H]

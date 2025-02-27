@@ -69,6 +69,8 @@ L['category:patch_10_1_7'] = '10.1.7版本'
 L['category:patch_10_2_0'] = '10.2.0版本'
 L['category:patch_10_2_5'] = '10.2.5版本'
 L['category:patch_11_0_0'] = '11.0.0版本'
+L['category:patch_11_0_7'] = '11.0.7版本'
+L['category:patch_11_1_0'] = '11.1.0版本'
 L['category:weekly'] = '周常'
 L['category:worldBosses'] = '世界首领'
 
