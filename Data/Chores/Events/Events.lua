@@ -72,7 +72,7 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'timewalkingTurnIn',
-                    minimumLevel = 10,
+                    minimumLevel = 30,
                     requiredEventIds = classicTimewalkingIds,
                     entries = {
                         { quest = 83285, item = 225348 }, -- [Classic] The Ancient Scroll
@@ -98,7 +98,7 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'timewalkingTurnIn',
-                    minimumLevel = 10,
+                    minimumLevel = 30,
                     requiredEventIds = tbcTimewalkingIds,
                     entries = {
                         { quest = 40168, item = 129747 }, -- [TBC] The Swirling Vial
@@ -124,7 +124,7 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'timewalkingTurnIn',
-                    minimumLevel = 10,
+                    minimumLevel = 30,
                     requiredEventIds = wotlkTimewalkingIds,
                     entries = {
                         { quest = 40173, item = 129928 }, -- [WotLK] The Unstable Prism
@@ -150,7 +150,7 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'timewalkingTurnIn',
-                    minimumLevel = 10,
+                    minimumLevel = 30,
                     requiredEventIds = cataTimewalkingIds,
                     entries = {
                         { quest = 40786, item = 133377 }, -- [Cata-H] The Smoldering Ember
@@ -169,7 +169,7 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'timewalkingTurnIn',
-                    minimumLevel = 10,
+                    minimumLevel = 30,
                     requiredEventIds = mopTimewalkingIds,
                     entries = {
                         { quest = 45563, item = 143776 }, -- [MoP] The Shrouded Coin
@@ -187,7 +187,7 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'timewalkingTurnIn',
-                    minimumLevel = 10,
+                    minimumLevel = 30,
                     requiredEventIds = wodTimewalkingIds,
                     entries = {
                         { quest = 55498, item = 167921 }, -- [WoD-A] The Shimmering Crystal
@@ -206,7 +206,7 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'timewalkingTurnIn',
-                    minimumLevel = 10,
+                    minimumLevel = 30,
                     requiredEventIds = legionTimewalkingIds,
                     entries = {
                         { quest = 64710, item = 187611 }, -- [Legion] Whispering Felflame Crystal
