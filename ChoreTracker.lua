@@ -1,5 +1,5 @@
 local addonName, addonTable = ...
-local Addon = LibStub('AceAddon-3.0'):NewAddon(addonTable, addonName, 'AceConsole-3.0', 'AceEvent-3.0')
+local Addon = LibStub('AceAddon-3.0'):NewAddon(addonTable, addonName, 'AceConsole-3.0', 'AceEvent-3.0', 'AceBucket-3.0')
 
 Addon:SetDefaultModuleLibraries('AceBucket-3.0', 'AceEvent-3.0')
 
@@ -12,6 +12,8 @@ Addon.L = LibStub('AceLocale-3.0'):GetLocale(addonName)
 
 local ADB = LibStub('AceDB-3.0')
 local LSM = LibStub('LibSharedMedia-3.0')
+local LDB = LibStub("LibDataBroker-1.1")
+local DBIcon = LibStub("LibDBIcon-1.0")
 
 local DEFAULT_SECTION_ORDER = {
     'timers',
@@ -37,6 +39,9 @@ local defaultDb = {
             ['**'] = {
                 enabled = true,
             }
+        },
+        minimap = {
+            hide = false,
         },
         general = {
             appearance = {
@@ -86,6 +91,47 @@ local defaultDb = {
     }
 }
 
+function Addon:ToggleMiniMapIcon(show)
+    if show then
+        DBIcon:Show(addonName)
+    else
+        DBIcon:Hide(addonName)
+    end
+end
+
+-- LibDataBroker plugin
+local CT_LDB = LDB:NewDataObject(addonName, {
+    type = "data source",
+    text = "?/?",
+    icon = "Interface\\AddOns\\ChoreTracker\\Assets\\icon.tga",
+    OnTooltipShow = function(tooltip)
+        tooltip:SetText("ChoreTracker")
+        tooltip:AddLine(Addon.L['tooltip:toggleWindow'], 1, 1, 1)
+        tooltip:AddLine(Addon.L['tooltip:showOptions'], 1, 1, 1)
+        tooltip:Show()
+    end,
+    OnClick = function(_, button)
+        if(button=="LeftButton")then
+            Addon:GetModule('Display'):ToggleShown(true)
+        else
+            Settings.OpenToCategory(addonName)
+        end
+    end,
+})
+
+function Addon:UpdateLdb()
+    local completed = 0
+    local total = 0
+    local displayModule = Addon:GetModule('Display')
+    local sections = displayModule:GetSections()
+    for _, section in ipairs(sections) do
+        completed = completed + section.completed
+        total = total + section.total
+    end
+
+    local prefix = displayModule:GetPercentColor(completed, total)
+    CT_LDB.text = prefix .. completed ..'|r|cFF888888/|r' .. prefix .. total .. '|r'
+end
 
 function Addon:OnInitialize()
     for sectionKey, sectionData in pairs(self.data.chores) do
@@ -167,6 +213,12 @@ function Addon:OnInitialize()
 
     -- register events, etc
     self:RegisterEvent('PLAYER_ENTERING_WORLD')
+
+    -- register minimap icon
+    DBIcon:Register(addonName, CT_LDB, self.db.profile.minimap)
+
+    -- update LDB data
+    self:RegisterBucketMessage({ 'ChoreTracker_Data_Updated' }, 2, 'UpdateLdb')
 end
 
 function Addon:PLAYER_ENTERING_WORLD()

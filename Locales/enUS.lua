@@ -32,6 +32,7 @@ L['option:display:showCompleted'] = 'Show completed chores'
 L['option:display:showCompletedSections'] = 'Show completed sections'
 L['option:display:showObjectives'] = 'Show chore objectives'
 L['option:display:statusIcons'] = 'Use status icons'
+L['option:display:showMiniMapIcon'] = 'Show minimap icon'
 
 L['option:sectionOrder'] = 'Section Order'
 
@@ -279,3 +280,6 @@ L['autoAccept:choresPvp:weekly:battlegrounds'] = '^Bonus Event: Battlegrounds$'
 L['autoAccept:choresWarWithin:patch_11_0_0:dungeon'] = '^Biergoth in Dornogal'
 L['autoAccept:choresWarWithin:patch_11_0_0:emissaryDelves'] = '^Speak to Brann Bronzebeard'
 L['autoAccept:choresWarWithin:patch_11_0_0:theaterTroupe'] = '^Theater Troupe$'
+
+L['tooltip:toggleWindow'] = 'Left click to toggle ChoreTracker window'
+L['tooltip:showOptions'] = 'Right click to open ChoreTracker Options'
