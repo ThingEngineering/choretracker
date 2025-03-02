@@ -322,7 +322,10 @@ function Module:UpdateQuest(questId, week, forceStatus)
             newData.objectives = {}
             for _, objective in ipairs(objectives) do
                 if objective ~= nil and (
-                    not objective.text or not string.match(objective.text, OPTIONAL_OBJECTIVE)
+                    objective.text == '' or not (
+                        string.match(objective.text, OPTIONAL_OBJECTIVE) or
+                        string.match(strlower(objective.text), L['skip_undermine_cartel'])
+                    )
                 ) then
                     local objectiveData = {
                         type = objective.type,

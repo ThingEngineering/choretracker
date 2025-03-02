@@ -264,6 +264,7 @@ L['questName:80546'] = 'The Vizier'
 
 L['missing_skill_level'] = '|cFFFF00FFOpen profession window!|r'
 L['remove_specialAssignment'] = 'Special Assignment: '
+L['skip_undermine_cartel'] = 'sign a cartel contract for the week$'
 
 -- Auto-Accept
 L['autoAccept:acceptQuest'] = 'Accept Quest'
