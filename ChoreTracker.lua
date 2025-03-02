@@ -1,5 +1,11 @@
 local addonName, addonTable = ...
-local Addon = LibStub('AceAddon-3.0'):NewAddon(addonTable, addonName, 'AceConsole-3.0', 'AceEvent-3.0', 'AceBucket-3.0')
+local Addon = LibStub('AceAddon-3.0'):NewAddon(
+    addonTable,
+    addonName,
+    'AceBucket-3.0',
+    'AceConsole-3.0',
+    'AceEvent-3.0'
+)
 
 Addon:SetDefaultModuleLibraries('AceBucket-3.0', 'AceEvent-3.0')
 
@@ -12,8 +18,8 @@ Addon.L = LibStub('AceLocale-3.0'):GetLocale(addonName)
 
 local ADB = LibStub('AceDB-3.0')
 local LSM = LibStub('LibSharedMedia-3.0')
-local LDB = LibStub("LibDataBroker-1.1")
-local DBIcon = LibStub("LibDBIcon-1.0")
+local LDB = LibStub('LibDataBroker-1.1')
+local DBIcon = LibStub('LibDBIcon-1.0')
 
 local DEFAULT_SECTION_ORDER = {
     'timers',
@@ -91,7 +97,7 @@ local defaultDb = {
     }
 }
 
-function Addon:ToggleMiniMapIcon(show)
+function Addon:ToggleMinimapIcon(show)
     if show then
         DBIcon:Show(addonName)
     else

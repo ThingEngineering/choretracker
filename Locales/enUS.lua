@@ -30,9 +30,9 @@ L['option:display:awakenedTimers'] = 'Only show awakened timers'
 L['option:display:showAnniversaryAccount'] = 'Show Anniversary account completed'
 L['option:display:showCompleted'] = 'Show completed chores'
 L['option:display:showCompletedSections'] = 'Show completed sections'
+L['option:display:showMinimapIcon'] = 'Show minimap icon'
 L['option:display:showObjectives'] = 'Show chore objectives'
 L['option:display:statusIcons'] = 'Use status icons'
-L['option:display:showMiniMapIcon'] = 'Show minimap icon'
 
 L['option:sectionOrder'] = 'Section Order'
 
@@ -281,5 +281,5 @@ L['autoAccept:choresWarWithin:patch_11_0_0:dungeon'] = '^Biergoth in Dornogal'
 L['autoAccept:choresWarWithin:patch_11_0_0:emissaryDelves'] = '^Speak to Brann Bronzebeard'
 L['autoAccept:choresWarWithin:patch_11_0_0:theaterTroupe'] = '^Theater Troupe$'
 
+L['tooltip:showOptions'] = 'Right click to open ChoreTracker options'
 L['tooltip:toggleWindow'] = 'Left click to toggle ChoreTracker window'
-L['tooltip:showOptions'] = 'Right click to open ChoreTracker Options'

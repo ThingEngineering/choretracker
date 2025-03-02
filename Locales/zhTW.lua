@@ -21,9 +21,9 @@ L['option:display'] = '顯示'
 L['option:display:awakenedTimers'] = '僅顯示正在進行中的計時器'
 L['option:display:showCompletedSections'] = '顯示已完成的分類'
 L['option:display:showCompleted'] = '顯示完成的工作事項'
+L['option:display:showMinimapIcon'] = 'Show minimap icon'
 L['option:display:showObjectives'] = '顯示事項目標'
 L['option:display:statusIcons'] = '使用狀態圖示'
-L['option:display:showMiniMapIcon'] = 'Show minimap icon'
 
 L['option:text'] = '文字'
 L['option:text:font'] = '字型'
@@ -196,5 +196,5 @@ L['autoAccept:choresWarWithin:patch_11_0_0:dungeon'] = '^多恩諾加的畢爾�
 L['autoAccept:choresWarWithin:patch_11_0_0:emissaryDelves'] = '^在多恩諾加與布萊恩'
 L['autoAccept:choresWarWithin:patch_11_0_0:theaterTroupe'] = '^劇團$'
 
+L['tooltip:showOptions'] = 'Right click to open ChoreTracker options'
 L['tooltip:toggleWindow'] = 'Left click to toggle ChoreTracker window'
-L['tooltip:showOptions'] = 'Right click to open ChoreTracker Options'

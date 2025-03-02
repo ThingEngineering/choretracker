@@ -216,14 +216,14 @@ function Module:CreateOptions()
                         inline = true,
                         order = newOrder(),
                         args = {
-                            showMiniMapIcon = {
-                                name = L['option:display:showMiniMapIcon'],
+                            showMinimapIcon = {
+                                name = L['option:display:showMinimapIcon'],
                                 type = 'toggle',
                                 order = newOrder(),
                                 width = WIDTH_3_PER_ROW,
                                 set = function(info, val)
                                     Addon.db.profile.minimap.hide = not val
-                                    Addon:ToggleMiniMapIcon(val)
+                                    Addon:ToggleMinimapIcon(val)
                                 end,
                                 get = function(info)
                                     return not Addon.db.profile.minimap.hide
