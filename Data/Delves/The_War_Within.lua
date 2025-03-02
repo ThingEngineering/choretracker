@@ -22,6 +22,7 @@ Addon.data.delves.warWithin = {
             pois = {
                 { active = 7782, inactive = 7866, quest = 82945 }, -- The Waterworks
                 { active = 7788, inactive = 7867, quest = 82938 }, -- The Dread Pit
+                { active = 8181, inactive = 8143, quest = 85187 }, -- Excavation Site 9
             },
         },
         -- Hallowfall
@@ -41,6 +42,13 @@ Addon.data.delves.warWithin = {
                 { active = 7784, inactive = 7873, quest = 82776 }, -- Tak-Rethan Abyss
                 { active = 7786, inactive = 7872, quest = 82943 }, -- The Underkeep
                 { active = 7790, inactive = 7874, quest = 82942 }, -- The Spiral Weave
+            },
+        },
+        -- Undermine
+        {
+            uiMapId = 2346,
+            pois = {
+                { active = 8246, inactive = 8140, quest = 85668 }, -- Sidestreet Sluice
             },
         },
     },
