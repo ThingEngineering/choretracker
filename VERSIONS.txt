@@ -1,3 +1,10 @@
+v11.1.0.2
+---------
+- Added Undermine delves (thanks jonespm).
+- Added LibDataBroker support (thanks viruscamp).
+- Added addon category to ToC (thanks Zazou89).
+- Updated zhCN locale (thanks Sefank).
+
 v11.1.0.1
 ---------
 - Added Undermine chores.
