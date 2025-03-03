@@ -79,6 +79,12 @@ L['category:patch_11_1_0'] = '11.1.0版本'
 L['category:weekly'] = '周常'
 L['category:worldBosses'] = '世界首领'
 
+L['chore:warWithin:patch_11_1_0:quests:cartelChoose'] = '[安德麦] 合约工作'
+L['chore:warWithin:patch_11_1_0:quests:chett'] = '[安德麦] C.H.E.T.T.'
+L['chore:warWithin:patch_11_1_0:quests:specialAssignment'] = '[安德麦] 特别任务'
+L['chore:warWithin:patch_11_1_0:quests:weeklies'] = '[安德麦] 周长'
+L['chore:warWithin:patch_11_1_0:quests:worldBoss'] = '[安德麦] 世界首领'
+
 L['chore:warWithin:patch_11_0_7:quests:specialAssignment'] = '特别任务'
 L['chore:warWithin:patch_11_0_7:quests:storm'] = '风暴'
 L['chore:warWithin:patch_11_0_7:quests:weeklies'] = '周常'
@@ -188,6 +194,7 @@ L['chore:events:holidays2:dungeons:corenDirebrew'] = '科林·烈酒'
 L['chore:events:holidays2:dungeons:crownChemicalCo'] = '皇冠药剂公司'
 L['chore:events:holidays2:dungeons:headlessHorseman'] = '无头骑士'
 L['chore:events:holidays2:dungeons:frostLordAhune'] = '冰霜领主埃霍恩'
+
 L['chore:events:holidays2:quests:meanOne'] = '被偷走的礼品'
 L['chore:events:holidays2:quests:grumpus'] = '格噜普斯'
 L['chore:events:holidays2:quests:menacingGrumplings'] = '格噜噜'
@@ -236,6 +243,7 @@ L['chore:pvp:weekly:quests:preserving'] = '历练'
 L['chore:pvp:weekly:quests:sparks'] = '战争火花'
 
 L['timer:beledarsShadow'] = "贝雷达尔之影"
+L['timer:surgePricing'] = '[安德麦] 峰时定价'
 L['timer:theaterTroupe'] = '剧场巡演'
 
 L['timer:bigDig'] = '盛大发掘'
