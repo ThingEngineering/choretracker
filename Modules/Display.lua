@@ -26,7 +26,6 @@ local CC_GetDayEvent = C_Calendar.GetDayEvent
 local CC_GetNumDayEvents = C_Calendar.GetNumDayEvents
 local CCI_GetCurrencyInfo = C_CurrencyInfo.GetCurrencyInfo
 local CDAT_CompareCalendarTime = C_DateAndTime.CompareCalendarTime
-local CDAT_GetCalendarTimeFromEpoch = C_DateAndTime.GetCalendarTimeFromEpoch
 local CDAT_GetCurrentCalendarTime = C_DateAndTime.GetCurrentCalendarTime
 local CDAT_GetSecondsUntilWeeklyReset = C_DateAndTime.GetSecondsUntilWeeklyReset
 local CMI_GetModifiedInstanceInfoFromMapID = C_ModifiedInstance.GetModifiedInstanceInfoFromMapID
@@ -59,12 +58,6 @@ local SECTION_TO_CATEGORIES = {
     },
 }
 
-local REGION_OFFSET = {
-    [1] = -(7 * 60 * 60), -- US events use PST (-0700 UTC)
-    --[2] = ??, -- KR
-    [3] = (1 * 60 * 60),  -- EU events use CEDT? (+0100 UTC)
-    --[4] = ??, -- TW
-}
 local STATUS_COLOR = {
     [0] = '|cFFFF2222',
     [1] = '|cFFFFFF00',
@@ -203,16 +196,7 @@ function Module:ConfigChanged()
 
     self.activeEvents = self.activeEvents or {}
 
-    -- If we have data about what timezone calendar events are actually in, mangle the
-    -- timezones a little to use the correct offset. FFS, Blizzard.
-    local unixTime = time()
-    local region = GetCurrentRegion()
-    if REGION_OFFSET[region] ~= nil then
-        local offset = self:GetTimeZoneOffset(unixTime)
-        unixTime = unixTime - offset + REGION_OFFSET[region]
-    end
-
-    local now = CDAT_GetCalendarTimeFromEpoch(unixTime * 1000000)
+    local now = CDAT_GetCurrentCalendarTime()
 
     -- Check which events are active if the calendar is set to the correct year/month.
     local calendar = C_Calendar.GetMonthInfo(0)
@@ -333,13 +317,6 @@ function Module:ConfigChanged()
     end
 
     self:Redraw()
-end
-
-function Module:GetTimeZoneOffset(now)
-    local localDate = date('*t', now)
-    localDate.isdst = false
-    local utcDate = date('!*t', now)
-    return difftime(time(localDate), time(utcDate))
 end
 
 function Module:AnyActive(activeEvents, eventIds)
