@@ -80,6 +80,7 @@ L['category:worldBosses'] = 'World Bosses'
 
 L['chore:warWithin:patch_11_1_0:quests:cartelChoose'] = '[Um] Cartel Contract'
 L['chore:warWithin:patch_11_1_0:quests:chett'] = '[Um] C.H.E.T.T.'
+L['chore:warWithin:patch_11_1_0:quests:sideGigs'] = '[Um] Side Gig'
 L['chore:warWithin:patch_11_1_0:quests:specialAssignment'] = '[Um] Special'
 L['chore:warWithin:patch_11_1_0:quests:weeklies'] = '[Um] Weekly'
 L['chore:warWithin:patch_11_1_0:quests:worldBoss'] = '[Um] World Boss'

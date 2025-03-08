@@ -51,6 +51,25 @@ Addon.data.chores.choresWarWithin = {
                         { quest = 86775 }, -- Urge to Surge [S&H]
                     },
                 },
+                {
+                    key = 'sideGigs',
+                    minimumLevel = 80,
+                    pick = 4,
+                    entries = {
+                        { quest = 85944 }, -- Side Gig: Blood Type
+                        { quest = 85945 }, -- Side Gig: Blood-B-Gone
+                        { quest = 86178 }, -- Side Gig: Cleanin' the Coast
+                        { quest = 85913 }, -- Side Gig: Cleanup Detail
+                        { quest = 85914 }, -- Side Gig: Coolant Matters
+                        { quest = 85553 }, -- Side Gig: Feeling Crabby
+                        { quest = 86180 }, -- Side Gig: Infested Waters
+                        { quest = 85554 }, -- Side Gig: It's Always Sunny Side Up
+                        { quest = 85960 }, -- Side Gig: Lost in the Sauce
+                        { quest = 86179 }, -- Side Gig: Lucky Break's Big Break
+                        { quest = 86177 }, -- Side Gig: The Tides Provide
+                        { quest = 85962 }, -- Side Gig: Unseemly Reagents
+                    },
+                }
             },
         },
         {
