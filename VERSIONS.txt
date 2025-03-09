@@ -1,3 +1,11 @@
+v11.1.0.3
+---------
+- Added Side Gig chore.
+- Added Sparks of War: Undermine quest.
+- Ignore the "sign a cartel contract for the week" objective.
+- Updated how calendar times are calculated for active events (thanks jonespm).
+- Updated zhCN locale (thanks Sefank).
+
 v11.1.0.2
 ---------
 - Added Undermine delves (thanks jonespm).
