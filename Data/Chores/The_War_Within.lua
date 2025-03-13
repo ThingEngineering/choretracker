@@ -304,6 +304,7 @@ Addon.data.chores.choresWarWithin = {
                         { quest = 83459 }, -- The Dawnbreaker
                         { quest = 83432 }, -- The Rookery
                         { quest = 83457 }, -- The Stonevault
+                        { quest = 86203 }, -- Operation: Floodgate
                     },
                 },
             },
