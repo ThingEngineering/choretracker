@@ -280,6 +280,7 @@ L['autoAccept:choresPvp:weekly:battlegrounds'] = '^Bonus Event: Battlegrounds$'
 L['autoAccept:choresPvp:weekly:sparks'] = '^Sparks of War:'
 L['autoAccept:choresPvp:weekly:battlegrounds'] = '^Bonus Event: Battlegrounds$'
 L['autoAccept:choresWarWithin:patch_11_0_0:dungeon'] = '^Biergoth in Dornogal'
+L['autoAccept:choresWarWithin:patch_11_0_0:emissaryArchives'] = '^Speak to Brinthe'
 L['autoAccept:choresWarWithin:patch_11_0_0:emissaryDelves'] = '^Speak to Brann Bronzebeard'
 L['autoAccept:choresWarWithin:patch_11_0_0:theaterTroupe'] = '^Theater Troupe$'
 
