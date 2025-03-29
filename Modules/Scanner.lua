@@ -21,6 +21,7 @@ local CQL_IsOnQuest = C_QuestLog.IsOnQuest
 local CQL_IsQuestFlaggedCompleted = C_QuestLog.IsQuestFlaggedCompleted
 local CQL_IsQuestFlaggedCompletedOnAccount = C_QuestLog.IsQuestFlaggedCompletedOnAccount
 local CQL_IsWorldQuest = C_QuestLog.IsWorldQuest
+local CQL_ReadyForTurnIn = C_QuestLog.ReadyForTurnIn
 local CTQ_GetQuestTimeLeftSeconds = C_TaskQuest.GetQuestTimeLeftSeconds
 local CTSUI_GetProfessionInfoBySkillLineID = C_TradeSkillUI.GetProfessionInfoBySkillLineID
 
@@ -200,6 +201,16 @@ function Module:InitializeData()
                                     self.autoAccept[choreKey] = { translation, questIds }
                                 else
                                     questIds = self.autoAccept[choreKey][2]
+                                end
+                            end
+
+                            if choreData.preEntries ~= nil then
+                                for _, choreEntry in ipairs(choreData.preEntries) do
+                                    self.questPaths[choreEntry.quest] = choreKey
+                                
+                                    if questIds ~= nil then
+                                        tinsert(questIds, choreEntry.quest)
+                                    end
                                 end
                             end
 

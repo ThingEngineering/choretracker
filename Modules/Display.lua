@@ -32,6 +32,7 @@ local CMI_GetModifiedInstanceInfoFromMapID = C_ModifiedInstance.GetModifiedInsta
 
 local OBJECTIVE_DEFEAT_X = Addon.L['objective:defeat_x']
 local OBJECTIVE_BRING_X = Addon.L['objective:bring_x']
+local TASK_COUNT = Addon.L['objective:task_count']
 
 local SECTION_TO_CATEGORIES = {
     anniversary = { 'choresAnniversary' },
@@ -569,7 +570,10 @@ function Module:GetSections()
                 table.insert(section.entries, chore.translated)
             else
                 local quest = ScannerModule.quests[chore.data.requiredQuest]
-                if chore.data.requiredQuest == nil or (quest ~= nil and quest.status == 2) then
+                if chore.data.requiredQuest == nil or (
+                    (quest ~= nil and quest.status == 2) or
+                    chore.data.preEntries ~= nil
+                ) then
                     if chore.typeKey == 'drops' or chore.data.groupSameItem == true then
                         self:GetSectionDrops(section, chore)
                     elseif chore.typeKey == 'dungeons' then
@@ -669,53 +673,82 @@ function Module:GetSectionDrops(section, chore)
 end
 
 function Module:GetSectionQuests(week, section, chore, showAnniversaryAccount, showCompleted, showObjectives)
+    local need = chore.data.need or 0
     local pick = chore.data.pick or 1
-    section.total = section.total + pick
+    local useNeed = need > 0 and need < pick
 
+    if useNeed then
+        section.total = section.total + 1
+    else
+        section.total = section.total + pick
+    end
+
+    local doEntries = true
     local byStatus = {
         [0] = {},
         [1] = {},
         [2] = {},
     }
 
-    for _, choreEntry in ipairs(chore.data.entries or {}) do
-        local questIds = { choreEntry.quest }
-        if choreEntry.actualQuest then tinsert(questIds, choreEntry.actualQuest) end
-        if choreEntry.unlockQuest then tinsert(questIds, choreEntry.unlockQuest) end
-        
-        for index, questId in ipairs(questIds) do
-            local entryState = ScannerModule.quests[questId]
-            if entryState ~= nil then
-                if entryState.accountCompleted and (
-                    chore.data.oncePerAccount or
-                    (chore.data.anniversaryAccount and not showAnniversaryAccount)
-                ) then
-                    entryState = {
-                        objectives = entryState.objectives,
-                        status = 2,
-                    }
-                end
+    if chore.data.preEntries then
+        for _, choreEntry in ipairs(chore.data.preEntries) do
+            local entryState = ScannerModule.quests[choreEntry.quest]
+            if entryState ~= nil and entryState.status < 2 then
+                doEntries = false
+                table.insert(byStatus[entryState.status], {
+                    choreEntry,
+                    entryState,
+                    week[questId],
+                })
+                break
+            end
+        end
+    end
 
-                if entryState.status > 0 or index == #questIds then
-                    table.insert(byStatus[entryState.status], {
-                        choreEntry,
-                        entryState,
-                        week[questId],
-                    })
-                    break
+    if doEntries then
+        for _, choreEntry in ipairs(chore.data.entries or {}) do
+            local questIds = { choreEntry.quest }
+            if choreEntry.actualQuest then tinsert(questIds, choreEntry.actualQuest) end
+            if choreEntry.unlockQuest then tinsert(questIds, choreEntry.unlockQuest) end
+            
+            for index, questId in ipairs(questIds) do
+                local entryState = ScannerModule.quests[questId]
+                if entryState ~= nil then
+                    if entryState.accountCompleted and (
+                        chore.data.oncePerAccount or
+                        (chore.data.anniversaryAccount and not showAnniversaryAccount)
+                    ) then
+                        entryState = {
+                            objectives = entryState.objectives,
+                            status = 2,
+                        }
+                    end
+
+                    if entryState.status > 0 or index == #questIds then
+                        table.insert(byStatus[entryState.status], {
+                            choreEntry,
+                            entryState,
+                            week[questId],
+                        })
+                        break
+                    end
                 end
             end
         end
     end
 
     if #byStatus[0] > 0 or #byStatus[1] > 0 or #byStatus[2] > 0 then
+        local completedCount = 0
+        local entryCount = #section.entries
+
         for i = 1, pick do
             local bestEntry, bestState, bestWeek
             if #byStatus[1] > 0 then
                 bestEntry, bestState, bestWeek = unpack(tremove(byStatus[1], 1))
             elseif #byStatus[2] > 0 then
                 bestEntry, bestState, bestWeek = unpack(tremove(byStatus[2], 1))
-                section.completed = section.completed + 1
+                completedCount = completedCount + 1
+                -- section.completed = section.completed + 1
             else
                 for j = 1, #byStatus[0] do
                     bestEntry, bestState, bestWeek = unpack(byStatus[0][j])
@@ -726,7 +759,7 @@ function Module:GetSectionQuests(week, section, chore, showAnniversaryAccount, s
                 end
 
                 -- If we didn't find anything valid, use the first quest
-                if bestWeek == nil then
+                if bestWeek == nil and #byStatus[0] > 0 then
                     bestEntry, bestState, bestWeek = unpack(tremove(byStatus[0], 1))
                 end
             end
@@ -772,6 +805,40 @@ function Module:GetSectionQuests(week, section, chore, showAnniversaryAccount, s
                     end
                 end
             end
+        end
+
+        if useNeed then
+            local needState = {
+                status = 1,
+                objectives = {
+                    {
+                        have = completedCount,
+                        need = need,
+                        text = string.format(TASK_COUNT, completedCount, need)
+                    },
+                },
+            }
+
+            if completedCount >= need then
+                section.completed = section.completed + 1
+                needState.status = 2
+            end
+
+            if chore.data.preEntries and (showCompleted or needState.status < 2) then
+                table.insert(
+                    section.entries,
+                    entryCount + 1,
+                    self:GetEntryText(
+                        chore.translated,
+                        chore.data.preEntries[1],
+                        needState,
+                        nil,
+                        chore.data
+                    )
+                )
+            end
+        else
+            section.completed = section.completed + completedCount
         end
     end
 end
@@ -829,20 +896,20 @@ end
 
 function Module:GetEntryText(translated, entry, state, weekState, options)
     -- options = { inProgressQuestName, useShoppingListAsName }
-    local questName = QuestUtils_GetQuestName(entry.actualQuest or entry.quest)
+
+    -- This will just return the key if there's no translation entry, check for that
+    local translatedName = L['questName:' .. entry.quest]
+    if translatedName:find('^questName:') == nil then
+        questName = translatedName
+    elseif entry.encounter then
+        local _, name = EJ_GetCreatureInfo(entry.encounter[2], entry.encounter[1])
+        questName = string.format(OBJECTIVE_DEFEAT_X, name)
+    else
+        questName = QuestUtils_GetQuestName(entry.actualQuest or entry.quest)
+    end
+
     if questName == nil or questName == '' then
-        if entry.encounter then
-            local _, name = EJ_GetCreatureInfo(entry.encounter[2], entry.encounter[1])
-            questName = string.format(OBJECTIVE_DEFEAT_X, name)
-        else
-            -- This will just return the key if there's no translation entry, check for that
-            local translatedName = L['questName:' .. entry.quest]
-            if translatedName:find('^questName:') == nil then
-                questName = translatedName
-            else
-                questName = '???'
-            end
-        end
+        questName = '???'
     elseif options.removeText then
         questName = questName:gsub(options.removeText, '')
     end
@@ -852,7 +919,7 @@ function Module:GetEntryText(translated, entry, state, weekState, options)
         thingString = '|cFFFFFFFF' .. questName
     elseif state.status == 1 and state.objectives ~= nil and #state.objectives == 1 and not options.alwaysShowObjectives then
         local objective = state.objectives[1]
-        thingString = self:GetPercentColor(objective.have, objective.need, true) .. self:ObjectiveText(objective)
+        thingString = self:GetPercentColor(objective.have, objective.need, true) .. self:ObjectiveText(objective, questName)
     elseif entry.item ~= nil then
         local itemInfo = self:GetCachedItem(entry.item)
 
@@ -934,9 +1001,11 @@ function Module:GetPercentColor(a, b, ignoreZero)
     end
 end
 
-function Module:ObjectiveText(objective)
+function Module:ObjectiveText(objective, questName)
     if objective.type == 'progressbar' then
         return objective.have .. '% ' .. objective.text
+    elseif (objective.text == nil or objective.text == '') and questName ~= nil then
+        return questName
     else
         return objective.text
     end

@@ -175,10 +175,24 @@ L['objective:defeat_x'] = '擊敗 %s'
 
 L['choose_quest'] = '選擇一個任務！'
 L['objective:bring_x'] = '預先攜帶 %s個 %s'
+L['objective:task_count'] = '%s/%s Tasks'
 
 L['questName:80544'] = '絲織者'
 L['questName:80545'] = '將軍'
 L['questName:80546'] = '輔臣'
+-- C.H.E.T.T
+L['questName:87296'] = 'Get List!'
+L['questName:86917'] = '10x Delivery Job'
+L['questName:86918'] = '100x Empty Can'
+L['questName:86920'] = '5x War Mode Kill'
+L['questName:86923'] = '50x Runoff Fishing'
+L['questName:86924'] = '5x Battle Pet'
+L['questName:87302'] = '3x Rare Mob'
+L['questName:87303'] = 'Sidestreet Sluice delve'
+L['questName:87304'] = 'Excavation Site 9 delve'
+L['questName:87305'] = '2x Car Race'
+L['questName:87306'] = '50x Car Can'
+L['questName:87307'] = '25x Trash Can/Dumpster'
 
 L['missing_skill_level'] = '|cFFFF00FF打開專業視窗！|r'
 

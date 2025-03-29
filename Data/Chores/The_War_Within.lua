@@ -23,8 +23,26 @@ Addon.data.chores.choresWarWithin = {
                 {
                     key = 'chett',
                     minimumLevel = 80,
+                    need = 4,
+                    pick = 8,
+                    requiredQuest = 87296,
+                    preEntries = {
+                        { quest = 87296 }, -- C.H.E.T.T. List
+                    },
                     entries = {
-                        { quest = 87296 }, -- C.H.E.T.T. List?
+                        { quest = 86915, unlockQuest = 87296 }, -- Side with a Cartel
+                        { quest = 86917, unlockQuest = 87296 }, -- Ship Right
+                        { quest = 86918, unlockQuest = 87296 }, -- Reclaimed Scrap
+                        { quest = 86919, unlockQuest = 87296 }, -- Side Gig
+                        { quest = 86920, unlockQuest = 87296 }, -- War Mode Violence
+                        { quest = 86923, unlockQuest = 87296 }, -- Go Fish
+                        { quest = 86924, unlockQuest = 87296 }, -- Gotta Catch at Least a Few
+                        { quest = 87302, unlockQuest = 87296 }, -- Rare Rivals
+                        { quest = 87303, unlockQuest = 87296 }, -- Clean the Sidestreets
+                        { quest = 87304, unlockQuest = 87296 }, -- Time to Vacate
+                        { quest = 87305, unlockQuest = 87296 }, -- Desire to D.R.I.V.E.
+                        { quest = 87306, unlockQuest = 87296 }, -- Kaja Cruising
+                        { quest = 87307, unlockQuest = 87296 }, -- Garbage Day
                     },
                 },
                 {

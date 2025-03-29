@@ -256,12 +256,26 @@ L['timer:timeRift'] = 'Time Rift'
 
 L['objective:defeat_x'] = 'Defeat %s'
 L['objective:bring_x'] = 'Bring %sx %s'
+L['objective:task_count'] = '%s/%s Tasks'
 
 L['choose_quest'] = 'Choose a quest!'
 
 L['questName:80544'] = 'The Weaver'
 L['questName:80545'] = 'The General'
 L['questName:80546'] = 'The Vizier'
+-- C.H.E.T.T
+L['questName:87296'] = 'Get List!'
+L['questName:86917'] = '10x Delivery Job'
+L['questName:86918'] = '100x Empty Can'
+L['questName:86920'] = '5x War Mode Kill'
+L['questName:86923'] = '50x Runoff Fishing'
+L['questName:86924'] = '5x Battle Pet'
+L['questName:87302'] = '3x Rare Mob'
+L['questName:87303'] = 'Sidestreet Sluice delve'
+L['questName:87304'] = 'Excavation Site 9 delve'
+L['questName:87305'] = '2x Car Race'
+L['questName:87306'] = '50x Car Can'
+L['questName:87307'] = '25x Trash Can/Dumpster'
 
 L['missing_skill_level'] = '|cFFFF00FFOpen profession window!|r'
 L['remove_specialAssignment'] = 'Special Assignment: '
