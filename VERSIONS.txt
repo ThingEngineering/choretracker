@@ -1,3 +1,8 @@
+v11.1.0.5
+---------
+- Added auto-accept for Archives weeklies.
+- Added mostly working C.H.E.T.T. task display.
+
 v11.1.0.4
 ---------
 - Add Operation: Floodgate quest.
