@@ -163,6 +163,21 @@ Addon.data.chores.choresWarWithin = {
                     }
                 },
                 {
+                    key = 'delveArchaic',
+                    minimumLevel = 70,
+                    accountWide = true,
+                    entries = {
+                        { quest=84370, item=227794 },
+                    },
+                },
+                {
+                    key = 'delveGilded',
+                    minimumLevel = 80,
+                    entries = {
+                        { quest=5000001 },
+                    },
+                },
+                {
                     key = 'delveKeys',
                     minimumLevel = 80,
                     groupSameItem = true,

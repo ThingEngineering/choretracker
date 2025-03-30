@@ -24,6 +24,7 @@ local CQL_IsWorldQuest = C_QuestLog.IsWorldQuest
 local CQL_ReadyForTurnIn = C_QuestLog.ReadyForTurnIn
 local CTQ_GetQuestTimeLeftSeconds = C_TaskQuest.GetQuestTimeLeftSeconds
 local CTSUI_GetProfessionInfoBySkillLineID = C_TradeSkillUI.GetProfessionInfoBySkillLineID
+local CUIWM_GetSpellDisplayVisualizationInfo = C_UIWidgetManager.GetSpellDisplayVisualizationInfo
 
 local DATA_TYPES = {
     'drops',
@@ -36,6 +37,7 @@ local STATUS_IN_PROGRESS = 1
 local STATUS_COMPLETED = 2
 
 function Module:OnEnable()
+    self:RegisterEvent('CURRENCY_DISPLAY_UPDATE')
     self:RegisterEvent('QUEST_ACCEPTED')
     self:RegisterEvent('QUEST_REMOVED')
     self:RegisterEvent('QUEST_TURNED_IN')
@@ -88,6 +90,14 @@ function Module:OnEnteringWorld()
     if linesChanged == false then
         self:InitializeData()
     end
+
+    C_Timer.After(5, function() self:ScanGilded() end)
+end
+
+function Module:CURRENCY_DISPLAY_UPDATE(_, currencyId)
+    if currencyId == 3110 then
+        C_Timer.After(2, function() self:ScanGilded() end)
+    end
 end
 
 function Module:QUEST_ACCEPTED(_, questId)
@@ -108,6 +118,34 @@ end
 function Module:UNIT_QUEST_LOG_CHANGED(targets)
     if targets.player then
         self:ScanQuests()
+    end
+end
+
+function Module:ScanGilded()
+    local visInfo = CUIWM_GetSpellDisplayVisualizationInfo(6659)
+    if visInfo == nil or visInfo.spellInfo == nil or visInfo.spellInfo.tooltip == nil then return end
+
+    local have = tonumber(strmatch(visInfo.spellInfo.tooltip, '(%d)/3') or '0')
+
+    local fakeQuest = {
+        status = STATUS_IN_PROGRESS,
+        accountCompleted = false,
+        objectives = {
+            {
+                type = 'object',
+                text = have .. '/3 Gilded Stash',
+                have = have,
+                need = 3,
+            }
+        }
+    }
+    if have == 3 then fakeQuest.status = STATUS_COMPLETED end
+    
+    local oldQuest = self.quests[5000001]
+    if oldQuest == nil or oldQuest.objectives == nil or oldQuest.objectives[1].have ~= have then
+        DevTools_Dump(fakeQuest)
+        self.quests[5000001] = fakeQuest
+        self:SendMessage('ChoreTracker_Data_Updated', 'quests')
     end
 end
 
@@ -311,6 +349,9 @@ function Module:ScanQuests(forceChanged)
 end
 
 function Module:UpdateQuest(questId, week, forceStatus)
+    -- Don't mess with nasty hacks
+    if questId > 5000000 then return end
+
     if week == nil then
         week = self:GetWeek()
     end
