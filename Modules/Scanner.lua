@@ -143,7 +143,6 @@ function Module:ScanGilded()
     
     local oldQuest = self.quests[5000001]
     if oldQuest == nil or oldQuest.objectives == nil or oldQuest.objectives[1].have ~= have then
-        DevTools_Dump(fakeQuest)
         self.quests[5000001] = fakeQuest
         self:SendMessage('ChoreTracker_Data_Updated', 'quests')
     end
