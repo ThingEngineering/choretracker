@@ -1,3 +1,9 @@
+v11.1.0.6
+---------
+- Added Delve Archaic Cipher Key chore.
+- Added Delve Gilded Stash chore.
+- Fixed Restored Coffer Key item ID.
+
 v11.1.0.5
 ---------
 - Added auto-accept for Archives weeklies.
