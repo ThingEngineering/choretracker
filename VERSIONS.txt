@@ -1,3 +1,9 @@
+v11.1.5.1
+---------
+- Added Nightfall Scenario timer.
+- Added Nightfall Scenario and Incursion chores.
+- Updated ToC for 11.1.5.
+
 v11.1.0.7
 ---------
 - Remove some debug spam.
