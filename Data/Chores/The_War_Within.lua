@@ -9,6 +9,33 @@ Addon.data.chores.choresWarWithin = {
     minimumLevel = 70,
     categories = {
         {
+            key = 'patch_11_1_5',
+            minimumLevel = 70,
+            quests = {
+                {
+                    key = 'nightfallScenario',
+                    minimumLevel = 70,
+                    entries = {
+                        { quest = 89295 }, -- The Flame Burns Eternal
+                        { quest = 91173 }, -- The Flame Burns Eternal
+                    },
+                },
+                {
+                    key = 'nightfallIncursion',
+                    minimumLevel = 70,
+                    pick = 3,
+                    entries = {
+                        { quest = 87475 }, -- Sureki Incursion: Hold the Wall
+                        { quest = 87477 }, -- Sureki Incursion: Southern Swarm
+                        { quest = 87480 }, -- Sureki Incursion: The Eastern Assault
+                        { quest = 88711 }, -- Radiant Incursion: Toxins and Pheromones
+                        { quest = 88916 }, -- Radiant Incursion: Sureki's End
+                        { quest = 88945 }, -- Radiant Incursion: Rak-Zakaz
+                                            }
+                },
+            },
+        },
+        {
             key = 'patch_11_1_0',
             minimumLevel = 80,
             quests = {

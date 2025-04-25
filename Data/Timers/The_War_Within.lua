@@ -7,6 +7,13 @@ Addon.data.timers.warWithin = {
     name = EXPANSION_NAME10,
     timers = {
         {
+            key = 'nightfallScenario',
+            minimumLevel = 70,
+            interval = 60 * 60,
+            duration = 10 * 60,
+            offset = 0,
+        },
+        {
             key = 'surgePricing',
             minimumLevel = 80,
             interval = 60 * 60,

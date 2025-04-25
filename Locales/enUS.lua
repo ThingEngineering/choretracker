@@ -75,8 +75,12 @@ L['category:patch_10_2_5'] = 'Patch 10.2.5'
 L['category:patch_11_0_0'] = 'Patch 11.0.0'
 L['category:patch_11_0_7'] = 'Patch 11.0.7'
 L['category:patch_11_1_0'] = 'Patch 11.1.0'
+L['category:patch_11_1_5'] = 'Patch 11.1.5'
 L['category:weekly'] = 'Weekly'
 L['category:worldBosses'] = 'World Bosses'
+
+L['chore:warWithin:patch_11_1_5:quests:nightfallIncursion'] = '[Hal] Incursion'
+L['chore:warWithin:patch_11_1_5:quests:nightfallScenario'] = '[Hal] Nightfall Scenario'
 
 L['chore:warWithin:patch_11_1_0:quests:cartelChoose'] = '[Um] Cartel Contract'
 L['chore:warWithin:patch_11_1_0:quests:chett'] = '[Um] C.H.E.T.T.'
@@ -245,6 +249,7 @@ L['chore:pvp:weekly:quests:preserving'] = 'Preserving'
 L['chore:pvp:weekly:quests:sparks'] = 'Sparks of War'
 
 L['timer:beledarsShadow'] = "Beledar's Shadow"
+L['timer:nightfallScenario'] = '[Hal] Nightfall Scenario'
 L['timer:surgePricing'] = '[Um] Surge Pricing'
 L['timer:theaterTroupe'] = 'Theater Troupe'
 
