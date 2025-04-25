@@ -58,18 +58,18 @@ Addon.data.chores.choresWarWithin = {
                     },
                     entries = {
                         { quest = 86915, unlockQuest = 87296 }, -- Side with a Cartel
-                        { quest = 86917, unlockQuest = 87296 }, -- Ship Right
-                        { quest = 86918, unlockQuest = 87296 }, -- Reclaimed Scrap
                         { quest = 86919, unlockQuest = 87296 }, -- Side Gig
-                        { quest = 86920, unlockQuest = 87296 }, -- War Mode Violence
-                        { quest = 86923, unlockQuest = 87296 }, -- Go Fish
-                        { quest = 86924, unlockQuest = 87296 }, -- Gotta Catch at Least a Few
-                        { quest = 87302, unlockQuest = 87296 }, -- Rare Rivals
-                        { quest = 87303, unlockQuest = 87296 }, -- Clean the Sidestreets
-                        { quest = 87304, unlockQuest = 87296 }, -- Time to Vacate
-                        { quest = 87305, unlockQuest = 87296 }, -- Desire to D.R.I.V.E.
-                        { quest = 87306, unlockQuest = 87296 }, -- Kaja Cruising
-                        { quest = 87307, unlockQuest = 87296 }, -- Garbage Day
+                        { quest = 87304, unlockQuest = 87296 }, -- Time to Vacate [Excavation Site 9]
+                        { quest = 87303, unlockQuest = 87296 }, -- Clean the Sidestreets [Sidestreet Sluice]
+                        { quest = 87305, unlockQuest = 87296 }, -- Desire to D.R.I.V.E. [2x race]
+                        { quest = 87302, unlockQuest = 87296 }, -- Rare Rivals [3x rare]
+                        { quest = 86924, unlockQuest = 87296 }, -- Gotta Catch at Least a Few [5x battle pet]
+                        { quest = 86920, unlockQuest = 87296 }, -- War Mode Violence [5x war mode kill]
+                        { quest = 86917, unlockQuest = 87296 }, -- Ship Right [10x job]
+                        { quest = 87307, unlockQuest = 87296 }, -- Garbage Day [25x trash]
+                        { quest = 87306, unlockQuest = 87296 }, -- Kaja Cruising [50x car can]
+                        { quest = 86923, unlockQuest = 87296 }, -- Go Fish [50x fishing]
+                        { quest = 86918, unlockQuest = 87296 }, -- Reclaimed Scrap [100x empty can]
                     },
                 },
                 {
