@@ -390,6 +390,14 @@ function Module:UpdateQuest(questId, week, forceStatus)
                     if objective.type == 'progressbar' then
                         objectiveData.have = GetQuestProgressBarPercent(questId)
                         objectiveData.need = 100
+                    elseif (
+                        objective.numFulfilled == 1 and 
+                        objective.numRequired == 1 and
+                        objective.finished == false
+                    ) then
+                        -- things like dungeon/scenarios are 1/1 but not finished, brilliant
+                        objectiveData.have = 0
+                        objectiveData.need = 1
                     else
                         objectiveData.have = objective.numFulfilled
                         objectiveData.need = objective.numRequired
