@@ -31,7 +31,7 @@ Addon.data.chores.choresWarWithin = {
                         { quest = 88711 }, -- Radiant Incursion: Toxins and Pheromones
                         { quest = 88916 }, -- Radiant Incursion: Sureki's End
                         { quest = 88945 }, -- Radiant Incursion: Rak-Zakaz
-                                            }
+                    },
                 },
             },
         },

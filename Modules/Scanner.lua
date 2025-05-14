@@ -16,6 +16,7 @@ local Module = Addon:NewModule(
 
 local CAPI_GetAreaPOIInfo = C_AreaPoiInfo.GetAreaPOIInfo
 local CDAT_GetSecondsUntilWeeklyReset = C_DateAndTime.GetSecondsUntilWeeklyReset
+local CI_GetItemCount = C_Item.GetItemCount
 local CQL_GetQuestObjectives = C_QuestLog.GetQuestObjectives
 local CQL_IsOnQuest = C_QuestLog.IsOnQuest
 local CQL_IsQuestFlaggedCompleted = C_QuestLog.IsQuestFlaggedCompleted
@@ -336,7 +337,16 @@ function Module:ScanQuests(forceChanged)
     local week = self:GetWeek()
 
     for questId, _ in pairs(self.questPaths) do
-        local questHadChanges = self:UpdateQuest(questId, week)
+        -- Hack for C.H.E.T.T. List, treat the quest as complete if you already have one
+        local forceStatus = nil
+        if questId == 87296 then
+            local itemCount = CI_GetItemCount(235053) + CI_GetItemCount(236682)
+            if itemCount > 0 then
+                forceStatus = STATUS_COMPLETED
+            end
+        end
+
+        local questHadChanges = self:UpdateQuest(questId, week, forceStatus)
         if questHadChanges == true then
             anyChanges = true
         end
