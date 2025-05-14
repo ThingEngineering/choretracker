@@ -115,6 +115,8 @@ L['chore:events:holidays:quests:timewalkingRaids'] = '時光漫遊團隊'
 L['chore:events:holidays:quests:timewalkingTurnIn'] = '時光漫遊任務'
 L['chore:events:holidays:quests:worldQuests'] = '世界任務'
 
+L['chore:events:special:quests:turboBoost'] = 'Turbo Boost'
+
 L['chore:events:holidays2:dungeons:corenDirebrew'] = '寇仁・恐酒'
 L['chore:events:holidays2:dungeons:crownChemicalCo'] = '王冠化學製藥公司'
 L['chore:events:holidays2:dungeons:headlessHorseman'] = '無頭騎士'

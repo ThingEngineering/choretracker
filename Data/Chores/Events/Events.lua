@@ -16,6 +16,19 @@ Addon.data.chores.choresEvents = {
     order = 0,
     categories = {
         {
+            key = 'special',
+            quests = {
+                {
+                    key = 'turboBoost',
+                    minimumLevel = 80,
+                    -- requiredQuest = 86204, -- Liberation of Undermine: The House Loses
+                    entries = {
+                        { quest = 91205 }, -- Ultra Prime Deluxe Turbo-Boost: Powerhouse Challenges
+                    },
+                },
+            },
+        },
+        {
             key = 'holidays',
             quests = {
                 {

@@ -196,6 +196,8 @@ L['chore:events:holidays:quests:timewalkingRaids'] = 'Timewalking Raids'
 L['chore:events:holidays:quests:timewalkingTurnIn'] = 'Timewalking Turn-in'
 L['chore:events:holidays:quests:worldQuests'] = 'World Quests'
 
+L['chore:events:special:quests:turboBoost'] = 'Turbo Boost'
+
 L['chore:events:holidays2:dungeons:corenDirebrew'] = 'Coren Direbrew'
 L['chore:events:holidays2:dungeons:crownChemicalCo'] = 'Crown Chemical Co.'
 L['chore:events:holidays2:dungeons:headlessHorseman'] = 'Headless Horseman'
