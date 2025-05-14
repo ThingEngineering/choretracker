@@ -1,3 +1,9 @@
+v11.1.5.2
+---------
+- Added Turbo Boost event weekly.
+- Fixed BRD showing as available during Classic Timewalking.
+- Fixed C.H.E.T.T. showing "Get List!" when you have one already.
+
 v11.1.5.1
 ---------
 - Added Nightfall Scenario timer.
