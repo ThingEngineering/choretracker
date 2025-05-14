@@ -62,14 +62,14 @@ Addon.data.chores.choresEvents = {
                         { quest = 86731 }, -- An Original Path Through Time [??]
                     },
                 },
-                {
-                    key = 'timewalkingRaids',
-                    minimumLevel = 30,
-                    requiredEventIds = classicTimewalkingIds,
-                    entries = {
-                        { quest = 82817 }, -- Disturbance Detected: Blackrock Depths
-                    },
-                },
+                -- {
+                --     key = 'timewalkingRaids',
+                --     minimumLevel = 30,
+                --     requiredEventIds = classicTimewalkingIds,
+                --     entries = {
+                --         { quest = 82817 }, -- Disturbance Detected: Blackrock Depths
+                --     },
+                -- },
                 {
                     key = 'timewalkingTurnIn',
                     minimumLevel = 30,
