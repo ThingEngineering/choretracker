@@ -3,6 +3,7 @@ v11.1.5.2
 - Added Turbo Boost event weekly.
 - Fixed BRD showing as available during Classic Timewalking.
 - Fixed C.H.E.T.T. showing "Get List!" when you have one already.
+- Updated zhCN locale (thanks Sefank).
 
 v11.1.5.1
 ---------
