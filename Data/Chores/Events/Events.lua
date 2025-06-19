@@ -9,6 +9,7 @@ local cataTimewalkingIds = { 587, 628, 629, 630 }
 local mopTimewalkingIds = { 643, 652, 654, 656 }
 local wodTimewalkingIds = { 1056, 1063, 1065, 1068 }
 local legionTimewalkingIds = { 1263, 1265, 1267, 1269, 1271, 1273, 1275, 1277 }
+local BfATimewalkingIds = { 1666, 1667, 1668, 1669 }
 
 Addon.data.chores.choresEvents = {
     key = 'events',
@@ -223,6 +224,25 @@ Addon.data.chores.choresEvents = {
                     requiredEventIds = legionTimewalkingIds,
                     entries = {
                         { quest = 64710, item = 187611 }, -- [Legion] Whispering Felflame Crystal
+                    },
+                },
+                -- Battle for Azeroth
+                {
+                    key = 'timewalkingDungeons',
+                    minimumLevel = 10,
+                    requiredEventIds = BfATimewalkingIds,
+                    entries = {
+                        { quest = 88808 }, -- A Scarred Journey Through Time
+                        { quest = 88805 }, -- A Scarred Path Through Time
+                    },
+                },
+                {
+                    key = 'timewalkingTurnIn',
+                    minimumLevel = 30,
+                    requiredEventIds = BfATimewalkingIds,
+                    entries = {
+                        { quest = 89222, item = 238790 }, -- [BfA-A] Remnant of Azeroth
+                        { quest = 89223, item = 238791 }, -- [BfA-H] Remnant of Azeroth
                     },
                 },
             },
