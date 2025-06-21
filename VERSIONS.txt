@@ -1,3 +1,10 @@
+v11.1.7.1
+---------
+- Added Battle for Azeroth Timewalking support (thanks OldGromm).
+- Added koKR locale (thanks Crazyyoungs).
+- Updated zhCN locale (thanks Sefank).
+- Updated ToC for 11.1.7.
+
 v11.1.5.2
 ---------
 - Added Turbo Boost event weekly.
