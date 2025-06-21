@@ -12,6 +12,7 @@ local Module = Addon:NewModule(
         accepting = nil,
         offset = 0,
         scans = 0,
+        seenFull = false,
         tryAccepting = {},
     },
     'AceHook-3.0'
@@ -29,6 +30,7 @@ function Module:OnEnable()
     self:RegisterEvent('AJ_REFRESH_DISPLAY')
     self:RegisterEvent('QUEST_ACCEPTED')
     self:RegisterEvent('QUEST_DETAIL')
+    self:RegisterEvent('UI_ERROR_MESSAGE')
 end
 
 function Module:OnEnteringWorld()
@@ -101,6 +103,16 @@ function Module:QUEST_DETAIL()
                 self:ScanJournal()
             end
         end)
+    end
+end
+
+function Module:UI_ERROR_MESSAGE(_, errorCode)
+    if errorCode == 205 then
+        self.mode = MODE_IDLE
+        if self.seenFull == false then
+            print("ChoreTracker: can't auto-accept, your quest log is full!")
+            self.seenFull = true
+        end
     end
 end
 
