@@ -70,6 +70,7 @@ local STATUS_ICON = {
     [2] = '|TInterface\\Addons\\ChoreTracker\\Assets\\status_2.tga:0|t',
 }
 local KEY_ICON = '|T4622270:0|t'
+local LIGHTNING_ICON = '|T136048:0|t'
 
 function Module:OnEnable()
     ScannerModule = Addon:GetModule('Scanner')
@@ -444,9 +445,15 @@ function Module:AddDelves(changed, newChildren, seenFrames)
                         local poiData = ScannerModule.pois[poi.active]
                         if poiData ~= nil then
                             -- available
-                            labelText = STATUS_COLOR[0] .. mapInfo.name .. '|r: ' .. poiData.name
                             total = total + 1
                             status = 0
+
+                            labelText = STATUS_COLOR[0] .. mapInfo.name .. '|r: '
+                            if poiData.overcharged then
+                                labelText = labelText .. LIGHTNING_ICON .. ' '
+                            end
+                            labelText = labelText .. poiData.name
+
                         else
                             poiData = ScannerModule.pois[poi.inactive]
                             local quest = ScannerModule.quests[poi.quest]
@@ -456,7 +463,11 @@ function Module:AddDelves(changed, newChildren, seenFrames)
                                 status = 2
 
                                 if showCompletedChores then
-                                    labelText = STATUS_COLOR[2] .. mapInfo.name .. '|r: ' .. poiData.name
+                                    labelText = STATUS_COLOR[2] .. mapInfo.name .. '|r: '
+                                    if poiData.overcharged then
+                                        labelText = labelText .. LIGHTNING_ICON .. ' '
+                                    end
+                                    labelText = labelText .. poiData.name
                                 end
                             end
                         end

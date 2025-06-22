@@ -25,6 +25,7 @@ local CQL_IsWorldQuest = C_QuestLog.IsWorldQuest
 local CQL_ReadyForTurnIn = C_QuestLog.ReadyForTurnIn
 local CTQ_GetQuestTimeLeftSeconds = C_TaskQuest.GetQuestTimeLeftSeconds
 local CTSUI_GetProfessionInfoBySkillLineID = C_TradeSkillUI.GetProfessionInfoBySkillLineID
+local CUIWM_GetAllWidgetsBySetID = C_UIWidgetManager.GetAllWidgetsBySetID
 local CUIWM_GetSpellDisplayVisualizationInfo = C_UIWidgetManager.GetSpellDisplayVisualizationInfo
 
 local DATA_TYPES = {
@@ -36,6 +37,16 @@ local OPTIONAL_OBJECTIVE = OPTIONAL_QUEST_OBJECTIVE_DESCRIPTION:gsub('%%s', '.+'
 local STATUS_NOT_STARTED = 0
 local STATUS_IN_PROGRESS = 1
 local STATUS_COMPLETED = 2
+
+-- UiWidget -> VisID=4051
+local OVERCHARGED_WIDGETS = {
+    [7041] = true,
+    [7051] = true,
+    [7052] = true,
+    [7053] = true,
+    [7104] = true,
+    [7105] = true,
+}
 
 function Module:OnEnable()
     self:RegisterEvent('CURRENCY_DISPLAY_UPDATE')
@@ -319,6 +330,18 @@ function Module:ScanPois()
         -- { linkedUiMapId, name }
         local poiInfo = CAPI_GetAreaPOIInfo(uiMapId, areaPoiId)
         if poiInfo ~= nil and self.pois[areaPoiId] == nil then
+            -- ugh, scan widget set to see if any of the overcharged widgets are active
+            if poiInfo.iconWidgetSet ~= nil then
+                local widgetInfos = CUIWM_GetAllWidgetsBySetID(poiInfo.iconWidgetSet)
+                if widgetInfos ~= nil then
+                    for _, widgetInfo in ipairs(widgetInfos) do
+                        if OVERCHARGED_WIDGETS[widgetInfo.widgetID] == true then
+                            poiInfo.overcharged = true
+                        end
+                    end
+                end
+            end
+
             anyChanges = true
             self.pois[areaPoiId] = poiInfo
         elseif poiInfo == nil and self.pois[areaPoiId] ~= nil then
