@@ -1,3 +1,7 @@
+v11.1.7.3
+---------
+- Add a lightning bolt icon for overcharged delves.
+
 v11.1.7.2
 ---------
 - Fixed koKR locale.
