@@ -1,3 +1,7 @@
+v11.1.7.2
+---------
+- Fixed koKR locale.
+
 v11.1.7.1
 ---------
 - Added Battle for Azeroth Timewalking support (thanks OldGromm).
