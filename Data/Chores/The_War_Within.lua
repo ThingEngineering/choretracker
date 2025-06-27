@@ -87,12 +87,23 @@ Addon.data.chores.choresWarWithin = {
                     },
                 },
                 {
-                    key = 'weeklies',
+                    key = 'jobs',
                     minimumLevel = 80,
-                    pick = 3,
                     entries = {
                         { quest = 85869 }, -- Many Jobs, Handle It! [S&H]
+                    },
+                },
+                {
+                    key = 'scrap',
+                    minimumLevel = 80,
+                    entries = {
                         { quest = 85879 }, -- Reduce, Resuse, Resell [SCRAP]
+                    },
+                },
+                {
+                    key = 'surge',
+                    minimumLevel = 80,
+                    entries = {
                         { quest = 86775 }, -- Urge to Surge [S&H]
                     },
                 },
