@@ -45,6 +45,7 @@ Locales\enUS.lua
 Locales\koKR.lua
 Locales\zhTW.lua
 Locales\zhCN.lua
+Locales\ruRU.lua
 
 ChoreTracker.lua
 
