@@ -1,4 +1,6 @@
 local L = LibStub('AceLocale-3.0'):NewLocale('ChoreTracker', 'ruRU')
+if not L then return end -- don't remove this!
+
 --Translator ZamestoTV
 L['section:dragonflight'] = EXPANSION_NAME9
 L['section:warWithin'] = EXPANSION_NAME10
