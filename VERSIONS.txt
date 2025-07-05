@@ -1,6 +1,11 @@
+v11.1.7.4
+---------
+- Added ruRU locale (thanks ZamestoTV).
+- Changed Undermine weeklies to be separate chores (thanks gizzmo).
+
 v11.1.7.3
 ---------
-- Add a lightning bolt icon for overcharged delves.
+- Added a lightning bolt icon for overcharged delves.
 
 v11.1.7.2
 ---------
