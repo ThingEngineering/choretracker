@@ -88,7 +88,9 @@ L['chore:warWithin:patch_11_1_0:quests:cartelChoose'] = '[НШ] Контракт
 L['chore:warWithin:patch_11_1_0:quests:chett'] = '[НШ] КРОТ'
 L['chore:warWithin:patch_11_1_0:quests:sideGigs'] = '[НШ] Побочное поручение'
 L['chore:warWithin:patch_11_1_0:quests:specialAssignment'] = '[НШ] Особое'
-L['chore:warWithin:patch_11_1_0:quests:weeklies'] = '[НШ] Еженедельные'
+L['chore:warWithin:patch_11_1_0:quests:jobs'] = '[НШ] Куча доставок!'
+L['chore:warWithin:patch_11_1_0:quests:scrap'] = '[НШ] Переработка и перепродажа'
+L['chore:warWithin:patch_11_1_0:quests:surge'] = '[НШ] Все выше и выше'
 L['chore:warWithin:patch_11_1_0:quests:worldBoss'] = '[НШ] Мировые боссы'
 
 L['chore:warWithin:patch_11_0_7:quests:specialAssignment'] = '[ОС] Особое'
