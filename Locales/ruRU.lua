@@ -51,7 +51,7 @@ L['section:events'] = 'События'
 L['section:general'] = 'Общее'
 L['section:hallowfallFishingDerby'] = 'Рыбоборье в Тайносводье'
 L['section:professions'] = 'Профессии'
-L['section:pvp'] = 'ПвП'
+L['section:pvp'] = 'PvP'
 L['section:quests'] = 'Задания'
 L['section:timers'] = 'Таймеры'
 
