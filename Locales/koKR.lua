@@ -86,7 +86,10 @@ L['chore:warWithin:patch_11_1_5:quests:nightfallScenario'] = '[S2] 일몰 시나
 L['chore:warWithin:patch_11_1_0:quests:cartelChoose'] = '[S2] 무역회사 계약'
 L['chore:warWithin:patch_11_1_0:quests:chett'] = '[S2] 안.녕.거.기.'
 L['chore:warWithin:patch_11_1_0:quests:sideGigs'] = '[S2] 부업'																   
-L['chore:warWithin:patch_11_1_0:quests:specialAssignment'] = '[S2] 특별 과제'																		   
+L['chore:warWithin:patch_11_1_0:quests:specialAssignment'] = '[S2] 특별 과제'
+L['chore:warWithin:patch_11_1_0:quests:jobs'] = '[S2] 일이 너무 많아!'
+L['chore:warWithin:patch_11_1_0:quests:scrap'] = '[S2] 절약, 재사용, 재판매'
+L['chore:warWithin:patch_11_1_0:quests:surge'] = '[S2] 급등 전조'																		   
 L['chore:warWithin:patch_11_1_0:quests:weeklies'] = '[S2] 주간'
 L['chore:warWithin:patch_11_1_0:quests:worldBoss'] = '[S2] 월드 보스'																 
 
