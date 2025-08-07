@@ -233,10 +233,9 @@ Addon.data.chores.choresWarWithin = {
                     minimumLevel = 80,
                     groupSameItem = true,
                     entries = {
-                        { quest=84736, item=235531 }, -- Restored Coffer Key
-                        { quest=84737, item=235531 }, -- Restored Coffer Key
-                        { quest=84738, item=235531 }, -- Restored Coffer Key
-                        { quest=84739, item=235531 }, -- Restored Coffer Key
+                        { quest=91175, item=235531 }, -- Restored Coffer Key
+                        { quest=91176, item=235531 }, -- Restored Coffer Key
+                        { quest=91177, item=235531 }, -- Restored Coffer Key
                     },
                 },
                 {
