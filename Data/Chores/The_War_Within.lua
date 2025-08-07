@@ -9,6 +9,19 @@ Addon.data.chores.choresWarWithin = {
     minimumLevel = 70,
     categories = {
         {
+            key = 'patch_11_2_0',
+            minimumLevel = 70,
+            quests = {
+                {
+                    key = 'ecologicalSuccession',
+                    minimumLevel = 70,
+                    entries = {
+                        { quest = 85460 },
+                    },
+                }
+            }
+        },
+        {
             key = 'patch_11_1_5',
             minimumLevel = 70,
             quests = {
