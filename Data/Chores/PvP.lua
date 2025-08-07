@@ -45,11 +45,12 @@ Addon.data.chores.choresPvp = {
                     key = 'sparks',
                     minimumLevel = 70,
                     entries = {
-                        { quest=81793 }, -- Sparks of War: Isle of Dorn
-                        { quest=81794 }, -- Sparks of War: The Ringing Deeps
-                        { quest=81795 }, -- Sparks of War: Hallowfall
-                        { quest=81796 }, -- Sparks of War: Azj-Kahet
-                        { quest=86853 }, -- Sparks of War: Undermine
+                        { quest = 81793 }, -- Sparks of War: Isle of Dorn
+                        { quest = 81794 }, -- Sparks of War: The Ringing Deeps
+                        { quest = 81795 }, -- Sparks of War: Hallowfall
+                        { quest = 81796 }, -- Sparks of War: Azj-Kahet
+                        { quest = 86853 }, -- Sparks of War: Undermine
+                        { quest = 90781 }, -- Sparks of War: K'aresh
                     },
                 }
             },

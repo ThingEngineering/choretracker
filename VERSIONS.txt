@@ -1,3 +1,12 @@
+v11.2.0.1
+---------
+- Added K'aresh > Ecological Succession weekly quest.
+- Added K'aresh > Special Assignment weekly quests.
+- Added Sparks of War: K'aresh weekly quest.
+- Fixed delve key quest IDs.
+- Fixed missing Worldsoul quests.
+- Updated ToC for 11.2.0.
+
 v11.1.7.4
 ---------
 - Added ruRU locale (thanks ZamestoTV).

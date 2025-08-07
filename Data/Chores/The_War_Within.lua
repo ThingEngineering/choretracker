@@ -9,6 +9,33 @@ Addon.data.chores.choresWarWithin = {
     minimumLevel = 70,
     categories = {
         {
+            key = 'patch_11_2_0',
+            minimumLevel = 70,
+            quests = {
+                {
+                    key = 'ecologicalSuccession',
+                    minimumLevel = 70,
+                    entries = {
+                        { quest = 85460 },
+                    },
+                },
+                {
+                    key = 'specialAssignment',
+                    minimumLevel = 80,
+                    entries = {
+                        {
+                            quest = 89293, -- Overshadowed
+                            unlockQuest = 91193, -- Capstone 1 - Unlock
+                        },
+                        {
+                            quest = 89294, -- Aligned Views
+                            unlockQuest = 91203, -- Capstone 2 - Unlock
+                        },
+                    },
+                },
+            },
+        },
+        {
             key = 'patch_11_1_5',
             minimumLevel = 70,
             quests = {
@@ -220,10 +247,9 @@ Addon.data.chores.choresWarWithin = {
                     minimumLevel = 80,
                     groupSameItem = true,
                     entries = {
-                        { quest=84736, item=235531 }, -- Restored Coffer Key
-                        { quest=84737, item=235531 }, -- Restored Coffer Key
-                        { quest=84738, item=235531 }, -- Restored Coffer Key
-                        { quest=84739, item=235531 }, -- Restored Coffer Key
+                        { quest=91175, item=235531 }, -- Restored Coffer Key
+                        { quest=91176, item=235531 }, -- Restored Coffer Key
+                        { quest=91177, item=235531 }, -- Restored Coffer Key
                     },
                 },
                 {
@@ -257,6 +283,10 @@ Addon.data.chores.choresWarWithin = {
                         { quest = 87417 }, -- Worldsoul: Dungeons
                         { quest = 82453 }, -- Worldsoul: Encore!
                         { quest = 82516 }, -- Worldsoul: Forging a Pact
+                        { quest = 89514 }, -- Worldsoul: Horrific Visions Revisited
+                        { quest = 91855 }, -- Worldsoul: K'aresh World Quests
+                        { quest = 89502 }, -- Worldsoul: Nightfall
+                        { quest = 91052 }, -- Worldsoul: Overcharged Delves
                         { quest = 82458 }, -- Worldsoul: Renown
                         { quest = 82482 }, -- Worldsoul: Snuffling
                         { quest = 82483 }, -- Worldsoul: Spreading the Light
