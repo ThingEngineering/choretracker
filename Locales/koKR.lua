@@ -80,23 +80,22 @@ L['category:patch_11_1_5'] = 'Patch 11.1.5'
 L['category:weekly'] = '주간'
 L['category:worldBosses'] = '월드 보스'
 
+L['chore:warWithin:patch_11_2_0:quests:ecologicalSuccession'] = "[S3] 생태 천이"
+L['chore:warWithin:patch_11_2_0:quests:specialAssignment'] = "[S3] 특수 임무"
 L['chore:warWithin:patch_11_1_5:quests:nightfallIncursion'] = '[S2] 침입'
 L['chore:warWithin:patch_11_1_5:quests:nightfallScenario'] = '[S2] 일몰 시나리오'
-
 L['chore:warWithin:patch_11_1_0:quests:cartelChoose'] = '[S2] 무역회사 계약'
 L['chore:warWithin:patch_11_1_0:quests:chett'] = '[S2] 안.녕.거.기.'
 L['chore:warWithin:patch_11_1_0:quests:sideGigs'] = '[S2] 부업'																   
-L['chore:warWithin:patch_11_1_0:quests:specialAssignment'] = '[S2] 특별 과제'
-L['chore:warWithin:patch_11_1_0:quests:jobs'] = '[S2] 일이 너무 많아!'
-L['chore:warWithin:patch_11_1_0:quests:scrap'] = '[S2] 절약, 재사용, 재판매'
-L['chore:warWithin:patch_11_1_0:quests:surge'] = '[S2] 급등 전조'																		   
+L['chore:warWithin:patch_11_1_0:quests:specialAssignment'] = '[S2] 특별 과제'																		   
 L['chore:warWithin:patch_11_1_0:quests:weeklies'] = '[S2] 주간'
 L['chore:warWithin:patch_11_1_0:quests:worldBoss'] = '[S2] 월드 보스'																 
-
+L['chore:warWithin:patch_11_1_0:quests:surge'] = '[S2] 가격 폭등'
+L['chore:warWithin:patch_11_1_0:quests:jobs'] = "[S3] 일이 너무 많아!"
+L['chore:warWithin:patch_11_1_0:quests:scrap'] = "[S3] 절약, 재사용, 재판매"
 L['chore:warWithin:patch_11_0_7:quests:specialAssignment'] = '[SI] 특별 과제'	
 L['chore:warWithin:patch_11_0_7:quests:storm'] = '[SI] 폭풍'
 L['chore:warWithin:patch_11_0_7:quests:weeklies'] = '[SI] 주간'																 
-
 L['chore:warWithin:patch_11_0_0:quests:awakeningTheMachine'] = '기계 깨우기'
 L['chore:warWithin:patch_11_0_0:quests:delveArchaic'] = '구렁 태고'
 L['chore:warWithin:patch_11_0_0:quests:delveGilded'] = '구렁 금빛'
@@ -289,9 +288,6 @@ L['questName:87304'] = '채굴지 9호 구렁'
 L['questName:87305'] = '2x 자동차 경주'
 L['questName:87306'] = '50x 카자 깡통'
 L['questName:87307'] = '25x 넘치는쓰레기통/빛나는 쓰레기 깡통'
-
-
-
 
 L['missing_skill_level'] = '|cFFFF00FF직업 창 열기!|r'
 L['remove_specialAssignment'] = '특별 과제: '
