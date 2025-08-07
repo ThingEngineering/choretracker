@@ -81,6 +81,7 @@ L['category:weekly'] = 'Weekly'
 L['category:worldBosses'] = 'World Bosses'
 
 L['chore:warWithin:patch_11_2_0:quests:ecologicalSuccession'] = '[Kar] Ecological Succession'
+L['chore:warWithin:patch_11_2_0:quests:specialAssignment'] = '[Kar] Special'
 
 L['chore:warWithin:patch_11_1_5:quests:nightfallIncursion'] = '[Hal] Incursion'
 L['chore:warWithin:patch_11_1_5:quests:nightfallScenario'] = '[Hal] Nightfall Scenario'

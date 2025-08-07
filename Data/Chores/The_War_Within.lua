@@ -18,8 +18,22 @@ Addon.data.chores.choresWarWithin = {
                     entries = {
                         { quest = 85460 },
                     },
-                }
-            }
+                },
+                {
+                    key = 'specialAssignment',
+                    minimumLevel = 80,
+                    entries = {
+                        {
+                            quest = 89293, -- Overshadowed
+                            unlockQuest = 91193, -- Capstone 1 - Unlock
+                        },
+                        {
+                            quest = 89294, -- Aligned Views
+                            unlockQuest = 91203, -- Capstone 2 - Unlock
+                        },
+                    },
+                },
+            },
         },
         {
             key = 'patch_11_1_5',
