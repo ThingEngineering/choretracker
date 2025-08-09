@@ -81,6 +81,7 @@ L['category:weekly'] = 'Weekly'
 L['category:worldBosses'] = 'World Bosses'
 
 L['chore:warWithin:patch_11_2_0:quests:ecologicalSuccession'] = '[Kar] Ecological Succession'
+L['chore:warWithin:patch_11_2_0:quests:moreThanPhase'] = '[Kar] More Than Just a Phase'
 L['chore:warWithin:patch_11_2_0:quests:specialAssignment'] = '[Kar] Special'
 
 L['chore:warWithin:patch_11_1_5:quests:nightfallIncursion'] = '[Hal] Incursion'
@@ -312,6 +313,7 @@ L['autoAccept:choresWarWithin:patch_11_0_0:dungeon'] = '^Biergoth in Dornogal'
 L['autoAccept:choresWarWithin:patch_11_0_0:emissaryArchives'] = '^Speak to Brinthe'
 L['autoAccept:choresWarWithin:patch_11_0_0:emissaryDelves'] = '^Speak to Brann Bronzebeard'
 L['autoAccept:choresWarWithin:patch_11_0_0:theaterTroupe'] = '^Theater Troupe$'
+L['autoAccept:choresWarWithin:patch_11_2_0:moreThanPhase'] = '^Phase Diving: More'
 
 L['tooltip:showOptions'] = 'Right click to open ChoreTracker options'
 L['tooltip:toggleWindow'] = 'Left click to toggle ChoreTracker window'
