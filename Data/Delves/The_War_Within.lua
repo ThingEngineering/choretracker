@@ -51,5 +51,12 @@ Addon.data.delves.warWithin = {
                 { active = 8246, inactive = 8140, quest = 85668 }, -- Sidestreet Sluice
             },
         },
+        -- K'aresh
+        {
+            uiMapId = 2371,
+            pois = {
+                { active = 8273, inactive = 8274, quest = 0 }, -- Archival Assault
+            },
+        },
     },
 }
