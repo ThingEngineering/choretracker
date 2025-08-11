@@ -77,19 +77,24 @@ L['category:patch_11_0_0'] = 'Patch 11.0.0'
 L['category:patch_11_0_7'] = 'Patch 11.0.7'
 L['category:patch_11_1_0'] = 'Patch 11.1.0'
 L['category:patch_11_1_5'] = 'Patch 11.1.5'
+L['category:patch_11_2_0'] = 'Patch 11.2.0'
 L['category:weekly'] = '주간'
 L['category:worldBosses'] = '월드 보스'
 
 L['chore:warWithin:patch_11_2_0:quests:ecologicalSuccession'] = "[S3] 생태 천이"
+L['chore:warWithin:patch_11_2_0:quests:moreThanPhase'] = '[s3] 지나가는 과정 그 이상'
 L['chore:warWithin:patch_11_2_0:quests:specialAssignment'] = "[S3] 특수 임무"
+
 L['chore:warWithin:patch_11_1_5:quests:nightfallIncursion'] = '[S2] 침입'
 L['chore:warWithin:patch_11_1_5:quests:nightfallScenario'] = '[S2] 일몰 시나리오'
+
 L['chore:warWithin:patch_11_1_0:quests:cartelChoose'] = '[S2] 무역회사 계약'
 L['chore:warWithin:patch_11_1_0:quests:chett'] = '[S2] 안.녕.거.기.'
 L['chore:warWithin:patch_11_1_0:quests:sideGigs'] = '[S2] 부업'																   
 L['chore:warWithin:patch_11_1_0:quests:specialAssignment'] = '[S2] 특별 과제'																		   
 L['chore:warWithin:patch_11_1_0:quests:weeklies'] = '[S2] 주간'
-L['chore:warWithin:patch_11_1_0:quests:worldBoss'] = '[S2] 월드 보스'																 
+L['chore:warWithin:patch_11_1_0:quests:worldBoss'] = '[S2] 월드 보스'	
+															 
 L['chore:warWithin:patch_11_1_0:quests:surge'] = '[S2] 가격 폭등'
 L['chore:warWithin:patch_11_1_0:quests:jobs'] = "[S3] 일이 너무 많아!"
 L['chore:warWithin:patch_11_1_0:quests:scrap'] = "[S3] 절약, 재사용, 재판매"
