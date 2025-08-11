@@ -12,6 +12,7 @@ local Module = Addon:NewModule(
         accepting = nil,
         offset = 0,
         scans = 0,
+        seenEntries = {},
         seenFull = false,
         tryAccepting = {},
     },
@@ -53,13 +54,22 @@ function Module:AJ_REFRESH_DISPLAY()
         return
     end
 
-    local max = currentOffset == 0 and #suggestions or 1
-    for i = 1, max do
-        local shouldAccept = self:CheckSuggestion(suggestions[i], currentOffset, i)
-        if shouldAccept then
-            self.mode = MODE_ACCEPT
-            C_AdventureJournal.ActivateEntry(i)
-            return
+    for i = 1, #suggestions do
+        local suggestion = suggestions[i]
+        local seenKey = table.concat({
+            suggestion.title or '',
+            suggestion.description or '',
+            suggestion.buttonText or ''
+        }, '|')
+        if self.seenEntries[seenKey] == nil then
+            self.seenEntries[seenKey] = true
+
+            local shouldAccept = self:CheckSuggestion(suggestion, currentOffset, i)
+            if shouldAccept then
+                self.mode = MODE_ACCEPT
+                C_AdventureJournal.ActivateEntry(i)
+                return
+            end
         end
     end
 
@@ -170,6 +180,7 @@ function Module:ScanJournal()
     self.mode = MODE_SCAN
     self.accepting = nil
     self.offset = 0
+    wipe(self.seenEntries)
     wipe(self.tryAccepting)
 
     CAJ_UpdateSuggestions(false)

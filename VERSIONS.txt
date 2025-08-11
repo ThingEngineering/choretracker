@@ -1,3 +1,9 @@
+v11.2.0.2
+---------
+- Added K'aresh > More Than Just a Phase weekly quest.
+- Added Archival Assault delve.
+- Fixed quest auto-accept.
+
 v11.2.0.1
 ---------
 - Added K'aresh > Ecological Succession weekly quest.

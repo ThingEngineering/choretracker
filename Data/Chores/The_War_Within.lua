@@ -20,6 +20,14 @@ Addon.data.chores.choresWarWithin = {
                     },
                 },
                 {
+                    key = 'moreThanPhase',
+                    minimumLevel = 80,
+                    requiredQuest = 89345, -- The Untethered Horror
+                    entries = {
+                        { quest = 91093 }, -- More Than Just a Phase
+                    }
+                },
+                {
                     key = 'specialAssignment',
                     minimumLevel = 80,
                     entries = {
