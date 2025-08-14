@@ -1,3 +1,13 @@
+v11.2.0.3
+---------
+- Added K'aresh > Devourer weekly quests.
+- Added K'aresh > Warrant weekly quest.
+- Added the 4th Restored Coffer Key quest.
+- Changed More Then a Phase to account wide, rewards suck.
+- Fixed Restored Coffer Key item ID.
+- Updated koKR locale (thanks Crazyyoungs).
+- Updated ruRU locale (thanks Hubbotu).
+
 v11.2.0.2
 ---------
 - Added K'aresh > More Than Just a Phase weekly quest.
