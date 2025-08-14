@@ -78,6 +78,7 @@ L['category:patch_11_0_0'] = 'Патч 11.0.0'
 L['category:patch_11_0_7'] = 'Патч 11.0.7'
 L['category:patch_11_1_0'] = 'Патч 11.1.0'
 L['category:patch_11_1_5'] = 'Патч 11.1.5'
+L['category:patch_11_2_0'] = 'Патч 11.2.0'
 L['category:weekly'] = 'Еженедельные'
 L['category:worldBosses'] = 'Мировые боссы'
 

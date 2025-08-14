@@ -57,6 +57,8 @@ L['category:patch_10_2_5'] = 'Patch 10.2.5'
 L['category:patch_11_0_0'] = 'Patch 11.0.0'
 L['category:patch_11_0_7'] = 'Patch 11.0.7'
 L['category:patch_11_1_0'] = 'Patch 11.1.0'
+L['category:patch_11_1_5'] = 'Patch 11.1.5'
+L['category:patch_11_2_0'] = 'Patch 11.2.0'
 L['category:worldBosses'] = '世界首領'
 
 L['chore:warWithin:patch_11_0_0:quests:awakeningTheMachine'] = '甦醒機械'

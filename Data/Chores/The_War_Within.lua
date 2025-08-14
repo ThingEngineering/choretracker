@@ -20,8 +20,20 @@ Addon.data.chores.choresWarWithin = {
                     },
                 },
                 {
+                    key = 'makingDeposit',
+                    minimumLevel = 80,
+                    pick = 4,
+                    entries = {
+                        { quest = 89062 }, -- Devourer Attack: The Atrium
+                        { quest = 89061 }, -- Devourer Attack: Eco-dome: Primus
+                        { quest = 85722 }, -- Devourer Attack: The Oasis
+                        { quest = 89063 }, -- Devourer Attack: Tazavesh
+                    }
+                },
+                {
                     key = 'moreThanPhase',
                     minimumLevel = 80,
+                    oncePerAccount = true, -- rewards suck
                     requiredQuest = 89345, -- The Untethered Horror
                     entries = {
                         { quest = 91093 }, -- More Than Just a Phase
@@ -41,6 +53,19 @@ Addon.data.chores.choresWarWithin = {
                         },
                     },
                 },
+                {
+                    key = 'warrant',
+                    minimumLevel = 80,
+                    oncePerAccount = true, -- rewards suck?
+                    entries = {
+                        { quest = 90122 }, -- Eliminate Xy'vox the Twisted
+                        { quest = 90123 }, -- Eliminate Hollowbane
+                        { quest = 90124 }, -- Eliminate Shatterpulse
+                        { quest = 90125 }, -- Eliminate Purple Peat
+                        { quest = 90126 }, -- Eliminate Grubber
+                        { quest = 90127 }, -- Eliminate Arcana-Monger So'zer
+                    },
+                }
             },
         },
         {
@@ -255,9 +280,10 @@ Addon.data.chores.choresWarWithin = {
                     minimumLevel = 80,
                     groupSameItem = true,
                     entries = {
-                        { quest=91175, item=235531 }, -- Restored Coffer Key
-                        { quest=91176, item=235531 }, -- Restored Coffer Key
-                        { quest=91177, item=235531 }, -- Restored Coffer Key
+                        { quest=91175, item=238526 }, -- Restored Coffer Key
+                        { quest=91176, item=238526 }, -- Restored Coffer Key
+                        { quest=91177, item=238526 }, -- Restored Coffer Key
+                        { quest=91178, item=238526 }, -- Restored Coffer Key
                     },
                 },
                 {
