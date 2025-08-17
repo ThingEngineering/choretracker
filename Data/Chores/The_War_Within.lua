@@ -56,14 +56,14 @@ Addon.data.chores.choresWarWithin = {
                 {
                     key = 'warrant',
                     minimumLevel = 80,
-                    oncePerAccount = true, -- rewards suck?
+                    -- oncePerAccount = true, -- rewards suck?
                     entries = {
-                        { quest = 90122 }, -- Eliminate Xy'vox the Twisted
-                        { quest = 90123 }, -- Eliminate Hollowbane
-                        { quest = 90124 }, -- Eliminate Shatterpulse
-                        { quest = 90125 }, -- Eliminate Purple Peat
-                        { quest = 90126 }, -- Eliminate Grubber
-                        { quest = 90127 }, -- Eliminate Arcana-Monger So'zer
+                        { quest = 90122, unlockQuest = 87345 }, -- Eliminate Xy'vox the Twisted
+                        { quest = 90123, unlockQuest = 87343 }, -- Eliminate Hollowbane
+                        { quest = 90124, unlockQuest = 87001 }, -- Eliminate Shatterpulse
+                        { quest = 90125, unlockQuest = 87546 }, -- Eliminate Purple Peat
+                        { quest = 90126, unlockQuest = 87405 }, -- Eliminate Grubber
+                        { quest = 90127, unlockQuest = 89490 }, -- Eliminate Arcana-Monger So'zer
                     },
                 }
             },
