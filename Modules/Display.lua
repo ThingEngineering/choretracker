@@ -725,10 +725,13 @@ function Module:GetSectionQuests(week, section, chore, showAnniversaryAccount, s
             for index, questId in ipairs(questIds) do
                 local entryState = ScannerModule.quests[questId]
                 if entryState ~= nil then
-                    if entryState.accountCompleted and (
-                        chore.data.oncePerAccount or
-                        (chore.data.anniversaryAccount and not showAnniversaryAccount)
-                    ) then
+                    if entryState.accountCompleted and
+                        questId ~= choreEntry.unlockQuest and
+                        (
+                            chore.data.oncePerAccount or
+                            (chore.data.anniversaryAccount and not showAnniversaryAccount)
+                        )
+                    then
                         entryState = {
                             objectives = entryState.objectives,
                             status = 2,
