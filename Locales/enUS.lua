@@ -85,6 +85,7 @@ L['chore:warWithin:patch_11_2_0:quests:makingDeposit'] = '[Kar] Devourers'
 L['chore:warWithin:patch_11_2_0:quests:moreThanPhase'] = '[Kar] Just a Phase'
 L['chore:warWithin:patch_11_2_0:quests:specialAssignment'] = '[Kar] Special'
 L['chore:warWithin:patch_11_2_0:quests:warrant'] = '[Kar] Warrant'
+L['chore:warWithin:patch_11_2_0:quests:worldBoss'] = '[Kar] World Boss'
 
 L['chore:warWithin:patch_11_1_5:quests:nightfallIncursion'] = '[Hal] Incursion'
 L['chore:warWithin:patch_11_1_5:quests:nightfallScenario'] = '[Hal] Nightfall Scenario'

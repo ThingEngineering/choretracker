@@ -13,6 +13,14 @@ Addon.data.chores.choresWarWithin = {
             minimumLevel = 70,
             quests = {
                 {
+                    key = 'worldBoss',
+                    minimumLevel = 80,
+                    accountWide = true,
+                    entries = {
+                        { quest = 87352, actualQuest = 87354 }, -- The Main Event
+                    },
+                },
+                {
                     key = 'ecologicalSuccession',
                     minimumLevel = 70,
                     entries = {
