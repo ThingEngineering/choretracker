@@ -449,9 +449,9 @@ function Module:AddDelves(changed, newChildren, seenFrames)
                             status = 0
 
                             labelText = STATUS_COLOR[0] .. mapInfo.name .. '|r: '
-                            if poiData.overcharged then
-                                labelText = labelText .. LIGHTNING_ICON .. ' '
-                            end
+                            -- if poiData.overcharged then
+                            --     labelText = labelText .. LIGHTNING_ICON .. ' '
+                            -- end
                             labelText = labelText .. poiData.name
 
                         else
