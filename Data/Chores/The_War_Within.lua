@@ -15,7 +15,7 @@ Addon.data.chores.choresWarWithin = {
                 {
                     key = 'worldBoss',
                     minimumLevel = 80,
-                    accountWide = true,
+                    oncePerAccount = true,
                     entries = {
                         { quest = 87352, actualQuest = 87354 }, -- The Main Event
                     },
@@ -110,14 +110,14 @@ Addon.data.chores.choresWarWithin = {
                 {
                     key = 'worldBoss',
                     minimumLevel = 80,
-                    accountWide = true,
+                    oncePerAccount = true,
                     entries = {
                         { quest = 89401, actualQuest = 85088 }, -- The Main Event
                     },
                 },
                 {
                     key = 'cartelChoose',
-                    accountWide = true,
+                    oncePerAccount = true,
                     minimumLevel = 80,
                     entries = {
                         { quest = 84948 }, -- Contract Work
@@ -280,7 +280,7 @@ Addon.data.chores.choresWarWithin = {
                 {
                     key = 'delveArchaic',
                     minimumLevel = 70,
-                    accountWide = true,
+                    oncePerAccount = true,
                     entries = {
                         { quest=84370, item=227794 },
                     },
