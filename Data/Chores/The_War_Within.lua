@@ -108,7 +108,16 @@ Addon.data.chores.choresWarWithin = {
             minimumLevel = 80,
             quests = {
                 {
+                    key = 'worldBoss',
+                    minimumLevel = 80,
+                    accountWide = true,
+                    entries = {
+                        { quest = 89401, actualQuest = 85088 }, -- The Main Event
+                    },
+                },
+                {
                     key = 'cartelChoose',
+                    accountWide = true,
                     minimumLevel = 80,
                     entries = {
                         { quest = 84948 }, -- Contract Work
@@ -193,7 +202,7 @@ Addon.data.chores.choresWarWithin = {
                         { quest = 86177 }, -- Side Gig: The Tides Provide
                         { quest = 85962 }, -- Side Gig: Unseemly Reagents
                     },
-                }
+                },
             },
         },
         {
