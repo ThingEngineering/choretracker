@@ -82,6 +82,12 @@ L['category:patch_11_2_0'] = 'Патч 11.2.0'
 L['category:weekly'] = 'Еженедельные'
 L['category:worldBosses'] = 'Мировые боссы'
 
+L['chore:warWithin:patch_11_2_0:quests:ecologicalSuccession'] = '[КАР] Экологическая'
+L['chore:warWithin:patch_11_2_0:quests:makingDeposit'] = '[КАР] Пожиратели'
+L['chore:warWithin:patch_11_2_0:quests:moreThanPhase'] = '[КАР] Фаза'
+L['chore:warWithin:patch_11_2_0:quests:specialAssignment'] = '[КАР] Особое'
+L['chore:warWithin:patch_11_2_0:quests:warrant'] = '[КАР] Ордер'
+
 L['chore:warWithin:patch_11_1_5:quests:nightfallIncursion'] = '[ТАЙ] Вторжения'
 L['chore:warWithin:patch_11_1_5:quests:nightfallScenario'] = '[ТАЙ] Сценарий Сумерки'
 
@@ -279,6 +285,10 @@ L['choose_quest'] = 'Выбери задание!'
 L['questName:80544'] = 'Прядильщица'
 L['questName:80545'] = 'Генерал'
 L['questName:80546'] = 'Визирь'
+L['questName:85722'] = 'Оазис'
+L['questName:89061'] = 'Заповедник'
+L['questName:89062'] = 'Атриум'
+L['questName:89063'] = 'Тазавеш'
 -- C.H.E.T.T
 L['questName:87296'] = 'Получить список!'
 L['questName:86917'] = '10x работа по доставке'
@@ -313,6 +323,7 @@ L['autoAccept:choresWarWithin:patch_11_0_0:dungeon'] = 'Биргот в Дорн
 L['autoAccept:choresWarWithin:patch_11_0_0:emissaryArchives'] = '^Поговорить с Бринте'
 L['autoAccept:choresWarWithin:patch_11_0_0:emissaryDelves'] = '^Поговорите с Бранном Бронзобородом'
 L['autoAccept:choresWarWithin:patch_11_0_0:theaterTroupe'] = '^Театральная труппа$'
+L['autoAccept:choresWarWithin:patch_11_2_0:moreThanPhase'] = '^Фазовое погружение: Подробнее'
 
 L['tooltip:showOptions'] = 'ПКМ, чтобы открыть настройки ChoreTracker'
 L['tooltip:toggleWindow'] = 'ЛКМ, чтобы переключить окно ChoreTracker'
