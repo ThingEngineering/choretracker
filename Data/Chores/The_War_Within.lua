@@ -311,7 +311,7 @@ Addon.data.chores.choresWarWithin = {
                         { quest=91175, item=238526 }, -- Restored Coffer Key
                         { quest=91176, item=238526 }, -- Restored Coffer Key
                         { quest=91177, item=238526 }, -- Restored Coffer Key
-                        { quest=91178, item=238526 }, -- Restored Coffer Key
+                        -- { quest=91178, item=238526 }, -- Restored Coffer Key
                     },
                 },
                 {
