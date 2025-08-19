@@ -1,9 +1,18 @@
+v11.2.0.4
+---------
+- Added 11.2 world boss account loot (Reshanor).
+- Added 11.1 world boss account loot (The Gobfather).
+- Changed CHETT List chores to handle get list/do tasks/turn in list states properly.
+- Removed the 4th Restored Coffer Key quest, it exists but nothing gives a 4th key :|
+- Updated koKR locale (thanks Crazyyoungs).
+- Updated ruRU locale (thanks Hubbotu).
+
 v11.2.0.3
 ---------
 - Added K'aresh > Devourer weekly quests.
 - Added K'aresh > Warrant weekly quest.
 - Added the 4th Restored Coffer Key quest.
-- Changed More Then a Phase to account wide, rewards suck.
+- Changed More Than a Phase to account wide, rewards suck.
 - Fixed Restored Coffer Key item ID.
 - Updated koKR locale (thanks Crazyyoungs).
 - Updated ruRU locale (thanks Hubbotu).
