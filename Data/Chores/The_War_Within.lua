@@ -125,28 +125,39 @@ Addon.data.chores.choresWarWithin = {
                     },
                 },
                 {
+                    key = 'chettGet',
+                    minimumLevel = 80,
+                    entries = {
+                        { quest = 5000002 },
+                    },
+                },
+                {
                     key = 'chett',
                     minimumLevel = 80,
                     need = 4,
                     pick = 8,
-                    requiredQuest = 87296,
-                    preEntries = {
-                        { quest = 87296 }, -- C.H.E.T.T. List
-                    },
+                    requiredQuest = 5000002,
                     entries = {
-                        { quest = 86915, unlockQuest = 87296 }, -- Side with a Cartel
-                        { quest = 86919, unlockQuest = 87296 }, -- Side Gig
-                        { quest = 87304, unlockQuest = 87296 }, -- Time to Vacate [Excavation Site 9]
-                        { quest = 87303, unlockQuest = 87296 }, -- Clean the Sidestreets [Sidestreet Sluice]
-                        { quest = 87305, unlockQuest = 87296 }, -- Desire to D.R.I.V.E. [2x race]
-                        { quest = 87302, unlockQuest = 87296 }, -- Rare Rivals [3x rare]
-                        { quest = 86924, unlockQuest = 87296 }, -- Gotta Catch at Least a Few [5x battle pet]
-                        { quest = 86920, unlockQuest = 87296 }, -- War Mode Violence [5x war mode kill]
-                        { quest = 86917, unlockQuest = 87296 }, -- Ship Right [10x job]
-                        { quest = 87307, unlockQuest = 87296 }, -- Garbage Day [25x trash]
-                        { quest = 87306, unlockQuest = 87296 }, -- Kaja Cruising [50x car can]
-                        { quest = 86923, unlockQuest = 87296 }, -- Go Fish [50x fishing]
-                        { quest = 86918, unlockQuest = 87296 }, -- Reclaimed Scrap [100x empty can]
+                        { quest = 86915 }, -- Side with a Cartel
+                        { quest = 86919 }, -- Side Gig
+                        { quest = 87304 }, -- Time to Vacate [Excavation Site 9]
+                        { quest = 87303 }, -- Clean the Sidestreets [Sidestreet Sluice]
+                        { quest = 87305 }, -- Desire to D.R.I.V.E. [2x race]
+                        { quest = 87302 }, -- Rare Rivals [3x rare]
+                        { quest = 86924 }, -- Gotta Catch at Least a Few [5x battle pet]
+                        { quest = 86920 }, -- War Mode Violence [5x war mode kill]
+                        { quest = 86917 }, -- Ship Right [10x job]
+                        { quest = 87307 }, -- Garbage Day [25x trash]
+                        { quest = 87306 }, -- Kaja Cruising [50x car can]
+                        { quest = 86923 }, -- Go Fish [50x fishing]
+                        { quest = 86918 }, -- Reclaimed Scrap [100x empty can]
+                    },
+                },
+                {
+                    key = 'chettTurnIn',
+                    minimumLevel = 80,
+                    entries = {
+                        { quest = 5000003 },
                     },
                 },
                 {

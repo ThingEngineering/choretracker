@@ -92,6 +92,8 @@ L['chore:warWithin:patch_11_1_5:quests:nightfallScenario'] = '[Hal] Nightfall Sc
 
 L['chore:warWithin:patch_11_1_0:quests:cartelChoose'] = '[Um] Cartel Contract'
 L['chore:warWithin:patch_11_1_0:quests:chett'] = '[Um] C.H.E.T.T.'
+L['chore:warWithin:patch_11_1_0:quests:chettGet'] = '[Um] C.H.E.T.T.'
+L['chore:warWithin:patch_11_1_0:quests:chettTurnIn'] = '[Um] C.H.E.T.T.'
 L['chore:warWithin:patch_11_1_0:quests:sideGigs'] = '[Um] Side Gig'
 L['chore:warWithin:patch_11_1_0:quests:specialAssignment'] = '[Um] Special'
 L['chore:warWithin:patch_11_1_0:quests:jobs'] = '[Um] Many Jobs, Handle It!'
@@ -287,7 +289,7 @@ L['questName:89061'] = 'Eco-Dome'
 L['questName:89062'] = 'Atrium'
 L['questName:89063'] = 'Tazavesh'
 -- C.H.E.T.T
-L['questName:87296'] = 'Get List!'
+L['questName:87296'] = 'Get list!'
 L['questName:86917'] = '10x Delivery Job'
 L['questName:86918'] = '100x Empty Can'
 L['questName:86920'] = '5x War Mode Kill'
@@ -303,6 +305,7 @@ L['questName:87307'] = '25x Trash Can/Dumpster'
 L['missing_skill_level'] = '|cFFFF00FFOpen profession window!|r'
 L['remove_specialAssignment'] = 'Special Assignment: '
 L['skip_undermine_cartel'] = 'sign a cartel contract for the week$'
+L['turn_in_list'] = 'Turn in list!'
 
 -- Auto-Accept
 L['autoAccept:acceptQuest'] = 'Accept Quest'

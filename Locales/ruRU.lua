@@ -87,6 +87,8 @@ L['chore:warWithin:patch_11_1_5:quests:nightfallScenario'] = '[ТАЙ] Сцен�
 
 L['chore:warWithin:patch_11_1_0:quests:cartelChoose'] = '[НШ] Контракт с картелем'
 L['chore:warWithin:patch_11_1_0:quests:chett'] = '[НШ] КРОТ'
+L['chore:warWithin:patch_11_1_0:quests:chettGet'] = '[НШ] КРОТ'
+L['chore:warWithin:patch_11_1_0:quests:chettTurnIn'] = '[НШ] КРОТ'
 L['chore:warWithin:patch_11_1_0:quests:sideGigs'] = '[НШ] Побочное поручение'
 L['chore:warWithin:patch_11_1_0:quests:specialAssignment'] = '[НШ] Особое'
 L['chore:warWithin:patch_11_1_0:quests:jobs'] = '[НШ] Куча доставок!'

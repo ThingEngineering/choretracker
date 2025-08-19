@@ -86,6 +86,8 @@ L['chore:warWithin:patch_11_1_5:quests:nightfallScenario'] = '[陨圣峪] 场景
 
 L['chore:warWithin:patch_11_1_0:quests:cartelChoose'] = '[安德麦] 合约工作'
 L['chore:warWithin:patch_11_1_0:quests:chett'] = '[安德麦] C.H.E.T.T.'
+L['chore:warWithin:patch_11_1_0:quests:chettGet'] = '[安德麦] C.H.E.T.T.'
+L['chore:warWithin:patch_11_1_0:quests:chettTurnIn'] = '[安德麦] C.H.E.T.T.'
 L['chore:warWithin:patch_11_1_0:quests:sideGigs'] = '[安德麦] 副业'
 L['chore:warWithin:patch_11_1_0:quests:specialAssignment'] = '[安德麦] 特别任务'
 L['chore:warWithin:patch_11_1_0:quests:weeklies'] = '[安德麦] 周长'

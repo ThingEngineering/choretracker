@@ -17,12 +17,15 @@ local Module = Addon:NewModule(
 local CAPI_GetAreaPOIInfo = C_AreaPoiInfo.GetAreaPOIInfo
 local CDAT_GetSecondsUntilWeeklyReset = C_DateAndTime.GetSecondsUntilWeeklyReset
 local CI_GetItemCount = C_Item.GetItemCount
+local CI_GetItemNameByID = C_Item.GetItemNameByID
+local CI_IsItemDataCachedByID = C_Item.IsItemDataCachedByID
 local CQL_GetQuestObjectives = C_QuestLog.GetQuestObjectives
 local CQL_IsOnQuest = C_QuestLog.IsOnQuest
 local CQL_IsQuestFlaggedCompleted = C_QuestLog.IsQuestFlaggedCompleted
 local CQL_IsQuestFlaggedCompletedOnAccount = C_QuestLog.IsQuestFlaggedCompletedOnAccount
 local CQL_IsWorldQuest = C_QuestLog.IsWorldQuest
 local CQL_ReadyForTurnIn = C_QuestLog.ReadyForTurnIn
+local CTI_GetInventoryItemByID = C_TooltipInfo.GetInventoryItemByID
 local CTQ_GetQuestTimeLeftSeconds = C_TaskQuest.GetQuestTimeLeftSeconds
 local CTSUI_GetProfessionInfoBySkillLineID = C_TradeSkillUI.GetProfessionInfoBySkillLineID
 local CUIWM_GetAllWidgetsBySetID = C_UIWidgetManager.GetAllWidgetsBySetID
@@ -33,6 +36,7 @@ local DATA_TYPES = {
     'dungeons',
     'quests',
 }
+local CHETT_LIST_ID = 235053
 local OPTIONAL_OBJECTIVE = OPTIONAL_QUEST_OBJECTIVE_DESCRIPTION:gsub('%%s', '.+'):gsub('([%(%)])', '%%%1')
 local STATUS_NOT_STARTED = 0
 local STATUS_IN_PROGRESS = 1
@@ -95,6 +99,13 @@ function Module:OnEnable()
         1,
         'ScanDungeons'
     )
+    self:RegisterBucketEvent(
+        {
+            'BAG_UPDATE',
+        },
+        2,
+        'ScanChett'
+    )
 end
 
 function Module:OnEnteringWorld()
@@ -104,6 +115,9 @@ function Module:OnEnteringWorld()
     end
 
     C_Timer.After(5, function() self:ScanGilded() end)
+
+    local item = Item:CreateFromItemID(CHETT_LIST_ID)
+    item:ContinueOnItemLoad(function() self:ScanChett() end)
 end
 
 function Module:CURRENCY_DISPLAY_UPDATE(_, currencyId)
@@ -130,6 +144,88 @@ end
 function Module:UNIT_QUEST_LOG_CHANGED(targets)
     if targets.player then
         self:ScanQuests()
+    end
+end
+
+function Module:ScanChett()
+    if CI_IsItemDataCachedByID(CHETT_LIST_ID) == false then
+        C_Timer.After(2, function() self:ScanChett() end)
+        return
+    end
+
+    -- no list, we need to get one
+    if CI_GetItemCount(CHETT_LIST_ID) == 0 then
+        self:UpdateChett(STATUS_IN_PROGRESS, STATUS_COMPLETED)
+        return
+    end
+
+    local tooltipInfo = CTI_GetInventoryItemByID(CHETT_LIST_ID)
+    if tooltipInfo ~= nil then
+        -- 1 line is a "Retrieving item information" tooltip
+        if #tooltipInfo.lines == 1 then
+            C_Timer.After(2, function() self:ScanChett() end)
+            return
+        end
+
+        -- completed list, flag that we need to turn it in
+        local completedName = CI_GetItemNameByID(CHETT_LIST_ID)
+        if completedName ~= nil and tooltipInfo.lines[1].leftText == completedName then
+            self:UpdateChett(STATUS_COMPLETED, STATUS_IN_PROGRESS)
+            return
+        end
+    end
+
+    -- we have a list and it's not completed
+    self:UpdateChett(STATUS_COMPLETED, STATUS_COMPLETED)
+end
+
+function Module:UpdateChett(getStatus, turnInStatus)
+    local changed = false
+
+    -- get list
+    if self.quests[5000002] == nil or self.quests[5000002].status ~= getStatus then
+        if getStatus == STATUS_IN_PROGRESS then
+            self.quests[5000002] = {
+                status = STATUS_IN_PROGRESS,
+                objectives = {
+                    {
+                        type = 'object',
+                        text = L['questName:87296'],
+                        have = 0,
+                        need = 1,
+                    },
+                },
+            }
+        else
+            self.quests[5000002] = { status = STATUS_COMPLETED }
+        end
+
+        changed = true
+    end
+
+    -- turn in list
+    if self.quests[5000003] == nil or self.quests[5000003].status ~= turnInStatus then
+        if turnInStatus == STATUS_IN_PROGRESS then
+            self.quests[5000003] = {
+                status = STATUS_IN_PROGRESS,
+                objectives = {
+                    {
+                        type = 'object',
+                        text = L['turn_in_list'],
+                        have = 1,
+                        need = 1,
+                    },
+                },
+            }
+        else
+            self.quests[5000003] = { status = STATUS_COMPLETED }
+        end
+
+        changed = true
+    end
+
+    if changed then
+        self:SendMessage('ChoreTracker_Data_Updated', 'quests')
     end
 end
 
@@ -360,14 +456,14 @@ function Module:ScanQuests(forceChanged)
     local week = self:GetWeek()
 
     for questId, _ in pairs(self.questPaths) do
-        -- Hack for C.H.E.T.T. List, treat the quest as complete if you already have one
-        local forceStatus = nil
-        if questId == 87296 then
-            local itemCount = CI_GetItemCount(235053) + CI_GetItemCount(236682)
-            if itemCount > 0 then
-                forceStatus = STATUS_COMPLETED
-            end
-        end
+        -- -- Hack for C.H.E.T.T. List, treat the quest as complete if you already have one
+        -- local forceStatus = nil
+        -- if questId == 87296 then
+        --     local itemCount = CI_GetItemCount(235053) + CI_GetItemCount(236682)
+        --     if itemCount > 0 then
+        --         forceStatus = STATUS_COMPLETED
+        --     end
+        -- end
 
         local questHadChanges = self:UpdateQuest(questId, week, forceStatus)
         if questHadChanges == true then
