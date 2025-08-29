@@ -302,11 +302,12 @@ L['questName:87304'] = '九号挖掘场地下堡'
 L['questName:87305'] = '2次赛车竞速赛'
 L['questName:87306'] = '50个赛车油罐'
 L['questName:87307'] = '25个垃圾罐/垃圾堆'
+L['questName:5000002'] = '获取清单！'
+L['questName:5000003'] = '交付清单！'
 
 L['missing_skill_level'] = '|cFFFF00FF打开专业窗口！|r'
 L['remove_specialAssignment'] = '特别任务：'
 L['skip_undermine_cartel'] = '签署本周财阀合同$'
-L['turn_in_list'] = '交付清单！'
 
 -- Auto-Accept
 L['autoAccept:acceptQuest'] = '接受任务'

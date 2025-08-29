@@ -211,7 +211,7 @@ function Module:UpdateChett(getStatus, turnInStatus)
                 objectives = {
                     {
                         type = 'object',
-                        text = L['turn_in_list'],
+                        text = L['questName:5000003'],
                         have = 1,
                         need = 1,
                     },
@@ -222,6 +222,13 @@ function Module:UpdateChett(getStatus, turnInStatus)
         end
 
         changed = true
+    end
+
+    -- get list is done and turn in is not active
+    if self.quests[5000002].status == STATUS_COMPLETED and self.quests[5000003].status == STATUS_COMPLETED then
+        self.quests[5000001] = { status = STATUS_COMPLETED }
+    else
+        self.quests[5000001] = { status = STATUS_IN_PROGRESS }
     end
 
     if changed then

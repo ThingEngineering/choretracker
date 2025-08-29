@@ -125,6 +125,7 @@ Addon.data.chores.choresWarWithin = {
                 },
                 {
                     key = 'chettGet',
+                    checkKey = 'chett',
                     minimumLevel = 80,
                     entries = {
                         { quest = 5000002 },
@@ -135,7 +136,10 @@ Addon.data.chores.choresWarWithin = {
                     minimumLevel = 80,
                     need = 4,
                     pick = 8,
-                    requiredQuest = 5000002,
+                    requiredQuest = 5000001,
+                    preEntries = {
+                        { quest = 5000002 },
+                    },
                     entries = {
                         { quest = 86915 }, -- Side with a Cartel
                         { quest = 86919 }, -- Side Gig
@@ -154,6 +158,7 @@ Addon.data.chores.choresWarWithin = {
                 },
                 {
                     key = 'chettTurnIn',
+                    checkKey = 'chett',
                     minimumLevel = 80,
                     entries = {
                         { quest = 5000003 },
