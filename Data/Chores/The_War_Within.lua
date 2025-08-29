@@ -41,7 +41,6 @@ Addon.data.chores.choresWarWithin = {
                 {
                     key = 'moreThanPhase',
                     minimumLevel = 80,
-                    oncePerAccount = true, -- rewards suck
                     requiredQuest = 89345, -- The Untethered Horror
                     entries = {
                         { quest = 91093 }, -- More Than Just a Phase
