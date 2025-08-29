@@ -109,6 +109,7 @@ L['chore:warWithin:patch_11_0_0:quests:awakeningTheMachine'] = 'Awakening the Ma
 L['chore:warWithin:patch_11_0_0:quests:delveArchaic'] = 'Delve Archaic'
 L['chore:warWithin:patch_11_0_0:quests:delveGilded'] = 'Delve Gilded'
 L['chore:warWithin:patch_11_0_0:quests:delveKeys'] = 'Delve Keys'
+L['chore:warWithin:patch_11_0_0:quests:delversBounty'] = "Delver's Bounty"
 L['chore:warWithin:patch_11_0_0:quests:dungeon'] = 'Dungeon'
 L['chore:warWithin:patch_11_0_0:quests:emissaryArchives'] = 'Archives'
 L['chore:warWithin:patch_11_0_0:quests:emissaryDelves'] = 'Delves'
