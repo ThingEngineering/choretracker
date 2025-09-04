@@ -1,3 +1,15 @@
+v11.2.0.6
+---------
+- Fixed CHETT List chore weirdness. Probably.
+
+v11.2.0.5
+---------
+- Added Delver's Bounty chore.
+- Added the 4th Restored Coffer Key quest (again).
+- Changed More Than Just a Phase back to per-character, it gives a key now.
+- Updated koKR locale (thanks Crazyyoungs).
+- Updated zhCN locale (thanks Sefank).
+
 v11.2.0.4
 ---------
 - Added 11.2 world boss account loot (Reshanor).

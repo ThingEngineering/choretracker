@@ -92,8 +92,6 @@ L['chore:warWithin:patch_11_1_5:quests:nightfallScenario'] = '[Hal] Nightfall Sc
 
 L['chore:warWithin:patch_11_1_0:quests:cartelChoose'] = '[Um] Cartel Contract'
 L['chore:warWithin:patch_11_1_0:quests:chett'] = '[Um] C.H.E.T.T.'
-L['chore:warWithin:patch_11_1_0:quests:chettGet'] = '[Um] C.H.E.T.T.'
-L['chore:warWithin:patch_11_1_0:quests:chettTurnIn'] = '[Um] C.H.E.T.T.'
 L['chore:warWithin:patch_11_1_0:quests:sideGigs'] = '[Um] Side Gig'
 L['chore:warWithin:patch_11_1_0:quests:specialAssignment'] = '[Um] Special'
 L['chore:warWithin:patch_11_1_0:quests:jobs'] = '[Um] Many Jobs, Handle It!'
@@ -109,6 +107,7 @@ L['chore:warWithin:patch_11_0_0:quests:awakeningTheMachine'] = 'Awakening the Ma
 L['chore:warWithin:patch_11_0_0:quests:delveArchaic'] = 'Delve Archaic'
 L['chore:warWithin:patch_11_0_0:quests:delveGilded'] = 'Delve Gilded'
 L['chore:warWithin:patch_11_0_0:quests:delveKeys'] = 'Delve Keys'
+L['chore:warWithin:patch_11_0_0:quests:delversBounty'] = "Delver's Bounty"
 L['chore:warWithin:patch_11_0_0:quests:dungeon'] = 'Dungeon'
 L['chore:warWithin:patch_11_0_0:quests:emissaryArchives'] = 'Archives'
 L['chore:warWithin:patch_11_0_0:quests:emissaryDelves'] = 'Delves'
@@ -301,11 +300,12 @@ L['questName:87304'] = 'Excavation Site 9 delve'
 L['questName:87305'] = '2x Car Race'
 L['questName:87306'] = '50x Car Can'
 L['questName:87307'] = '25x Trash Can/Dumpster'
+L['questName:5000002'] = 'Get list!'
+L['questName:5000003'] = 'Turn in list!'
 
 L['missing_skill_level'] = '|cFFFF00FFOpen profession window!|r'
 L['remove_specialAssignment'] = 'Special Assignment: '
 L['skip_undermine_cartel'] = 'sign a cartel contract for the week$'
-L['turn_in_list'] = 'Turn in list!'
 
 -- Auto-Accept
 L['autoAccept:acceptQuest'] = 'Accept Quest'

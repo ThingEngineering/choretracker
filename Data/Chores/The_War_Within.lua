@@ -41,7 +41,6 @@ Addon.data.chores.choresWarWithin = {
                 {
                     key = 'moreThanPhase',
                     minimumLevel = 80,
-                    oncePerAccount = true, -- rewards suck
                     requiredQuest = 89345, -- The Untethered Horror
                     entries = {
                         { quest = 91093 }, -- More Than Just a Phase
@@ -126,6 +125,7 @@ Addon.data.chores.choresWarWithin = {
                 },
                 {
                     key = 'chettGet',
+                    checkKey = 'chett',
                     minimumLevel = 80,
                     entries = {
                         { quest = 5000002 },
@@ -136,7 +136,10 @@ Addon.data.chores.choresWarWithin = {
                     minimumLevel = 80,
                     need = 4,
                     pick = 8,
-                    requiredQuest = 5000002,
+                    requiredQuest = 5000001,
+                    preEntries = {
+                        { quest = 5000002 },
+                    },
                     entries = {
                         { quest = 86915 }, -- Side with a Cartel
                         { quest = 86919 }, -- Side Gig
@@ -155,6 +158,7 @@ Addon.data.chores.choresWarWithin = {
                 },
                 {
                     key = 'chettTurnIn',
+                    checkKey = 'chett',
                     minimumLevel = 80,
                     entries = {
                         { quest = 5000003 },
@@ -289,6 +293,13 @@ Addon.data.chores.choresWarWithin = {
                     }
                 },
                 {
+                    key = 'delversBounty',
+                    minimumLevel = 80,
+                    entries = {
+                        { quest=86371, item=248142 },
+                    },
+                },
+                {
                     key = 'delveArchaic',
                     minimumLevel = 70,
                     oncePerAccount = true,
@@ -311,7 +322,7 @@ Addon.data.chores.choresWarWithin = {
                         { quest=91175, item=238526 }, -- Restored Coffer Key
                         { quest=91176, item=238526 }, -- Restored Coffer Key
                         { quest=91177, item=238526 }, -- Restored Coffer Key
-                        -- { quest=91178, item=238526 }, -- Restored Coffer Key
+                        { quest=91178, item=238526 }, -- Restored Coffer Key
                     },
                 },
                 {

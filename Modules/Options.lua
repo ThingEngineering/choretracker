@@ -142,7 +142,9 @@ function Module:SetAllChores(sectionKey, onlyCategory, value)
                     end
             
                     for _, chore in ipairs(category[typeKey]) do
-                        typeOptions[chore.key] = value
+                        if chore.checkKey == nil then
+                            typeOptions[chore.key] = value
+                        end
                     end
                 end
             end
@@ -518,13 +520,15 @@ function Module:AddSubOptions(optionsTable, parentKey, key, data, optionWidth)
     if #data == 0 then return end
 
     for _, subData in ipairs(data) do
-        local subKey = key .. ':' .. subData.key
-        optionsTable.args[subKey] = {
-            name = L['chore:' .. parentKey .. ':' .. subKey],
-            type = 'toggle',
-            order = newOrder(),
-            width = optionWidth,
-        }
+        if subData.checkKey == nil then
+            local subKey = key .. ':' .. subData.key
+            optionsTable.args[subKey] = {
+                name = L['chore:' .. parentKey .. ':' .. subKey],
+                type = 'toggle',
+                order = newOrder(),
+                width = optionWidth,
+            }
+        end
     end
 end
 
