@@ -107,6 +107,7 @@ L['chore:warWithin:patch_11_0_7:quests:storm'] = '[SI] 폭풍'
 L['chore:warWithin:patch_11_0_7:quests:weeklies'] = '[SI] 주간'																 
 L['chore:warWithin:patch_11_0_0:quests:awakeningTheMachine'] = '기계 깨우기'
 L['chore:warWithin:patch_11_0_0:quests:delveArchaic'] = '구렁 태고'
+L['chore:warWithin:patch_11_0_0:quests:delversBounty'] = "탐험가의 은혜"
 L['chore:warWithin:patch_11_0_0:quests:delveGilded'] = '구렁 금빛'
 L['chore:warWithin:patch_11_0_0:quests:delveKeys'] = '구렁 키'
 L['chore:warWithin:patch_11_0_0:quests:dungeon'] = '던전'
