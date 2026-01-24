@@ -58,7 +58,7 @@ function Module:OnInitialize()
     self:CreateOptions()
 
     AC:RegisterOptionsTable(addonName, self.options)
-    self.optionsFrame = ACD:AddToBlizOptions(addonName, addonName)
+    self.optionsFrame, self.optionsCategory = ACD:AddToBlizOptions(addonName, addonName)
 
     local profileOptions = ADBO:GetOptionsTable(Addon.db)
     AC:RegisterOptionsTable(addonName .. '_Profiles', profileOptions)

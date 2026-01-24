@@ -288,7 +288,7 @@ do
         settingsButton:SetHighlightTexture([[Interface\Addons\ChoreTracker\Assets\gear]])
         setDesaturation(settingsButton)
 
-        settingsButton:SetScript('OnClick', function() Settings.OpenToCategory(addonName) end)
+        settingsButton:SetScript('OnClick', function() addonTable:OpenSettings() end)
 
         self.settingsButton = settingsButton
 

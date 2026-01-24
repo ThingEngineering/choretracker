@@ -120,7 +120,7 @@ local CT_LDB = LDB:NewDataObject(addonName, {
         if(button=="LeftButton")then
             Addon:GetModule('Display'):ToggleShown(true)
         else
-            Settings.OpenToCategory(addonName)
+            Addon:OpenSettings()
         end
     end,
 })
@@ -248,6 +248,10 @@ function Addon:TableKeys(tbl)
     return keys
 end
 
+function Addon:OpenSettings()
+    Settings.OpenToCategory(Addon:GetModule('Options').optionsCategory)
+end
+
 function Addon:SlashCommand(command, editbox)
     if command == 'show' then
         local displayModule = self:GetModule('Display')
@@ -262,7 +266,7 @@ function Addon:SlashCommand(command, editbox)
         displayModule:ToggleShown(true)
 
     elseif command == '' or command == nil then
-        Settings.OpenToCategory(addonName)
+        Addon:OpenSettings()
 
     else
         print('ChoreTracker: unknown command')
