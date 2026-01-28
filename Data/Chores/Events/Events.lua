@@ -27,6 +27,24 @@ Addon.data.chores.choresEvents = {
                         { quest = 91205 }, -- Ultra Prime Deluxe Turbo-Boost: Powerhouse Challenges
                     },
                 },
+                {
+                    key = 'prepatchDisruptTheCall',
+                    minimumLevel = 10,
+                    -- requiredQuest = 90768, -- Cult it Out (account?)
+                    oncePerAccount = true,
+                    entries = {
+                        { quest = 91795 }, -- Disrupt the Call
+                    },
+                },
+                {
+                    key = 'prepatchTwilightsDawn',
+                    minimumLevel = 10,
+                    -- requiredQuest = 90768, -- Cult it Out (account?)
+                    oncePerAccount = true,
+                    entries = {
+                        { quest = 87308 }, -- Twilight's Dawn
+                    },
+                },
             },
         },
         {

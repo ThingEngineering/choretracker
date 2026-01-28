@@ -209,6 +209,8 @@ L['chore:events:holidays:quests:timewalkingTurnIn'] = '시간여행 반납'
 L['chore:events:holidays:quests:worldQuests'] = '전역 퀘스트'
 
 L['chore:events:special:quests:turboBoost'] = '터보 부스터'
+L['chore:events:special:quests:prepatchDisruptTheCall'] = 'Disrupt the Call'
+L['chore:events:special:quests:prepatchTwilightsDawn'] = "Twilight's Dawn"
 
 L['chore:events:holidays2:dungeons:corenDirebrew'] = '코렌 다이어브루'
 L['chore:events:holidays2:dungeons:crownChemicalCo'] = '왕관화학회사'

@@ -210,6 +210,8 @@ L['chore:events:holidays:quests:timewalkingTurnIn'] = 'Задание: Путе�
 L['chore:events:holidays:quests:worldQuests'] = 'Локальные Задания'
 
 L['chore:events:special:quests:turboBoost'] = 'Турбо-ускорение'
+L['chore:events:special:quests:prepatchDisruptTheCall'] = 'Disrupt the Call'
+L['chore:events:special:quests:prepatchTwilightsDawn'] = "Twilight's Dawn"
 
 L['chore:events:holidays2:dungeons:corenDirebrew'] = 'Корен Худовар'
 L['chore:events:holidays2:dungeons:crownChemicalCo'] = 'Королевская химическая компания'

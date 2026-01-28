@@ -208,6 +208,8 @@ L['chore:events:holidays:quests:timewalkingTurnIn'] = 'Timewalking Turn-in'
 L['chore:events:holidays:quests:worldQuests'] = 'World Quests'
 
 L['chore:events:special:quests:turboBoost'] = 'Turbo Boost'
+L['chore:events:special:quests:prepatchDisruptTheCall'] = 'Disrupt the Call'
+L['chore:events:special:quests:prepatchTwilightsDawn'] = "Twilight's Dawn"
 
 L['chore:events:holidays2:dungeons:corenDirebrew'] = 'Coren Direbrew'
 L['chore:events:holidays2:dungeons:crownChemicalCo'] = 'Crown Chemical Co.'
