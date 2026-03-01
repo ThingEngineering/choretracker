@@ -9,6 +9,21 @@ Addon.data.chores.professionBlacksmithing = {
     texture = C_Spell.GetSpellTexture(2018),
     categories = {
         {
+            key = 'midnight',
+            name = EXPANSION_NAME11,
+            skillLineId = 2907,
+            drops = {
+            },
+            quests = {
+                {
+                    key = 'treatise',
+                    entries = {
+                        { quest=95128, item=245763 }, -- Thalassian Treatise on Blacksmithing
+                    },
+                },
+            }
+        },
+        {
             key = 'warWithin',
             name = EXPANSION_NAME10,
             skillLineId = 2872,

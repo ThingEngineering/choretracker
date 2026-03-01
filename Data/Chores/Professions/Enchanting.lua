@@ -9,6 +9,21 @@ Addon.data.chores.professionEnchanting = {
     texture = C_Spell.GetSpellTexture(7411),
     categories = {
         {
+            key = 'midnight',
+            name = EXPANSION_NAME11,
+            skillLineId = 2909,
+            drops = {
+            },
+            quests = {
+                {
+                    key = 'treatise',
+                    entries = {
+                        { quest=95129, item=245759 }, -- Thalassian Treatise on Enchanting
+                    },
+                },
+            }
+        },
+        {
             key = 'warWithin',
             name = EXPANSION_NAME10,
             skillLineId = 2874,

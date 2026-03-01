@@ -9,6 +9,21 @@ Addon.data.chores.professionEngineering = {
     texture = C_Spell.GetSpellTexture(4036),
     categories = {
         {
+            key = 'midnight',
+            name = EXPANSION_NAME11,
+            skillLineId = 2910,
+            drops = {
+            },
+            quests = {
+                {
+                    key = 'treatise',
+                    entries = {
+                        { quest=83728, item=245809 }, -- Thalassian Treatise on Engineering
+                    },
+                },
+            }
+        },
+        {
             key = 'warWithin',
             name = EXPANSION_NAME10,
             skillLineId = 2875,

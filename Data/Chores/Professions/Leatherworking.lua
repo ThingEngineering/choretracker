@@ -9,6 +9,21 @@ Addon.data.chores.professionLeatherworking = {
     texture = C_Spell.GetSpellTexture(2108),
     categories = {
         {
+            key = 'midnight',
+            name = EXPANSION_NAME11,
+            skillLineId = 2915,
+            drops = {
+            },
+            quests = {
+                {
+                    key = 'treatise',
+                    entries = {
+                        { quest=95134, item=245758 }, -- Thalassian Treatise on Leatherworking
+                    },
+                },
+            }
+        },
+        {
             key = 'warWithin',
             name = EXPANSION_NAME10,
             skillLineId = 2880,

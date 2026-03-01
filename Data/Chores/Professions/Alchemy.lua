@@ -9,6 +9,21 @@ Addon.data.chores.professionAlchemy = {
     texture = C_Spell.GetSpellTexture(2259),
     categories = {
         {
+            key = 'midnight',
+            name = EXPANSION_NAME11,
+            skillLineId = 2906,
+            drops = {
+            },
+            quests = {
+                {
+                    key = 'treatise',
+                    entries = {
+                        { quest=95127, item=245755 }, -- Thalassian Treatise on Alchemy
+                    },
+                },
+            }
+        },
+        {
             key = 'warWithin',
             name = EXPANSION_NAME10,
             skillLineId = 2871,

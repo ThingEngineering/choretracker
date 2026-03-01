@@ -9,6 +9,21 @@ Addon.data.chores.professionSkinning = {
     texture = C_Spell.GetSpellTexture(8613),
     categories = {
         {
+            key = 'midnight',
+            name = EXPANSION_NAME11,
+            skillLineId = 2917,
+            drops = {
+            },
+            quests = {
+                {
+                    key = 'treatise',
+                    entries = {
+                        { quest=95136, item=245828 }, -- Thalassian Treatise on Skinning
+                    },
+                },
+            }
+        },
+        {
             key = 'warWithin',
             name = EXPANSION_NAME10,
             skillLineId = 2882,

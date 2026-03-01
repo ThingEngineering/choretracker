@@ -9,6 +9,21 @@ Addon.data.chores.professionMining = {
     texture = C_Spell.GetSpellTexture(2575),
     categories = {
         {
+            key = 'midnight',
+            name = EXPANSION_NAME11,
+            skillLineId = 2916,
+            drops = {
+            },
+            quests = {
+                {
+                    key = 'treatise',
+                    entries = {
+                        { quest=95135, item=245762 }, -- Thalassian Treatise on Mining
+                    },
+                },
+            }
+        },
+        {
             key = 'warWithin',
             name = EXPANSION_NAME10,
             skillLineId = 2881,

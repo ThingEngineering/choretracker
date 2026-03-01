@@ -225,6 +225,8 @@ L['chore:events:holidays2:quests:menacingGrumplings'] = 'Grumplings'
 L['chore:events:holidays2:quests:whatHorriblePresents'] = 'Presents'
 L['chore:events:holidays2:quests:whereAreTheChildren'] = 'Children'
 
+L['chore:professions:midnight:quests:treatise'] = 'Treatise'
+
 L['chore:professions:warWithin:drops:gather'] = 'Gather'
 L['chore:professions:warWithin:drops:mob/treasure'] = 'Mobs/Treasures'
 

@@ -9,6 +9,21 @@ Addon.data.chores.professionHerbalism = {
     texture = C_Spell.GetSpellTexture(2366),
     categories = {
         {
+            key = 'midnight',
+            name = EXPANSION_NAME11,
+            skillLineId = 2912,
+            drops = {
+            },
+            quests = {
+                {
+                    key = 'treatise',
+                    entries = {
+                        { quest=95130, item=245761 }, -- Thalassian Treatise on Herbalism
+                    },
+                },
+            }
+        },
+        {
             key = 'warWithin',
             name = EXPANSION_NAME10,
             skillLineId = 2877,
