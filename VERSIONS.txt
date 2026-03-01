@@ -1,3 +1,8 @@
+v12.0.0.4
+---------
+- Added Midnight dungeon chore.
+- Added Midnight profession chores for orders/treatises.
+
 v12.0.0.3
 ---------
 - Added prepatch event weeklies.
