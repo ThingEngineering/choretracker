@@ -13,7 +13,7 @@ Addon.data.chores.choresPvp = {
             quests = {
                 {
                     key = 'arenaSkirmishes',
-                    minimumLevel = 80,
+                    minimumLevel = 90,
                     requiredEventIds = { 561, 610, 611, 612 }, -- Arena Skirmish Bonus Event
                     entries = {
                         { quest = 83358 }, -- The Arena Calls
@@ -21,7 +21,7 @@ Addon.data.chores.choresPvp = {
                 },
                 {
                     key = 'battlegrounds',
-                    minimumLevel = 80,
+                    minimumLevel = 90,
                     requiredEventIds = { 563, 602, 603, 604 }, -- Battleground Bonus Event
                     entries = {
                         { quest = 83345 }, -- A Call to Battle
@@ -29,7 +29,7 @@ Addon.data.chores.choresPvp = {
                 },
                 {
                     key = 'preserving',
-                    minimumLevel = 80,
+                    minimumLevel = 90,
                     pick = 2,
                     alwaysShowObjectives = true,
                     entries = {
@@ -43,14 +43,12 @@ Addon.data.chores.choresPvp = {
                 },
                 {
                     key = 'sparks',
-                    minimumLevel = 70,
+                    minimumlevel = 90,
                     entries = {
-                        { quest = 81793 }, -- Sparks of War: Isle of Dorn
-                        { quest = 81794 }, -- Sparks of War: The Ringing Deeps
-                        { quest = 81795 }, -- Sparks of War: Hallowfall
-                        { quest = 81796 }, -- Sparks of War: Azj-Kahet
-                        { quest = 86853 }, -- Sparks of War: Undermine
-                        { quest = 90781 }, -- Sparks of War: K'aresh
+                        { quest = 93423 }, -- Sparks of War: Eversong
+                        { quest = 93424 }, -- Sparks of War: Zul'Aman
+                        { quest = 93425 }, -- Sparks of War: Harandar
+                        { quest = 93426 }, -- Sparks of War: Voidstorm
                     },
                 }
             },
@@ -60,7 +58,7 @@ Addon.data.chores.choresPvp = {
             quests = {
                 {
                     key = 'arathiBlizzard',
-                    minimumLevel = 80,
+                    minimumlevel = 90,
                     requiredEventIds = { 666, 673, 680, 697, 737 },
                     entries = {
                         { quest = 47148 }, -- Something Different
@@ -68,7 +66,7 @@ Addon.data.chores.choresPvp = {
                 },
                 {
                     key = 'classicAshran',
-                    minimumLevel = 80,
+                    minimumlevel = 90,
                     requiredEventIds = { 1120, 1121, 1122, 1123, 1124 },
                     entries = {
                         { quest = 47148 }, -- Something Different
@@ -76,7 +74,7 @@ Addon.data.chores.choresPvp = {
                 },
                 {
                     key = 'compStomp',
-                    minimumLevel = 80,
+                    minimumlevel = 90,
                     requiredEventIds = { 1234, 1235, 1236, 1237, 1238 },
                     entries = {
                         { quest = 47148 }, -- Something Different
@@ -84,7 +82,7 @@ Addon.data.chores.choresPvp = {
                 },
                 {
                     key = 'cookingImpossible',
-                    minimumLevel = 80,
+                    minimumlevel = 90,
                     requiredEventIds = { 1047, 1048, 1049, 1050, 1051 },
                     entries = {
                         { quest = 47148 }, -- Something Different
@@ -92,7 +90,7 @@ Addon.data.chores.choresPvp = {
                 },
                 {
                     key = 'deepSix',
-                    minimumLevel = 80,
+                    minimumlevel = 90,
                     requiredEventIds = { 702, 704, 705, 706, 736 },
                     entries = {
                         { quest = 47148 }, -- Something Different
@@ -100,7 +98,7 @@ Addon.data.chores.choresPvp = {
                 },
                 {
                     key = 'deepwindDunk',
-                    minimumLevel = 80,
+                    minimumlevel = 90,
                     requiredEventIds = { 1239, 1240, 1241, 1242, 1243 },
                     entries = {
                         { quest = 47148 }, -- Something Different
@@ -108,7 +106,7 @@ Addon.data.chores.choresPvp = {
                 },
                 {
                     key = 'gravityLapse',
-                    minimumLevel = 80,
+                    minimumlevel = 90,
                     requiredEventIds = { 659, 663, 670, 677, 684 },
                     entries = {
                         { quest = 47148 }, -- Something Different
@@ -116,7 +114,7 @@ Addon.data.chores.choresPvp = {
                 },
                 {
                     key = 'packedHouse',
-                    minimumLevel = 80,
+                    minimumlevel = 90,
                     requiredEventIds = { 667, 674, 681, 688, 701 },
                     entries = {
                         { quest = 47148 }, -- Something Different
@@ -124,7 +122,7 @@ Addon.data.chores.choresPvp = {
                 },
                 {
                     key = 'shadoPanShowdown',
-                    minimumLevel = 80,
+                    minimumlevel = 90,
                     requiredEventIds = { 1232, 1233, 1244, 1245, 1246, 1312 },
                     entries = {
                         { quest = 47148 }, -- Something Different
@@ -132,7 +130,7 @@ Addon.data.chores.choresPvp = {
                 },
                 {
                     key = 'southshoreVsTarrenMill',
-                    minimumLevel = 80,
+                    minimumlevel = 90,
                     requiredEventIds = { 660, 662, 669, 676, 683 },
                     entries = {
                         { quest = 47148 }, -- Something Different
@@ -140,7 +138,7 @@ Addon.data.chores.choresPvp = {
                 },
                 {
                     key = 'templeOfHotmogu',
-                    minimumLevel = 80,
+                    minimumlevel = 90,
                     requiredEventIds = { 1166, 1167, 1168, 1169, 1170 },
                     entries = {
                         { quest = 47148 }, -- Something Different
@@ -148,7 +146,7 @@ Addon.data.chores.choresPvp = {
                 },
                 {
                     key = 'warsongScramble',
-                    minimumLevel = 80,
+                    minimumlevel = 90,
                     requiredEventIds = { 664, 671, 678, 685, 1221 },
                     entries = {
                         { quest = 47148 }, -- Something Different
