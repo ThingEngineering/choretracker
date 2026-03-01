@@ -39,6 +39,7 @@ function Module:OnEnteringWorld()
 end
 
 function Module:AJ_REFRESH_DISPLAY()
+    -- print('AJ_REFRESH_DISPLAY ', self.mode)
     if self.mode ~= MODE_SCAN then return end
 
     local suggestions = CAJ_GetSuggestions()
@@ -48,6 +49,7 @@ function Module:AJ_REFRESH_DISPLAY()
     end
 
     local currentOffset = C_AdventureJournal.GetPrimaryOffset()
+    -- print('currentOffset = '..currentOffset)
     if currentOffset ~= self.offset then
         -- print('offset '..currentOffset..' != '..self.offset)
         C_AdventureJournal.SetPrimaryOffset(self.offset)
@@ -61,19 +63,23 @@ function Module:AJ_REFRESH_DISPLAY()
             suggestion.description or '',
             suggestion.buttonText or ''
         }, '|')
+        -- if i == 3 then print(i..' - '..seenKey) end
         if self.seenEntries[seenKey] == nil then
             self.seenEntries[seenKey] = true
 
             local shouldAccept = self:CheckSuggestion(suggestion, currentOffset, i)
+            -- print(shouldAccept)
             if shouldAccept then
                 self.mode = MODE_ACCEPT
-                C_AdventureJournal.ActivateEntry(i)
+                pcall(C_AdventureJournal.ActivateEntry, i)
+                -- print('Auto accept '..seenKey)
                 return
             end
         end
     end
 
     local numSuggestions = C_AdventureJournal.GetNumAvailableSuggestions()
+    -- print(numSuggestions)
     if (currentOffset + 1) < numSuggestions then
         self.offset = self.offset + 1
         C_Timer.After(0, function() C_AdventureJournal.SetPrimaryOffset(self.offset) end)
@@ -131,16 +137,25 @@ function Module:CheckSuggestion(suggestion, offset, index)
     local acceptQuest = L['autoAccept:acceptQuest']
     local startQuest = L['autoAccept:startQuest']
 
+    -- if suggestion.title ~= 'Bonus Event: Timewalking' then return end
+    -- print('title: --'..suggestion.title..'--')
+    -- print('desc: --'..suggestion.description..'--')
+    -- print('button: --'..suggestion.buttonText..'--')
+
     for choreKey, acceptData in pairs(ScannerModule.autoAccept) do
         local parts = { strsplit('.', choreKey) }
         local enabled = Addon.db.profile.chores[parts[1]][parts[2]][parts[3]][parts[4]]
         if enabled == true then
+            -- print(choreKey)
             local matchString, questIds = unpack(acceptData)
-            if (suggestion.buttonText == acceptQuest or
-                suggestion.buttonText == startQuest) and
+            -- TODO: 12.0 broke this somehow with duplicate timewalking entries, cool
+            -- if (suggestion.buttonText == acceptQuest or
+            --     suggestion.buttonText == startQuest) and
+            if suggestion.buttonText == acceptQuest and
                 (strmatch(suggestion.title, matchString) or
                 strmatch(suggestion.description, matchString))
             then
+                -- print('yey')
                 local start = true
                 for _, questId in ipairs(questIds) do
                     local questStatus = ScannerModule.quests[questId]
