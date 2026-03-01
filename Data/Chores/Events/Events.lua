@@ -31,7 +31,6 @@ Addon.data.chores.choresEvents = {
                     key = 'prepatchDisruptTheCall',
                     minimumLevel = 10,
                     -- requiredQuest = 90768, -- Cult it Out (account?)
-                    oncePerAccount = true,
                     entries = {
                         { quest = 91795 }, -- Disrupt the Call
                     },
@@ -40,7 +39,6 @@ Addon.data.chores.choresEvents = {
                     key = 'prepatchTwilightsDawn',
                     minimumLevel = 10,
                     -- requiredQuest = 90768, -- Cult it Out (account?)
-                    oncePerAccount = true,
                     entries = {
                         { quest = 87308 }, -- Twilight's Dawn
                     },
