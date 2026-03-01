@@ -3,6 +3,7 @@ if not L then return end -- don't remove this!
 
 L['section:dragonflight'] = EXPANSION_NAME9
 L['section:warWithin'] = EXPANSION_NAME10
+L['section:midnight'] = EXPANSION_NAME11
 
 L['auto_accept_message'] = 'ChoreTracker 可从“推荐玩法”窗口中自动接受任务，您可以在选项-通用中启用该功能（此信息仅显示一次）'
 
@@ -78,8 +79,11 @@ L['category:patch_11_0_7'] = '11.0.7版本'
 L['category:patch_11_1_0'] = '11.1.0版本'
 L['category:patch_11_1_5'] = '11.1.5版本'
 L['category:patch_11_2_0'] = '11.2.0版本'
+L['category:patch_12_0_0'] = '12.0.0版本'
 L['category:weekly'] = '周常'
 L['category:worldBosses'] = '世界首领'
+
+L['chore:midnight:patch_12_0_0:quests:dungeon'] = '地下城'
 
 L['chore:warWithin:patch_11_2_0:quests:ecologicalSuccession'] = '[卡雷什] 生态演替'
 L['chore:warWithin:patch_11_2_0:quests:makingDeposit'] = '[卡雷什] 吞噬者的入侵'
@@ -223,6 +227,13 @@ L['chore:events:holidays2:quests:grumpus'] = '格噜普斯'
 L['chore:events:holidays2:quests:menacingGrumplings'] = '格噜噜'
 L['chore:events:holidays2:quests:whatHorriblePresents'] = '怪礼物'
 L['chore:events:holidays2:quests:whereAreTheChildren'] = '营救儿童'
+
+L['chore:professions:midnight:drops:gather'] = '采集'
+L['chore:professions:midnight:drops:mob/treasure'] = '怪物/宝藏'
+
+L['chore:professions:midnight:quests:orders'] = '订单'
+L['chore:professions:midnight:quests:task'] = '任务'
+L['chore:professions:midnight:quests:treatise'] = '论述'
 
 L['chore:professions:warWithin:drops:gather'] = '采集'
 L['chore:professions:warWithin:drops:mob/treasure'] = '怪物/宝藏'

@@ -3,6 +3,7 @@ if not L then return end -- don't remove this!
 
 L['section:dragonflight'] = EXPANSION_NAME9
 L['section:warWithin'] = EXPANSION_NAME10
+L['section:midnight'] = EXPANSION_NAME11
 
 L['auto_accept_message'] = 'ChoreTracker is able to auto-accept some quests from the Suggested Content window, you can enable this in Options/General (one-time message)'
 
@@ -59,7 +60,10 @@ L['category:patch_11_0_7'] = 'Patch 11.0.7'
 L['category:patch_11_1_0'] = 'Patch 11.1.0'
 L['category:patch_11_1_5'] = 'Patch 11.1.5'
 L['category:patch_11_2_0'] = 'Patch 11.2.0'
+L['category:patch_12_0_0'] = 'Patch 12.0.0'
 L['category:worldBosses'] = '世界首領'
+
+L['chore:warWithin:patch_12_0_0:quests:dungeon'] = '地下城'
 
 L['chore:warWithin:patch_11_0_0:quests:awakeningTheMachine'] = '甦醒機械'
 L['chore:warWithin:patch_11_0_0:quests:delveKeys'] = '探究鑰匙'
@@ -126,6 +130,13 @@ L['chore:events:holidays2:dungeons:crownChemicalCo'] = '王冠化學製藥公司
 L['chore:events:holidays2:dungeons:headlessHorseman'] = '無頭騎士'
 L['chore:events:holidays2:dungeons:frostLordAhune'] = '冰霜領主艾胡恩'
 L['chore:events:holidays2:quests:meanOne'] = '被偷走的禮物'
+
+L['chore:professions:midnight:drops:gather'] = '採集'
+L['chore:professions:midnight:drops:mob/treasure'] = '怪物/寶藏'
+
+L['chore:professions:midnight:quests:orders'] = '訂單'
+L['chore:professions:midnight:quests:task'] = '工作'
+L['chore:professions:midnight:quests:treatise'] = '概論'
 
 L['chore:professions:warWithin:drops:gather'] = '採集'
 L['chore:professions:warWithin:drops:mob/treasure'] = '怪物/寶藏'

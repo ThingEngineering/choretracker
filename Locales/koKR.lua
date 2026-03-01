@@ -3,6 +3,7 @@ if not L then return end -- don't remove this!
 
 L['section:dragonflight'] = EXPANSION_NAME9
 L['section:warWithin'] = EXPANSION_NAME10
+L['section:midnight'] = EXPANSION_NAME11
 
 L['auto_accept_message'] = 'ChoreTracker가 이제 추천 콘텐츠 창에서 일부 퀘스트를 자동으로 수락할 수 있습니다. 옵션/일반(일회성 메시지)에서 이 기능을 활성화할 수 있습니다.'
 
@@ -78,8 +79,11 @@ L['category:patch_11_0_7'] = 'Patch 11.0.7'
 L['category:patch_11_1_0'] = 'Patch 11.1.0'
 L['category:patch_11_1_5'] = 'Patch 11.1.5'
 L['category:patch_11_2_0'] = 'Patch 11.2.0'
+L['category:patch_12_0_0'] = 'Patch 12.0.0'
 L['category:weekly'] = '주간'
 L['category:worldBosses'] = '월드 보스'
+
+L['chore:midnight:patch_12_0_0:quests:dungeon'] = '던전'
 
 L['chore:warWithin:patch_11_2_0:quests:ecologicalSuccession'] = '[S3] 생태 천이'
 L['chore:warWithin:patch_11_2_0:quests:makingDeposit'] = '[S3] 포식자의 공격'
@@ -222,6 +226,13 @@ L['chore:events:holidays2:quests:grumpus'] = '투덜이'
 L['chore:events:holidays2:quests:menacingGrumplings'] = '꼬마 투덜이'
 L['chore:events:holidays2:quests:whatHorriblePresents'] = '도둑맞은 선물'
 L['chore:events:holidays2:quests:whereAreTheChildren'] = '어린이'
+
+L['chore:professions:midnight:drops:gather'] = '수집'
+L['chore:professions:midnight:drops:mob/treasure'] = '몹/보물'
+
+L['chore:professions:midnight:quests:orders'] = '주문제작'
+L['chore:professions:midnight:quests:task'] = '주간'
+L['chore:professions:midnight:quests:treatise'] = '논문'
 
 L['chore:professions:warWithin:drops:gather'] = '수집'
 L['chore:professions:warWithin:drops:mob/treasure'] = '몹/보물'

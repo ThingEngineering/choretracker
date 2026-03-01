@@ -4,6 +4,7 @@ if not L then return end -- don't remove this!
 --Translator ZamestoTV
 L['section:dragonflight'] = EXPANSION_NAME9
 L['section:warWithin'] = EXPANSION_NAME10
+L['section:midnight'] = EXPANSION_NAME11
 
 L['auto_accept_message'] = 'ChoreTracker теперь может автоматически принимать некоторые задания из окна «Предлагаемый контент». Эту функцию можно включить в разделе «Параметры/Общие» (однократное сообщение)'
 
@@ -79,8 +80,11 @@ L['category:patch_11_0_7'] = 'Патч 11.0.7'
 L['category:patch_11_1_0'] = 'Патч 11.1.0'
 L['category:patch_11_1_5'] = 'Патч 11.1.5'
 L['category:patch_11_2_0'] = 'Патч 11.2.0'
+L['category:patch_12_0_0'] = 'Патч 12.0.0'
 L['category:weekly'] = 'Еженедельные'
 L['category:worldBosses'] = 'Мировые боссы'
+
+L['chore:midnight:patch_12_0_0:quests:dungeon'] = 'Подземелье'
 
 L['chore:warWithin:patch_11_2_0:quests:ecologicalSuccession'] = '[КАР] Экологическая'
 L['chore:warWithin:patch_11_2_0:quests:makingDeposit'] = '[КАР] Пожиратели'
@@ -223,6 +227,13 @@ L['chore:events:holidays2:quests:grumpus'] = 'Ворчун'
 L['chore:events:holidays2:quests:menacingGrumplings'] = 'Ворчунишки'
 L['chore:events:holidays2:quests:whatHorriblePresents'] = 'Подарки'
 L['chore:events:holidays2:quests:whereAreTheChildren'] = 'Дети'
+
+L['chore:professions:midnight:drops:gather'] = 'Собрать'
+L['chore:professions:midnight:drops:mob/treasure'] = 'Монстр/Сокровище'
+
+L['chore:professions:midnight:quests:orders'] = 'Заказы'
+L['chore:professions:midnight:quests:task'] = 'Задача'
+L['chore:professions:midnight:quests:treatise'] = 'Трактат'
 
 L['chore:professions:warWithin:drops:gather'] = 'Собрать'
 L['chore:professions:warWithin:drops:mob/treasure'] = 'Монстр/Сокровище'
