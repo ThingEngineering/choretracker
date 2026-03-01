@@ -226,6 +226,11 @@ L['chore:events:holidays2:quests:menacingGrumplings'] = 'Grumplings'
 L['chore:events:holidays2:quests:whatHorriblePresents'] = 'Presents'
 L['chore:events:holidays2:quests:whereAreTheChildren'] = 'Children'
 
+L['chore:professions:midnight:drops:gather'] = 'Gather'
+L['chore:professions:midnight:drops:mob/treasure'] = 'Mobs/Treasures'
+
+L['chore:professions:midnight:quests:orders'] = 'Orders'
+L['chore:professions:midnight:quests:task'] = 'Task'
 L['chore:professions:midnight:quests:treatise'] = 'Treatise'
 
 L['chore:professions:warWithin:drops:gather'] = 'Gather'

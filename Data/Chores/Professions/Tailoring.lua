@@ -21,6 +21,12 @@ Addon.data.chores.professionTailoring = {
                         { quest=95137, item=245756 }, -- Thalassian Treatise on Tailoring
                     },
                 },
+                {
+                    key = 'orders',
+                    entries = {
+                        { quest=93696, item=263460 }, -- Thalassian Tailor's Notebook
+                    },
+                },
             }
         },
         {

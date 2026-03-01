@@ -21,6 +21,12 @@ Addon.data.chores.professionJewelcrafting = {
                         { quest=95133, item=245760 }, -- Thalassian Treatise on Jewelcrafting
                     },
                 },
+                {
+                    key = 'orders',
+                    entries = {
+                        { quest=93694, item=263458 }, -- Thalassian Jewelcrafter's Notebook
+                    },
+                },
             }
         },
         {

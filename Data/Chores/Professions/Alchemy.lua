@@ -21,6 +21,12 @@ Addon.data.chores.professionAlchemy = {
                         { quest=95127, item=245755 }, -- Thalassian Treatise on Alchemy
                     },
                 },
+                {
+                    key = 'orders',
+                    entries = {
+                        { quest=93690, item=263454 }, -- Thalassian Alchemist's Notebook
+                    },
+                },
             }
         },
         {

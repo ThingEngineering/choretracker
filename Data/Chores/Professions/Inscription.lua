@@ -21,6 +21,12 @@ Addon.data.chores.professionInscription = {
                         { quest=95131, item=245757 }, -- Thalassian Treatise on Inscription
                     },
                 },
+                {
+                    key = 'orders',
+                    entries = {
+                        { quest=93693, item=263457 }, -- Thalassian Scribe's Journal
+                    },
+                },
             }
         },
         {

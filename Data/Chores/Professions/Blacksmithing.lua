@@ -21,6 +21,12 @@ Addon.data.chores.professionBlacksmithing = {
                         { quest=95128, item=245763 }, -- Thalassian Treatise on Blacksmithing
                     },
                 },
+                {
+                    key = 'orders',
+                    entries = {
+                        { quest=93691, item=263455 }, -- Thalassian Blacksmith's Journal
+                    },
+                },
             }
         },
         {

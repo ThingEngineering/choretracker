@@ -21,6 +21,12 @@ Addon.data.chores.professionLeatherworking = {
                         { quest=95134, item=245758 }, -- Thalassian Treatise on Leatherworking
                     },
                 },
+                {
+                    key = 'orders',
+                    entries = {
+                        { quest=93695, item=263459 }, -- Thalassian Leatherworker's Journal
+                    },
+                },
             }
         },
         {

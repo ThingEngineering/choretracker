@@ -21,6 +21,12 @@ Addon.data.chores.professionEngineering = {
                         { quest=83728, item=245809 }, -- Thalassian Treatise on Engineering
                     },
                 },
+                {
+                    key = 'orders',
+                    entries = {
+                        { quest=93692, item=263456 }, -- Thalassian Engineer's Notepad
+                    },
+                },
             }
         },
         {
