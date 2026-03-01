@@ -5,7 +5,7 @@ local L = Addon.L
 Addon.data.chores.choresWarWithin = {
     key = 'warWithin',
     name = EXPANSION_NAME10,
-    order = 20,
+    order = 21,
     minimumLevel = 70,
     categories = {
         {
