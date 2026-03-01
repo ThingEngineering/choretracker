@@ -16,6 +16,7 @@ local ALL_SECTIONS = {
     'delves',
     'dragonflight',
     'events',
+    'midnight',
     'professions',
     'pvp',
     'timers',
@@ -374,6 +375,7 @@ function Module:CreateOptions()
                 childGroups = 'tab',
                 order = newOrder(),
                 args = {
+                    choresMidnight = self:GetChoreOptions(Addon.data.chores.choresMidnight, WIDTH_3_PER_ROW, true),
                     choresWarWithin = self:GetChoreOptions(Addon.data.chores.choresWarWithin, WIDTH_3_PER_ROW, true),
                     choresHallowfallFishingDerby = self:GetChoreOptions(Addon.data.chores.choresHallowfallFishingDerby, WIDTH_3_PER_ROW, true),
                     choresAnniversary = self:GetChoreOptions(Addon.data.chores.choresAnniversary, WIDTH_3_PER_ROW, true),

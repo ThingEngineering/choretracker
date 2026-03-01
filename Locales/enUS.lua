@@ -2,6 +2,7 @@ local L = LibStub('AceLocale-3.0'):NewLocale('ChoreTracker', 'enUS', true, true)
 
 L['section:dragonflight'] = EXPANSION_NAME9
 L['section:warWithin'] = EXPANSION_NAME10
+L['section:midnight'] = EXPANSION_NAME11
 
 L['auto_accept_message'] = 'ChoreTracker is now able to auto-accept some quests from the Suggested Content window, you can enable this in Options/General (one-time message)'
 

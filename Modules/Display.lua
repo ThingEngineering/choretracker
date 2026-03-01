@@ -39,6 +39,7 @@ local SECTION_TO_CATEGORIES = {
     dragonflight = { 'choresDragonflight' },
     events = { 'choresEvents' },
     hallowfallFishingDerby = { 'choresHallowfallFishingDerby' },
+    midnight = { 'choresMidnight' },
     pvp = { 'choresPvp' },
     warWithin = { 'choresWarWithin' },
     professions = {

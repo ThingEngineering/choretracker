@@ -27,6 +27,7 @@ local DEFAULT_SECTION_ORDER = {
     'events',
     'hallowfallFishingDerby',
     'delves',
+    'midnight',
     'warWithin',
     'professions',
     'pvp',
