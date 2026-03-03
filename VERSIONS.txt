@@ -1,3 +1,9 @@
+v12.0.0.5
+---------
+- Added Midnight special assignment chore.
+- Added Midnight delve data.
+- Added "Disable ALL TWW chores" and "Enable ALL TWW chores" buttons.
+
 v12.0.0.4
 ---------
 - Added Midnight dungeon chore.
