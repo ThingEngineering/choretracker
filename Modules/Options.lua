@@ -181,6 +181,36 @@ function Module:CreateOptions()
                         inline = true,
                         order = newOrder(),
                         args = {
+                            disableWarWithin = {
+                                name = L['option:bulkActions:warWithinDisable'],
+                                type = 'execute',
+                                order = newOrder(),
+                                width = WIDTH_3_PER_ROW,
+                                func = function()
+                                    self:DisableChores('choresWarWithin')
+                                    for sectionKey, _ in pairs(Addon.data.chores) do
+                                        if sectionKey:find('^profession') then
+                                            self:DisableChores(sectionKey, 'warWithin')
+                                        end
+                                    end
+                                    print('Disabled ALL War Within chores!')
+                                end,
+                            },
+                            enableWarWithin = {
+                                name = L['option:bulkActions:warWithinEnable'],
+                                type = 'execute',
+                                order = newOrder(),
+                                width = WIDTH_3_PER_ROW,
+                                func = function()
+                                    self:EnableChores('choresWarWithin')
+                                    for sectionKey, _ in pairs(Addon.data.chores) do
+                                        if sectionKey:find('^profession') then
+                                            self:EnableChores(sectionKey, 'warWithin')
+                                        end
+                                    end
+                                    print('Enabled ALL War Within chores!')
+                                end,
+                            },
                             disableDragonflight = {
                                 name = L['option:bulkActions:dragonflightDisable'],
                                 type = 'execute',
