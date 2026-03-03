@@ -85,6 +85,7 @@ L['category:weekly'] = 'Еженедельные'
 L['category:worldBosses'] = 'Мировые боссы'
 
 L['chore:midnight:patch_12_0_0:quests:dungeon'] = 'Подземелье'
+L['chore:midnight:patch_12_0_0:quests:specialAssignment'] = 'Особое поручение'
 
 L['chore:warWithin:patch_11_2_0:quests:ecologicalSuccession'] = '[КАР] Экологическая'
 L['chore:warWithin:patch_11_2_0:quests:makingDeposit'] = '[КАР] Пожиратели'

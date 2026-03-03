@@ -84,6 +84,7 @@ L['category:weekly'] = '周常'
 L['category:worldBosses'] = '世界首领'
 
 L['chore:midnight:patch_12_0_0:quests:dungeon'] = '地下城'
+L['chore:midnight:patch_12_0_0:quests:specialAssignment'] = '特别任务'
 
 L['chore:warWithin:patch_11_2_0:quests:ecologicalSuccession'] = '[卡雷什] 生态演替'
 L['chore:warWithin:patch_11_2_0:quests:makingDeposit'] = '[卡雷什] 吞噬者的入侵'

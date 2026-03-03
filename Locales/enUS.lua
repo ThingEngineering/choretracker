@@ -23,6 +23,8 @@ L['option:bountifulDelves:showDelves'] = 'Show Delves'
 L['option:bountifulDelves:showKeys'] = 'Show Keys'
 
 L['option:bulkActions'] = 'Bulk Actions'
+L['option:bulkActions:warWithinDisable'] = 'Disable ALL TWW chores'
+L['option:bulkActions:warWithinEnable'] = 'Enable ALL TWW chores'
 L['option:bulkActions:dragonflightDisable'] = 'Disable ALL DF chores'
 L['option:bulkActions:dragonflightEnable'] = 'Enable ALL DF chores'
 
@@ -83,6 +85,7 @@ L['category:weekly'] = 'Weekly'
 L['category:worldBosses'] = 'World Bosses'
 
 L['chore:midnight:patch_12_0_0:quests:dungeon'] = 'Dungeon'
+L['chore:midnight:patch_12_0_0:quests:specialAssignment'] = 'Special Assignment'
 
 L['chore:warWithin:patch_11_2_0:quests:ecologicalSuccession'] = '[Kar] Ecological'
 L['chore:warWithin:patch_11_2_0:quests:makingDeposit'] = '[Kar] Devourers'

@@ -12,6 +12,22 @@ Addon.data.chores.choresMidnight = {
             key = 'patch_12_0_0',
             quests = {
                 {
+                    key = 'specialAssignment',
+                    minimumLevel = 80,
+                    alwaysShowObjectives = true,
+                    removeText = L['remove_specialAssignment'],
+                    entries = {
+                        { quest = 91390, unlockQuest = 94865 }, -- Special Assignment: What Remains of a Temple Broken
+                        { quest = 91796, unlockQuest = 94866 }, -- Special Assignment: Ours Once More!
+                        { quest = 92063, unlockQuest = 94390 }, -- Special Assignment: A Hunter's Regret
+                        { quest = 92139, unlockQuest = 95435 }, -- Special Assignment: Shade and Claw
+                        { quest = 92145, unlockQuest = 92848 }, -- Special Assignment: The Grand Magister's Drink
+                        { quest = 93013, unlockQuest = 94391 }, -- Special Assignment: Push Back the Light
+                        { quest = 93244, unlockQuest = 94795 }, -- Special Assignment: Agents of the Shield
+                        { quest = 93438, unlockQuest = 94743 }, -- Special Assignment: Precision Excision
+                    },
+                },
+                {
                     key = 'dungeon',
                     minimumLevel = 90,
                     alwaysQuestName = true,
