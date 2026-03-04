@@ -18,7 +18,7 @@ Addon.data.chores.professionEngineering = {
                 {
                     key = 'treatise',
                     entries = {
-                        { quest=83728, item=245809 }, -- Thalassian Treatise on Engineering
+                        { quest=95138, item=245809 }, -- Thalassian Treatise on Engineering
                     },
                 },
                 {
