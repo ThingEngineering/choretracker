@@ -12,8 +12,28 @@ Addon.data.chores.choresMidnight = {
             key = 'patch_12_0_0',
             quests = {
                 {
+                    key = 'unity',
+                    minimumLevel = 80,
+                    entries = {
+                        { quest = 93890 }, -- Midnight: Abundance
+                        { quest = 93767 }, -- Midnight: Arcantina
+                        { quest = 94457 }, -- Midnight: Battlegrounds
+                        { quest = 93909 }, -- Midnight: Delves
+                        { quest = 93911 }, -- Midnight: Dungeons
+                        { quest = 93769 }, -- Midnight: Housing
+                        { quest = 93891 }, -- Midnight: Legends of the Haranir
+                        { quest = 93910 }, -- Midnight: Prey
+                        { quest = 93912 }, -- Midnight: Raid
+                        { quest = 93889 }, -- Midnight: Saltheril's Soiree
+                        { quest = 93892 }, -- Midnight: Stormarion Assault
+                        { quest = 93913 }, -- Midnight: World Boss
+                        { quest = 93766 }, -- Midnight: World Quests
+                    },
+                },
+                {
                     key = 'specialAssignment',
                     minimumLevel = 80,
+                    pick = 2,
                     alwaysShowObjectives = true,
                     removeText = L['remove_specialAssignment'],
                     entries = {
