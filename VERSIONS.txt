@@ -1,3 +1,8 @@
+v12.0.0.6
+---------
+- Added Midnight Unity chore.
+- Fixed Midnight engineering treatise quest ID.
+
 v12.0.0.5
 ---------
 - Added Midnight special assignment chore.
