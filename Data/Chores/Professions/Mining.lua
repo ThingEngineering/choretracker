@@ -13,6 +13,18 @@ Addon.data.chores.professionMining = {
             name = EXPANSION_NAME11,
             skillLineId = 2916,
             drops = {
+                {
+                    key = 'gather',
+                    groupSameItem = true,
+                    entries = {
+                        { quest=88673, item=237496 }, -- Igneous Rock Specimen
+                        { quest=88674, item=237496 }, -- Igneous Rock Specimen
+                        { quest=88675, item=237496 }, -- Igneous Rock Specimen
+                        { quest=88676, item=237496 }, -- Igneous Rock Specimen
+                        { quest=88677, item=237496 }, -- Igneous Rock Specimen
+                        { quest=88678, item=237506 }, -- Septarian Nodule
+                    },
+                },
             },
             quests = {
                 {

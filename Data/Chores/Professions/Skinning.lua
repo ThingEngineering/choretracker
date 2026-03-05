@@ -13,6 +13,18 @@ Addon.data.chores.professionSkinning = {
             name = EXPANSION_NAME11,
             skillLineId = 2917,
             drops = {
+                {
+                    key = 'gather',
+                    groupSameItem = true,
+                    entries = {
+                        { quest=88534, item=238625 }, -- Fine Void-Tempered Hide
+                        { quest=88535, item=238625 }, -- Fine Void-Tempered Hide
+                        { quest=88536, item=238625 }, -- Fine Void-Tempered Hide
+                        { quest=88537, item=238625 }, -- Fine Void-Tempered Hide
+                        { quest=88538, item=238625 }, -- Fine Void-Tempered Hide
+                        { quest=88539, item=238626 }, -- Mana-Infused Bone
+                    },
+                },
             },
             quests = {
                 {

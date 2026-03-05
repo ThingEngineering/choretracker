@@ -13,6 +13,18 @@ Addon.data.chores.professionHerbalism = {
             name = EXPANSION_NAME11,
             skillLineId = 2912,
             drops = {
+                {
+                    key = 'gather',
+                    groupSameItem = true,
+                    entries = {
+                        { quest=81425, item=238465 }, -- Thalassian Phoenix Plume
+                        { quest=81426, item=238465 }, -- Thalassian Phoenix Plume
+                        { quest=81427, item=238465 }, -- Thalassian Phoenix Plume
+                        { quest=81428, item=238465 }, -- Thalassian Phoenix Plume
+                        { quest=81429, item=238465 }, -- Thalassian Phoenix Plume
+                        { quest=81430, item=238466 }, -- Thalassian Phoenix Tail
+                    },
+                },
             },
             quests = {
                 {
