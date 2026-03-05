@@ -28,6 +28,17 @@ Addon.data.chores.professionSkinning = {
             },
             quests = {
                 {
+                    key = 'task',
+                    skill = 25,
+                    entries = {
+                        { quest=93710 }, -- Tempered in Darkness
+                        { quest=93711 }, -- The Chill of the Void
+                        { quest=93712 }, -- ??
+                        { quest=93713 }, -- ??
+                        { quest=93714 }, -- Minor Scales
+                    },
+                },
+                {
                     key = 'treatise',
                     entries = {
                         { quest=95136, item=245828 }, -- Thalassian Treatise on Skinning

@@ -28,6 +28,17 @@ Addon.data.chores.professionHerbalism = {
             },
             quests = {
                 {
+                    key = 'task',
+                    skill = 25,
+                    entries = {
+                        { quest=93700 }, -- Experience Tranquility
+                        { quest=93701 }, -- ??
+                        { quest=93702 }, -- The Root of Life
+                        { quest=93703 }, -- Sin'dorei Vices
+                        { quest=93704 }, -- Traditional Harvests
+                    },
+                },
+                {
                     key = 'treatise',
                     entries = {
                         { quest=95130, item=245761 }, -- Thalassian Treatise on Herbalism

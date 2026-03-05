@@ -28,6 +28,17 @@ Addon.data.chores.professionMining = {
             },
             quests = {
                 {
+                    key = 'task',
+                    skill = 25,
+                    entries = {
+                        { quest=93705 }, -- Copper for Your Thoughts?
+                        { quest=93706 }, -- Aggressive Tin-dencies
+                        { quest=93707 }, -- ??
+                        { quest=93708 }, -- Conductive Metals
+                        { quest=93709 }, -- Stocking the Staples
+                    },
+                },
+                {
                     key = 'treatise',
                     entries = {
                         { quest=95135, item=245762 }, -- Thalassian Treatise on Mining
