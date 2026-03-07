@@ -13,7 +13,7 @@ Addon.data.chores.choresMidnight = {
             quests = {
                 {
                     key = 'unity',
-                    minimumLevel = 80,
+                    minimumLevel = 90,
                     entries = {
                         { quest = 93890 }, -- Midnight: Abundance
                         { quest = 93767 }, -- Midnight: Arcantina
@@ -64,6 +64,34 @@ Addon.data.chores.choresMidnight = {
                     },
                 },
             },
+        },
+        {
+            key = 'leveling',
+            minimumLevel = 80,
+            filter = function()
+                return UnitLevel('player') < 90
+            end,
+            quests = {
+                {
+                    key = 'delves',
+                    minimumLevel = 80,
+                    pick = 8,
+                    entries = {
+                        -- Eversong Woods
+                        { quest = 93384 }, -- Delver's Call: Collegiate Calamity
+                        { quest = 93372 }, -- Delver's Call: Shadow Enclave
+                        -- Zul'Aman
+                        { quest = 93409 }, -- Delver's Call: Atal'Aman
+                        { quest = 93410 }, -- Delver's Call: Twilight Crypts
+                        -- Harandar
+                        { quest = 93421 }, -- Delver's Call: The Grudge Pit
+                        { quest = 93416 }, -- Delver's Call: The Gulf of Memory
+                        -- Voidstorm
+                        { quest = 93428 }, -- Delver's Call: Shadowguard Point
+                        { quest = 93427 }, -- Delver's Call: Sunkiller Sanctum
+                    },
+                },
+            }
         },
     },
 }

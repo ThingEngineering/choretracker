@@ -88,6 +88,8 @@ L['chore:midnight:patch_12_0_0:quests:dungeon'] = 'Dungeon'
 L['chore:midnight:patch_12_0_0:quests:specialAssignment'] = 'Special Assignment'
 L['chore:midnight:patch_12_0_0:quests:unity'] = 'Unity'
 
+L['chore:midnight:leveling:quests:delves'] = 'Delves'
+
 L['chore:warWithin:patch_11_2_0:quests:ecologicalSuccession'] = '[Kar] Ecological'
 L['chore:warWithin:patch_11_2_0:quests:makingDeposit'] = '[Kar] Devourers'
 L['chore:warWithin:patch_11_2_0:quests:moreThanPhase'] = '[Kar] Just a Phase'
