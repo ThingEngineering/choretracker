@@ -63,7 +63,12 @@ L['category:patch_11_2_0'] = 'Patch 11.2.0'
 L['category:patch_12_0_0'] = 'Patch 12.0.0'
 L['category:worldBosses'] = '世界首領'
 
-L['chore:warWithin:patch_12_0_0:quests:dungeon'] = '地下城'
+L['chore:midnight:patch_12_0_0:quests:dungeon'] = '地下城'
+L['chore:midnight:patch_12_0_0:quests:hope'] = 'Hope'
+L['chore:midnight:patch_12_0_0:quests:specialAssignment'] = 'Special Assignment'
+L['chore:midnight:patch_12_0_0:quests:unity'] = 'Unity'
+
+L['chore:midnight:leveling:quests:delves'] = 'Delves'
 
 L['chore:warWithin:patch_11_0_0:quests:awakeningTheMachine'] = '甦醒機械'
 L['chore:warWithin:patch_11_0_0:quests:delveKeys'] = '探究鑰匙'
