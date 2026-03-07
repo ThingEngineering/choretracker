@@ -12,6 +12,16 @@ Addon.data.chores.choresMidnight = {
             key = 'patch_12_0_0',
             quests = {
                 {
+                    key = 'hope',
+                    minimumLevel = 80,
+                    filter = function()
+                        return UnitLevel('player') < 90
+                    end,
+                    entries = {
+                        { quest = 95468 }, -- Hope in the Darkest Corners
+                    },
+                },
+                {
                     key = 'unity',
                     minimumLevel = 90,
                     entries = {
