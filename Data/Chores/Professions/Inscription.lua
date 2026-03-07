@@ -13,6 +13,13 @@ Addon.data.chores.professionInscription = {
             name = EXPANSION_NAME11,
             skillLineId = 2913,
             drops = {
+                {
+                    key = 'mob/treasure',
+                    entries = {
+                        { quest=93536, item=259196 }, -- Brilliant Phoenix Ink [TODO verify quest]
+                        { quest=93537, item=259197 }, -- Loa-Blessed Rune
+                    },
+                },
             },
             quests = {
                 {

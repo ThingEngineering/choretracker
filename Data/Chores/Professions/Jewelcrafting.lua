@@ -13,6 +13,13 @@ Addon.data.chores.professionJewelcrafting = {
             name = EXPANSION_NAME11,
             skillLineId = 2914,
             drops = {
+                {
+                    key = 'mob/treasure',
+                    entries = {
+                        { quest=93539, item=259199 }, -- Harandar Stone Sample
+                        { quest=93538, item=259198 }, -- Void-Touched Eversong Diamond Fragments
+                    },
+                },
             },
             quests = {
                 {

@@ -13,6 +13,13 @@ Addon.data.chores.professionTailoring = {
             name = EXPANSION_NAME11,
             skillLineId = 2918,
             drops = {
+                {
+                    key = 'mob/treasure',
+                    entries = {
+                        { quest=93542, item=259202 }, -- Embroidered Memento [TODO verify quest]
+                        { quest=93543, item=259203 }, -- Finely Woven Lynx Collar
+                    },
+                },
             },
             quests = {
                 {

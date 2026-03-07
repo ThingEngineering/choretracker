@@ -13,6 +13,13 @@ Addon.data.chores.professionAlchemy = {
             name = EXPANSION_NAME11,
             skillLineId = 2906,
             drops = {
+                {
+                    key = 'mob/treasure',
+                    entries = {
+                        { quest=93529, item=259189 }, -- Aged Cruor
+                        { quest=93528, item=259188 }, -- Lightbloomed Spore Sample
+                    },
+                },
             },
             quests = {
                 {

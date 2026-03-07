@@ -13,6 +13,13 @@ Addon.data.chores.professionBlacksmithing = {
             name = EXPANSION_NAME11,
             skillLineId = 2907,
             drops = {
+                {
+                    key = 'mob/treasure',
+                    entries = {
+                        { quest=93531, item=259191 }, -- Infused Quenching Oil
+                        { quest=93530, item=259190 }, -- Thalassian Whestone
+                    },
+                },
             },
             quests = {
                 {

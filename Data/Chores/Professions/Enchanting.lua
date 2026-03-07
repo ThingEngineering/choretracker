@@ -13,6 +13,25 @@ Addon.data.chores.professionEnchanting = {
             name = EXPANSION_NAME11,
             skillLineId = 2909,
             drops = {
+                {
+                    key = 'gather',
+                    groupSameItem = true,
+                    entries = {
+                        { quest=95048, item=267654 }, -- Swirling Arcane Essence
+                        { quest=95049, item=267654 }, -- Swirling Arcane Essence
+                        { quest=95050, item=267654 }, -- Swirling Arcane Essence
+                        { quest=95051, item=267654 }, -- Swirling Arcane Essence
+                        { quest=95052, item=267654 }, -- Swirling Arcane Essence
+                        { quest=95053, item=267655 }, -- Brimming Mana Shard
+                    },
+                },
+                {
+                    key = 'mob/treasure',
+                    entries = {
+                        { quest=93533, item=259193 }, -- Lost Thalassian Vellum
+                        { quest=93532, item=259192 }, -- Voidstorm Ashes
+                    },
+                },
             },
             quests = {
                 {

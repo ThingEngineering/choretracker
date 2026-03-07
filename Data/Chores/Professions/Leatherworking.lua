@@ -13,6 +13,13 @@ Addon.data.chores.professionLeatherworking = {
             name = EXPANSION_NAME11,
             skillLineId = 2915,
             drops = {
+                {
+                    key = 'mob/treasure',
+                    entries = {
+                        { quest=93540, item=259200 }, -- Amani Tanning Oil
+                        { quest=93541, item=259201 }, -- Thalassian Mana Oil
+                    },
+                },
             },
             quests = {
                 {

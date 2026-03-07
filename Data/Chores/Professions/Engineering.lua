@@ -13,6 +13,13 @@ Addon.data.chores.professionEngineering = {
             name = EXPANSION_NAME11,
             skillLineId = 2910,
             drops = {
+                {
+                    key = 'mob/treasure',
+                    entries = {
+                        { quest=93534, item=259194 }, -- Dance Gear
+                        { quest=93535, item=259195 }, -- Dawn Capacitor [TODO verify quest]
+                    },
+                },
             },
             quests = {
                 {
