@@ -16,6 +16,15 @@ Addon.data.chores.professionEnchanting = {
             },
             quests = {
                 {
+                    key = 'task',
+                    skill = 25,
+                    entries = {
+                        { quest = 93697 }, -- ??
+                        { quest = 93698 }, -- Splintered Radiance
+                        { quest = 93699 }, -- A Ray of Sunlight
+                    },
+                },
+                {
                     key = 'treatise',
                     entries = {
                         { quest=95129, item=245759 }, -- Thalassian Treatise on Enchanting
