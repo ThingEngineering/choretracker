@@ -78,14 +78,14 @@ Addon.data.chores.choresMidnight = {
         {
             key = 'leveling',
             minimumLevel = 80,
-            filter = function()
-                return UnitLevel('player') < 90
-            end,
             quests = {
                 {
                     key = 'delves',
                     minimumLevel = 80,
                     pick = 8,
+                    filter = function()
+                        return UnitLevel('player') < 90
+                    end,
                     entries = {
                         -- Eversong Woods
                         { quest = 93384 }, -- Delver's Call: Collegiate Calamity
