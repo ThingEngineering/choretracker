@@ -1,3 +1,11 @@
+v12.0.0.7
+---------
+- Added Midnight Hope chore (leveling only weekly).
+- Added Midnight leveling chore (delve quests).
+- Added Midnight crafting drop chores.
+- Added Midnight herbalism/mining/skinning gather chores.
+- Added Midnight enchanting/herbalism/mining/skinning task chores.
+
 v12.0.0.6
 ---------
 - Added Midnight Unity chore.
