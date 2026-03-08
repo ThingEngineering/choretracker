@@ -84,8 +84,10 @@ L['category:patch_12_0_0'] = 'Patch 12.0.0'
 L['category:weekly'] = 'Weekly'
 L['category:worldBosses'] = 'World Bosses'
 
+L['chore:midnight:patch_12_0_0:quests:abundance'] = 'Abundance'
 L['chore:midnight:patch_12_0_0:quests:dungeon'] = 'Dungeon'
 L['chore:midnight:patch_12_0_0:quests:hope'] = 'Hope'
+L['chore:midnight:patch_12_0_0:quests:soiree'] = 'Soiree'
 L['chore:midnight:patch_12_0_0:quests:specialAssignment'] = 'Special Assignment'
 L['chore:midnight:patch_12_0_0:quests:unity'] = 'Unity'
 

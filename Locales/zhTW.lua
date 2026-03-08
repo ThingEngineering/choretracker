@@ -63,8 +63,10 @@ L['category:patch_11_2_0'] = 'Patch 11.2.0'
 L['category:patch_12_0_0'] = 'Patch 12.0.0'
 L['category:worldBosses'] = '世界首領'
 
+L['chore:midnight:patch_12_0_0:quests:abundance'] = 'Abundance'
 L['chore:midnight:patch_12_0_0:quests:dungeon'] = '地下城'
 L['chore:midnight:patch_12_0_0:quests:hope'] = 'Hope'
+L['chore:midnight:patch_12_0_0:quests:soiree'] = 'Soiree'
 L['chore:midnight:patch_12_0_0:quests:specialAssignment'] = 'Special Assignment'
 L['chore:midnight:patch_12_0_0:quests:unity'] = 'Unity'
 

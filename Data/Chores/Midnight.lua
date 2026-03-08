@@ -41,6 +41,23 @@ Addon.data.chores.choresMidnight = {
                     },
                 },
                 {
+                    key = 'abundance',
+                    minimumLevel = 80,
+                    entries = {
+                        { quest = 89507 }, -- Abundant Offerings
+                    },
+                },
+                {
+                    key = 'soiree',
+                    minimumLevel = 80,
+                    entries = {
+                        { quest = 90573 }, -- Fortify the Runestones: Magisters
+                        { quest = 90574 }, -- Fortify the Runestones: Blood Knights
+                        { quest = 90575 }, -- Fortify the Runestones: Farstriders
+                        { quest = 90576 }, -- Fortify the Runestones: Shades of the Row                        { quest = 89507 }, -- Abundant Offerings
+                    },
+                },
+                {
                     key = 'specialAssignment',
                     minimumLevel = 80,
                     pick = 2,
