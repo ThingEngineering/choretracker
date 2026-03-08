@@ -58,6 +58,13 @@ Addon.data.chores.choresMidnight = {
                     },
                 },
                 {
+                    key = 'stormarion',
+                    minimumLevel = 80,
+                    entries = {
+                        { quest = 90962 }, -- Stormarion Assault
+                    },
+                },
+                {
                     key = 'specialAssignment',
                     minimumLevel = 80,
                     pick = 2,

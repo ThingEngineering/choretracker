@@ -68,6 +68,7 @@ L['chore:midnight:patch_12_0_0:quests:dungeon'] = '地下城'
 L['chore:midnight:patch_12_0_0:quests:hope'] = 'Hope'
 L['chore:midnight:patch_12_0_0:quests:soiree'] = 'Soiree'
 L['chore:midnight:patch_12_0_0:quests:specialAssignment'] = 'Special Assignment'
+L['chore:midnight:patch_12_0_0:quests:stormarion'] = 'Stormarion'
 L['chore:midnight:patch_12_0_0:quests:unity'] = 'Unity'
 
 L['chore:midnight:leveling:quests:delves'] = 'Delves'
