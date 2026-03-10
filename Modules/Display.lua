@@ -207,7 +207,10 @@ function Module:ConfigChanged()
         local activeEvents = {}
         for i = 1, CC_GetNumDayEvents(0, now.monthDay) do
             local event = CC_GetDayEvent(0, now.monthDay, i)
-            if CDAT_CompareCalendarTime(event.startTime, now) >= 0 and
+            if canaccesstable(event) and
+                canaccessvalue(event.startTime) and
+                canaccessvalue(event.endTime) and
+                CDAT_CompareCalendarTime(event.startTime, now) >= 0 and
                 CDAT_CompareCalendarTime(event.endTime, now) < 0
             then
                 activeEvents[event.eventID] = true
