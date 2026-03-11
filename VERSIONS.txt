@@ -1,3 +1,8 @@
+v12.0.0.10
+----------
+- Fixed random secret value error (GH72).
+- Fixed error opening settings via button/slash command, again (GH73).
+
 v12.0.0.9
 ---------
 - Added Abundance chore.
