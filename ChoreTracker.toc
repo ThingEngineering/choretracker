@@ -42,6 +42,7 @@ AceGUI\ChoreFrame.lua
 AceGUI\FancyList.lua
 
 Locales\enUS.lua
+Locales\frFR.lua
 Locales\koKR.lua
 Locales\ruRU.lua
 Locales\zhTW.lua
