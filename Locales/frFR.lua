@@ -1,7 +1,6 @@
-local L = LibStub('AceLocale-3.0'):NewLocale('ChoreTracker', 'frFR', false)
+local L = LibStub('AceLocale-3.0'):NewLocale('ChoreTracker', 'frFR', false) -- Traduction par Klep-Ysondre
 if not L then return end -- don't remove this!
 
--- Traduction par Klep-Ysondre
 L['section:dragonflight'] = EXPANSION_NAME9
 L['section:warWithin'] = EXPANSION_NAME10
 L['section:midnight'] = EXPANSION_NAME11
@@ -15,7 +14,7 @@ L['option:appearance:backgroundColor'] = 'Couleur de fond'
 L['option:appearance:borderColor'] = 'Couleur de la bordure'
 L['option:appearance:strata'] = 'Couches'
 
-L['option:automation'] = 'Automation'
+L['option:automation'] = 'Automatisation'
 L['option:automation:acceptQuests'] = 'Démarrer automatiquement les quêtes'
 L['option:automation:acceptQuests:desc'] = 'Essayer de lancer automatiquement les quêtes depuis le Journal des quêtes'
 
@@ -189,7 +188,7 @@ L['chore:anniversary:anniversary:quests:meetGreet'] = 'Intro 1'
 L['chore:anniversary:anniversary:quests:reflect'] = 'Répondre'
 L['chore:anniversary:anniversary:quests:shaOfAngerKill'] = 'Tuer le Sha de la colère'
 L['chore:anniversary:anniversary:quests:shopping'] = 'Intro 2'
-L['chore:anniversary:anniversary:quests:soldier'] = 'Honneur AV'
+L['chore:anniversary:anniversary:quests:soldier'] = 'Honneur VA'
 L['chore:anniversary:anniversary:quests:timely'] = 'Boss mondaiux'
 L['chore:anniversary:anniversary:quests:truth'] = 'BRD Empereur'
 
@@ -238,6 +237,7 @@ L['chore:events:holidays2:quests:menacingGrumplings'] = 'Ronchonus'
 L['chore:events:holidays2:quests:whatHorriblePresents'] = 'Cadeaux'
 L['chore:events:holidays2:quests:whereAreTheChildren'] = 'Enfants'
 
+L['chore:professions:midnight:drops:catchup'] = 'Catchup'
 L['chore:professions:midnight:drops:gather'] = 'Rassembler'
 L['chore:professions:midnight:drops:mob/treasure'] = 'Monstres/trésors'
 
