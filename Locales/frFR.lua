@@ -1,6 +1,7 @@
-local L = LibStub('AceLocale-3.0'):NewLocale('ChoreTracker', 'frFR', false) -- Traduction par Klep-Ysondre
+local L = LibStub('AceLocale-3.0'):NewLocale('ChoreTracker', 'frFR', false)
 if not L then return end -- don't remove this!
 
+ -- Traduction par Klep-Ysondre
 L['section:dragonflight'] = EXPANSION_NAME9
 L['section:warWithin'] = EXPANSION_NAME10
 L['section:midnight'] = EXPANSION_NAME11
@@ -64,8 +65,8 @@ L['category:catchAndRelease'] = 'Attraper et relâcher'
 L['category:dailies'] = 'Quotidiens'
 L['category:event'] = 'Événement'
 L['category:fish'] = 'Poisson'
-L['category:holidays'] = 'Jours fériés hebdomadaires'
-L['category:holidays2'] = 'Vacances'
+L['category:holidays'] = 'Saisonniers hebdomadaires'
+L['category:holidays2'] = 'Saisonniers'
 L['category:limited'] = 'Durée limitée'
 L['category:darkmoonFaire'] = 'Foire de Sombrelune'
 L['category:patch_10_0_0'] = 'Patch 10.0.0'
