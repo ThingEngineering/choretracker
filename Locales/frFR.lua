@@ -1,7 +1,7 @@
 local L = LibStub('AceLocale-3.0'):NewLocale('ChoreTracker', 'frFR', false)
 if not L then return end -- don't remove this!
 
--- Traduction par Klep-Ysondre
+ -- Traduction par Klep-Ysondre
 L['section:dragonflight'] = EXPANSION_NAME9
 L['section:warWithin'] = EXPANSION_NAME10
 L['section:midnight'] = EXPANSION_NAME11
@@ -15,7 +15,7 @@ L['option:appearance:backgroundColor'] = 'Couleur de fond'
 L['option:appearance:borderColor'] = 'Couleur de la bordure'
 L['option:appearance:strata'] = 'Couches'
 
-L['option:automation'] = 'Automation'
+L['option:automation'] = 'Automatisation'
 L['option:automation:acceptQuests'] = 'Démarrer automatiquement les quêtes'
 L['option:automation:acceptQuests:desc'] = 'Essayer de lancer automatiquement les quêtes depuis le Journal des quêtes'
 
@@ -65,8 +65,8 @@ L['category:catchAndRelease'] = 'Attraper et relâcher'
 L['category:dailies'] = 'Quotidiens'
 L['category:event'] = 'Événement'
 L['category:fish'] = 'Poisson'
-L['category:holidays'] = 'Jours fériés hebdomadaires'
-L['category:holidays2'] = 'Vacances'
+L['category:holidays'] = 'Saisonniers hebdomadaires'
+L['category:holidays2'] = 'Saisonniers'
 L['category:limited'] = 'Durée limitée'
 L['category:darkmoonFaire'] = 'Foire de Sombrelune'
 L['category:patch_10_0_0'] = 'Patch 10.0.0'
@@ -189,7 +189,7 @@ L['chore:anniversary:anniversary:quests:meetGreet'] = 'Intro 1'
 L['chore:anniversary:anniversary:quests:reflect'] = 'Répondre'
 L['chore:anniversary:anniversary:quests:shaOfAngerKill'] = 'Tuer le Sha de la colère'
 L['chore:anniversary:anniversary:quests:shopping'] = 'Intro 2'
-L['chore:anniversary:anniversary:quests:soldier'] = 'Honneur AV'
+L['chore:anniversary:anniversary:quests:soldier'] = 'Honneur VA'
 L['chore:anniversary:anniversary:quests:timely'] = 'Boss mondaiux'
 L['chore:anniversary:anniversary:quests:truth'] = 'BRD Empereur'
 
