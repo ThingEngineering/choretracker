@@ -179,8 +179,6 @@ function Module:UpdateCurrency(currencyId)
     if have == need then fakeQuest.status = STATUS_COMPLETED end
 
     self.quests[5000000 + currencyId] = fakeQuest
-    print(currencyId)
-    DevTools_Dump(fakeQuest)
 end
 
 function Module:ScanChett()
