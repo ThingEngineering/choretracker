@@ -18,12 +18,18 @@ Addon.data.chores.professionSkinning = {
                     groupSameItem = true,
                     entries = {
                         { quest=88534, item=238625 }, -- Fine Void-Tempered Hide
-                        { quest=88549, item=238625 }, -- Fine Void-Tempered Hide
-                        { quest=88537, item=238625 }, -- Fine Void-Tempered Hide
-                        { quest=88536, item=238625 }, -- Fine Void-Tempered Hide
-                        { quest=88530, item=238625 }, -- Fine Void-Tempered Hide
+                        { quest=88549, item=238625 },
+                        { quest=88537, item=238625 },
+                        { quest=88536, item=238625 },
+                        { quest=88530, item=238625 },
                         { quest=88529, item=238626 }, -- Mana-Infused Bone
                     },
+                },
+                {
+                    key = 'catchup',
+                    entries = {
+                        { quest=5003191, item=238627, currency=3191 }, -- Manafused Sample
+                    }
                 },
             },
             quests = {

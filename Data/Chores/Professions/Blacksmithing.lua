@@ -20,6 +20,12 @@ Addon.data.chores.professionBlacksmithing = {
                         { quest=93530, item=259190 }, -- Thalassian Whestone
                     },
                 },
+                {
+                    key = 'catchup',
+                    entries = {
+                        { quest=5003199, item=246322, currency=3199 }, -- Flicker
+                    }
+                },
             },
             quests = {
                 {

@@ -20,6 +20,12 @@ Addon.data.chores.professionJewelcrafting = {
                         { quest=93538, item=259198 }, -- Void-Touched Eversong Diamond Fragments
                     },
                 },
+                {
+                    key = 'catchup',
+                    entries = {
+                        { quest=5003194, item=246330, currency=3194 }, -- Flicker
+                    }
+                },
             },
             quests = {
                 {

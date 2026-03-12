@@ -20,6 +20,12 @@ Addon.data.chores.professionEngineering = {
                         { quest=93535, item=259195 }, -- Dawn Capacitor [TODO verify quest]
                     },
                 },
+                {
+                    key = 'catchup',
+                    entries = {
+                        { quest=5003197, item=246326, currency=3197 }, -- Flicker
+                    }
+                },
             },
             quests = {
                 {

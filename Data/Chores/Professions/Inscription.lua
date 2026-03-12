@@ -20,6 +20,12 @@ Addon.data.chores.professionInscription = {
                         { quest=93537, item=259197 }, -- Loa-Blessed Rune
                     },
                 },
+                {
+                    key = 'catchup',
+                    entries = {
+                        { quest=5003195, item=246328, currency=3195 }, -- Flicker
+                    }
+                },
             },
             quests = {
                 {

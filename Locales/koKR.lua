@@ -235,6 +235,7 @@ L['chore:events:holidays2:quests:menacingGrumplings'] = '꼬마 투덜이'
 L['chore:events:holidays2:quests:whatHorriblePresents'] = '도둑맞은 선물'
 L['chore:events:holidays2:quests:whereAreTheChildren'] = '어린이'
 
+L['chore:professions:midnight:drops:catchup'] = 'Catchup'
 L['chore:professions:midnight:drops:gather'] = '수집'
 L['chore:professions:midnight:drops:mob/treasure'] = '몹/보물'
 

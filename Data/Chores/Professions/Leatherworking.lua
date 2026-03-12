@@ -20,6 +20,12 @@ Addon.data.chores.professionLeatherworking = {
                         { quest=93541, item=259201 }, -- Thalassian Mana Oil
                     },
                 },
+                {
+                    key = 'catchup',
+                    entries = {
+                        { quest=5003193, item=246332, currency=3193 }, -- Flicker
+                    }
+                },
             },
             quests = {
                 {

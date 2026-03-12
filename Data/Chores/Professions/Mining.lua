@@ -18,12 +18,18 @@ Addon.data.chores.professionMining = {
                     groupSameItem = true,
                     entries = {
                         { quest=88673, item=237496 }, -- Igneous Rock Specimen
-                        { quest=88674, item=237496 }, -- Igneous Rock Specimen
-                        { quest=88675, item=237496 }, -- Igneous Rock Specimen
-                        { quest=88676, item=237496 }, -- Igneous Rock Specimen
-                        { quest=88677, item=237496 }, -- Igneous Rock Specimen
+                        { quest=88674, item=237496 },
+                        { quest=88675, item=237496 },
+                        { quest=88676, item=237496 },
+                        { quest=88677, item=237496 },
                         { quest=88678, item=237506 }, -- Septarian Nodule
                     },
+                },
+                {
+                    key = 'catchup',
+                    entries = {
+                        { quest=5003192, item=237507, currency=3192 }, -- Cloudy Quartz
+                    }
                 },
             },
             quests = {

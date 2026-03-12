@@ -20,6 +20,12 @@ Addon.data.chores.professionAlchemy = {
                         { quest=93528, item=259188 }, -- Lightbloomed Spore Sample
                     },
                 },
+                {
+                    key = 'catchup',
+                    entries = {
+                        { quest=5003189, item=246320, currency=3189 }, -- Flicker
+                    }
+                },
             },
             quests = {
                 {

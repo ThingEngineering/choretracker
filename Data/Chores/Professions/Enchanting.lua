@@ -18,10 +18,10 @@ Addon.data.chores.professionEnchanting = {
                     groupSameItem = true,
                     entries = {
                         { quest=95048, item=267654 }, -- Swirling Arcane Essence
-                        { quest=95049, item=267654 }, -- Swirling Arcane Essence
-                        { quest=95050, item=267654 }, -- Swirling Arcane Essence
-                        { quest=95051, item=267654 }, -- Swirling Arcane Essence
-                        { quest=95052, item=267654 }, -- Swirling Arcane Essence
+                        { quest=95049, item=267654 },
+                        { quest=95050, item=267654 },
+                        { quest=95051, item=267654 },
+                        { quest=95052, item=267654 },
                         { quest=95053, item=267655 }, -- Brimming Mana Shard
                     },
                 },
@@ -31,6 +31,12 @@ Addon.data.chores.professionEnchanting = {
                         { quest=93533, item=259193 }, -- Lost Thalassian Vellum
                         { quest=93532, item=259192 }, -- Voidstorm Ashes
                     },
+                },
+                {
+                    key = 'catchup',
+                    entries = {
+                        { quest=5003198, item=246324, currency=3198 }, -- Flicker
+                    }
                 },
             },
             quests = {
