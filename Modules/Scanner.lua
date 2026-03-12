@@ -8,6 +8,7 @@ local Module = Addon:NewModule(
         pois = {},
         quests = {},
         questPaths = {},
+        scanCurrencies = {},
         scanDungeons = {},
         scanPois = {},
     }
@@ -15,6 +16,7 @@ local Module = Addon:NewModule(
 
 
 local CAPI_GetAreaPOIInfo = C_AreaPoiInfo.GetAreaPOIInfo
+local CCI_GetCurrencyInfo = C_CurrencyInfo.GetCurrencyInfo
 local CDAT_GetSecondsUntilWeeklyReset = C_DateAndTime.GetSecondsUntilWeeklyReset
 local CI_GetItemCount = C_Item.GetItemCount
 local CI_GetItemNameByID = C_Item.GetItemNameByID
@@ -114,6 +116,7 @@ function Module:OnEnteringWorld()
         self:InitializeData()
     end
 
+    C_Timer.After(5, function() self:ScanCurrencies() end)
     C_Timer.After(5, function() self:ScanGilded() end)
 
     local item = Item:CreateFromItemID(CHETT_LIST_ID)
@@ -121,6 +124,11 @@ function Module:OnEnteringWorld()
 end
 
 function Module:CURRENCY_DISPLAY_UPDATE(_, currencyId)
+    if self.scanCurrencies[currencyId] then
+        self:UpdateCurrency(currencyId)
+        self:SendMessage('ChoreTracker_Data_Updated', 'quests')
+    end
+
     if currencyId == 3110 then
         C_Timer.After(2, function() self:ScanGilded() end)
     end
@@ -145,6 +153,34 @@ function Module:UNIT_QUEST_LOG_CHANGED(targets)
     if targets.player then
         self:ScanQuests()
     end
+end
+
+function Module:ScanCurrencies()
+    for currencyId, _ in pairs(self.scanCurrencies) do
+        self:UpdateCurrency(currencyId)
+    end
+    self:SendMessage('ChoreTracker_Data_Updated', 'quests')
+end
+
+function Module:UpdateCurrency(currencyId)
+    local currencyInfo = CCI_GetCurrencyInfo(currencyId)
+    if currencyInfo == nil then return end
+
+    local have = currencyInfo.totalEarned
+    local need = currencyInfo.maxQuantity
+
+    local fakeQuest = {
+        status = STATUS_IN_PROGRESS,
+        accountCompleted = false,
+        completed = have,
+        total = need,
+    }
+
+    if have == need then fakeQuest.status = STATUS_COMPLETED end
+
+    self.quests[5000000 + currencyId] = fakeQuest
+    print(currencyId)
+    DevTools_Dump(fakeQuest)
 end
 
 function Module:ScanChett()
@@ -367,10 +403,12 @@ function Module:InitializeData()
                             end
 
                             for _, choreEntry in ipairs(choreData.entries) do
-                                self.questPaths[choreEntry.quest] = choreKey
+                                if choreEntry.quest ~= nil then
+                                    self.questPaths[choreEntry.quest] = choreKey
                                 
-                                if questIds ~= nil then
-                                    tinsert(questIds, choreEntry.quest)
+                                    if questIds ~= nil then
+                                        tinsert(questIds, choreEntry.quest)
+                                    end
                                 end
 
                                 if choreEntry.actualQuest then
@@ -378,6 +416,10 @@ function Module:InitializeData()
                                 end
                                 if choreEntry.unlockQuest then
                                     self.questPaths[choreEntry.unlockQuest] = choreKey
+                                end
+
+                                if choreEntry.currency then
+                                    self.scanCurrencies[choreEntry.currency] = true
                                 end
                             end
                         end
