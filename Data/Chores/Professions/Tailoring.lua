@@ -20,6 +20,12 @@ Addon.data.chores.professionTailoring = {
                         { quest=93543, item=259203 }, -- Finely Woven Lynx Collar
                     },
                 },
+                {
+                    key = 'catchup',
+                    entries = {
+                        { quest=5003190, item=246334, currency=3190 }, -- Flicker
+                    }
+                },
             },
             quests = {
                 {

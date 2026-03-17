@@ -18,12 +18,18 @@ Addon.data.chores.professionHerbalism = {
                     groupSameItem = true,
                     entries = {
                         { quest=81425, item=238465 }, -- Thalassian Phoenix Plume
-                        { quest=81426, item=238465 }, -- Thalassian Phoenix Plume
-                        { quest=81427, item=238465 }, -- Thalassian Phoenix Plume
-                        { quest=81428, item=238465 }, -- Thalassian Phoenix Plume
-                        { quest=81429, item=238465 }, -- Thalassian Phoenix Plume
+                        { quest=81426, item=238465 },
+                        { quest=81427, item=238465 },
+                        { quest=81428, item=238465 },
+                        { quest=81429, item=238465 },
                         { quest=81430, item=238466 }, -- Thalassian Phoenix Tail
                     },
+                },
+                {
+                    key = 'catchup',
+                    entries = {
+                        { quest=5003196, item=238467, currency=3196 }, -- Thalassian Phoenix Ember
+                    }
                 },
             },
             quests = {

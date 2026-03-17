@@ -236,6 +236,7 @@ L['chore:events:holidays2:quests:menacingGrumplings'] = '格噜噜'
 L['chore:events:holidays2:quests:whatHorriblePresents'] = '怪礼物'
 L['chore:events:holidays2:quests:whereAreTheChildren'] = '营救儿童'
 
+L['chore:professions:midnight:drops:catchup'] = 'Catchup'
 L['chore:professions:midnight:drops:gather'] = '采集'
 L['chore:professions:midnight:drops:mob/treasure'] = '怪物/宝藏'
 
