@@ -8,7 +8,7 @@ L['section:midnight'] = EXPANSION_NAME11
 
 L['auto_accept_message'] = 'ChoreTracker peut désormais accepter automatiquement certaines quêtes depuis la fenêtre Contenu suggéré; vous pouvez activer cette fonction dans Options > Général (message unique).'
 
-L['key_binding:toggle'] = 'Basculer la fenêtre de ChoreTracker'
+L['key_binding:toggle'] = 'Afficher / masquer ChoreTracker'
 
 L['option:appearance'] = 'Apparence'
 L['option:appearance:backgroundColor'] = 'Couleur de fond'
