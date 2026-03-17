@@ -252,7 +252,7 @@ L['chore:professions:warWithin:drops:mob/treasure'] = 'Monstres/trésors'
 L['chore:professions:warWithin:quests:orders'] = 'Commandes'
 L['chore:professions:warWithin:quests:task'] = 'Tâche'
 L['chore:professions:warWithin:quests:treatise'] = 'Traité'
-L['chore:professions:warWithin:quests:skinSlatefang'] = "Tenue Croc-d'ardoise"
+L['chore:professions:warWithin:quests:skinSlatefang'] = "Dépecer Croc-d'ardoise"
 
 L['chore:professions:dragonflight:drops:forbiddenReach'] = 'Confins Interdits'
 L['chore:professions:dragonflight:drops:gather'] = 'Rassembler'
@@ -264,8 +264,8 @@ L['chore:professions:dragonflight:quests:provide'] = 'Fournir'
 L['chore:professions:dragonflight:quests:task'] = 'Tâche'
 L['chore:professions:dragonflight:quests:treatise'] = 'Traité'
 
-L['chore:professions:dragonflight:quests:skinMagmaCobra'] = 'Tenue Cobra de magma'
-L['chore:professions:dragonflight:quests:skinVerdantGladewarden'] = 'Tenue Gardien de clairière verdoyante'
+L['chore:professions:dragonflight:quests:skinMagmaCobra'] = 'Dépecer Cobra de magma'
+L['chore:professions:dragonflight:quests:skinVerdantGladewarden'] = 'Dépecer Gardien de clairière verdoyante'
 
 L['chore:professions:event:quests:darkmoonFaire'] = 'Foire de Sombrelune'
 
