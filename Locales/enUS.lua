@@ -82,6 +82,8 @@ L['category:patch_11_1_5'] = 'Patch 11.1.5'
 L['category:patch_11_2_0'] = 'Patch 11.2.0'
 L['category:patch_12_0_0'] = 'Patch 12.0.0'
 L['category:weekly'] = 'Weekly'
+L['category:special'] = 'Special'
+L['category:leveling'] = 'Leveling'
 L['category:worldBosses'] = 'World Bosses'
 
 L['chore:midnight:patch_12_0_0:quests:abundance'] = 'Abundance'
