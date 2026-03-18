@@ -222,7 +222,7 @@ function Module:ConfigChanged()
     local playerLevel = UnitLevel('player')
 
     -- Delves
-    self.delvesEnabled = playerLevel == 80
+    self.delvesEnabled = playerLevel == 90
 
     -- Events
     self.sections = {}
