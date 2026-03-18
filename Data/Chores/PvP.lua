@@ -24,7 +24,7 @@ Addon.data.chores.choresPvp = {
                     minimumLevel = 90,
                     requiredEventIds = { 563, 602, 603, 604 }, -- Battleground Bonus Event
                     entries = {
-                        { quest = 83345 }, -- A Call to Battle
+                        { quest = 93593 }, -- A Call to Battle
                     },
                 },
                 {
