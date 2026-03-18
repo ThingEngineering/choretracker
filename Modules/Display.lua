@@ -71,6 +71,7 @@ local STATUS_ICON = {
     [2] = '|TInterface\\Addons\\ChoreTracker\\Assets\\status_2.tga:0|t',
 }
 local KEY_ICON = '|T4622270:0|t'
+local KEY_SHARD_ICON = '|T133016:0|t'
 local LIGHTNING_ICON = '|T136048:0|t'
 
 function Module:OnEnable()
@@ -222,7 +223,7 @@ function Module:ConfigChanged()
     local playerLevel = UnitLevel('player')
 
     -- Delves
-    self.delvesEnabled = playerLevel == 80
+    self.delvesEnabled = playerLevel == 90
 
     -- Events
     self.sections = {}
@@ -493,17 +494,29 @@ function Module:AddDelves(changed, newChildren, seenFrames)
             end
 
             local keyCount = CCI_GetCurrencyInfo(3028).quantity
+            local shardCount = CCI_GetCurrencyInfo(3310).quantity
 
             if (completed < total or showCompletedSections) and
-                (not onlyWithKeys or keyCount > 0)
+                (not onlyWithKeys or keyCount > 0 or shardCount >= 100)
             then
                 local prefix = self:GetPercentColor(completed, total)
 
                 local headerText = L['category:bountifulDelves']
+                
                 if showKeys then
-                    local keyColor = self:GetPercentColor(keyCount, total - completed)
-                    headerText = headerText .. ' |cFF888888[|r' .. keyColor .. keyCount .. '|r ' .. KEY_ICON .. '|cFF888888]|r'
+                    local keyColor = self:GetPercentColor((keyCount * 100) + shardCount, (total - completed) * 100)
+
+                    headerText = headerText .. ' |cFF888888[|r'
+                    
+                    headerText = headerText .. keyColor .. keyCount .. '|r ' .. KEY_ICON
+
+                    if shardCount > 0 then
+                        headerText = headerText .. ' ' .. keyColor .. shardCount .. '|r ' .. KEY_SHARD_ICON
+                    end
+
+                    headerText = headerText .. '|cFF888888]|r'
                 end
+                
                 headerText = headerText .. ' - ' .. prefix .. completed .. '|r|cFF888888/|r' .. prefix ..
                     total .. '|r'
 

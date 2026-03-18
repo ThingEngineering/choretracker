@@ -1,3 +1,10 @@
+v12.0.0.13
+----------
+- Added key shards to bountiful delve section.
+- Added bountiful delve tracking quests.
+- Fixed bountiful delve level check.
+- Fixed A Call to Battle quest.
+
 v12.0.0.12
 ----------
 - Fixed some leftover debug spam.
