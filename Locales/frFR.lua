@@ -1,7 +1,7 @@
 local L = LibStub('AceLocale-3.0'):NewLocale('ChoreTracker', 'frFR', false)
 if not L then return end -- don't remove this!
 
- -- Traduction par Klep-Ysondre
+-- Traduction par Klep-Ysondre
 L['section:dragonflight'] = EXPANSION_NAME9
 L['section:warWithin'] = EXPANSION_NAME10
 L['section:midnight'] = EXPANSION_NAME11
