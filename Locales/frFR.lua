@@ -1,21 +1,21 @@
 local L = LibStub('AceLocale-3.0'):NewLocale('ChoreTracker', 'frFR', false)
 if not L then return end -- don't remove this!
 
--- Traduction par Klep-Ysondre
+ -- Traduction par Klep-Ysondre
 L['section:dragonflight'] = EXPANSION_NAME9
 L['section:warWithin'] = EXPANSION_NAME10
 L['section:midnight'] = EXPANSION_NAME11
 
 L['auto_accept_message'] = 'ChoreTracker peut désormais accepter automatiquement certaines quêtes depuis la fenêtre Contenu suggéré; vous pouvez activer cette fonction dans Options > Général (message unique).'
 
-L['key_binding:toggle'] = 'Basculer la fenêtre de ChoreTracker'
+L['key_binding:toggle'] = 'Afficher / masquer ChoreTracker'
 
 L['option:appearance'] = 'Apparence'
 L['option:appearance:backgroundColor'] = 'Couleur de fond'
 L['option:appearance:borderColor'] = 'Couleur de la bordure'
 L['option:appearance:strata'] = 'Couches'
 
-L['option:automation'] = 'Automation'
+L['option:automation'] = 'Automatisation'
 L['option:automation:acceptQuests'] = 'Démarrer automatiquement les quêtes'
 L['option:automation:acceptQuests:desc'] = 'Essayer de lancer automatiquement les quêtes depuis le Journal des quêtes'
 
@@ -32,7 +32,7 @@ L['option:bulkActions:dragonflightEnable'] = 'Activer toutes les tâches DF'
 
 L['option:display'] = 'Affichage'
 L['option:display:awakenedTimers'] = 'Afficher uniquement les minuteurs activés'
--- L['option:display:showAnniversaryAccount'] = 'Show Anniversary account completed' -- review
+L['option:display:showAnniversaryAccount'] = 'Afficher le compte anniversaire complété'
 L['option:display:showCompleted'] = 'Afficher les tâches terminées'
 L['option:display:showCompletedSections'] = 'Afficher les sections terminées'
 L['option:display:showMinimapIcon'] = 'Afficher l’icône sur la mini-carte'
@@ -65,8 +65,8 @@ L['category:catchAndRelease'] = 'Attraper et relâcher'
 L['category:dailies'] = 'Quotidiens'
 L['category:event'] = 'Événement'
 L['category:fish'] = 'Poisson'
-L['category:holidays'] = 'Jours fériés hebdomadaires'
-L['category:holidays2'] = 'Vacances'
+L['category:holidays'] = 'Saisonniers hebdomadaires'
+L['category:holidays2'] = 'Saisonniers'
 L['category:limited'] = 'Durée limitée'
 L['category:darkmoonFaire'] = 'Foire de Sombrelune'
 L['category:patch_10_0_0'] = 'Patch 10.0.0'
@@ -131,7 +131,7 @@ L['chore:warWithin:patch_11_0_0:quests:emissaryWorldsoul'] = 'Âme-monde'
 L['chore:warWithin:patch_11_0_0:quests:rollinDown'] = 'Toucher le fin fond du fond'
 L['chore:warWithin:patch_11_0_0:quests:specialAssignment'] = 'Mission spéciale'
 L['chore:warWithin:patch_11_0_0:quests:spiderPact'] = 'Pacte de l’araignée'
-L['chore:warWithin:patch_11_0_0:quests:spiderWeekly'] = 'Hebdomadaire de l’araignée' -- à revoir
+L['chore:warWithin:patch_11_0_0:quests:spiderWeekly'] = 'Hebdomadaire de l’araignée'
 L['chore:warWithin:patch_11_0_0:quests:spreadingTheLight'] = 'Propager la lumière'
 L['chore:warWithin:patch_11_0_0:quests:theaterTroupe'] = 'Troupe de théâtre'
 L['chore:warWithin:patch_11_0_0:quests:worldBoss'] = 'Boss mondiaux'
@@ -148,10 +148,10 @@ L['chore:dragonflight:catchAndRelease:quests:releaseThousandbite'] = 'Piranha mi
 
 L['chore:dragonflight:patch_10_2_5:quests:bigDig'] = 'La grande fouille'
 
-L['chore:dragonflight:patch_10_2_0:quests:aWorthyAlly'] = 'Un allié qui se respecte'
+L['chore:dragonflight:patch_10_2_0:quests:aWorthyAlly'] = 'Une précieuse alliancee'
 L['chore:dragonflight:patch_10_2_0:quests:bloomingDreamseeds'] = 'Planter les graines'
 L['chore:dragonflight:patch_10_2_0:quests:superbloom'] = 'Superfloraison'
-L['chore:dragonflight:patch_10_2_0:quests:shipments1'] = 'Expéditions x1'
+L['chore:dragonflight:patch_10_2_0:quests:shipments1'] = 'Expédition x1'
 L['chore:dragonflight:patch_10_2_0:quests:shipments5'] = 'Expéditions x5'
 
 L['chore:dragonflight:patch_10_1_7:quests:dreamsurge'] = 'Poussée onirique'
@@ -160,8 +160,8 @@ L['chore:dragonflight:patch_10_1_5:quests:timeRift'] = 'Faille temporelle'
 L['chore:dragonflight:patch_10_1_5:quests:timeRiftAccount'] = 'Faille temporelle (Compte)'
 
 L['chore:dragonflight:patch_10_1_0:drops:sniffenseeking'] = 'Enquêtes olfactives'
-L['chore:dragonflight:patch_10_1_0:quests:aWorthyAlly'] = 'Un allié qui se respecte'
-L['chore:dragonflight:patch_10_1_0:quests:barter'] = 'Marchandage '
+L['chore:dragonflight:patch_10_1_0:quests:aWorthyAlly'] = 'Une précieuse alliance'
+L['chore:dragonflight:patch_10_1_0:quests:barter'] = 'Marchandage'
 L['chore:dragonflight:patch_10_1_0:quests:fyrakkAssault'] = 'Fyrakka : assaut'
 L['chore:dragonflight:patch_10_1_0:quests:fyrakkDisciple'] = 'Fyrakka : disciple'
 L['chore:dragonflight:patch_10_1_0:quests:fyrakkShipment'] = 'Fyrakka : expédition'
@@ -189,7 +189,7 @@ L['chore:anniversary:anniversary:quests:meetGreet'] = 'Intro 1'
 L['chore:anniversary:anniversary:quests:reflect'] = 'Répondre'
 L['chore:anniversary:anniversary:quests:shaOfAngerKill'] = 'Tuer le Sha de la colère'
 L['chore:anniversary:anniversary:quests:shopping'] = 'Intro 2'
-L['chore:anniversary:anniversary:quests:soldier'] = 'Honneur AV'
+L['chore:anniversary:anniversary:quests:soldier'] = 'Honneur VA'
 L['chore:anniversary:anniversary:quests:timely'] = 'Boss mondaiux'
 L['chore:anniversary:anniversary:quests:truth'] = 'BRD Empereur'
 
@@ -252,7 +252,7 @@ L['chore:professions:warWithin:drops:mob/treasure'] = 'Monstres/trésors'
 L['chore:professions:warWithin:quests:orders'] = 'Commandes'
 L['chore:professions:warWithin:quests:task'] = 'Tâche'
 L['chore:professions:warWithin:quests:treatise'] = 'Traité'
-L['chore:professions:warWithin:quests:skinSlatefang'] = "Tenne Croc-d'ardoise"
+L['chore:professions:warWithin:quests:skinSlatefang'] = "Dépecer Croc-d'ardoise"
 
 L['chore:professions:dragonflight:drops:forbiddenReach'] = 'Confins Interdits'
 L['chore:professions:dragonflight:drops:gather'] = 'Rassembler'
@@ -264,8 +264,8 @@ L['chore:professions:dragonflight:quests:provide'] = 'Fournir'
 L['chore:professions:dragonflight:quests:task'] = 'Tâche'
 L['chore:professions:dragonflight:quests:treatise'] = 'Traité'
 
-L['chore:professions:dragonflight:quests:skinMagmaCobra'] = 'Tenue Cobra de magma'
-L['chore:professions:dragonflight:quests:skinVerdantGladewarden'] = 'Tenue Gardien de clairière verdoyante'
+L['chore:professions:dragonflight:quests:skinMagmaCobra'] = 'Dépecer Cobra de magma'
+L['chore:professions:dragonflight:quests:skinVerdantGladewarden'] = 'Dépecer Gardien de clairière verdoyante'
 
 L['chore:professions:event:quests:darkmoonFaire'] = 'Foire de Sombrelune'
 
@@ -315,41 +315,44 @@ L['questName:89062'] = 'Atrium'
 L['questName:89063'] = 'Tazavesh'
 -- C.H.E.T.T
 L['questName:87296'] = 'Obtenez la liste !'
-L['questName:86917'] = 'Effectuer 10x  Livraisons'
-L['questName:86918'] = 'Ramasser 100x Canette de Kaja’Cola vide'
-L['questName:86920'] = 'Tuer 5x joueurs en mode guerre'
--- L['questName:86923'] = '50x Runoff Fishing'
-L['questName:86924'] = '5x Combat de mascotte'
-L['questName:87302'] = '3x Monstre Rare'
-L['questName:87303'] = 'Gouffre Chenal de ruelle'
-L['questName:87304'] = "Gouffre Site d'excavation 9"
-L['questName:87305'] = '2x Courses de voiture'
-L['questName:87306'] = '50x Canette de Kaja’Cola'
-L['questName:87307'] = '25x Rammassage de Poubelle/Benne'
+L['questName:86917'] = 'Effectuez 10 Livraisons'
+L['questName:86918'] = 'Collectez 50 Canettes de Kaja’Cola vide'
+L['questName:86920'] = 'Tuez 5 Joueurs en mode guerre'
+L['questName:86923'] = 'Pêchez 50 x dans les Ruissellement de Gentepression'
+L['questName:86924'] = 'Collectionnez 5 Mascottes'
+L['questName:87302'] = 'Tuez 3 Adversaires rare'
+L['questName:87303'] = 'Terminez le gouffre « Chenal de ruelle »'
+L['questName:87304'] = "Terminez le gouffre « Site d'excavation 9 »"
+L['questName:87305'] = 'Terminez 2 Courses'
+L['questName:87306'] = 'Collectez 50 Canettes de Kaja'
+L['questName:87307'] = 'Ramassez 25 Poubelles/Bennes'
 L['questName:5000002'] = 'Obtenez la liste !'
 L['questName:5000003'] = 'Remettez la liste !'
 
-L['missing_skill_level'] = '|cFFFF00FFOuvrez la fenêtre des métiers !|r'
+L['missing_skill_level'] = '|cFFFF00FFOuvrez la fenêtre de métier §|r'
 L['remove_specialAssignment'] = 'Mission spéciale : '
 L['skip_undermine_cartel'] = 'signer un contrat de cartel pour la semaine$'
 
 -- Auto-Accept
 L['autoAccept:acceptQuest'] = 'Accepter la quête'
 L['autoAccept:startQuest'] = 'Démarrer la quête'
--- L['autoAccept:choresEvents:holidays:delves'] = '^Bonus Event: Delves$'
--- L['autoAccept:choresEvents:holidays:mythicDungeons'] = '^Bonus Event: Dungeons$'
--- L['autoAccept:choresEvents:holidays:pvpPetBattles'] = '^Bonus Event: Pet Battles$'
--- L['autoAccept:choresEvents:holidays:timewalkingDungeons'] = '^Bonus Event: Timewalking$'
--- L['autoAccept:choresEvents:holidays:worldQuests'] = '^Bonus Event: World Quests$'
--- L['autoAccept:choresPvp:brawls:compStomp'] = '^Brawl: Arathi Basin Comp Stomp$'
--- L['autoAccept:choresPvp:weekly:battlegrounds'] = '^Bonus Event: Battlegrounds$'
--- L['autoAccept:choresPvp:weekly:sparks'] = '^Sparks of War:'
--- L['autoAccept:choresPvp:weekly:battlegrounds'] = '^Bonus Event: Battlegrounds$'
--- L['autoAccept:choresWarWithin:patch_11_0_0:dungeon'] = '^Biergoth in Dornogal'
--- L['autoAccept:choresWarWithin:patch_11_0_0:emissaryArchives'] = '^Speak to Brinthe'
--- L['autoAccept:choresWarWithin:patch_11_0_0:emissaryDelves'] = '^Speak to Brann Bronzebeard'
+L['autoAccept:choresEvents:holidays:delves'] = '^Évènement bonus : Gouffres$'
+L['autoAccept:choresEvents:holidays:mythicDungeons'] = '^Évènement bonus : Donjons$'
+L['autoAccept:choresEvents:holidays:pvpPetBattles'] = '^Évènement bonus : Combats de mascottes$'
+L['autoAccept:choresEvents:holidays:timewalkingDungeons'] = '^Évènement bonus : Marcheurs du temps$'
+L['autoAccept:choresEvents:holidays:worldQuests'] = '^Évènement bonus : Expéditions$'
+
+L['autoAccept:choresPvp:brawls:compStomp'] = '^Brawl: Arathi Basin Comp Stomp$'
+L['autoAccept:choresPvp:brawls:compStomp'] = "^Bataille : Vaincre l'IA du bassin d'Arashi"
+
+L['autoAccept:choresPvp:weekly:battlegrounds'] = '^Évènement bonus : Champs de bataille$'
+L['autoAccept:choresPvp:weekly:sparks'] = '^Étincelles de guerre :'
+L['autoAccept:choresPvp:weekly:battlegrounds'] = '^Évènement bonus : Champs de bataille$'
+L['autoAccept:choresWarWithin:patch_11_0_0:dungeon'] = '^Biergoth à Dornogal'
+L['autoAccept:choresWarWithin:patch_11_0_0:emissaryArchives'] = '^Parler à Brinthe'
+L['autoAccept:choresWarWithin:patch_11_0_0:emissaryDelves'] = '^Parler à Brann Barbe-de-Bronze'
 L['autoAccept:choresWarWithin:patch_11_0_0:theaterTroupe'] = '^Troupe de théâtre$'
--- L['autoAccept:choresWarWithin:patch_11_2_0:moreThanPhase'] = '^Phase Diving: More'
+L['autoAccept:choresWarWithin:patch_11_2_0:moreThanPhase'] = '^Plus qu’une simple phase'
 
 L['tooltip:showOptions'] = 'Clic droit pour ouvrir les options de ChoreTracker'
 L['tooltip:toggleWindow'] = 'Clic gauche pour afficher/masquer la fenêtre de suivi des tâches'
