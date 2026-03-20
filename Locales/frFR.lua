@@ -341,7 +341,10 @@ L['autoAccept:choresEvents:holidays:mythicDungeons'] = '^Évènement bonus : Don
 L['autoAccept:choresEvents:holidays:pvpPetBattles'] = '^Évènement bonus : Combats de mascottes$'
 L['autoAccept:choresEvents:holidays:timewalkingDungeons'] = '^Évènement bonus : Marcheurs du temps$'
 L['autoAccept:choresEvents:holidays:worldQuests'] = '^Évènement bonus : Expéditions$'
--- L['autoAccept:choresPvp:brawls:compStomp'] = '^Brawl: Arathi Basin Comp Stomp$'
+
+L['autoAccept:choresPvp:brawls:compStomp'] = '^Brawl: Arathi Basin Comp Stomp$'
+L['autoAccept:choresPvp:brawls:compStomp'] = "^Bataille : Vaincre l'IA du bassin d'Arashi"
+
 L['autoAccept:choresPvp:weekly:battlegrounds'] = '^Évènement bonus : Champs de bataille$'
 L['autoAccept:choresPvp:weekly:sparks'] = '^Étincelles de guerre :'
 L['autoAccept:choresPvp:weekly:battlegrounds'] = '^Évènement bonus : Champs de bataille$'
@@ -349,7 +352,7 @@ L['autoAccept:choresWarWithin:patch_11_0_0:dungeon'] = '^Biergoth à Dornogal'
 L['autoAccept:choresWarWithin:patch_11_0_0:emissaryArchives'] = '^Parler à Brinthe'
 L['autoAccept:choresWarWithin:patch_11_0_0:emissaryDelves'] = '^Parler à Brann Barbe-de-Bronze'
 L['autoAccept:choresWarWithin:patch_11_0_0:theaterTroupe'] = '^Troupe de théâtre$'
--- L['autoAccept:choresWarWithin:patch_11_2_0:moreThanPhase'] = '^Phase Diving: More'
+L['autoAccept:choresWarWithin:patch_11_2_0:moreThanPhase'] = '^Plus qu’une simple phase'
 
 L['tooltip:showOptions'] = 'Clic droit pour ouvrir les options de ChoreTracker'
 L['tooltip:toggleWindow'] = 'Clic gauche pour afficher/masquer la fenêtre de suivi des tâches'
