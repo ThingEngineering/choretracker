@@ -36,7 +36,7 @@ Addon.data.chores.choresPrey = {
                     requiredQuest = 93086, -- To the Sanctum!
                     entries = {
                         { quest = 93168, item = 257023 },
-                        { quest = 900000, item = 257023 }, -- FIXME
+                        { quest = 93156, item = 257023 },
                     },
                 },
                 {
