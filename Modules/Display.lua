@@ -42,6 +42,7 @@ local SECTION_TO_CATEGORIES = {
     hallowfallFishingDerby = { 'choresHallowfallFishingDerby' },
     leveling = { 'choresLeveling' },
     midnight = { 'choresMidnight' },
+    prey = { 'choresPrey' },
     pvp = { 'choresPvp' },
     warWithin = { 'choresWarWithin' },
     professions = {
@@ -653,8 +654,9 @@ function Module:GetSectionDrops(section, chore)
     for _, choreEntry in ipairs(chore.data.entries) do
         local choreState
         if chore.data.groupSameItem == true then
-            if grouped[choreEntry.item] == nil then
-                grouped[choreEntry.item] = true
+            local itemId = choreEntry.item or 0
+            if grouped[itemId] == nil then
+                grouped[itemId] = true
                 choreState = {
                     status = 0,
                     completed = 0,
@@ -662,7 +664,8 @@ function Module:GetSectionDrops(section, chore)
                 }
 
                 for _, otherEntry in ipairs(chore.data.entries) do
-                    if otherEntry.item == choreEntry.item then
+                    local otherItemId = otherEntry.item or 0
+                    if otherItemId == itemId then
                         section.total = section.total + 1
                         choreState.total = choreState.total + 1
 
@@ -932,6 +935,8 @@ end
 function Module:GetEntryText(translated, entry, state, weekState, options)
     -- options = { inProgressQuestName, useShoppingListAsName }
 
+    local questName = nil
+
     -- This will just return the key if there's no translation entry, check for that
     local translatedName = L['questName:' .. entry.quest]
     if translatedName:find('^questName:') == nil then
@@ -955,7 +960,22 @@ function Module:GetEntryText(translated, entry, state, weekState, options)
     elseif state.status == 1 and state.objectives ~= nil and #state.objectives == 1 and not options.alwaysShowObjectives then
         local objective = state.objectives[1]
         thingString = self:GetPercentColor(objective.have, objective.need, true) .. self:ObjectiveText(objective, questName)
-    elseif entry.item ~= nil then
+    elseif entry.currency ~= nil then
+        local currencyInfo = CCI_GetCurrencyInfo(entry.currency)
+
+        if (state.total or 0) > 1 then
+            local color = self:GetPercentColor(state.completed, state.total)
+            thingString = color .. state.completed .. '|cFF888888/|r' .. state.total .. '|r '
+        end
+
+        if currencyInfo ~= nil then
+            -- '|T4622270:0|t'
+            thingString = thingString .. '|T' .. currencyInfo.iconFileID .. ':0|t' ..
+                ITEM_QUALITY_COLORS[currencyInfo.quality].hex .. currencyInfo.name
+        else
+            thingString = thingString .. '|cFFFFFFFFCurrency #' .. entry.currency
+        end
+    elseif entry.currency ~= nil or entry.item ~= nil then
         local itemInfo = self:GetCachedItem(entry.item)
 
         if (state.total or 0) > 1 then

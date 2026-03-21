@@ -18,6 +18,7 @@ local ALL_SECTIONS = {
     'events',
     'leveling',
     'midnight',
+    'prey',
     'professions',
     'pvp',
     'timers',
@@ -408,6 +409,7 @@ function Module:CreateOptions()
                 args = {
                     choresLeveling = self:GetChoreOptions(Addon.data.chores.choresLeveling, WIDTH_3_PER_ROW, true),
                     choresMidnight = self:GetChoreOptions(Addon.data.chores.choresMidnight, WIDTH_3_PER_ROW, true),
+                    choresPrey = self:GetChoreOptions(Addon.data.chores.choresPrey, WIDTH_3_PER_ROW, true),
                     choresPvp = self:GetChoreOptions(Addon.data.chores.choresPvp, WIDTH_3_PER_ROW, true),
                     choresEvents = self:GetChoreOptions(Addon.data.chores.choresEvents, WIDTH_3_PER_ROW, true),
                     choresAnniversary = self:GetChoreOptions(Addon.data.chores.choresAnniversary, WIDTH_3_PER_ROW, true),

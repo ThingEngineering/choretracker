@@ -29,9 +29,10 @@ local DEFAULT_SECTION_ORDER = {
     'leveling',
     'delves',
     'midnight',
-    'warWithin',
+    'prey',
     'professions',
     'pvp',
+    'warWithin',
     'dragonflight',
 }
 
