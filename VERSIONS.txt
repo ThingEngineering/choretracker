@@ -1,3 +1,9 @@
+v12.0.0.14
+----------
+- Added Prey section with various chores.
+- Moved delve leveling quests to new Leveling section.
+- Updated frFR locale (thanks Machou).
+
 v12.0.0.13
 ----------
 - Added key shards to bountiful delve section.
@@ -11,7 +17,7 @@ v12.0.0.12
 
 v12.0.0.11
 ----------
-- Added frFR localization (thanks Machou).
+- Added frFR locale (thanks Machou).
 - Added profession knowledge catchup chores.
 
 v12.0.0.10
