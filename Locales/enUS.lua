@@ -240,6 +240,9 @@ L['chore:events:holidays2:quests:whatHorriblePresents'] = 'Presents'
 L['chore:events:holidays2:quests:whereAreTheChildren'] = 'Children'
 
 L['chore:prey:midnight:drops:reputation'] = 'Reputation'
+L['chore:prey:midnight:drops:normal'] = 'Normal'
+L['chore:prey:midnight:drops:hard'] = 'Hard'
+L['chore:prey:midnight:drops:nightmare'] = 'Nightmare'
 
 L['chore:professions:midnight:drops:catchup'] = 'Catchup'
 L['chore:professions:midnight:drops:gather'] = 'Gather'

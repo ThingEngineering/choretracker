@@ -143,6 +143,9 @@ L['chore:events:holidays2:dungeons:frostLordAhune'] = '冰霜領主艾胡恩'
 L['chore:events:holidays2:quests:meanOne'] = '被偷走的禮物'
 
 L['chore:prey:midnight:drops:reputation'] = 'Reputation'
+L['chore:prey:midnight:drops:normal'] = 'Normal'
+L['chore:prey:midnight:drops:hard'] = 'Hard'
+L['chore:prey:midnight:drops:nightmare'] = 'Nightmare'
 
 L['chore:professions:midnight:drops:catchup'] = 'Catchup'
 L['chore:professions:midnight:drops:gather'] = '採集'

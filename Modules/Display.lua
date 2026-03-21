@@ -970,8 +970,11 @@ function Module:GetEntryText(translated, entry, state, weekState, options)
 
         if currencyInfo ~= nil then
             -- '|T4622270:0|t'
-            thingString = thingString .. '|T' .. currencyInfo.iconFileID .. ':0|t' ..
-                ITEM_QUALITY_COLORS[currencyInfo.quality].hex .. currencyInfo.name
+            if currencyInfo.iconFileID ~= nil then
+                thingString = thingString .. '|T' .. currencyInfo.iconFileID .. ':0|t'
+            end
+            
+            thingString = thingString .. ITEM_QUALITY_COLORS[currencyInfo.quality or 1].hex .. currencyInfo.name
         else
             thingString = thingString .. '|cFFFFFFFFCurrency #' .. entry.currency
         end

@@ -28,7 +28,40 @@ Addon.data.chores.choresPrey = {
                         { quest = 95003, currency = 3387 },
                     },
                 },
-            }
+                {
+                    key = 'normal',
+                    minimumLevel = 80,
+                    pick = 2,
+                    groupSameItem = true,
+                    requiredQuest = 93086, -- To the Sanctum!
+                    entries = {
+                        { quest = 93168, item = 257023 },
+                        { quest = 900000, item = 257023 }, -- FIXME
+                    },
+                },
+                {
+                    key = 'hard',
+                    minimumLevel = 90,
+                    pick = 2,
+                    groupSameItem = true,
+                    requiredQuest = 92177, -- One Hero's Prey
+                    entries = {
+                        { quest = 93169, item = 257026 },
+                        { quest = 93857, item = 257026 },
+                    },
+                },
+                {
+                    key = 'nightmare',
+                    minimumLevel = 90,
+                    pick = 2,
+                    groupSameItem = true,
+                    requiredQuest = 92182, -- The Sheep or the Wolf
+                    entries = {
+                        { quest = 93170, item = 262346 },
+                        { quest = 93861, item = 262346 },
+                    },
+                },
+            },
         }
     },
 }
