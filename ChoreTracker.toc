@@ -53,6 +53,7 @@ ChoreTracker.lua
 Data\Professions.lua
 Data\Chores\Dragonflight.lua
 Data\Chores\HallowfallFishingDerby.lua
+Data\Chores\Leveling.lua
 Data\Chores\Midnight.lua
 Data\Chores\PvP.lua
 Data\Chores\The_War_Within.lua

@@ -8,6 +8,7 @@ local Module = Addon:NewModule(
         enabledTimers = {},
         itemCache = {},
         itemRequested = {},
+        sections = {},
         sectionFrames = {},
     },
     'AceHook-3.0'
@@ -39,6 +40,7 @@ local SECTION_TO_CATEGORIES = {
     dragonflight = { 'choresDragonflight' },
     events = { 'choresEvents' },
     hallowfallFishingDerby = { 'choresHallowfallFishingDerby' },
+    leveling = { 'choresLeveling' },
     midnight = { 'choresMidnight' },
     pvp = { 'choresPvp' },
     warWithin = { 'choresWarWithin' },
@@ -226,7 +228,7 @@ function Module:ConfigChanged()
     self.delvesEnabled = playerLevel == 90
 
     -- Events
-    self.sections = {}
+    wipe(self.sections)
     for _, sectionTemp in ipairs(self.sortedSections) do
         local sectionKey, sectionData = unpack(sectionTemp)
         if
@@ -742,6 +744,7 @@ function Module:GetSectionQuests(week, section, chore, showAnniversaryAccount, s
             
             for index, questId in ipairs(questIds) do
                 local entryState = ScannerModule.quests[questId]
+
                 if entryState ~= nil then
                     if entryState.accountCompleted and
                         questId ~= choreEntry.unlockQuest and
