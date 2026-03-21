@@ -62,6 +62,16 @@ Addon.data.chores.choresPrey = {
                     },
                 },
             },
+            quests = {
+                {
+                    key = 'nightmarishTask',
+                    minimumLevel = 90,
+                    -- requiredQuest = 92182, -- The Sheep or the Wolf
+                    entries = {
+                        { quest = 94446 },
+                    },
+                },
+            },
         }
     },
 }
