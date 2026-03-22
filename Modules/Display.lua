@@ -960,6 +960,22 @@ function Module:GetEntryText(translated, entry, state, weekState, options)
     elseif state.status == 1 and state.objectives ~= nil and #state.objectives == 1 and not options.alwaysShowObjectives then
         local objective = state.objectives[1]
         thingString = self:GetPercentColor(objective.have, objective.need, true) .. self:ObjectiveText(objective, questName)
+    elseif entry.item ~= nil then
+        local itemInfo = self:GetCachedItem(entry.item)
+
+        if (state.total or 0) > 1 then
+            local color = self:GetPercentColor(state.completed, state.total)
+            thingString = color .. state.completed .. '|cFF888888/|r' .. state.total .. '|r '
+        end
+
+        if itemInfo.valid then
+            table.remove(self.itemRequested, entry.item)
+
+            thingString = thingString .. '|T' .. itemInfo.texture .. ':0|t ' ..
+                ITEM_QUALITY_COLORS[itemInfo.quality].hex .. itemInfo.name
+        else
+            thingString = thingString .. '|cFFFFFFFFItem #' .. entry.item
+        end
     elseif entry.currency ~= nil then
         local currencyInfo = CCI_GetCurrencyInfo(entry.currency)
 
@@ -977,22 +993,6 @@ function Module:GetEntryText(translated, entry, state, weekState, options)
             thingString = thingString .. ITEM_QUALITY_COLORS[currencyInfo.quality or 1].hex .. currencyInfo.name
         else
             thingString = thingString .. '|cFFFFFFFFCurrency #' .. entry.currency
-        end
-    elseif entry.currency ~= nil or entry.item ~= nil then
-        local itemInfo = self:GetCachedItem(entry.item)
-
-        if (state.total or 0) > 1 then
-            local color = self:GetPercentColor(state.completed, state.total)
-            thingString = color .. state.completed .. '|cFF888888/|r' .. state.total .. '|r '
-        end
-
-        if itemInfo.valid then
-            table.remove(self.itemRequested, entry.item)
-
-            thingString = thingString .. '|T' .. itemInfo.texture .. ':0|t ' ..
-                ITEM_QUALITY_COLORS[itemInfo.quality].hex .. itemInfo.name
-        else
-            thingString = thingString .. '|cFFFFFFFFItem #' .. entry.item
         end
     elseif state.status == 0 and options.chooseQuest then
         thingString = '|cFFFFFFFF' .. L['choose_quest']
