@@ -1,3 +1,9 @@
+v12.0.0.15
+----------
+- Fixed unlock quest for normal prey.
+- Fixed missing unlock quest for A Nightmarish Task.
+- Fixed chores with currency and item preferring currency name.
+
 v12.0.0.14
 ----------
 - Added Prey section with various chores.
