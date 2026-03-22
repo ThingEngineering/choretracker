@@ -33,7 +33,7 @@ Addon.data.chores.choresPrey = {
                     minimumLevel = 80,
                     pick = 2,
                     groupSameItem = true,
-                    requiredQuest = 93086, -- To the Sanctum!
+                    requiredAccountQuest = 93086, -- To the Sanctum!
                     entries = {
                         { quest = 93168, item = 257023 },
                         { quest = 93156, item = 257023 },

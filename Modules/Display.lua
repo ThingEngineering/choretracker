@@ -602,9 +602,14 @@ function Module:GetSections()
                 table.insert(section.entries, chore.translated)
             else
                 local quest = ScannerModule.quests[chore.data.requiredQuest]
-                if chore.data.requiredQuest == nil or (
-                    (quest ~= nil and quest.status == 2)
-                    -- chore.data.preEntries ~= nil
+                local accountQuest = ScannerModule.quests[chore.data.requiredAccountQuest]
+                if (
+                    chore.data.requiredQuest == nil and
+                    chore.data.requiredAccountQuest == nil
+                ) or (
+                    quest ~= nil and quest.status == 2
+                ) or (
+                    accountQuest ~= nil and accountQuest.accountCompleted
                 ) then
                     if chore.typeKey == 'drops' or chore.data.groupSameItem == true then
                         self:GetSectionDrops(section, chore)

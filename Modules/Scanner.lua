@@ -425,6 +425,9 @@ function Module:InitializeData()
                         if choreData.requiredQuest then
                             self.questPaths[choreData.requiredQuest] = choreKey
                         end
+                        if choreData.requiredAccountQuest then
+                            self.questPaths[choreData.requiredAccountQuest] = choreKey
+                        end
 
                         if choreData.dungeonId then
                             self.scanDungeons[choreData.dungeonId] = true
