@@ -349,7 +349,6 @@ L['autoAccept:choresEvents:holidays:pvpPetBattles'] = '^Bonus Event: Pet Battles
 L['autoAccept:choresEvents:holidays:timewalkingDungeons'] = '^Bonus Event: Timewalking$'
 L['autoAccept:choresEvents:holidays:worldQuests'] = '^Bonus Event: World Quests$'
 L['autoAccept:choresPvp:brawls:compStomp'] = '^Brawl: Arathi Basin Comp Stomp$'
-L['autoAccept:choresPvp:weekly:battlegrounds'] = '^Bonus Event: Battlegrounds$'
 L['autoAccept:choresPvp:weekly:sparks'] = '^Sparks of War:'
 L['autoAccept:choresPvp:weekly:battlegrounds'] = '^Bonus Event: Battlegrounds$'
 L['autoAccept:choresWarWithin:patch_11_0_0:dungeon'] = '^Biergoth in Dornogal'
