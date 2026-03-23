@@ -53,9 +53,9 @@ L['section:drops'] = 'Butins'
 L['section:events'] = 'Événements'
 L['section:general'] = 'Général'
 L['section:hallowfallFishingDerby'] = 'Tournoi de pêche de Sainte-Chute'
-L['section:leveling'] = 'Leveling'
-L['section:prey'] = 'Prey'
+L['section:leveling'] = 'Progression'
 L['section:professions'] = 'Métiers'
+L['section:prey'] = 'Traque'
 L['section:pvp'] = 'JcJ'
 L['section:quests'] = 'Quêtes'
 L['section:timers'] = 'Minuteries'
@@ -241,22 +241,22 @@ L['chore:events:holidays2:quests:menacingGrumplings'] = 'Ronchonus'
 L['chore:events:holidays2:quests:whatHorriblePresents'] = 'Cadeaux'
 L['chore:events:holidays2:quests:whereAreTheChildren'] = 'Enfants'
 
-L['chore:prey:midnight:drops:reputation'] = 'Reputation'
+L['chore:prey:midnight:drops:reputation'] = 'Réputation'
 L['chore:prey:midnight:drops:normal'] = 'Normal'
 L['chore:prey:midnight:drops:hard'] = 'Hard'
-L['chore:prey:midnight:drops:nightmare'] = 'Nightmare'
-L['chore:prey:midnight:quests:nightmarishTask'] = 'A Nightmarish Task'
+L['chore:prey:midnight:drops:nightmare'] = 'Cauchemar'
+L['chore:prey:midnight:quests:nightmarishTask'] = 'Une tâche cauchemardesque'
 
-L['chore:professions:midnight:drops:catchup'] = 'Catchup'
+L['chore:professions:midnight:drops:catchup'] = 'Connaissance'
 L['chore:professions:midnight:drops:gather'] = 'Rassembler'
-L['chore:professions:midnight:drops:mob/treasure'] = 'Monstres/trésors'
+L['chore:professions:midnight:drops:mob/treasure'] = 'Monstres / trésors'
 
 L['chore:professions:midnight:quests:orders'] = 'Commandes'
 L['chore:professions:midnight:quests:task'] = 'Tâche'
 L['chore:professions:midnight:quests:treatise'] = 'Traité'
 
 L['chore:professions:warWithin:drops:gather'] = 'Rassembler'
-L['chore:professions:warWithin:drops:mob/treasure'] = 'Monstres/trésors'
+L['chore:professions:warWithin:drops:mob/treasure'] = 'Monstres / trésors'
 
 L['chore:professions:warWithin:quests:orders'] = 'Commandes'
 L['chore:professions:warWithin:quests:task'] = 'Tâche'
@@ -311,7 +311,7 @@ L['timer:timeRift'] = 'Faille temporelle'
 
 -- L['objective:defeat_x'] = 'Defeat %s'
 -- L['objective:bring_x'] = 'Bring %sx %s'
-L['objective:task_count'] = '%s/%s Tâches'
+L['objective:task_count'] = '%s / %s Tâches'
 
 L['choose_quest'] = 'Choisissez une quête !'
 
@@ -334,13 +334,14 @@ L['questName:87303'] = 'Terminez le gouffre « Chenal de ruelle »'
 L['questName:87304'] = "Terminez le gouffre « Site d'excavation 9 »"
 L['questName:87305'] = 'Terminez 2 Courses'
 L['questName:87306'] = 'Collectez 50 Canettes de Kaja'
-L['questName:87307'] = 'Ramassez 25 Poubelles/Bennes'
+L['questName:87307'] = 'Ramassez 25 Poubelles / Bennes'
 L['questName:5000002'] = 'Obtenez la liste !'
 L['questName:5000003'] = 'Remettez la liste !'
 
 L['missing_skill_level'] = '|cFFFF00FFOuvrez la fenêtre de métier §|r'
 L['remove_specialAssignment'] = 'Mission spéciale : '
 L['skip_undermine_cartel'] = 'signer un contrat de cartel pour la semaine$'
+
 
 -- Auto-Accept
 L['autoAccept:acceptQuest'] = 'Accepter la quête'
@@ -350,13 +351,9 @@ L['autoAccept:choresEvents:holidays:mythicDungeons'] = '^Évènement bonus : Don
 L['autoAccept:choresEvents:holidays:pvpPetBattles'] = '^Évènement bonus : Combats de mascottes$'
 L['autoAccept:choresEvents:holidays:timewalkingDungeons'] = '^Évènement bonus : Marcheurs du temps$'
 L['autoAccept:choresEvents:holidays:worldQuests'] = '^Évènement bonus : Expéditions$'
-
-L['autoAccept:choresPvp:brawls:compStomp'] = '^Brawl: Arathi Basin Comp Stomp$'
-L['autoAccept:choresPvp:brawls:compStomp'] = "^Bataille : Vaincre l'IA du bassin d'Arashi"
-
+L['autoAccept:choresPvp:brawls:compStomp'] = 'Bataille : Basin Arathi contre l’IA'
 L['autoAccept:choresPvp:weekly:battlegrounds'] = '^Évènement bonus : Champs de bataille$'
-L['autoAccept:choresPvp:weekly:sparks'] = '^Étincelles de guerre :'
-L['autoAccept:choresPvp:weekly:battlegrounds'] = '^Évènement bonus : Champs de bataille$'
+L['autoAccept:choresPvp:weekly:sparks'] = '^Étincelles de guerre :
 L['autoAccept:choresWarWithin:patch_11_0_0:dungeon'] = '^Biergoth à Dornogal'
 L['autoAccept:choresWarWithin:patch_11_0_0:emissaryArchives'] = '^Parler à Brinthe'
 L['autoAccept:choresWarWithin:patch_11_0_0:emissaryDelves'] = '^Parler à Brann Barbe-de-Bronze'
@@ -364,4 +361,4 @@ L['autoAccept:choresWarWithin:patch_11_0_0:theaterTroupe'] = '^Troupe de théât
 L['autoAccept:choresWarWithin:patch_11_2_0:moreThanPhase'] = '^Plus qu’une simple phase'
 
 L['tooltip:showOptions'] = 'Clic droit pour ouvrir les options de ChoreTracker'
-L['tooltip:toggleWindow'] = 'Clic gauche pour afficher/masquer la fenêtre de suivi des tâches'
+L['tooltip:toggleWindow'] = 'Clic gauche pour afficher / masquer la fenêtre de suivi des tâches'
