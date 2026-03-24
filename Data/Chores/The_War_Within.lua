@@ -136,7 +136,7 @@ Addon.data.chores.choresWarWithin = {
                     minimumLevel = 80,
                     need = 4,
                     pick = 8,
-                    requiredQuest = 5000001,
+                    requiredQuest = 5000004,
                     preEntries = {
                         { quest = 5000002 },
                     },
@@ -293,25 +293,11 @@ Addon.data.chores.choresWarWithin = {
                     }
                 },
                 {
-                    key = 'delversBounty',
-                    minimumLevel = 80,
-                    entries = {
-                        { quest=86371, item=248142 },
-                    },
-                },
-                {
                     key = 'delveArchaic',
                     minimumLevel = 70,
                     oncePerAccount = true,
                     entries = {
                         { quest=84370, item=227794 },
-                    },
-                },
-                {
-                    key = 'delveGilded',
-                    minimumLevel = 80,
-                    entries = {
-                        { quest=5000001 },
                     },
                 },
                 {

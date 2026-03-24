@@ -51,6 +51,7 @@ Locales\zhCN.lua
 ChoreTracker.lua
 
 Data\Professions.lua
+Data\Chores\Delves.lua
 Data\Chores\Dragonflight.lua
 Data\Chores\HallowfallFishingDerby.lua
 Data\Chores\Leveling.lua

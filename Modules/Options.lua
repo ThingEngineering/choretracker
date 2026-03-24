@@ -68,7 +68,8 @@ function Module:OnInitialize()
     ACD:AddToBlizOptions(addonName .. '_Profiles', 'Profiles', addonName)
 end
 
-function Module:GetOption(info)
+function Module:GetOption(infoOriginal)
+    local info = self:PrepOptionInfo(infoOriginal)
     local sigh = self:GetDbSection(info[1])
     for i = 2, #info do
         if sigh == nil then break end
@@ -89,7 +90,8 @@ function Module:GetOption(info)
     return sigh
 end
 
-function Module:SetOption(info, value)
+function Module:SetOption(infoOriginal, value)
+    local info = self:PrepOptionInfo(infoOriginal)
     local sigh = self:GetDbSection(info[1])
     for i = 2, #info do
         if sigh == nil then break end
@@ -112,6 +114,26 @@ function Module:SetOption(info, value)
     end
 
     self:SendMessage('ChoreTracker_Config_Changed')
+end
+
+function Module:PrepOptionInfo(info)
+    local infoCopy = {}
+    for _, thing in ipairs(info) do
+        tinsert(infoCopy, thing)
+    end
+
+    if infoCopy[1] == 'sectionChores' and
+        infoCopy[2] == 'choresMidnight' and
+        infoCopy[3] ~= nil
+    then
+        if string.sub(infoCopy[3], 1, 14) == 'midnightDelves' then
+            infoCopy[2] = 'choresDelves'
+        elseif string.sub(infoCopy[3], 1, 12) == 'midnightPrey' then
+            infoCopy[2] = 'choresPrey'
+        end
+    end
+
+    return infoCopy
 end
 
 function Module:GetDbSection(sighKey)
@@ -164,6 +186,22 @@ function Module:EnableChores(sectionKey, onlyCategory)
 end
 
 function Module:CreateOptions()
+    local choresCurrent = Addon.data.chores.choresMidnight
+    local currentExpansion = {
+        key = choresCurrent.key,
+        name = choresCurrent.name,
+        order = choresCurrent.order,
+        minimumLevel = choresCurrent.minimumLevel,
+        categories = {},
+    }
+    
+    local useChores = { Addon.data.chores.choresDelves, Addon.data.chores.choresPrey, choresCurrent }
+    for _, chores in ipairs(useChores) do
+        for _, category in ipairs(chores.categories) do
+            tinsert(currentExpansion.categories, category)
+        end
+    end
+
     self.options = {
         name = addonName,
         type = 'group',
@@ -408,8 +446,7 @@ function Module:CreateOptions()
                 order = newOrder(),
                 args = {
                     choresLeveling = self:GetChoreOptions(Addon.data.chores.choresLeveling, WIDTH_3_PER_ROW, true),
-                    choresMidnight = self:GetChoreOptions(Addon.data.chores.choresMidnight, WIDTH_3_PER_ROW, true),
-                    choresPrey = self:GetChoreOptions(Addon.data.chores.choresPrey, WIDTH_3_PER_ROW, true),
+                    choresMidnight = self:GetChoreOptions(currentExpansion, WIDTH_3_PER_ROW, true),
                     choresPvp = self:GetChoreOptions(Addon.data.chores.choresPvp, WIDTH_3_PER_ROW, true),
                     choresEvents = self:GetChoreOptions(Addon.data.chores.choresEvents, WIDTH_3_PER_ROW, true),
                     choresAnniversary = self:GetChoreOptions(Addon.data.chores.choresAnniversary, WIDTH_3_PER_ROW, true),
@@ -523,6 +560,12 @@ function Module:GetChoreOptions(data, optionWidth, inline)
             }
             options.args[catData.key] = catOptions
             parentKey = data.key .. ':' .. catData.key
+        end
+
+        if parentKey == 'midnight' and catData.key == 'midnightDelves' then
+            parentKey = 'delves'
+        elseif parentKey == 'midnight' and catData.key == 'midnightPrey' then
+            parentKey = 'prey'
         end
 
         for _, key in ipairs({ 'drops', 'dungeons', 'quests' }) do

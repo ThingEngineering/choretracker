@@ -129,7 +129,7 @@ function Module:CURRENCY_DISPLAY_UPDATE(_, currencyId)
         self:SendMessage('ChoreTracker_Data_Updated', 'quests')
     end
 
-    if currencyId == 3110 then
+    if currencyId == 3290 then
         C_Timer.After(2, function() self:ScanGilded() end)
     end
 end
@@ -260,9 +260,9 @@ function Module:UpdateChett(getStatus, turnInStatus)
 
     -- get list is done and turn in is not active
     if self.quests[5000002].status == STATUS_COMPLETED and self.quests[5000003].status == STATUS_COMPLETED then
-        self.quests[5000001] = { status = STATUS_COMPLETED }
+        self.quests[5000004] = { status = STATUS_COMPLETED }
     else
-        self.quests[5000001] = { status = STATUS_IN_PROGRESS }
+        self.quests[5000004] = { status = STATUS_IN_PROGRESS }
     end
 
     if changed then
@@ -271,10 +271,10 @@ function Module:UpdateChett(getStatus, turnInStatus)
 end
 
 function Module:ScanGilded()
-    local visInfo = CUIWM_GetSpellDisplayVisualizationInfo(6659)
+    local visInfo = CUIWM_GetSpellDisplayVisualizationInfo(7591)
     if visInfo == nil or visInfo.spellInfo == nil or visInfo.spellInfo.tooltip == nil then return end
 
-    local have = tonumber(strmatch(visInfo.spellInfo.tooltip, '(%d)/3') or '0')
+    local have = tonumber(strmatch(visInfo.spellInfo.tooltip, '(%d)/4') or '0')
 
     local fakeQuest = {
         status = STATUS_IN_PROGRESS,
@@ -282,13 +282,13 @@ function Module:ScanGilded()
         objectives = {
             {
                 type = 'object',
-                text = have .. '/3 Gilded Stash',
+                text = have .. '/4 Gilded Stash',
                 have = have,
-                need = 3,
+                need = 4,
             }
         }
     }
-    if have == 3 then fakeQuest.status = STATUS_COMPLETED end
+    if have == 4 then fakeQuest.status = STATUS_COMPLETED end
     
     local oldQuest = self.quests[5000001]
     if oldQuest == nil or oldQuest.objectives == nil or oldQuest.objectives[1].have ~= have then

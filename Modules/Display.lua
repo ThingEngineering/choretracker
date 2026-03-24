@@ -37,6 +37,7 @@ local TASK_COUNT = Addon.L['objective:task_count']
 
 local SECTION_TO_CATEGORIES = {
     anniversary = { 'choresAnniversary' },
+    delves = { 'choresDelves' },
     dragonflight = { 'choresDragonflight' },
     events = { 'choresEvents' },
     hallowfallFishingDerby = { 'choresHallowfallFishingDerby' },
@@ -359,10 +360,11 @@ function Module:Redraw(changed)
     for _, section in ipairs(Addon.db.profile.general.order.sections) do
         if section == 'timers' then
             self:AddTimers(changed, newChildren, seenFrames)
-        elseif section == 'delves' then
-            self:AddDelves(changed, newChildren, seenFrames)
-            -- elseif section == 'events' then
         else
+            if section == 'delves' then
+                self:AddDelves(changed, newChildren, seenFrames)
+            end
+
             local sectionCategories = SECTION_TO_CATEGORIES[section] or {}
             for _, sectionCategory in ipairs(sectionCategories) do
                 local categoryData = categoryMap[sectionCategory]
