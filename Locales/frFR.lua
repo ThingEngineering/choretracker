@@ -151,6 +151,7 @@ L['chore:warWithin:patch_11_0_0:quests:spiderWeekly'] = 'Hebdomadaire de l’ara
 L['chore:warWithin:patch_11_0_0:quests:spreadingTheLight'] = 'Propager la lumière'
 L['chore:warWithin:patch_11_0_0:quests:theaterTroupe'] = 'Troupe de théâtre'
 L['chore:warWithin:patch_11_0_0:quests:worldBoss'] = 'Boss mondiaux'
+L['chore:warWithin:patch_11_0_0:quests:delveArchaic'] = 'Gouffres Archaïc'
 
 L['chore:hallowfallFishingDerby:event:quests:derby'] = 'Quête'
 L['chore:hallowfallFishingDerby:fish:drops:fish'] = 'Poisson'
