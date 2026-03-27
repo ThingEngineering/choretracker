@@ -148,14 +148,11 @@ function Module:CheckSuggestion(suggestion, offset, index)
         if enabled == true then
             -- print(choreKey)
             local matchString, questIds = unpack(acceptData)
-            -- TODO: 12.0 broke this somehow with duplicate timewalking entries, cool
-            -- if (suggestion.buttonText == acceptQuest or
-            --     suggestion.buttonText == startQuest) and
-            if suggestion.buttonText == acceptQuest and
+            if (suggestion.buttonText == acceptQuest or
+                suggestion.buttonText == startQuest) and
                 (strmatch(suggestion.title, matchString) or
                 strmatch(suggestion.description, matchString))
             then
-                -- print('yey')
                 local start = true
                 for _, questId in ipairs(questIds) do
                     local questStatus = ScannerModule.quests[questId]

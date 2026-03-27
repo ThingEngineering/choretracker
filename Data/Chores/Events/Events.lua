@@ -50,10 +50,10 @@ Addon.data.chores.choresEvents = {
             quests = {
                 {
                     key = 'delves',
-                    minimumLevel = 80,
+                    minimumLevel = 90,
                     requiredEventIds = { 1559, 1560, 1561, 1562 }, -- Delves Bonus Event
                     entries = {
-                        { quest = 84776 }, -- A Call to Delves
+                        { quest = 93595 }, -- A Call to Delves
                     },
                 },
                 {
