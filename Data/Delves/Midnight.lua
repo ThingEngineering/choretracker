@@ -7,12 +7,25 @@ Addon.data.delves.midnight = {
     name = EXPANSION_NAME11,
     -- UiMap ID -> AreaPOIs for Bountiful delves
     zones = {
+        -- Silvermoon City
+        {
+            uiMapId = 2393,
+            pois = {
+                { active = 8426, inactive = 8425, quest = 91186 }, -- Collegiate Calamity
+                { active = 8440, inactive = 8439, quest = 92444 }, -- The Darkway
+            },
+        },
+        -- Isle of Quel'Danas
+        {
+            uiMapId = 2432,
+            pois = {
+                { active = 8428, inactive = 8427, quest = 91182 }, -- Parhelion Plaza
+            },
+        },
         -- Eversong Woods
         {
             uiMapId = 2395,
             pois = {
-                { active = 8426, inactive = 8425, quest = 91186 }, -- Collegiate Calamity
-                { active = 8440, inactive = 8439, quest = 92444 }, -- The Darkway
                 { active = 8438, inactive = 8437, quest = 91189 }, -- The Shadow Enclave
             },
         },
