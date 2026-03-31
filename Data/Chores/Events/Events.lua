@@ -261,6 +261,25 @@ Addon.data.chores.choresEvents = {
                         { quest = 89223, item = 238791 }, -- [BfA-H] Remnant of Azeroth
                     },
                 },
+                -- Shadowlands
+                {
+                    key = 'timewalkingDungeons',
+                    minimumLevel = 10,
+                    requiredEventIds = slTimewalkingIds,
+                    entries = {
+                        { quest = 92647 }, -- A Shadowed Journey Through Time
+                        { quest = 92649 }, -- A Shadowed Path Through Time
+                        { quest = 93628 }, -- A Shadowed Path Through Time
+                    },
+                },
+                {
+                    key = 'timewalkingTurnIn',
+                    minimumLevel = 30,
+                    requiredEventIds = slTimewalkingIds,
+                    entries = {
+                        { quest = 92650, item = 253517 }, -- [SL] The Flickering Anima
+                    },
+                },
             },
         },
         {
