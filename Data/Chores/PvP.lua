@@ -16,7 +16,7 @@ Addon.data.chores.choresPvp = {
                     minimumLevel = 90,
                     requiredEventIds = { 561, 610, 611, 612 }, -- Arena Skirmish Bonus Event
                     entries = {
-                        { quest = 83358 }, -- The Arena Calls
+                        { quest = 93600 }, -- The Arena Calls
                     },
                 },
                 {
