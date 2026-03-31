@@ -29,7 +29,7 @@ Addon.data.chores.choresPrey = {
                     minimumLevel = 90,
                     pick = 2,
                     groupSameItem = true,
-                    requiredQuest = 92177, -- One Hero's Prey
+                    requiredQuest = 92178, -- Practical Magic
                     entries = {
                         { quest = 93169, item = 257026 },
                         { quest = 93857, item = 257026 },
