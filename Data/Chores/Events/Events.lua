@@ -66,10 +66,10 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'pvpPetBattles',
-                    minimumLevel = 80,
+                    minimumLevel = 90,
                     requiredEventIds = { 565, 599, 600, 601 }, -- Pet Battle Bonus Event
                     entries = {
-                        { quest = 83357 }, -- The Very Best
+                        { quest = 93599 }, -- The Very Best
                     },
                 },
                 {
