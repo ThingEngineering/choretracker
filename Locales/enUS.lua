@@ -93,8 +93,8 @@ L['category:midnightDelves'] = 'Delves'
 L['category:midnightPrey'] = 'Prey'
 
 L['chore:delves:midnightDelves:quests:bountyGet'] = 'Get Bounty'
-L['chore:delves:midnightDelves:quests:bountyUse'] = 'Use Bounty'
 L['chore:delves:midnightDelves:quests:gilded'] = 'Gilded'
+L['chore:delves:midnightDelves:quests:invasion'] = 'Get Invaded'
 L['chore:delves:midnightDelves:quests:remnant'] = 'Remnant'
 
 L['chore:prey:midnightPrey:drops:reputation'] = 'Reputation'

@@ -27,10 +27,10 @@ Addon.data.chores.choresDelves = {
                     },
                 },
                 {
-                    key = 'bountyUse',
+                    key = 'invasion',
                     minimumLevel = 90,
                     entries = {
-                        { quest=92887, item=252415 }, -- Trovehunter's Bounty [Season 1]
+                        { quest=92887, item=253342 }, -- Beacon of Hope
                     },
                 },
                 {
