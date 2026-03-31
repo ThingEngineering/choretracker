@@ -108,10 +108,14 @@ L['chore:prey:midnightPrey:quests:nightmarishTask'] = 'Une tâche cauchemardesqu
 L['chore:midnight:patch_12_0_0:quests:abundance'] = 'Abondance'
 L['chore:midnight:patch_12_0_0:quests:dungeon'] = 'Donjon'
 L['chore:midnight:patch_12_0_0:quests:hope'] = 'Espoir'
+L['chore:midnight:patch_12_0_0:quests:legends'] = 'Légendes'
 L['chore:midnight:patch_12_0_0:quests:soiree'] = 'Soirée'
+L['chore:midnight:patch_12_0_0:quests:soireeInvite'] = 'Invitation pour la Soirée'
 L['chore:midnight:patch_12_0_0:quests:specialAssignment'] = 'Mission spéciale'
 L['chore:midnight:patch_12_0_0:quests:stormarion'] = 'Fulgarion'
 L['chore:midnight:patch_12_0_0:quests:unity'] = 'Unité'
+L['chore:midnight:patch_12_0_0:quests:worldBoss'] = 'Boss mondiaux'
+L['chore:midnight:patch_12_0_0:quests:worldBossFirst'] = 'Boss mondiaux (Premier)'
 
 L['chore:leveling:midnight:quests:delves'] = 'Gouffres'
 
@@ -151,7 +155,6 @@ L['chore:warWithin:patch_11_0_0:quests:spiderWeekly'] = 'Hebdomadaire de l’ara
 L['chore:warWithin:patch_11_0_0:quests:spreadingTheLight'] = 'Propager la lumière'
 L['chore:warWithin:patch_11_0_0:quests:theaterTroupe'] = 'Troupe de théâtre'
 L['chore:warWithin:patch_11_0_0:quests:worldBoss'] = 'Boss mondiaux'
-L['chore:warWithin:patch_11_0_0:quests:delveArchaic'] = 'Gouffres Archaïc'
 
 L['chore:hallowfallFishingDerby:event:quests:derby'] = 'Quête'
 L['chore:hallowfallFishingDerby:fish:drops:fish'] = 'Poisson'
