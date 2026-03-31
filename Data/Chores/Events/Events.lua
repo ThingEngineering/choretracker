@@ -9,7 +9,7 @@ local cataTimewalkingIds = { 587, 628, 629, 630 }
 local mopTimewalkingIds = { 643, 652, 654, 656 }
 local wodTimewalkingIds = { 1056, 1063, 1065, 1068 }
 local legionTimewalkingIds = { 1263, 1265, 1267, 1269, 1271, 1273, 1275, 1277 }
-local BfATimewalkingIds = { 1666, 1667, 1668, 1669 }
+local bfaTimewalkingIds = { 1666, 1667, 1668, 1669 }
 
 Addon.data.chores.choresEvents = {
     key = 'events',
@@ -167,7 +167,7 @@ Addon.data.chores.choresEvents = {
                     requiredEventIds = cataTimewalkingIds,
                     entries = {
                         { quest = 86556 }, -- A Shattered Journey Through Time
-                        { quest = 83359 }, -- A Shattered Path Through Time
+                        { quest = 93611 }, -- A Shattered Path Through Time
                     },
                 },
                 {
@@ -246,7 +246,7 @@ Addon.data.chores.choresEvents = {
                 {
                     key = 'timewalkingDungeons',
                     minimumLevel = 10,
-                    requiredEventIds = BfATimewalkingIds,
+                    requiredEventIds = bfaTimewalkingIds,
                     entries = {
                         { quest = 88808 }, -- A Scarred Journey Through Time
                         { quest = 88805 }, -- A Scarred Path Through Time
@@ -255,7 +255,7 @@ Addon.data.chores.choresEvents = {
                 {
                     key = 'timewalkingTurnIn',
                     minimumLevel = 30,
-                    requiredEventIds = BfATimewalkingIds,
+                    requiredEventIds = bfaTimewalkingIds,
                     entries = {
                         { quest = 89222, item = 238790 }, -- [BfA-A] Remnant of Azeroth
                         { quest = 89223, item = 238791 }, -- [BfA-H] Remnant of Azeroth
