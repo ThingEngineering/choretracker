@@ -1,3 +1,10 @@
+v12.0.0.19
+----------
+- Added Shadowlands Timewalking support.
+- Fixed normal Prey second box quest ID.
+- Fixed hard Prey required quest.
+- Updated a bunch of event quest IDs.
+
 v12.0.0.18
 ----------
 - Added The Darkway delve.
