@@ -35,7 +35,7 @@ Addon.data.chores.professionEnchanting = {
                 {
                     key = 'catchup',
                     entries = {
-                        { quest=5003198, item=246324, currency=3198 }, -- Flicker
+                        { quest=5003198, item=267653, currency=3198 }, -- Glimmering Powder
                     }
                 },
             },

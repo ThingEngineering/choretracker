@@ -18,8 +18,12 @@ Addon.data.chores.choresLeveling = {
                         return UnitLevel('player') < 90
                     end,
                     entries = {
-                        -- Eversong Woods
+                        -- Silvermoon City
                         { quest = 93384 }, -- Delver's Call: Collegiate Calamity
+                        { quest = 93385 }, -- Delver's Call: The Darkway
+                        -- Isle of Quel'Danas
+                        { quest = 93386 }, -- Delver's Call: Parhelion Plaza
+                        -- Eversong Woods
                         { quest = 93372 }, -- Delver's Call: Shadow Enclave
                         -- Zul'Aman
                         { quest = 93409 }, -- Delver's Call: Atal'Aman

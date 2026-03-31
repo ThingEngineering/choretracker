@@ -48,8 +48,31 @@ Addon.data.chores.choresMidnight = {
                     },
                 },
                 {
+                    key = 'legends',
+                    minimumLevel = 80,
+                    entries = {
+                        -- 89268 Lost Legends
+                        { quest = 88993, unlockQuest = 89268 }, -- Wey'nan's Ward
+                        { quest = 88994, unlockQuest = 89268 }, -- The Cauldron of Echoes
+                        { quest = 88995, unlockQuest = 89268 }, -- Aln'hara's Bloom
+                        { quest = 88996, unlockQuest = 89268 }, -- The Echoless Flame
+                        { quest = 88997, unlockQuest = 89268 }, -- Russula's Outreach
+                        { quest = 90733, unlockQuest = 89268 }, -- The Listener
+                        { quest = 90734, unlockQuest = 89268 }, -- In the Name of the Goddess
+                    },
+                },
+                {
+                    key = 'soireeInvite',
+                    minimumLevel = 80,
+                    oncePerAccount = true,
+                    entries = {
+                        { quest = 89289 }, -- Favor of the Court
+                    }
+                },
+                {
                     key = 'soiree',
                     minimumLevel = 80,
+                    requiredQuest = 89290,
                     entries = {
                         { quest = 90573 }, -- Fortify the Runestones: Magisters
                         { quest = 90574 }, -- Fortify the Runestones: Blood Knights
@@ -95,6 +118,29 @@ Addon.data.chores.choresMidnight = {
                         { quest = 93756 }, -- The Blinding Vale
                         { quest = 93757 }, -- Voidscar Arena
                         { quest = 93758 }, -- Nexus-Point Xenas
+                    },
+                },
+                {
+                    key = 'worldBoss',
+                    minimumLevel = 90,
+                    alwaysQuestName = true,
+                    entries = {
+                        { quest = 92123 }, -- Cragpine
+                        { quest = 92560 }, -- Lu'ashal
+                        { quest = 92636 }, -- Predaxas
+                        { quest = 92034 }, -- Thorm'belan
+                    },
+                },
+                {
+                    key = 'worldBossFirst',
+                    minimumLevel = 90,
+                    alwaysQuestName = true,
+                    oncePerAccount = true,
+                    entries = {
+                        { quest = 92127 }, -- Cragpine
+                        { quest = 92128 }, -- Lu'ashal
+                        { quest = 92129 }, -- Predaxas
+                        { quest = 92130 }, -- Thorm'belan
                     },
                 },
             },
