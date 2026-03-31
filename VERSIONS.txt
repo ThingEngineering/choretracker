@@ -1,3 +1,15 @@
+v12.0.0.18
+----------
+- Added The Darkway delve.
+- Added Parhelion Plaza delve.
+- Added Legends chore.
+- Added World Boss chore.
+- Added World Boss (First) chore for the account-wide loot lockout.
+- Changed "Use Bounty" task to "Get Invaded", it's actually tracking that.
+- Fixed enchanting catchup item.
+- Fixed (maybe?) the weird GetCurrentCalendarTime error spam some people
+  see in dungeons.
+
 v12.0.0.17
 ----------
 - Fixed quest ID for delves event chore.
