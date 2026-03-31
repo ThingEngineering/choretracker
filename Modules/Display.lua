@@ -205,23 +205,33 @@ function Module:ConfigChanged()
     self.activeEvents = self.activeEvents or {}
 
     local now = CDAT_GetCurrentCalendarTime()
-
-    -- Check which events are active if the calendar is set to the correct year/month.
-    local calendar = C_Calendar.GetMonthInfo(0)
-    if now.year == calendar.year and now.month == calendar.month then
-        local activeEvents = {}
-        for i = 1, CC_GetNumDayEvents(0, now.monthDay) do
-            local event = CC_GetDayEvent(0, now.monthDay, i)
-            if canaccesstable(event) and
-                canaccessvalue(event.startTime) and
-                canaccessvalue(event.endTime) and
-                CDAT_CompareCalendarTime(event.startTime, now) >= 0 and
-                CDAT_CompareCalendarTime(event.endTime, now) < 0
-            then
-                activeEvents[event.eventID] = true
+    if canaccesstable(now) and
+        canaccessvalue(now.year) and
+        canaccessvalue(now.month) and
+        canaccessvalue(now.monthDay)
+    then
+        -- Check which events are active if the calendar is set to the correct year/month.
+        local calendar = C_Calendar.GetMonthInfo(0)
+        if canaccesstable(calendar) and
+            canaccessvalue(calendar.year) and
+            canaccessvalue(calendar.month) and
+            now.year == calendar.year and
+            now.month == calendar.month
+        then
+            local activeEvents = {}
+            for i = 1, CC_GetNumDayEvents(0, now.monthDay) do
+                local event = CC_GetDayEvent(0, now.monthDay, i)
+                if canaccesstable(event) and
+                    canaccessvalue(event.startTime) and
+                    canaccessvalue(event.endTime) and
+                    CDAT_CompareCalendarTime(event.startTime, now) >= 0 and
+                    CDAT_CompareCalendarTime(event.endTime, now) < 0
+                then
+                    activeEvents[event.eventID] = true
+                end
             end
+            self.activeEvents = activeEvents
         end
-        self.activeEvents = activeEvents
     end
 
     local playerLevel = UnitLevel('player')
