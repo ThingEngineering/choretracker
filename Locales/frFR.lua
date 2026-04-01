@@ -95,9 +95,9 @@ L['category:midnightDelves'] = 'Gouffres'
 L['category:midnightPrey'] = 'Traque'
 
 L['chore:delves:midnightDelves:quests:bountyGet'] = 'Obtenir un Butin de l’archéologue'
-L['chore:delves:midnightDelves:quests:bountyUse'] = 'Utiliser le Butin de l’archéologue'
 L['chore:delves:midnightDelves:quests:gilded'] = 'Doré'
-L['chore:delves:midnightDelves:quests:remnant'] = 'Résidu'
+L['chore:delves:midnightDelves:quests:invasion'] = 'Invasion'
+L['chore:delves:midnightDelves:quests:remnant'] = 'Vestige'
 
 L['chore:prey:midnightPrey:drops:reputation'] = 'Réputation'
 L['chore:prey:midnightPrey:drops:normal'] = 'Normal'
