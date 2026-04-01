@@ -9,7 +9,8 @@ local cataTimewalkingIds = { 587, 628, 629, 630 }
 local mopTimewalkingIds = { 643, 652, 654, 656 }
 local wodTimewalkingIds = { 1056, 1063, 1065, 1068 }
 local legionTimewalkingIds = { 1263, 1265, 1267, 1269, 1271, 1273, 1275, 1277 }
-local BfATimewalkingIds = { 1666, 1667, 1668, 1669 }
+local bfaTimewalkingIds = { 1666, 1667, 1668, 1669 }
+local slTimewalkingIds = { 1703, 1704, 1705, 1706, 1707, 1708, 1709, 1710 }
 
 Addon.data.chores.choresEvents = {
     key = 'events',
@@ -61,15 +62,15 @@ Addon.data.chores.choresEvents = {
                     minimumLevel = 80,
                     requiredEventIds = { 1558, 1563, 1564, 1565 }, -- The War Within Dungeon Event
                     entries = {
-                        { quest = 83347 }, -- Emissary of War
+                        { quest = 93598 }, -- Emissary of War
                     },
                 },
                 {
                     key = 'pvpPetBattles',
-                    minimumLevel = 80,
+                    minimumLevel = 90,
                     requiredEventIds = { 565, 599, 600, 601 }, -- Pet Battle Bonus Event
                     entries = {
-                        { quest = 83357 }, -- The Very Best
+                        { quest = 93599 }, -- The Very Best
                     },
                 },
                 {
@@ -77,7 +78,7 @@ Addon.data.chores.choresEvents = {
                     minimumLevel = 80,
                     requiredEventIds = { 592, 613, 614, 615 }, -- World Quest Bonus Event
                     entries = {
-                        { quest = 83366 }, -- The World Awaits
+                        { quest = 93605 }, -- The World Awaits
                     },
                 },
 
@@ -88,8 +89,7 @@ Addon.data.chores.choresEvents = {
                     requiredEventIds = classicTimewalkingIds,
                     entries = {
                         { quest = 85947 }, -- An Original Journey Through Time
-                        { quest = 83274 }, -- An Original Path Through Time
-                        { quest = 86731 }, -- An Original Path Through Time [??]
+                        { quest = 93607 }, -- An Original Path Through Time
                     },
                 },
                 -- {
@@ -115,7 +115,7 @@ Addon.data.chores.choresEvents = {
                     requiredEventIds = tbcTimewalkingIds,
                     entries = {
                         { quest = 85948 }, -- A Burning Journey Through Time
-                        { quest = 83363 }, -- A Burning Path Through Time
+                        { quest = 93608 }, -- A Burning Path Through Time
                     },
                 },
                 {
@@ -141,7 +141,7 @@ Addon.data.chores.choresEvents = {
                     requiredEventIds = wotlkTimewalkingIds,
                     entries = {
                         { quest = 85949 }, -- A Frozen Journey Through Time
-                        { quest = 83365 }, -- A Frozen Path Through Time
+                        { quest = 93610 }, -- A Frozen Path Through Time
                     },
                 },
                 {
@@ -167,7 +167,7 @@ Addon.data.chores.choresEvents = {
                     requiredEventIds = cataTimewalkingIds,
                     entries = {
                         { quest = 86556 }, -- A Shattered Journey Through Time
-                        { quest = 83359 }, -- A Shattered Path Through Time
+                        { quest = 93611 }, -- A Shattered Path Through Time
                     },
                 },
                 {
@@ -194,7 +194,7 @@ Addon.data.chores.choresEvents = {
                     requiredEventIds = mopTimewalkingIds,
                     entries = {
                         { quest = 86560 }, -- A Shrouded Journey Through Time
-                        { quest = 83362 }, -- A Shrouded Path Through Time
+                        { quest = 93612 }, -- A Shrouded Path Through Time
                     },
                 },
                 {
@@ -212,7 +212,7 @@ Addon.data.chores.choresEvents = {
                     requiredEventIds = wodTimewalkingIds,
                     entries = {
                         { quest = 86563 }, -- A Savage Journey Through Time
-                        { quest = 83364 }, -- A Savage Path Through Time
+                        { quest = 93613 }, -- A Savage Path Through Time
                     },
                 },
                 {
@@ -231,7 +231,7 @@ Addon.data.chores.choresEvents = {
                     requiredEventIds = legionTimewalkingIds,
                     entries = {
                         { quest = 86564 }, -- A Fel Journey Through Time
-                        { quest = 83360 }, -- A Fel Path Through Time
+                        { quest = 93614 }, -- A Fel Path Through Time
                     },
                 },
                 {
@@ -246,19 +246,38 @@ Addon.data.chores.choresEvents = {
                 {
                     key = 'timewalkingDungeons',
                     minimumLevel = 10,
-                    requiredEventIds = BfATimewalkingIds,
+                    requiredEventIds = bfaTimewalkingIds,
                     entries = {
                         { quest = 88808 }, -- A Scarred Journey Through Time
-                        { quest = 88805 }, -- A Scarred Path Through Time
+                        { quest = 93627 }, -- A Scarred Path Through Time
                     },
                 },
                 {
                     key = 'timewalkingTurnIn',
                     minimumLevel = 30,
-                    requiredEventIds = BfATimewalkingIds,
+                    requiredEventIds = bfaTimewalkingIds,
                     entries = {
                         { quest = 89222, item = 238790 }, -- [BfA-A] Remnant of Azeroth
                         { quest = 89223, item = 238791 }, -- [BfA-H] Remnant of Azeroth
+                    },
+                },
+                -- Shadowlands
+                {
+                    key = 'timewalkingDungeons',
+                    minimumLevel = 10,
+                    requiredEventIds = slTimewalkingIds,
+                    entries = {
+                        { quest = 92647 }, -- A Shadowed Journey Through Time
+                        { quest = 92649 }, -- A Shadowed Path Through Time
+                        { quest = 93628 }, -- A Shadowed Path Through Time
+                    },
+                },
+                {
+                    key = 'timewalkingTurnIn',
+                    minimumLevel = 30,
+                    requiredEventIds = slTimewalkingIds,
+                    entries = {
+                        { quest = 92650, item = 253517 }, -- [SL] The Flickering Anima
                     },
                 },
             },
