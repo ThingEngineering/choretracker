@@ -29,7 +29,7 @@ Addon.data.chores.choresPrey = {
                     minimumLevel = 90,
                     pick = 2,
                     groupSameItem = true,
-                    requiredQuest = 92178, -- Practical Magic
+                    requiredAccountQuest = 92178, -- Practical Magic
                     entries = {
                         { quest = 93169, item = 257026 },
                         { quest = 93857, item = 257026 },
@@ -40,7 +40,7 @@ Addon.data.chores.choresPrey = {
                     minimumLevel = 90,
                     pick = 2,
                     groupSameItem = true,
-                    requiredQuest = 92182, -- The Sheep or the Wolf
+                    requiredAccountQuest = 92182, -- The Sheep or the Wolf
                     entries = {
                         { quest = 93170, item = 262346 },
                         { quest = 93861, item = 262346 },
@@ -62,7 +62,7 @@ Addon.data.chores.choresPrey = {
                 {
                     key = 'nightmarishTask',
                     minimumLevel = 90,
-                    requiredQuest = 92182, -- The Sheep or the Wolf
+                    requiredAccountQuest = 92182, -- The Sheep or the Wolf
                     entries = {
                         { quest = 94446 },
                     },
