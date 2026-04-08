@@ -50,10 +50,6 @@ Addon.data.chores.choresPrey = {
                     key = 'reputation',
                     minimumLevel = 80,
                     groupSameItem = true,
-                    filter = function()
-                        -- the weekly cap only applies when you're below renown 4
-                        return CMF_GetCurrentRenownLevel(2764) >= 4
-                    end,
                     entries = {
                         { quest = 95000, currency = 3387 },
                         { quest = 95001, currency = 3387 },
