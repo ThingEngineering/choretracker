@@ -1,3 +1,11 @@
+v12.0.0.20
+----------
+- Changed Prey Hard/Nightmare pre-requisites to account quests.
+- Changed Prey Reputation to have no renown requirement.
+- Changed where some Event chores live.
+- Fixed Parhelion Plaza not showing as Bountiful.
+- Fixed Midnight leveling only showing 8/10 delve quests.
+
 v12.0.0.19
 ----------
 - Added Shadowlands Timewalking support.
