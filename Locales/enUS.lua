@@ -71,6 +71,7 @@ L['category:holidays'] = 'Weekly Holidays'
 L['category:holidays2'] = 'Holidays'
 L['category:limited'] = 'Limited Time'
 L['category:midnight'] = EXPANSION_NAME11
+L['category:noblegarden'] = 'Noblegarden'
 L['category:patch_10_0_0'] = 'Patch 10.0.0'
 L['category:patch_10_0_5'] = 'Patch 10.0.5'
 L['category:patch_10_0_7'] = 'Patch 10.0.7'
@@ -85,6 +86,7 @@ L['category:patch_11_1_0'] = 'Patch 11.1.0'
 L['category:patch_11_1_5'] = 'Patch 11.1.5'
 L['category:patch_11_2_0'] = 'Patch 11.2.0'
 L['category:patch_12_0_0'] = 'Patch 12.0.0'
+L['category:timewalking'] = 'Timewalking'
 L['category:weekly'] = 'Weekly'
 L['category:worldBosses'] = 'World Bosses'
 
@@ -236,14 +238,9 @@ L['chore:events:darkmoonFaire:quests:soothsayersRunes'] = "Item: Soothsayer's Ru
 L['chore:events:holidays:quests:delves'] = 'Delves'
 L['chore:events:holidays:quests:mythicDungeons'] = 'Dungeons'
 L['chore:events:holidays:quests:pvpPetBattles'] = 'PvP Pet Battles'
-L['chore:events:holidays:quests:timewalkingDungeons'] = 'Timewalking Dungeons'
-L['chore:events:holidays:quests:timewalkingRaids'] = 'Timewalking Raids'
-L['chore:events:holidays:quests:timewalkingTurnIn'] = 'Timewalking Turn-in'
 L['chore:events:holidays:quests:worldQuests'] = 'World Quests'
 
-L['chore:events:special:quests:turboBoost'] = 'Turbo Boost'
-L['chore:events:special:quests:prepatchDisruptTheCall'] = 'Disrupt the Call'
-L['chore:events:special:quests:prepatchTwilightsDawn'] = "Twilight's Dawn"
+L['chore:events:noblegarden:quests:featheredFiend'] = 'Duck Boss'
 
 L['chore:events:holidays2:dungeons:corenDirebrew'] = 'Coren Direbrew'
 L['chore:events:holidays2:dungeons:crownChemicalCo'] = 'Crown Chemical Co.'
@@ -255,6 +252,10 @@ L['chore:events:holidays2:quests:grumpus'] = 'Grumpus'
 L['chore:events:holidays2:quests:menacingGrumplings'] = 'Grumplings'
 L['chore:events:holidays2:quests:whatHorriblePresents'] = 'Presents'
 L['chore:events:holidays2:quests:whereAreTheChildren'] = 'Children'
+
+L['chore:events:timewalking:quests:dungeons'] = 'Dungeons'
+L['chore:events:timewalking:quests:item'] = 'Item'
+L['chore:events:timewalking:quests:raid'] = 'Raid'
 
 L['chore:professions:midnight:drops:catchup'] = 'Catchup'
 L['chore:professions:midnight:drops:gather'] = 'Gather'
