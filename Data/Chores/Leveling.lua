@@ -13,7 +13,7 @@ Addon.data.chores.choresLeveling = {
                 {
                     key = 'delves',
                     minimumLevel = 80,
-                    pick = 8,
+                    pick = 10,
                     filter = function()
                         return UnitLevel('player') < 90
                     end,

@@ -18,35 +18,6 @@ Addon.data.chores.choresEvents = {
     order = 0,
     categories = {
         {
-            key = 'special',
-            quests = {
-                {
-                    key = 'turboBoost',
-                    minimumLevel = 80,
-                    -- requiredQuest = 86204, -- Liberation of Undermine: The House Loses
-                    entries = {
-                        { quest = 91205 }, -- Ultra Prime Deluxe Turbo-Boost: Powerhouse Challenges
-                    },
-                },
-                {
-                    key = 'prepatchDisruptTheCall',
-                    minimumLevel = 10,
-                    -- requiredQuest = 90768, -- Cult it Out (account?)
-                    entries = {
-                        { quest = 91795 }, -- Disrupt the Call
-                    },
-                },
-                {
-                    key = 'prepatchTwilightsDawn',
-                    minimumLevel = 10,
-                    -- requiredQuest = 90768, -- Cult it Out (account?)
-                    entries = {
-                        { quest = 87308 }, -- Twilight's Dawn
-                    },
-                },
-            },
-        },
-        {
             key = 'holidays',
             quests = {
                 {
@@ -81,10 +52,14 @@ Addon.data.chores.choresEvents = {
                         { quest = 93605 }, -- The World Awaits
                     },
                 },
-
+            },
+        },
+        {
+            key = 'timewalking',
+            quests = {
                 -- Classic
                 {
-                    key = 'timewalkingDungeons',
+                    key = 'dungeons',
                     minimumLevel = 10,
                     requiredEventIds = classicTimewalkingIds,
                     entries = {
@@ -93,7 +68,7 @@ Addon.data.chores.choresEvents = {
                     },
                 },
                 -- {
-                --     key = 'timewalkingRaids',
+                --     key = 'raid',
                 --     minimumLevel = 30,
                 --     requiredEventIds = classicTimewalkingIds,
                 --     entries = {
@@ -101,7 +76,7 @@ Addon.data.chores.choresEvents = {
                 --     },
                 -- },
                 {
-                    key = 'timewalkingTurnIn',
+                    key = 'item',
                     minimumLevel = 30,
                     requiredEventIds = classicTimewalkingIds,
                     entries = {
@@ -110,7 +85,7 @@ Addon.data.chores.choresEvents = {
                 },
                 -- TBC
                 {
-                    key = 'timewalkingDungeons',
+                    key = 'dungeons',
                     minimumLevel = 10,
                     requiredEventIds = tbcTimewalkingIds,
                     entries = {
@@ -119,7 +94,7 @@ Addon.data.chores.choresEvents = {
                     },
                 },
                 {
-                    key = 'timewalkingRaids',
+                    key = 'raid',
                     minimumLevel = 30,
                     requiredEventIds = tbcTimewalkingIds,
                     entries = {
@@ -127,7 +102,7 @@ Addon.data.chores.choresEvents = {
                     },
                 },
                 {
-                    key = 'timewalkingTurnIn',
+                    key = 'item',
                     minimumLevel = 30,
                     requiredEventIds = tbcTimewalkingIds,
                     entries = {
@@ -136,7 +111,7 @@ Addon.data.chores.choresEvents = {
                 },
                 -- WotLK
                 {
-                    key = 'timewalkingDungeons',
+                    key = 'dungeons',
                     minimumLevel = 10,
                     requiredEventIds = wotlkTimewalkingIds,
                     entries = {
@@ -145,7 +120,7 @@ Addon.data.chores.choresEvents = {
                     },
                 },
                 {
-                    key = 'timewalkingRaids',
+                    key = 'raid',
                     minimumLevel = 30,
                     requiredEventIds = wotlkTimewalkingIds,
                     entries = {
@@ -153,7 +128,7 @@ Addon.data.chores.choresEvents = {
                     },
                 },
                 {
-                    key = 'timewalkingTurnIn',
+                    key = 'item',
                     minimumLevel = 30,
                     requiredEventIds = wotlkTimewalkingIds,
                     entries = {
@@ -162,7 +137,7 @@ Addon.data.chores.choresEvents = {
                 },
                 -- Cata
                 {
-                    key = 'timewalkingDungeons',
+                    key = 'dungeons',
                     minimumLevel = 10,
                     requiredEventIds = cataTimewalkingIds,
                     entries = {
@@ -171,7 +146,7 @@ Addon.data.chores.choresEvents = {
                     },
                 },
                 {
-                    key = 'timewalkingRaids',
+                    key = 'raid',
                     minimumLevel = 30,
                     requiredEventIds = cataTimewalkingIds,
                     entries = {
@@ -179,7 +154,7 @@ Addon.data.chores.choresEvents = {
                     },
                 },
                 {
-                    key = 'timewalkingTurnIn',
+                    key = 'item',
                     minimumLevel = 30,
                     requiredEventIds = cataTimewalkingIds,
                     entries = {
@@ -189,7 +164,7 @@ Addon.data.chores.choresEvents = {
                 },
                 -- MoP
                 {
-                    key = 'timewalkingDungeons',
+                    key = 'dungeons',
                     minimumLevel = 10,
                     requiredEventIds = mopTimewalkingIds,
                     entries = {
@@ -198,7 +173,7 @@ Addon.data.chores.choresEvents = {
                     },
                 },
                 {
-                    key = 'timewalkingTurnIn',
+                    key = 'item',
                     minimumLevel = 30,
                     requiredEventIds = mopTimewalkingIds,
                     entries = {
@@ -207,7 +182,7 @@ Addon.data.chores.choresEvents = {
                 },
                 -- WoD
                 {
-                    key = 'timewalkingDungeons',
+                    key = 'dungeons',
                     minimumLevel = 10,
                     requiredEventIds = wodTimewalkingIds,
                     entries = {
@@ -216,7 +191,7 @@ Addon.data.chores.choresEvents = {
                     },
                 },
                 {
-                    key = 'timewalkingTurnIn',
+                    key = 'item',
                     minimumLevel = 30,
                     requiredEventIds = wodTimewalkingIds,
                     entries = {
@@ -226,7 +201,7 @@ Addon.data.chores.choresEvents = {
                 },
                 -- Legion
                 {
-                    key = 'timewalkingDungeons',
+                    key = 'dungeons',
                     minimumLevel = 10,
                     requiredEventIds = legionTimewalkingIds,
                     entries = {
@@ -235,7 +210,7 @@ Addon.data.chores.choresEvents = {
                     },
                 },
                 {
-                    key = 'timewalkingTurnIn',
+                    key = 'item',
                     minimumLevel = 30,
                     requiredEventIds = legionTimewalkingIds,
                     entries = {
@@ -244,7 +219,7 @@ Addon.data.chores.choresEvents = {
                 },
                 -- Battle for Azeroth
                 {
-                    key = 'timewalkingDungeons',
+                    key = 'dungeons',
                     minimumLevel = 10,
                     requiredEventIds = bfaTimewalkingIds,
                     entries = {
@@ -253,7 +228,7 @@ Addon.data.chores.choresEvents = {
                     },
                 },
                 {
-                    key = 'timewalkingTurnIn',
+                    key = 'item',
                     minimumLevel = 30,
                     requiredEventIds = bfaTimewalkingIds,
                     entries = {
@@ -263,7 +238,7 @@ Addon.data.chores.choresEvents = {
                 },
                 -- Shadowlands
                 {
-                    key = 'timewalkingDungeons',
+                    key = 'dungeons',
                     minimumLevel = 10,
                     requiredEventIds = slTimewalkingIds,
                     entries = {
@@ -273,11 +248,25 @@ Addon.data.chores.choresEvents = {
                     },
                 },
                 {
-                    key = 'timewalkingTurnIn',
+                    key = 'item',
                     minimumLevel = 30,
                     requiredEventIds = slTimewalkingIds,
                     entries = {
                         { quest = 92650, item = 253517 }, -- [SL] The Flickering Anima
+                    },
+                },
+            },
+        },
+        {
+            key = 'noblegarden',
+            quests = {
+                {
+                    key = 'featheredFiend',
+                    minimumLevel = 1,
+                    requiredEventIds = { 181 },
+                    entries = {
+                        { quest = 73192 }, -- [A] Feathered Fiend
+                        { quest = 79558 }, -- [H] Feathered Fiend
                     },
                 },
             },

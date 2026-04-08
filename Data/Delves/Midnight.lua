@@ -17,7 +17,7 @@ Addon.data.delves.midnight = {
         },
         -- Isle of Quel'Danas
         {
-            uiMapId = 2432,
+            uiMapId = 2424,
             pois = {
                 { active = 8428, inactive = 8427, quest = 91182 }, -- Parhelion Plaza
             },
