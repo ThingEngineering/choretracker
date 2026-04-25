@@ -33,19 +33,19 @@ Addon.data.chores.choresPvp = {
                     pick = 2,
                     alwaysShowObjectives = true,
                     entries = {
-                        { quest = 80184 }, -- Preserving in Battle
-                        { quest = 80185 }, -- Preserving Solo
-                        { quest = 80186 }, -- Preserving in War
-                        { quest = 80187 }, -- Preserving in Skirmishes
-                        { quest = 80188 }, -- Preserving in Arenas
-                        { quest = 80189 }, -- Preserving in Teamwork
+                        { quest = 93499 }, -- Enshrouded in Arenas
+                        { quest = 93506 }, -- Enshrouded in Battle
+                        { quest = 93504 }, -- Enshrouded in Skirmishes
+                        { quest = 93503 }, -- Enshrouded in Teamwork
+                        { quest = 93505 }, -- Enshrouded in War
+                        { quest = 93502 }, -- Enshrouded Solo
                     },
                 },
                 {
                     key = 'sparks',
                     minimumlevel = 90,
                     entries = {
-                        { quest = 93423 }, -- Sparks of War: Eversong
+                        { quest = 93423 }, -- Sparks of War: Eversong Woods
                         { quest = 93424 }, -- Sparks of War: Zul'Aman
                         { quest = 93425 }, -- Sparks of War: Harandar
                         { quest = 93426 }, -- Sparks of War: Voidstorm

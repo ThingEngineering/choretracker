@@ -306,7 +306,7 @@ L['chore:pvp:brawls:quests:warsongScramble'] = 'Warsong Scramble'
 
 L['chore:pvp:weekly:quests:arenaSkirmishes'] = 'Arena Skirmishes'
 L['chore:pvp:weekly:quests:battlegrounds'] = 'Battlegrounds'
-L['chore:pvp:weekly:quests:preserving'] = 'Preserving'
+L['chore:pvp:weekly:quests:preserving'] = 'Enshrouded'
 L['chore:pvp:weekly:quests:sparks'] = 'Sparks of War'
 
 L['timer:beledarsShadow'] = "Beledar's Shadow"
