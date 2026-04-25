@@ -8,6 +8,7 @@ local Module = Addon:NewModule(
         enabledTimers = {},
         itemCache = {},
         itemRequested = {},
+        restrictedState = false,
         sections = {},
         sectionFrames = {},
     },
@@ -95,6 +96,7 @@ function Module:OnEnable()
     self:RegisterMessage('ChoreTracker_Config_Changed', 'ConfigChanged')
     self:RegisterBucketMessage({ 'ChoreTracker_Data_Updated' }, 0.5, 'Redraw')
 
+    self:RegisterEvent('ADDON_RESTRICTION_STATE_CHANGED')
     self:RegisterBucketEvent(
         { 'ZONE_CHANGED', 'ZONE_CHANGED_INDOORS', 'ZONE_CHANGED_NEW_AREA' },
         1,
@@ -119,6 +121,14 @@ end
 function Module:ResetCalendar()
     local now = CDAT_GetCurrentCalendarTime()
     C_Calendar.SetAbsMonth(now.month, now.year)
+end
+
+function Module:ADDON_RESTRICTION_STATE_CHANGED(_, type, state)
+    if state == Enum.AddOnRestrictionState.Inactive then
+        self.restrictedState = false
+    else
+        self.restrictedState = true
+    end
 end
 
 function Module:UpdateZone()
@@ -202,35 +212,32 @@ function Module:ConfigChanged()
         table.sort(self.sortedSections, function(a, b) return a[2].order < b[2].order end)
     end
 
-    self.activeEvents = self.activeEvents or {}
+    -- apparently comparing calendar times causes secret errors? 🙄
+    if self.restrictedState == false then
+        self.activeEvents = self.activeEvents or {}
 
-    local now = CDAT_GetCurrentCalendarTime()
-    if canaccesstable(now) and
-        canaccessvalue(now.year) and
-        canaccessvalue(now.month) and
-        canaccessvalue(now.monthDay)
-    then
-        -- Check which events are active if the calendar is set to the correct year/month.
-        local calendar = C_Calendar.GetMonthInfo(0)
-        if canaccesstable(calendar) and
-            canaccessvalue(calendar.year) and
-            canaccessvalue(calendar.month) and
-            now.year == calendar.year and
-            now.month == calendar.month
+        local now = CDAT_GetCurrentCalendarTime()
+        if canaccesstable(now) and
+            canaccessvalue(now.year) and
+            canaccessvalue(now.month) and
+            canaccessvalue(now.monthDay)
         then
-            local activeEvents = {}
-            for i = 1, CC_GetNumDayEvents(0, now.monthDay) do
-                local event = CC_GetDayEvent(0, now.monthDay, i)
-                if canaccesstable(event) and
-                    canaccessvalue(event.startTime) and
-                    canaccessvalue(event.endTime) and
-                    CDAT_CompareCalendarTime(event.startTime, now) >= 0 and
-                    CDAT_CompareCalendarTime(event.endTime, now) < 0
-                then
-                    activeEvents[event.eventID] = true
+            -- Check which events are active if the calendar is set to the correct year/month.
+            local calendar = C_Calendar.GetMonthInfo(0)
+            if now.year == calendar.year and
+                now.month == calendar.month
+            then
+                local activeEvents = {}
+                for i = 1, CC_GetNumDayEvents(0, now.monthDay) do
+                    local event = CC_GetDayEvent(0, now.monthDay, i)
+                    if CDAT_CompareCalendarTime(event.startTime, now) >= 0 and
+                        CDAT_CompareCalendarTime(event.endTime, now) < 0
+                    then
+                        activeEvents[event.eventID] = true
+                    end
                 end
+                self.activeEvents = activeEvents
             end
-            self.activeEvents = activeEvents
         end
     end
 
