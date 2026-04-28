@@ -9,6 +9,18 @@ Addon.data.chores.choresMidnight = {
     minimumLevel = 80,
     categories = {
         {
+            key = 'patch_12_0_5',
+            quests = {
+                {
+                    key = 'voidAssaults',
+                    minimumLevel = 80,
+                    entries = {
+                        { quest = 94386 }, -- Void Assaults: Zul'Aman
+                    }
+                }
+            }
+        },
+        {
             key = 'patch_12_0_0',
             quests = {
                 {
