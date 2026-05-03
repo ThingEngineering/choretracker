@@ -88,6 +88,7 @@ L['category:patch_11_1_0'] = 'Patch 11.1.0'
 L['category:patch_11_1_5'] = 'Patch 11.1.5'
 L['category:patch_11_2_0'] = 'Patch 11.2.0'
 L['category:patch_12_0_0'] = 'Patch 12.0.0'
+L['category:patch_12_0_5'] = 'Patch 12.0.5'
 L['category:timewalking'] = 'Marcheur du temps'
 L['category:weekly'] = 'Hebdomadaire'
 L['category:worldBosses'] = 'Boss mondiaux'
@@ -107,6 +108,8 @@ L['chore:prey:midnightPrey:drops:hard'] = 'Difficile'
 L['chore:prey:midnightPrey:drops:nightmare'] = 'Cauchemar'
 L['chore:prey:midnightPrey:quests:nightmarishTask'] = 'Une tâche cauchemardesque'
 
+L['chore:midnight:patch_12_0_5:quests:voidAssaults'] = 'Assauts du Vide'
+
 L['chore:midnight:patch_12_0_0:quests:abundance'] = 'Abondance'
 L['chore:midnight:patch_12_0_0:quests:dungeon'] = 'Donjon'
 L['chore:midnight:patch_12_0_0:quests:hope'] = 'Espoir'
@@ -117,7 +120,7 @@ L['chore:midnight:patch_12_0_0:quests:specialAssignment'] = 'Mission spéciale'
 L['chore:midnight:patch_12_0_0:quests:stormarion'] = 'Fulgarion'
 L['chore:midnight:patch_12_0_0:quests:unity'] = 'Unité'
 L['chore:midnight:patch_12_0_0:quests:worldBoss'] = 'Boss mondiaux'
-L['chore:midnight:patch_12_0_0:quests:worldBossFirst'] = 'Boss mondiaux (Première)'
+L['chore:midnight:patch_12_0_0:quests:worldBossFirst'] = 'Boss mondiaux (première fois)'
 
 L['chore:leveling:midnight:quests:delves'] = 'Gouffres'
 
@@ -240,15 +243,7 @@ L['chore:events:darkmoonFaire:quests:soothsayersRunes'] = "Objet : Runes de devi
 L['chore:events:holidays:quests:delves'] = 'Gouffres'
 L['chore:events:holidays:quests:mythicDungeons'] = 'Donjons'
 L['chore:events:holidays:quests:pvpPetBattles'] = 'Combat JcJ de Mascottes'
-L['chore:events:holidays:quests:timewalkingDungeons'] = 'Donjons des Marcheurs du temps'
-L['chore:events:holidays:quests:timewalkingRaids'] = 'Raids des Marcheurs du temps'
-L['chore:events:holidays:quests:timewalkingTurnIn'] = 'Retour des Marcheurs du temps'
-L['chore:events:holidays:quests:worldQuests'] = 'Quêtes mondiales'
-
-L['chore:events:holidays:quests:delves'] = 'Delves'
-L['chore:events:holidays:quests:mythicDungeons'] = 'Dungeons'
-L['chore:events:holidays:quests:pvpPetBattles'] = 'Combat JcJ de Mascottes'
-L['chore:events:holidays:quests:worldQuests'] = 'World Quests'
+L['chore:events:holidays:quests:worldQuests'] = 'Expéditions'
 
 L['chore:events:noblegarden:quests:featheredFiend'] = 'Boss Canard'
 
@@ -267,16 +262,16 @@ L['chore:events:timewalking:quests:dungeons'] = 'Donjons'
 L['chore:events:timewalking:quests:item'] = 'Objet'
 L['chore:events:timewalking:quests:raid'] = 'Raid'
 
-L['chore:professions:midnight:drops:catchup'] = 'Catchup'
+L['chore:professions:midnight:drops:catchup'] = 'Rattraper'
 L['chore:professions:midnight:drops:gather'] = 'Rassembler'
-L['chore:professions:midnight:drops:mob/treasure'] = 'Monstres/trésors'
+L['chore:professions:midnight:drops:mob/treasure'] = 'Monstres / trésors'
 
 L['chore:professions:midnight:quests:orders'] = 'Commandes'
 L['chore:professions:midnight:quests:task'] = 'Tâche'
 L['chore:professions:midnight:quests:treatise'] = 'Traité'
 
 L['chore:professions:warWithin:drops:gather'] = 'Rassembler'
-L['chore:professions:warWithin:drops:mob/treasure'] = 'Monstres/trésors'
+L['chore:professions:warWithin:drops:mob/treasure'] = 'Monstres / trésors'
 
 L['chore:professions:warWithin:quests:orders'] = 'Commandes'
 L['chore:professions:warWithin:quests:task'] = 'Tâche'
@@ -372,6 +367,7 @@ L['autoAccept:choresEvents:holidays:timewalkingDungeons'] = '^Évènement bonus 
 L['autoAccept:choresEvents:holidays:worldQuests'] = '^Évènement bonus : Expéditions$'
 L['autoAccept:choresMidnight:patch_12_0_0:abundance'] = '^Abondance$'
 L['autoAccept:choresMidnight:patch_12_0_0:dungeon'] = '^Halduron à Lune-d’Argent$'
+L['autoAccept:choresMidnight:patch_12_0_5:voidAssaults'] = '^Assauts du Vide :'
 L['autoAccept:choresPvp:brawls:compStomp'] = "^Bataille : Vaincre l'IA du bassin d'Arashi"
 L['autoAccept:choresPvp:weekly:battlegrounds'] = '^Évènement bonus : Champs de bataille$'
 L['autoAccept:choresPvp:weekly:sparks'] = '^Étincelles de guerre :'
