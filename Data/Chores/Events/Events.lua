@@ -30,7 +30,7 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'mythicDungeons',
-                    minimumLevel = 80,
+                    minimumLevel = 90,
                     requiredEventIds = { 1558, 1563, 1564, 1565 }, -- The War Within Dungeon Event
                     entries = {
                         { quest = 93598 }, -- Emissary of War
@@ -46,7 +46,7 @@ Addon.data.chores.choresEvents = {
                 },
                 {
                     key = 'worldQuests',
-                    minimumLevel = 80,
+                    minimumLevel = 90,
                     requiredEventIds = { 592, 613, 614, 615 }, -- World Quest Bonus Event
                     entries = {
                         { quest = 93605 }, -- The World Awaits
