@@ -15,6 +15,7 @@ Addon.data.chores.choresMidnight = {
                     key = 'voidAssaults',
                     minimumLevel = 80,
                     entries = {
+                        { quest = 94385 }, -- Void Assaults: Eversong Woods
                         { quest = 94386 }, -- Void Assaults: Zul'Aman
                     }
                 }
