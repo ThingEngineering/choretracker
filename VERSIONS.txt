@@ -1,3 +1,10 @@
+v12.0.5.2
+---------
+- Added missing Void Assaults: Eversong quest.
+- Changed Preserving PvP quests to Enshrouded.
+- Fixed minimum level on some events.
+- Fixed calendar errors, maybe for real this time? 🤷‍♂️
+
 v12.0.5.1
 ---------
 - Added Void Assault chore.
