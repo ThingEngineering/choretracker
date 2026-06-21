@@ -9,6 +9,38 @@ Addon.data.chores.choresMidnight = {
     minimumLevel = 80,
     categories = {
         {
+            key = 'patch_12_0_7',
+            quests = {
+                {
+                    key = 'showdownLevel',
+                    minimumLevel = 80,
+                    filter = function()
+                        return UnitLevel('player') < 90
+                    end,
+                    entries = {
+                        { quest = 96716 }, -- Showdown on Val
+                        { quest = 96720 }, -- Showdown on Naigtal
+                    },
+                },
+                {
+                    key = 'showdownNormal',
+                    minimumLevel = 90,
+                    entries = {
+                        { quest = 96713 }, -- Showdown on Val
+                        { quest = 96717 }, -- Showdown on Naigtal
+                    },
+                },
+                {
+                    key = 'showdownHeroic',
+                    minimumLevel = 90,
+                    entries = {
+                        { quest = 96714 }, -- Shoddown on Val: Heroic
+                        { quest = 96718 }, -- Showdown on Naigtal: Heroic
+                    },
+                },
+            },
+        },
+        {
             key = 'patch_12_0_5',
             quests = {
                 {
@@ -17,9 +49,9 @@ Addon.data.chores.choresMidnight = {
                     entries = {
                         { quest = 94385 }, -- Void Assaults: Eversong Woods
                         { quest = 94386 }, -- Void Assaults: Zul'Aman
-                    }
-                }
-            }
+                    },
+                },
+            },
         },
         {
             key = 'patch_12_0_0',
@@ -45,10 +77,13 @@ Addon.data.chores.choresMidnight = {
                         { quest = 93911 }, -- Midnight: Dungeons
                         { quest = 93769 }, -- Midnight: Housing
                         { quest = 93891 }, -- Midnight: Legends of the Haranir
+                        { quest = 96727 }, -- Midnight: Offworld Showdowns
                         { quest = 93910 }, -- Midnight: Prey
                         { quest = 93912 }, -- Midnight: Raid
+                        { quest = 95843 }, -- Midnight: Ritual Sites
                         { quest = 93889 }, -- Midnight: Saltheril's Soiree
                         { quest = 93892 }, -- Midnight: Stormarion Assault
+                        { quest = 95842 }, -- Midnight: Void Assaults
                         { quest = 93913 }, -- Midnight: World Boss
                         { quest = 93766 }, -- Midnight: World Quests
                     },
