@@ -1085,7 +1085,13 @@ end
 
 function Module:ObjectiveText(objective, questName)
     if objective.type == 'progressbar' then
-        return objective.have .. '% ' .. objective.text
+        local prefix = objective.have .. '% '
+        -- Don't add it to the front of the text if it's already there
+        if string.sub(objective.text, 1, #prefix) == prefix then
+            return objective.text
+        else
+            return objective.have .. '% ' .. objective.text
+        end
     elseif (objective.text == nil or objective.text == '') and questName ~= nil then
         return questName
     else
