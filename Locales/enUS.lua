@@ -109,8 +109,8 @@ L['chore:prey:midnightPrey:drops:nightmare'] = 'Nightmare'
 L['chore:prey:midnightPrey:quests:nightmarishTask'] = 'A Nightmarish Task'
 
 L['chore:midnight:patch_12_0_7:quests:showdownLevel'] = 'Showdown [80+]'
-L['chore:midnight:patch_12_0_7:quests:showdownNormal'] = 'Showdown [H]'
-L['chore:midnight:patch_12_0_7:quests:showdownHeroic'] = 'Showdown [N]'
+L['chore:midnight:patch_12_0_7:quests:showdownNormal'] = 'Showdown [N]'
+L['chore:midnight:patch_12_0_7:quests:showdownHeroic'] = 'Showdown [H]'
 
 L['chore:midnight:patch_12_0_5:quests:voidAssaults'] = 'Void Assault'
 

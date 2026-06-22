@@ -34,7 +34,7 @@ Addon.data.chores.choresMidnight = {
                     key = 'showdownHeroic',
                     minimumLevel = 90,
                     entries = {
-                        { quest = 96714 }, -- Shoddown on Val: Heroic
+                        { quest = 96714 }, -- Showdown on Val: Heroic
                         { quest = 96718 }, -- Showdown on Naigtal: Heroic
                     },
                 },
