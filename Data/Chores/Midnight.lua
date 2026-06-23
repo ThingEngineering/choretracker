@@ -2,6 +2,8 @@ local _, Addon = ...
 local L = Addon.L
 
 
+local CQL_IsOnQuest = C_QuestLog.IsOnQuest
+
 Addon.data.chores.choresMidnight = {
     key = 'midnight',
     name = EXPANSION_NAME11,
@@ -36,6 +38,30 @@ Addon.data.chores.choresMidnight = {
                     entries = {
                         { quest = 96714 }, -- Showdown on Val: Heroic
                         { quest = 96718 }, -- Showdown on Naigtal: Heroic
+                    },
+                },
+                {
+                    key = 'dangerousHeroic',
+                    minimumLevel = 90,
+                    requiredQuest = 97218, -- HQT for Showdown?
+                    filter = function()
+                        return CQL_IsOnQuest(97081) == false and CQL_IsOnQuest(97087) == false
+                    end,
+                    entries = {
+                        { quest = 97083 }, -- Dangerous Enemies: Val (Heroic)
+                        { quest = 97086 }, -- Dangerous Enemies: Naigtal (Heroic)
+                    },
+                },
+                {
+                    key = 'disruptionHeroic',
+                    minimumLevel = 90,
+                    requiredQuest = 97218, -- HQT for Showdown?
+                    filter = function()
+                        return CQL_IsOnQuest(97083) == false and CQL_IsOnQuest(97086) == false
+                    end,
+                    entries = {
+                        { quest = 97081 }, -- More Disruptions: Val (Heroic)
+                        { quest = 97087 }, -- More Disruption: Naigtal (Heroic)
                     },
                 },
             },
