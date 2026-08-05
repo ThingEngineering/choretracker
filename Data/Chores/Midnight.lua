@@ -115,6 +115,16 @@ Addon.data.chores.choresMidnight = {
                     },
                 },
                 {
+                    key = 'neighborhood',
+                    minimumLevel = 90,
+                    entries = {
+                        { quest = 95413 }, -- Community Engagement
+                        { quest = 95416 }, -- Going Postal
+                        { quest = 95438 }, -- Lost Animals
+                        { quest = 95440 }, -- Housewarming
+                    },
+                },
+                {
                     key = 'abundance',
                     minimumLevel = 80,
                     entries = {
