@@ -91,6 +91,8 @@ L['category:patch_12_0_7'] = 'Patch 12.0.7'
 L['category:patch_12_1_0'] = 'Patch 12.1.0'
 L['category:timewalking'] = 'Timewalking'
 L['category:weekly'] = 'Weekly'
+L['category:special'] = 'Special'
+L['category:leveling'] = 'Leveling'
 L['category:worldBosses'] = 'World Bosses'
 
 -- AceLocale is kinda weird
