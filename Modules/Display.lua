@@ -84,7 +84,7 @@ function Module:OnEnable()
     TimersModule = Addon:GetModule('Timers')
 
     if not C_AddOns.IsAddOnLoaded('Blizzard_Calendar') then
-        UIParentLoadAddOn('Blizzard_Calendar')
+        LoadAddOnWithErrorHandling('Blizzard_Calendar')
     end
 
     Addon.db.RegisterCallback(self, 'OnProfileChanged', 'ConfigChanged')
