@@ -349,6 +349,8 @@ function Module:ConfigChanged()
 end
 
 function Module:AnyActive(activeEvents, eventIds)
+    if activeEvents == nil then return end
+    
     for _, eventId in ipairs(eventIds) do
         if activeEvents[eventId] == true then
             return true
