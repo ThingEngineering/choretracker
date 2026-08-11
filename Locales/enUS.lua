@@ -253,12 +253,15 @@ L['chore:events:holidays:quests:mythicDungeons'] = 'Dungeons'
 L['chore:events:holidays:quests:pvpPetBattles'] = 'PvP Pet Battles'
 L['chore:events:holidays:quests:worldQuests'] = 'World Quests'
 
+L['chore:events:midsummer:dungeons:frostLordAhune'] = '[Dungeon] Frost Lord Ahune'
+L['chore:events:midsummer:quests:flamesMidnight'] = 'MID Flames'
+L['chore:events:midsummer:quests:shardsOfAhune'] = 'Shards of Ahune'
+
 L['chore:events:noblegarden:quests:featheredFiend'] = 'Duck Boss'
 
 L['chore:events:holidays2:dungeons:corenDirebrew'] = 'Coren Direbrew'
 L['chore:events:holidays2:dungeons:crownChemicalCo'] = 'Crown Chemical Co.'
 L['chore:events:holidays2:dungeons:headlessHorseman'] = 'Headless Horseman'
-L['chore:events:holidays2:dungeons:frostLordAhune'] = 'Frost Lord Ahune'
 
 L['chore:events:holidays2:quests:meanOne'] = 'Stolen Treats'
 L['chore:events:holidays2:quests:grumpus'] = 'Grumpus'

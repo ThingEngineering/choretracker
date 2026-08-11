@@ -277,6 +277,40 @@ Addon.data.chores.choresEvents = {
             },
         },
         {
+            key = 'midsummer',
+            dungeons = {
+                {
+                    key = 'frostLordAhune',
+                    minimumLevel = 60,
+                    requiredEventIds = { 341 }, -- Midsummer Fire Festival
+                    dungeonId = 286,
+                },
+            },
+            quests = {
+                {
+                    key = 'shardsOfAhune',
+                    minimumLevel = 1,
+                    requiredEventIds = { 341 },
+                    entries = {
+                        { quest = 11972, item = 35723 },
+                    },
+                },
+                {
+                    key = 'flamesMidnight',
+                    miniumLevel = 80,
+                    pick = 5,
+                    requiredEventIds = { 341 },
+                    entries = {
+                        { quest = 92555 }, -- Silvermoon
+                        { quest = 92556 }, -- Eversong Woods
+                        { quest = 92557 }, -- Zul'Aman
+                        { quest = 92559 }, -- Harandar
+                        { quest = 92558 }, -- Voidstorm
+                    }
+                },
+            },
+        },
+        {
             key = 'noblegarden',
             quests = {
                 {
@@ -310,12 +344,6 @@ Addon.data.chores.choresEvents = {
                     minimumLevel = 60,
                     requiredEventIds = { 324, 1405 },
                     dungeonId = 285,
-                },
-                {
-                    key = 'frostLordAhune',
-                    minimumLevel = 60,
-                    requiredEventIds = { 341 }, -- Midsummer Fire Festival
-                    dungeonId = 286,
                 },
             },
             quests = {
