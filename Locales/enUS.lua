@@ -1,5 +1,7 @@
 local L = LibStub('AceLocale-3.0'):NewLocale('ChoreTracker', 'enUS', true, true)
 
+local CM_GetMapInfo = C_Map.GetMapInfo
+
 L['section:dragonflight'] = EXPANSION_NAME9
 L['section:warWithin'] = EXPANSION_NAME10
 L['section:midnight'] = EXPANSION_NAME11
@@ -363,6 +365,12 @@ L['questName:87306'] = '50x Car Can'
 L['questName:87307'] = '25x Trash Can/Dumpster'
 L['questName:5000002'] = 'Get list!'
 L['questName:5000003'] = 'Turn in list!'
+-- Midsummer
+L['questName:92555'] = CM_GetMapInfo(2395).name -- Eversong Woods
+L['questName:92556'] = CM_GetMapInfo(2393).name -- Silvermoon City
+L['questName:92557'] = CM_GetMapInfo(2437).name -- Zul'Aman
+L['questName:92558'] = CM_GetMapInfo(2405).name -- Voidstorm
+L['questName:92559'] = CM_GetMapInfo(2413).name -- Harandar
 
 L['missing_skill_level'] = '|cFFFF00FFOpen profession window!|r'
 L['remove_specialAssignment'] = 'Special Assignment: '
