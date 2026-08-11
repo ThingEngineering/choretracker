@@ -568,10 +568,10 @@ function Module:UpdateQuest(questId, week, forceStatus)
 
                     if objective.type == 'progressbar' then
                         -- Naigtal quests lie about the progress bar percent, cool
-                        objectiveData.have = math.max(
+                        objectiveData.have = math.floor(math.max(
                             GetQuestProgressBarPercent(questId),
                             objective.numFulfilled or 0
-                        )
+                        ))
                         objectiveData.need = 100
                     elseif (
                         objective.numFulfilled == 1 and 
