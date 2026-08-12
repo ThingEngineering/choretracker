@@ -1,3 +1,11 @@
+v12.1.0.1
+---------
+- Added Neighborhood chore (thanks Slackluster).
+- Added auto-accept for Naigtal/Val Showdowns.
+- Fixed weird 34.0000000000001% display.
+- Fixed UIParentLoadAddOn error.
+- Updated TOC for 12.1.0.
+
 v12.0.7.2
 ---------
 - Added 12.0.7 post-Showdown heroic chores.
