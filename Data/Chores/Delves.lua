@@ -23,14 +23,14 @@ Addon.data.chores.choresDelves = {
                     key = 'bountyGet',
                     minimumLevel = 90,
                     entries = {
-                        { quest=86371, item=252415 }, -- Trovehunter's Bounty [Season 1]
+                        { quest=86371, item=274374 }, -- Trovehunter's Bounty [Season 2]
                     },
                 },
                 {
                     key = 'invasion',
                     minimumLevel = 90,
                     entries = {
-                        { quest=92887, item=253342 }, -- Beacon of Hope
+                        { quest=92887, item=275910 }, -- Scalebound Herald's Flute
                     },
                 },
                 {
