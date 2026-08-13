@@ -1,3 +1,10 @@
+v12.1.0.2
+---------
+- Added "Trailing Xal'atath" chore.
+- Added "Turn Back the Surge" chore.
+- Added "Purging the Vaults" chore.
+- Added Coiled Isle Special Assignment chore.
+
 v12.1.0.1
 ---------
 - Added Neighborhood chore (thanks Slackluster).
