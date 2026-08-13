@@ -2,6 +2,8 @@ local L = LibStub('AceLocale-3.0'):NewLocale('ChoreTracker', 'enUS', true, true)
 
 local CM_GetMapInfo = C_Map.GetMapInfo
 
+local TEXT_SPECIAL_ASSIGNMENT = 'Special Assignment'
+
 L['section:dragonflight'] = EXPANSION_NAME9
 L['section:warWithin'] = EXPANSION_NAME10
 L['section:midnight'] = EXPANSION_NAME11
@@ -110,6 +112,11 @@ L['chore:prey:midnightPrey:drops:hard'] = 'Hard'
 L['chore:prey:midnightPrey:drops:nightmare'] = 'Nightmare'
 L['chore:prey:midnightPrey:quests:nightmarishTask'] = 'A Nightmarish Task'
 
+L['chore:midnight:patch_12_1_0:quests:curseSurge'] = 'Curse Surges'
+L['chore:midnight:patch_12_1_0:quests:purgingVaults'] = 'Purge Vaults'
+L['chore:midnight:patch_12_1_0:quests:specialAssignment'] = TEXT_SPECIAL_ASSIGNMENT
+L['chore:midnight:patch_12_1_0:quests:trailing'] = 'Trailing'
+
 L['chore:midnight:patch_12_0_7:quests:showdownLevel'] = 'Showdown [80+]'
 L['chore:midnight:patch_12_0_7:quests:showdownNormal'] = 'Showdown [N]'
 L['chore:midnight:patch_12_0_7:quests:showdownHeroic'] = 'Showdown [H]'
@@ -127,7 +134,7 @@ L['chore:midnight:patch_12_0_0:quests:legends'] = 'Legends'
 L['chore:midnight:patch_12_0_0:quests:neighborhood'] = 'Neighborhood'
 L['chore:midnight:patch_12_0_0:quests:soiree'] = 'Soiree'
 L['chore:midnight:patch_12_0_0:quests:soireeInvite'] = 'Soiree Invite'
-L['chore:midnight:patch_12_0_0:quests:specialAssignment'] = 'Special Assignment'
+L['chore:midnight:patch_12_0_0:quests:specialAssignment'] = TEXT_SPECIAL_ASSIGNMENT
 L['chore:midnight:patch_12_0_0:quests:stormarion'] = 'Stormarion'
 L['chore:midnight:patch_12_0_0:quests:unity'] = 'Unity'
 L['chore:midnight:patch_12_0_0:quests:worldBoss'] = 'World Boss'
@@ -165,7 +172,7 @@ L['chore:warWithin:patch_11_0_0:quests:emissaryArchives'] = 'Archives'
 L['chore:warWithin:patch_11_0_0:quests:emissaryDelves'] = 'Delves'
 L['chore:warWithin:patch_11_0_0:quests:emissaryWorldsoul'] = 'Worldsoul'
 L['chore:warWithin:patch_11_0_0:quests:rollinDown'] = "Rollin' Down in the Deeps"
-L['chore:warWithin:patch_11_0_0:quests:specialAssignment'] = 'Special Assignment'
+L['chore:warWithin:patch_11_0_0:quests:specialAssignment'] = TEXT_SPECIAL_ASSIGNMENT
 L['chore:warWithin:patch_11_0_0:quests:spiderPact'] = 'Spider Pact'
 L['chore:warWithin:patch_11_0_0:quests:spiderWeekly'] = 'Spider Weekly'
 L['chore:warWithin:patch_11_0_0:quests:spreadingTheLight'] = 'Spreading the Light'
@@ -390,6 +397,7 @@ L['autoAccept:choresMidnight:patch_12_0_0:dungeon'] = '^Halduron in Silvermoon'
 L['autoAccept:choresMidnight:patch_12_0_5:voidAssaults'] = '^Void Assaults:'
 L['autoAccept:choresMidnight:patch_12_0_7:showdownLevel'] = '^Showdown on'
 L['autoAccept:choresMidnight:patch_12_0_7:showdownNormal'] = '^Showdown on'
+L['autoAccept:choresMidnight:patch_12_1_0:curseSurge'] = '^Curse Surge$'
 L['autoAccept:choresPvp:brawls:compStomp'] = '^Brawl: Arathi Basin Comp Stomp$'
 L['autoAccept:choresPvp:weekly:battlegrounds'] = '^Bonus Event: Battlegrounds$'
 L['autoAccept:choresPvp:weekly:sparks'] = '^Sparks of War:'

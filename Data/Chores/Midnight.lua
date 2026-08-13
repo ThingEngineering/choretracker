@@ -11,6 +11,44 @@ Addon.data.chores.choresMidnight = {
     minimumLevel = 80,
     categories = {
         {
+            key = 'patch_12_1_0',
+            quests = {
+                {
+                    key = 'trailing',
+                    minimumLevel = 90,
+                    entries = {
+                        { quest = 98172 }, -- Trailing Xal'atath
+                    }
+                },
+                {
+                    key = 'curseSurge',
+                    minimumLevel = 90,
+                    entries = {
+                        { quest = 96995 }, -- Turn Back the Surge
+                    },
+                },
+                {
+                    key = 'purgingVaults',
+                    minimumLevel = 90,
+                    requiredQuest = 98388,
+                    entries = {
+                        { quest = 95520 }, -- Purging the Vaults
+                    },
+                },
+                {
+                    key = 'specialAssignment',
+                    minimumLevel = 90,
+                    alwaysShowObjectives = true,
+                    removeText = L['remove_specialAssignment'],
+                    entries = {
+                        { quest = 95918, unlockQuest = 96307 }, -- Special Assignment: Wraith Wrath
+                        { quest = 95921, unlockQuest = 96492 }, -- Special Assignment: Demand and Supply
+                        { quest = 95922, unlockQuest = 96029 }, -- Special Assignment: Face the Swarm
+                    },
+                },
+            },
+        },
+        {
             key = 'patch_12_0_7',
             quests = {
                 {
