@@ -398,6 +398,7 @@ L['autoAccept:choresMidnight:patch_12_0_5:voidAssaults'] = '^Void Assaults:'
 L['autoAccept:choresMidnight:patch_12_0_7:showdownLevel'] = '^Showdown on'
 L['autoAccept:choresMidnight:patch_12_0_7:showdownNormal'] = '^Showdown on'
 L['autoAccept:choresMidnight:patch_12_1_0:curseSurge'] = '^Curse Surge$'
+L['autoAccept:choresMidnight:patch_12_1_0:purgingVaults'] = "^Vaults of Atal'Utek$"
 L['autoAccept:choresPvp:brawls:compStomp'] = '^Brawl: Arathi Basin Comp Stomp$'
 L['autoAccept:choresPvp:weekly:battlegrounds'] = '^Bonus Event: Battlegrounds$'
 L['autoAccept:choresPvp:weekly:sparks'] = '^Sparks of War:'
