@@ -168,6 +168,7 @@ Addon.data.chores.choresMidnight = {
                         { quest = 95843 }, -- Midnight: Ritual Sites
                         { quest = 93889 }, -- Midnight: Saltheril's Soiree
                         { quest = 93892 }, -- Midnight: Stormarion Assault
+                        { quest = 98232 }, -- Midnight: Vaults of Atal'Utek
                         { quest = 95842 }, -- Midnight: Void Assaults
                         { quest = 93913 }, -- Midnight: World Boss
                         { quest = 93766 }, -- Midnight: World Quests
