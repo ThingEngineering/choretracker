@@ -31,7 +31,8 @@ local CCI_GetCurrencyInfo = C_CurrencyInfo.GetCurrencyInfo
 local CDAT_CompareCalendarTime = C_DateAndTime.CompareCalendarTime
 local CDAT_GetCurrentCalendarTime = C_DateAndTime.GetCurrentCalendarTime
 local CDAT_GetSecondsUntilWeeklyReset = C_DateAndTime.GetSecondsUntilWeeklyReset
-local CMI_GetModifiedInstanceInfoFromMapID = C_ModifiedInstance.GetModifiedInstanceInfoFromMapID
+local CM_OpenWorldMap = C_Map.OpenWorldMap
+local CM_SetUserWaypoint = C_Map.SetUserWaypoint
 
 local OBJECTIVE_DEFEAT_X = Addon.L['objective:defeat_x']
 local OBJECTIVE_BRING_X = Addon.L['objective:bring_x']
@@ -570,15 +571,16 @@ function Module:AddTimers(changed, newChildren, seenFrames)
 
             local now = time()
             for _, timerData in ipairs(self.enabledTimers) do
+                local waypointFunc = nil
                 local name = L['timer:' .. timerData.key]
                 local timer = TimersModule.timers[timerData.key]
 
                 -- find the event that is active OR up next
-                if timerData.areaPoiIds then
-                    local now = time()
+                if timerData.areaPois then
                     local bestGuess = nil
+                    local bestTime = nil
                     
-                    for _, areaPoiId in ipairs(timerData.areaPoiIds) do
+                    for areaPoiId, positions in pairs(timerData.areaPois) do
                         local events = ScannerModule.events[areaPoiId]
                         if events ~= nil then
                             -- event => { startTime, endTime }
@@ -586,14 +588,16 @@ function Module:AddTimers(changed, newChildren, seenFrames)
                                 if event[2] > now and (
                                     (
                                         -- event in progress?
-                                        event[1] < now and (event[1] + timerData.duration) > now
+                                        event[1] <= now and (event[1] + timerData.duration) >= now
                                     ) or (
                                         -- event next up?
                                         event[1] > now and event[1] < (now + timerData.interval)
                                     )
                                 ) then
-                                    bestGuess = areaPoiId
-                                    break
+                                    if bestGuess == nil or event[1] < bestTime then
+                                        bestGuess = { areaPoiId, positions }
+                                        bestTime = event[1]
+                                    end
                                 end
                             end
                         end
@@ -602,8 +606,28 @@ function Module:AddTimers(changed, newChildren, seenFrames)
                     end
 
                     if bestGuess ~= nil then
-                        local poiInfo = CAPI_GetAreaPOIInfo(nil, bestGuess)
-                        name = name .. ': ' .. poiInfo.name
+                        local poiInfo = CAPI_GetAreaPOIInfo(nil, bestGuess[1])
+                        if poiInfo ~= nil then
+                            name = name .. ': ' .. poiInfo.name
+
+                            local x, y, z = unpack(bestGuess[2])
+                            local mapPoint = UiMapPoint.CreateFromCoordinates(timerData.uiMapId, x, y, z)
+                            waypointFunc = function()
+                                CM_SetUserWaypoint(mapPoint)
+
+                                if not PlayerIsInCombat() then
+                                    CM_OpenWorldMap(timerData.uiMapId)
+                                end
+
+                                if TomTom and TomTom.AddWaypoint then
+                                    TomTom:AddWaypoint(timerData.uiMapId, x, y, {
+                                        title = name,
+                                        minimap = true,
+                                        world = true,
+                                    })
+                                end
+                            end
+                        end
                     end
                 end
 
@@ -621,7 +645,7 @@ function Module:AddTimers(changed, newChildren, seenFrames)
                         '|r|cFF888888]|r ' .. name .. '|r'
                 end
 
-                self:AddLine(timerFrame, labelText)
+                self:AddLine(timerFrame, labelText, nil, waypointFunc)
             end
         end
 
@@ -1129,13 +1153,30 @@ function Module:ObjectiveText(objective, questName)
     end
 end
 
-function Module:AddLine(frame, text, size)
+function Module:AddLine(frame, text, size, waypointFunc)
     local label = AceGUI:Create('Label')
     label:SetFont(self.font, size or Addon.db.profile.general.text.fontSize, Addon.db.profile.general.text.fontStyle)
-    label:SetFullWidth(true)
     label:SetText(text)
     label.label:SetWordWrap(false)
-    frame:AddChild(label)
+
+    if waypointFunc ~= nil then
+        local rowGroup = AceGUI:Create('SimpleGroup')
+        rowGroup:SetLayout('LabelWithButton')
+        rowGroup:SetFullWidth(true)
+        rowGroup:SetHeight(12) -- way too tall without this
+
+        local button = AceGUI:Create('Icon')
+        button:SetImage("interface\\minimap\\minimap-waypoint-mappin-untracked", 0.2, 0.8, 0.2, 0.8)
+        button:SetImageSize(16, 16)
+        button:SetCallback('OnClick', waypointFunc)
+
+        rowGroup:AddChild(label)
+        rowGroup:AddChild(button)
+        frame:AddChild(rowGroup)
+    else
+        label:SetFullWidth(true)
+        frame:AddChild(label)
+    end
 end
 
 function Module:GetCachedItem(itemId)
