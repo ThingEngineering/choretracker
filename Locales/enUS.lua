@@ -116,6 +116,7 @@ L['chore:midnight:patch_12_1_0:quests:curseSurge'] = 'Curse Surges'
 L['chore:midnight:patch_12_1_0:quests:purgingVaults'] = 'Purge Vaults'
 L['chore:midnight:patch_12_1_0:quests:specialAssignment'] = TEXT_SPECIAL_ASSIGNMENT
 L['chore:midnight:patch_12_1_0:quests:trailing'] = 'Trailing'
+L['chore:midnight:patch_12_1_0:quests:vaultDailies'] = 'Vault Dailies'
 
 L['chore:midnight:patch_12_0_7:quests:showdownLevel'] = 'Showdown [80+]'
 L['chore:midnight:patch_12_0_7:quests:showdownNormal'] = 'Showdown [N]'

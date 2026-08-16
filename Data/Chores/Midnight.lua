@@ -36,6 +36,27 @@ Addon.data.chores.choresMidnight = {
                     },
                 },
                 {
+                    key = 'vaultDailies',
+                    minimumLevel = 90,
+                    requiredQuest = 98388,
+                    pick = 2,
+                    entries = {
+                        -- { quest = 96349 }, -- Ancestral Gems
+                        -- { quest = 96352 }, -- Dark Charms
+                        -- { quest = 96354 }, -- A Balance Paid in Blood
+                        -- { quest = 96360 }, -- Wading In
+                        -- { quest = 96361 }, -- Cursed Existence
+                        { quest = 96639 }, -- Patrolling the Temple
+                        -- { quest = 96640 }, -- Bounty of the Cursed
+                        { quest = 96641 }, -- Relentless Strikes
+                        { quest = 96642 }, -- Decisive Incursions
+                        { quest = 96643 }, -- From Whence it Came
+                        -- { quest = 96644 }, -- Essence of Malice
+                        { quest = 98419 }, -- Shoulder to Shoulder
+                        { quest = 98420 }, -- What's Out There?
+                    },
+                },
+                {
                     key = 'specialAssignment',
                     minimumLevel = 90,
                     alwaysShowObjectives = true,
