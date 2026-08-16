@@ -1,3 +1,11 @@
+v12.1.0.3
+---------
+- Added "Curse Surge" timer. This has some ~fancy~ new magic to have a waypoint button,
+  it probably works most of the time.
+- Added "Vault Dailies" chore.
+- Added "Midnight: Vaults of Atal'Utek" quest to "Unity" chore.
+- Added auto-accept for "Purging the Vaults".
+
 v12.1.0.2
 ---------
 - Added "Trailing Xal'atath" chore.
