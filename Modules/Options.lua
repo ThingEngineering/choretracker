@@ -516,6 +516,7 @@ function Module:CreateOptions()
                 type = 'group',
                 order = newOrder(),
                 args = {
+                    midnight = self:GetTimerOptions(Addon.data.timers.midnight),
                     warWithin = self:GetTimerOptions(Addon.data.timers.warWithin),
                     dragonflight = self:GetTimerOptions(Addon.data.timers.dragonflight),
                 },

@@ -24,6 +24,7 @@ local LSM = LibStub('LibSharedMedia-3.0')
 BINDING_HEADER_CHORETRACKER = addonName
 BINDING_NAME_CHORETRACKER_TOGGLE = Addon.L['key_binding:toggle']
 
+local CAPI_GetAreaPOIInfo = C_AreaPoiInfo.GetAreaPOIInfo
 local CC_GetDayEvent = C_Calendar.GetDayEvent
 local CC_GetNumDayEvents = C_Calendar.GetNumDayEvents
 local CCI_GetCurrencyInfo = C_CurrencyInfo.GetCurrencyInfo
@@ -560,10 +561,8 @@ function Module:AddDelves(changed, newChildren, seenFrames)
 end
 
 function Module:AddTimers(changed, newChildren, seenFrames)
-
     -- Timers
     if #self.enabledTimers > 0 then
-        local awakenedTimers = Addon.db.profile.general.display.awakenedTimers
         local timerFrame = self:GetSectionFrame('timers')
 
         if changed == nil or changed.timers ~= nil then
@@ -571,29 +570,58 @@ function Module:AddTimers(changed, newChildren, seenFrames)
 
             local now = time()
             for _, timerData in ipairs(self.enabledTimers) do
-                if (awakenedTimers == false or
-                    timerData.awakenedMap == nil or
-                    CMI_GetModifiedInstanceInfoFromMapID(timerData.awakenedMap) ~= nil
-                ) then
-                    local name = L['timer:' .. timerData.key]
-                    local timer = TimersModule.timers[timerData.key]
+                local name = L['timer:' .. timerData.key]
+                local timer = TimersModule.timers[timerData.key]
 
-                    local labelText
+                -- find the event that is active OR up next
+                if timerData.areaPoiIds then
+                    local now = time()
+                    local bestGuess = nil
+                    
+                    for _, areaPoiId in ipairs(timerData.areaPoiIds) do
+                        local events = ScannerModule.events[areaPoiId]
+                        if events ~= nil then
+                            -- event => { startTime, endTime }
+                            for _, event in ipairs(events) do
+                                if event[2] > now and (
+                                    (
+                                        -- event in progress?
+                                        event[1] < now and (event[1] + timerData.duration) > now
+                                    ) or (
+                                        -- event next up?
+                                        event[1] > now and event[1] < (now + timerData.interval)
+                                    )
+                                ) then
+                                    bestGuess = areaPoiId
+                                    break
+                                end
+                            end
+                        end
 
-                    if timer == nil then
-                        labelText = '|cFF888888[|r???|cFF888888]|r ' .. STATUS_COLOR[0] .. name .. '|r'
-                    elseif timer.startsAt <= now and timer.endsAt >= now then
-                        labelText = '|cFF888888[|r' .. STATUS_COLOR[2] .. self:GetDuration(timer.endsAt - now) ..
-                            '|cFF888888]|r ' .. STATUS_COLOR[2] .. name .. '|r'
-                        -- timeText = self:GetDuration(timer.endsAt - now)
-                    else
-                        local color = (timer.startsAt - now) <= 300 and STATUS_COLOR[1] or ''
-                        labelText = '|cFF888888[|r' .. color .. self:GetDuration(timer.startsAt - now) ..
-                            '|r|cFF888888]|r ' .. name .. '|r'
+                        if bestGuess ~= nil then break end
                     end
 
-                    self:AddLine(timerFrame, labelText)
+                    if bestGuess ~= nil then
+                        local poiInfo = CAPI_GetAreaPOIInfo(nil, bestGuess)
+                        name = name .. ': ' .. poiInfo.name
+                    end
                 end
+
+                local labelText
+
+                if timer == nil then
+                    labelText = '|cFF888888[|r???|cFF888888]|r ' .. STATUS_COLOR[0] .. name .. '|r'
+                elseif timer.startsAt <= now and timer.endsAt >= now then
+                    labelText = '|cFF888888[|r' .. STATUS_COLOR[2] .. self:GetDuration(timer.endsAt - now) ..
+                        '|cFF888888]|r ' .. STATUS_COLOR[2] .. name .. '|r'
+                    -- timeText = self:GetDuration(timer.endsAt - now)
+                else
+                    local color = (timer.startsAt - now) <= 300 and STATUS_COLOR[1] or ''
+                    labelText = '|cFF888888[|r' .. color .. self:GetDuration(timer.startsAt - now) ..
+                        '|r|cFF888888]|r ' .. name .. '|r'
+                end
+
+                self:AddLine(timerFrame, labelText)
             end
         end
 

@@ -346,6 +346,8 @@ L['timer:researchersUnderFire'] = 'Researchers Under Fire'
 L['timer:superbloom'] = 'Superbloom'
 L['timer:timeRift'] = 'Time Rift'
 
+L['timer:curseSurge'] = 'Curse Surge'
+
 L['objective:defeat_x'] = 'Defeat %s'
 L['objective:bring_x'] = 'Bring %sx %s'
 L['objective:task_count'] = '%s/%s Tasks'

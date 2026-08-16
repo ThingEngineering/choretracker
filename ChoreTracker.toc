@@ -78,6 +78,7 @@ Data\Chores\Professions\Tailoring.lua
 Data\Delves\Midnight.lua
 Data\Delves\The_War_Within.lua
 Data\Timers\Dragonflight.lua
+Data\Timers\Midnight.lua
 Data\Timers\The_War_Within.lua
 
 Modules\AutoAccept.lua
