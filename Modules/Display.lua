@@ -601,8 +601,6 @@ function Module:AddTimers(changed, newChildren, seenFrames)
                                 end
                             end
                         end
-
-                        if bestGuess ~= nil then break end
                     end
 
                     if bestGuess ~= nil then
