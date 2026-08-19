@@ -53,5 +53,13 @@ Addon.data.delves.midnight = {
                 { active = 8442, inactive = 8441, quest = 91190 }, -- Twilight Crypts
             },
         },
+        -- The Coiled Isle
+        {
+            uiMapId = 2512,
+            pois = {
+                { active = 8763, inactive = 8764, quest = 0 }, -- Gnarldor Isle
+                { active = 8760, inactive = 8761, quest = 0 }, -- The Ring of Glory 
+            },
+        },
     },
 }
