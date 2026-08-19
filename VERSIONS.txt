@@ -1,3 +1,9 @@
+v12.1.0.4
+---------
+- Added Gnarldor Isle/Ring of Glory delves.
+- Added some more quests to "Vault Dailies" chore.
+- Fixed "Curse Surge" timer show the next event as currently active.
+
 v12.1.0.3
 ---------
 - Added "Curse Surge" timer. This has some ~fancy~ new magic to have a waypoint button,
