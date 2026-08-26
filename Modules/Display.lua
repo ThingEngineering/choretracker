@@ -987,7 +987,7 @@ function Module:AddObjectives(entries, objectives, showObjectives)
                     objective.text
             end
         else
-            objText = objText .. objective.type .. '|' .. objective.text ..
+            objText = '??' .. objective.type .. '|' .. objective.text ..
                 '|' .. objective.have .. '|' .. objective.need
         end
 
