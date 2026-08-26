@@ -1,3 +1,10 @@
+v12.1.0.5
+---------
+- Added tracking quests for Gnarldor Isle/Ring of Glory bountiful completion.
+- Changed Curse Surge timer duration from 5min to 10min.
+- Fixed "Curse Surge" timer showing "Curse Surge: Curse Surge: Something" text.
+- Fixed error with unknown quest objective type.
+
 v12.1.0.4
 ---------
 - Added Gnarldor Isle/Ring of Glory delves.
