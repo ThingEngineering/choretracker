@@ -606,7 +606,9 @@ function Module:AddTimers(changed, newChildren, seenFrames)
                     if bestGuess ~= nil then
                         local poiInfo = CAPI_GetAreaPOIInfo(nil, bestGuess[1])
                         if poiInfo ~= nil then
-                            name = name .. ': ' .. poiInfo.name
+                            if poiInfo.name ~= nil then
+                                name = poiInfo.name
+                            end
 
                             local x, y, z = unpack(bestGuess[2])
                             local mapPoint = UiMapPoint.CreateFromCoordinates(timerData.uiMapId, x, y, z)
