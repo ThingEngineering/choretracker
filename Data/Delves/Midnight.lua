@@ -57,8 +57,8 @@ Addon.data.delves.midnight = {
         {
             uiMapId = 2512,
             pois = {
-                { active = 8763, inactive = 8764, quest = 0 }, -- Gnarldor Isle
-                { active = 8760, inactive = 8761, quest = 0 }, -- The Ring of Glory 
+                { active = 8763, inactive = 8764, quest = 95715 }, -- Gnarldor Isle
+                { active = 8760, inactive = 8761, quest = 95716 }, -- The Ring of Glory 
             },
         },
     },
