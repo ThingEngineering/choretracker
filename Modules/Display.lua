@@ -1154,10 +1154,9 @@ function Module:ObjectiveText(objective, questName)
 end
 
 function Module:AddLine(frame, text, size, waypointFunc)
-    local label = AceGUI:Create('Label')
+    local label = AceGUI:Create('ChoreLabel')
     label:SetFont(self.font, size or Addon.db.profile.general.text.fontSize, Addon.db.profile.general.text.fontStyle)
     label:SetText(text)
-    label.label:SetWordWrap(false)
 
     if waypointFunc ~= nil then
         local rowGroup = AceGUI:Create('SimpleGroup')
