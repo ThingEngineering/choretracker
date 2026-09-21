@@ -9,7 +9,7 @@ Addon.data.timers.midnight = {
         {
             key = 'curseSurge',
             minimumLevel = 90,
-            interval = 45 * 60,
+            interval = 30 * 60,
             duration = 10 * 60,
             offset = 0,
             uiMapId = 2512, -- The Coiled Isle
