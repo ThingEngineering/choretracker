@@ -1,3 +1,10 @@
+v12.1.0.6
+---------
+- Added "Ancient Foe" chore.
+- Added "Brewfest Banquet" timer.
+- Fixed Curse Surge timer, it's 30min instead of 45min now.
+- Fixed Gnarldor Isle/Ring of Glory having swapped IDs.
+
 v12.1.0.5
 ---------
 - Added tracking quests for Gnarldor Isle/Ring of Glory bountiful completion.
