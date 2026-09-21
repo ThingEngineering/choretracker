@@ -334,11 +334,10 @@ L['chore:pvp:weekly:quests:battlegrounds'] = 'Battlegrounds'
 L['chore:pvp:weekly:quests:preserving'] = 'Enshrouded'
 L['chore:pvp:weekly:quests:sparks'] = 'Sparks of War'
 
-L['timer:beledarsShadow'] = "Beledar's Shadow"
-L['timer:nightfallScenario'] = '[Hal] Nightfall Scenario'
-L['timer:surgePricing'] = '[Um] Surge Pricing'
-L['timer:theaterTroupe'] = 'Theater Troupe'
+-- Events
+L['timer:brewfestBanquet'] = 'Brewfest Banquet'
 
+-- Dragonflight
 L['timer:bigDig'] = 'Big Dig'
 L['timer:communityFeast'] = 'Community Feast'
 L['timer:dragonbaneKeep'] = 'Dragonbane Keep'
@@ -347,6 +346,13 @@ L['timer:researchersUnderFire'] = 'Researchers Under Fire'
 L['timer:superbloom'] = 'Superbloom'
 L['timer:timeRift'] = 'Time Rift'
 
+-- The War Within
+L['timer:beledarsShadow'] = "Beledar's Shadow"
+L['timer:nightfallScenario'] = '[Hal] Nightfall Scenario'
+L['timer:surgePricing'] = '[Um] Surge Pricing'
+L['timer:theaterTroupe'] = 'Theater Troupe'
+
+-- Midnight
 L['timer:curseSurge'] = 'Curse Surge'
 
 L['objective:defeat_x'] = 'Defeat %s'

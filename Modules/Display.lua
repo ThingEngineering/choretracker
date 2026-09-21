@@ -339,8 +339,12 @@ function Module:ConfigChanged()
     wipe(self.enabledTimers)
     for _, category in pairs(Addon.data.timers) do
         for _, timerData in ipairs(category.timers) do
-            if Addon.db.profile.timers[category.key][timerData.key] == true and
-                self:PlayerLevelOk(timerData, playerLevel)
+            if Addon.db.profile.timers[category.key][timerData.key] == true
+                and (
+                    timerData.requiredEventIds == nil or
+                    self:AnyActive(self.activeEvents, timerData.requiredEventIds)
+                )
+                and self:PlayerLevelOk(timerData, playerLevel)
             then
                 table.insert(self.enabledTimers, timerData)
             end
