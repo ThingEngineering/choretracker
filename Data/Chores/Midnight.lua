@@ -36,6 +36,15 @@ Addon.data.chores.choresMidnight = {
                     },
                 },
                 {
+                    key = 'ancientFoe',
+                    minimumLevel = 90,
+                    entries = {
+                        { quest = 97768 }, -- Congealed Malice
+                        { quest = 97769 }, -- Khu'tulak
+                        { quest = 97770 }, -- Susarikk
+                    },
+                },
+                {
                     key = 'vaultDailies',
                     minimumLevel = 90,
                     requiredQuest = 98388,

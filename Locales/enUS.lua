@@ -112,6 +112,7 @@ L['chore:prey:midnightPrey:drops:hard'] = 'Hard'
 L['chore:prey:midnightPrey:drops:nightmare'] = 'Nightmare'
 L['chore:prey:midnightPrey:quests:nightmarishTask'] = 'A Nightmarish Task'
 
+L['chore:midnight:patch_12_1_0:quests:ancientFoe'] = 'Ancient Foe'
 L['chore:midnight:patch_12_1_0:quests:curseSurge'] = 'Curse Surges'
 L['chore:midnight:patch_12_1_0:quests:purgingVaults'] = 'Purge Vaults'
 L['chore:midnight:patch_12_1_0:quests:specialAssignment'] = TEXT_SPECIAL_ASSIGNMENT
