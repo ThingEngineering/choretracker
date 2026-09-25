@@ -110,6 +110,8 @@ function Module:OnEnable()
     }, 1, 'ConfigChanged')
     self:RegisterBucketEvent({ 'ITEM_DATA_LOAD_RESULT' }, 1, 'ItemsLoaded')
 
+    self.lineFontObject = CreateFont('ChoreTrackerLineFont')
+
     self:CreateMainFrame()
     self:UpdateShown()
     self:Redraw()
@@ -201,6 +203,7 @@ end
 
 function Module:ConfigChanged()
     self.font = LSM:Fetch('font', Addon.db.profile.general.text.font)
+    self.lineFontObject:SetFont(self.font, Addon.db.profile.general.text.fontSize, Addon.db.profile.general.text.fontStyle)
 
     self.frame.frame:SetFrameStrata(Addon.db.profile.general.appearance.strata)
     self.frame:SetBackgroundColor(Addon.db.profile.general.appearance.backgroundColor)
@@ -1158,10 +1161,10 @@ function Module:ObjectiveText(objective, questName)
 end
 
 function Module:AddLine(frame, text, size, waypointFunc)
-    local label = AceGUI:Create('Label')
-    label:SetFont(self.font, size or Addon.db.profile.general.text.fontSize, Addon.db.profile.general.text.fontStyle)
+    local label = AceGUI:Create('ChoreLabel')
+    label:SetFontObject(self.lineFontObject)
+    if size then label.label:SetFontHeight(size) end
     label:SetText(text)
-    label.label:SetWordWrap(false)
 
     if waypointFunc ~= nil then
         local rowGroup = AceGUI:Create('SimpleGroup')
