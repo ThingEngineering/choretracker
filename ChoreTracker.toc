@@ -1,7 +1,7 @@
-## Interface: 120007
+## Interface: 120100
 ## Title: ChoreTracker
 ## Notes: Keep track of your chores
-## Version: 12.0.7.2
+## Version: 12.1.0.6
 ## Author: Freddie
 ## IconTexture: Interface\AddOns\ChoreTracker\Assets\icon.blp
 ## SavedVariables: ChoreTrackerDB
@@ -40,6 +40,7 @@ Libs\LibDBIcon-1.0\LibDBIcon-1.0.lua
 
 AceGUI\ChoreFrame.lua
 AceGUI\FancyList.lua
+AceGUI\LabelWithButton.lua
 
 Locales\enUS.lua
 Locales\frFR.lua
@@ -77,7 +78,9 @@ Data\Chores\Professions\Skinning.lua
 Data\Chores\Professions\Tailoring.lua
 Data\Delves\Midnight.lua
 Data\Delves\The_War_Within.lua
+Data\Timers\Events.lua
 Data\Timers\Dragonflight.lua
+Data\Timers\Midnight.lua
 Data\Timers\The_War_Within.lua
 
 Modules\AutoAccept.lua

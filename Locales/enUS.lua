@@ -1,5 +1,9 @@
 local L = LibStub('AceLocale-3.0'):NewLocale('ChoreTracker', 'enUS', true, true)
 
+local CM_GetMapInfo = C_Map.GetMapInfo
+
+local TEXT_SPECIAL_ASSIGNMENT = 'Special Assignment'
+
 L['section:dragonflight'] = EXPANSION_NAME9
 L['section:warWithin'] = EXPANSION_NAME10
 L['section:midnight'] = EXPANSION_NAME11
@@ -110,6 +114,13 @@ L['chore:prey:midnightPrey:drops:hard'] = 'Hard'
 L['chore:prey:midnightPrey:drops:nightmare'] = 'Nightmare'
 L['chore:prey:midnightPrey:quests:nightmarishTask'] = 'A Nightmarish Task'
 
+L['chore:midnight:patch_12_1_0:quests:ancientFoe'] = 'Ancient Foe'
+L['chore:midnight:patch_12_1_0:quests:curseSurge'] = 'Curse Surges'
+L['chore:midnight:patch_12_1_0:quests:purgingVaults'] = 'Purge Vaults'
+L['chore:midnight:patch_12_1_0:quests:specialAssignment'] = TEXT_SPECIAL_ASSIGNMENT
+L['chore:midnight:patch_12_1_0:quests:trailing'] = 'Trailing'
+L['chore:midnight:patch_12_1_0:quests:vaultDailies'] = 'Vault Dailies'
+
 L['chore:midnight:patch_12_0_7:quests:showdownLevel'] = 'Showdown [80+]'
 L['chore:midnight:patch_12_0_7:quests:showdownNormal'] = 'Showdown [N]'
 L['chore:midnight:patch_12_0_7:quests:showdownHeroic'] = 'Showdown [H]'
@@ -124,9 +135,10 @@ L['chore:midnight:patch_12_0_0:quests:abundance'] = 'Abundance'
 L['chore:midnight:patch_12_0_0:quests:dungeon'] = 'Dungeon'
 L['chore:midnight:patch_12_0_0:quests:hope'] = 'Hope'
 L['chore:midnight:patch_12_0_0:quests:legends'] = 'Legends'
+L['chore:midnight:patch_12_0_0:quests:neighborhood'] = 'Neighborhood'
 L['chore:midnight:patch_12_0_0:quests:soiree'] = 'Soiree'
 L['chore:midnight:patch_12_0_0:quests:soireeInvite'] = 'Soiree Invite'
-L['chore:midnight:patch_12_0_0:quests:specialAssignment'] = 'Special Assignment'
+L['chore:midnight:patch_12_0_0:quests:specialAssignment'] = TEXT_SPECIAL_ASSIGNMENT
 L['chore:midnight:patch_12_0_0:quests:stormarion'] = 'Stormarion'
 L['chore:midnight:patch_12_0_0:quests:unity'] = 'Unity'
 L['chore:midnight:patch_12_0_0:quests:worldBoss'] = 'World Boss'
@@ -164,7 +176,7 @@ L['chore:warWithin:patch_11_0_0:quests:emissaryArchives'] = 'Archives'
 L['chore:warWithin:patch_11_0_0:quests:emissaryDelves'] = 'Delves'
 L['chore:warWithin:patch_11_0_0:quests:emissaryWorldsoul'] = 'Worldsoul'
 L['chore:warWithin:patch_11_0_0:quests:rollinDown'] = "Rollin' Down in the Deeps"
-L['chore:warWithin:patch_11_0_0:quests:specialAssignment'] = 'Special Assignment'
+L['chore:warWithin:patch_11_0_0:quests:specialAssignment'] = TEXT_SPECIAL_ASSIGNMENT
 L['chore:warWithin:patch_11_0_0:quests:spiderPact'] = 'Spider Pact'
 L['chore:warWithin:patch_11_0_0:quests:spiderWeekly'] = 'Spider Weekly'
 L['chore:warWithin:patch_11_0_0:quests:spreadingTheLight'] = 'Spreading the Light'
@@ -255,12 +267,15 @@ L['chore:events:holidays:quests:mythicDungeons'] = 'Dungeons'
 L['chore:events:holidays:quests:pvpPetBattles'] = 'PvP Pet Battles'
 L['chore:events:holidays:quests:worldQuests'] = 'World Quests'
 
+L['chore:events:midsummer:dungeons:frostLordAhune'] = '[Dungeon] Frost Lord Ahune'
+L['chore:events:midsummer:quests:flamesMidnight'] = 'MID Flames'
+L['chore:events:midsummer:quests:shardsOfAhune'] = 'Shards of Ahune'
+
 L['chore:events:noblegarden:quests:featheredFiend'] = 'Duck Boss'
 
 L['chore:events:holidays2:dungeons:corenDirebrew'] = 'Coren Direbrew'
 L['chore:events:holidays2:dungeons:crownChemicalCo'] = 'Crown Chemical Co.'
 L['chore:events:holidays2:dungeons:headlessHorseman'] = 'Headless Horseman'
-L['chore:events:holidays2:dungeons:frostLordAhune'] = 'Frost Lord Ahune'
 
 L['chore:events:holidays2:quests:meanOne'] = 'Stolen Treats'
 L['chore:events:holidays2:quests:grumpus'] = 'Grumpus'
@@ -321,11 +336,10 @@ L['chore:pvp:weekly:quests:battlegrounds'] = 'Battlegrounds'
 L['chore:pvp:weekly:quests:preserving'] = 'Enshrouded'
 L['chore:pvp:weekly:quests:sparks'] = 'Sparks of War'
 
-L['timer:beledarsShadow'] = "Beledar's Shadow"
-L['timer:nightfallScenario'] = '[Hal] Nightfall Scenario'
-L['timer:surgePricing'] = '[Um] Surge Pricing'
-L['timer:theaterTroupe'] = 'Theater Troupe'
+-- Events
+L['timer:brewfestBanquet'] = 'Brewfest Banquet'
 
+-- Dragonflight
 L['timer:bigDig'] = 'Big Dig'
 L['timer:communityFeast'] = 'Community Feast'
 L['timer:dragonbaneKeep'] = 'Dragonbane Keep'
@@ -333,6 +347,15 @@ L['timer:dreamsurge'] = 'Dreamsurge'
 L['timer:researchersUnderFire'] = 'Researchers Under Fire'
 L['timer:superbloom'] = 'Superbloom'
 L['timer:timeRift'] = 'Time Rift'
+
+-- The War Within
+L['timer:beledarsShadow'] = "Beledar's Shadow"
+L['timer:nightfallScenario'] = '[Hal] Nightfall Scenario'
+L['timer:surgePricing'] = '[Um] Surge Pricing'
+L['timer:theaterTroupe'] = 'Theater Troupe'
+
+-- Midnight
+L['timer:curseSurge'] = 'Curse Surge'
 
 L['objective:defeat_x'] = 'Defeat %s'
 L['objective:bring_x'] = 'Bring %sx %s'
@@ -362,6 +385,12 @@ L['questName:87306'] = '50x Car Can'
 L['questName:87307'] = '25x Trash Can/Dumpster'
 L['questName:5000002'] = 'Get list!'
 L['questName:5000003'] = 'Turn in list!'
+-- Midsummer
+L['questName:92555'] = CM_GetMapInfo(2395).name -- Eversong Woods
+L['questName:92556'] = CM_GetMapInfo(2393).name -- Silvermoon City
+L['questName:92557'] = CM_GetMapInfo(2437).name -- Zul'Aman
+L['questName:92558'] = CM_GetMapInfo(2405).name -- Voidstorm
+L['questName:92559'] = CM_GetMapInfo(2413).name -- Harandar
 
 L['missing_skill_level'] = '|cFFFF00FFOpen profession window!|r'
 L['remove_specialAssignment'] = 'Special Assignment: '
@@ -378,6 +407,10 @@ L['autoAccept:choresEvents:holidays:worldQuests'] = '^Bonus Event: World Quests$
 L['autoAccept:choresMidnight:patch_12_0_0:abundance'] = '^Abundance$'
 L['autoAccept:choresMidnight:patch_12_0_0:dungeon'] = '^Halduron in Silvermoon'
 L['autoAccept:choresMidnight:patch_12_0_5:voidAssaults'] = '^Void Assaults:'
+L['autoAccept:choresMidnight:patch_12_0_7:showdownLevel'] = '^Showdown on'
+L['autoAccept:choresMidnight:patch_12_0_7:showdownNormal'] = '^Showdown on'
+L['autoAccept:choresMidnight:patch_12_1_0:curseSurge'] = '^Curse Surge$'
+L['autoAccept:choresMidnight:patch_12_1_0:purgingVaults'] = "^Vaults of Atal'Utek$"
 L['autoAccept:choresPvp:brawls:compStomp'] = '^Brawl: Arathi Basin Comp Stomp$'
 L['autoAccept:choresPvp:weekly:battlegrounds'] = '^Bonus Event: Battlegrounds$'
 L['autoAccept:choresPvp:weekly:sparks'] = '^Sparks of War:'

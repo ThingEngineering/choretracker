@@ -183,7 +183,8 @@ function Addon:OnInitialize()
     for _, category in pairs(self.data.timers) do
         defaultDb.profile.timers[category.key] = {}
         for _, timer in ipairs(category.timers) do
-            defaultDb.profile.timers[category.key][timer.key] = category.key == 'warWithin'
+            local autoEnabled = category.key == 'events' or category.key == 'midnight'
+            defaultDb.profile.timers[category.key][timer.key] = autoEnabled
         end
     end
 

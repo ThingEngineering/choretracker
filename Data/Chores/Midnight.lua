@@ -11,6 +11,74 @@ Addon.data.chores.choresMidnight = {
     minimumLevel = 80,
     categories = {
         {
+            key = 'patch_12_1_0',
+            quests = {
+                {
+                    key = 'trailing',
+                    minimumLevel = 90,
+                    entries = {
+                        { quest = 98172 }, -- Trailing Xal'atath
+                    }
+                },
+                {
+                    key = 'curseSurge',
+                    minimumLevel = 90,
+                    entries = {
+                        { quest = 96995 }, -- Turn Back the Surge
+                    },
+                },
+                {
+                    key = 'purgingVaults',
+                    minimumLevel = 90,
+                    requiredQuest = 98388,
+                    entries = {
+                        { quest = 95520 }, -- Purging the Vaults
+                    },
+                },
+                {
+                    key = 'ancientFoe',
+                    minimumLevel = 90,
+                    entries = {
+                        { quest = 97768 }, -- Congealed Malice
+                        { quest = 97769 }, -- Khu'tulak
+                        { quest = 97770 }, -- Susarikk
+                    },
+                },
+                {
+                    key = 'vaultDailies',
+                    minimumLevel = 90,
+                    requiredQuest = 98388,
+                    pick = 2,
+                    entries = {
+                        -- { quest = 96349 }, -- Ancestral Gems
+                        -- { quest = 96352 }, -- Dark Charms
+                        -- { quest = 96354 }, -- A Balance Paid in Blood
+                        -- { quest = 96360 }, -- Wading In
+                        -- { quest = 96361 }, -- Cursed Existence
+                        { quest = 96639 }, -- Patrolling the Temple
+                        { quest = 96640 }, -- Bounty of the Cursed
+                        { quest = 96641 }, -- Relentless Strikes
+                        { quest = 96642 }, -- Decisive Incursions
+                        { quest = 96643 }, -- From Whence it Came
+                        { quest = 96644 }, -- Essence of Malice
+                        { quest = 98419 }, -- Shoulder to Shoulder
+                        { quest = 98420 }, -- What's Out There?
+                    },
+                },
+                {
+                    key = 'specialAssignment',
+                    minimumLevel = 90,
+                    alwaysShowObjectives = true,
+                    removeText = L['remove_specialAssignment'],
+                    entries = {
+                        { quest = 95918, unlockQuest = 96307 }, -- Special Assignment: Wraith Wrath
+                        { quest = 95921, unlockQuest = 96492 }, -- Special Assignment: Demand and Supply
+                        { quest = 95922, unlockQuest = 96029 }, -- Special Assignment: Face the Swarm
+                    },
+                },
+            },
+        },
+        {
             key = 'patch_12_0_7',
             quests = {
                 {
@@ -109,9 +177,20 @@ Addon.data.chores.choresMidnight = {
                         { quest = 95843 }, -- Midnight: Ritual Sites
                         { quest = 93889 }, -- Midnight: Saltheril's Soiree
                         { quest = 93892 }, -- Midnight: Stormarion Assault
+                        { quest = 98232 }, -- Midnight: Vaults of Atal'Utek
                         { quest = 95842 }, -- Midnight: Void Assaults
                         { quest = 93913 }, -- Midnight: World Boss
                         { quest = 93766 }, -- Midnight: World Quests
+                    },
+                },
+                {
+                    key = 'neighborhood',
+                    minimumLevel = 90,
+                    entries = {
+                        { quest = 95413 }, -- Community Engagement
+                        { quest = 95416 }, -- Going Postal
+                        { quest = 95438 }, -- Lost Animals
+                        { quest = 95440 }, -- Housewarming
                     },
                 },
                 {

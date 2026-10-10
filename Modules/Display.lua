@@ -24,13 +24,15 @@ local LSM = LibStub('LibSharedMedia-3.0')
 BINDING_HEADER_CHORETRACKER = addonName
 BINDING_NAME_CHORETRACKER_TOGGLE = Addon.L['key_binding:toggle']
 
+local CAPI_GetAreaPOIInfo = C_AreaPoiInfo.GetAreaPOIInfo
 local CC_GetDayEvent = C_Calendar.GetDayEvent
 local CC_GetNumDayEvents = C_Calendar.GetNumDayEvents
 local CCI_GetCurrencyInfo = C_CurrencyInfo.GetCurrencyInfo
 local CDAT_CompareCalendarTime = C_DateAndTime.CompareCalendarTime
 local CDAT_GetCurrentCalendarTime = C_DateAndTime.GetCurrentCalendarTime
 local CDAT_GetSecondsUntilWeeklyReset = C_DateAndTime.GetSecondsUntilWeeklyReset
-local CMI_GetModifiedInstanceInfoFromMapID = C_ModifiedInstance.GetModifiedInstanceInfoFromMapID
+local CM_OpenWorldMap = C_Map.OpenWorldMap
+local CM_SetUserWaypoint = C_Map.SetUserWaypoint
 
 local OBJECTIVE_DEFEAT_X = Addon.L['objective:defeat_x']
 local OBJECTIVE_BRING_X = Addon.L['objective:bring_x']
@@ -84,7 +86,7 @@ function Module:OnEnable()
     TimersModule = Addon:GetModule('Timers')
 
     if not C_AddOns.IsAddOnLoaded('Blizzard_Calendar') then
-        UIParentLoadAddOn('Blizzard_Calendar')
+        LoadAddOnWithErrorHandling('Blizzard_Calendar')
     end
 
     Addon.db.RegisterCallback(self, 'OnProfileChanged', 'ConfigChanged')
@@ -337,8 +339,12 @@ function Module:ConfigChanged()
     wipe(self.enabledTimers)
     for _, category in pairs(Addon.data.timers) do
         for _, timerData in ipairs(category.timers) do
-            if Addon.db.profile.timers[category.key][timerData.key] == true and
-                self:PlayerLevelOk(timerData, playerLevel)
+            if Addon.db.profile.timers[category.key][timerData.key] == true
+                and (
+                    timerData.requiredEventIds == nil or
+                    self:AnyActive(self.activeEvents, timerData.requiredEventIds)
+                )
+                and self:PlayerLevelOk(timerData, playerLevel)
             then
                 table.insert(self.enabledTimers, timerData)
             end
@@ -349,6 +355,8 @@ function Module:ConfigChanged()
 end
 
 function Module:AnyActive(activeEvents, eventIds)
+    if activeEvents == nil then return end
+    
     for _, eventId in ipairs(eventIds) do
         if activeEvents[eventId] == true then
             return true
@@ -558,10 +566,8 @@ function Module:AddDelves(changed, newChildren, seenFrames)
 end
 
 function Module:AddTimers(changed, newChildren, seenFrames)
-
     -- Timers
     if #self.enabledTimers > 0 then
-        local awakenedTimers = Addon.db.profile.general.display.awakenedTimers
         local timerFrame = self:GetSectionFrame('timers')
 
         if changed == nil or changed.timers ~= nil then
@@ -569,29 +575,81 @@ function Module:AddTimers(changed, newChildren, seenFrames)
 
             local now = time()
             for _, timerData in ipairs(self.enabledTimers) do
-                if (awakenedTimers == false or
-                    timerData.awakenedMap == nil or
-                    CMI_GetModifiedInstanceInfoFromMapID(timerData.awakenedMap) ~= nil
-                ) then
-                    local name = L['timer:' .. timerData.key]
-                    local timer = TimersModule.timers[timerData.key]
+                local waypointFunc = nil
+                local name = L['timer:' .. timerData.key]
+                local timer = TimersModule.timers[timerData.key]
 
-                    local labelText
-
-                    if timer == nil then
-                        labelText = '|cFF888888[|r???|cFF888888]|r ' .. STATUS_COLOR[0] .. name .. '|r'
-                    elseif timer.startsAt <= now and timer.endsAt >= now then
-                        labelText = '|cFF888888[|r' .. STATUS_COLOR[2] .. self:GetDuration(timer.endsAt - now) ..
-                            '|cFF888888]|r ' .. STATUS_COLOR[2] .. name .. '|r'
-                        -- timeText = self:GetDuration(timer.endsAt - now)
-                    else
-                        local color = (timer.startsAt - now) <= 300 and STATUS_COLOR[1] or ''
-                        labelText = '|cFF888888[|r' .. color .. self:GetDuration(timer.startsAt - now) ..
-                            '|r|cFF888888]|r ' .. name .. '|r'
+                -- find the event that is active OR up next
+                if timerData.areaPois then
+                    local bestGuess = nil
+                    local bestTime = nil
+                    
+                    for areaPoiId, positions in pairs(timerData.areaPois) do
+                        local events = ScannerModule.events[areaPoiId]
+                        if events ~= nil then
+                            -- event => { startTime, endTime }
+                            for _, event in ipairs(events) do
+                                if event[2] > now and (
+                                    (
+                                        -- event in progress?
+                                        event[1] <= now and (event[1] + timerData.duration) >= now
+                                    ) or (
+                                        -- event next up?
+                                        event[1] > now and event[1] < (now + timerData.interval)
+                                    )
+                                ) then
+                                    if bestGuess == nil or event[1] < bestTime then
+                                        bestGuess = { areaPoiId, positions }
+                                        bestTime = event[1]
+                                    end
+                                end
+                            end
+                        end
                     end
 
-                    self:AddLine(timerFrame, labelText)
+                    if bestGuess ~= nil then
+                        local poiInfo = CAPI_GetAreaPOIInfo(nil, bestGuess[1])
+                        if poiInfo ~= nil then
+                            if poiInfo.name ~= nil then
+                                name = poiInfo.name
+                            end
+
+                            local x, y, z = unpack(bestGuess[2])
+                            local mapPoint = UiMapPoint.CreateFromCoordinates(timerData.uiMapId, x, y, z)
+                            waypointFunc = function()
+                                CM_SetUserWaypoint(mapPoint)
+
+                                if not PlayerIsInCombat() then
+                                    CM_OpenWorldMap(timerData.uiMapId)
+                                end
+
+                                if TomTom and TomTom.AddWaypoint then
+                                    TomTom:AddWaypoint(timerData.uiMapId, x, y, {
+                                        title = name,
+                                        minimap = true,
+                                        world = true,
+                                    })
+                                end
+                            end
+                        end
+                    end
                 end
+
+                local labelText
+
+                if timer == nil then
+                    labelText = '|cFF888888[|r???|cFF888888]|r ' .. STATUS_COLOR[0] .. name .. '|r'
+                elseif timer.startsAt <= now and timer.endsAt >= now then
+                    labelText = '|cFF888888[|r' .. STATUS_COLOR[2] .. self:GetDuration(timer.endsAt - now) ..
+                        '|cFF888888]|r ' .. STATUS_COLOR[2] .. name .. '|r'
+                    -- timeText = self:GetDuration(timer.endsAt - now)
+                else
+                    local color = (timer.startsAt - now) <= 300 and STATUS_COLOR[1] or ''
+                    labelText = '|cFF888888[|r' .. color .. self:GetDuration(timer.startsAt - now) ..
+                        '|r|cFF888888]|r ' .. name .. '|r'
+                end
+
+                self:AddLine(timerFrame, labelText, nil, waypointFunc)
             end
         end
 
@@ -933,7 +991,7 @@ function Module:AddObjectives(entries, objectives, showObjectives)
                     objective.text
             end
         else
-            objText = objText .. objective.type .. '|' .. objective.text ..
+            objText = '??' .. objective.type .. '|' .. objective.text ..
                 '|' .. objective.have .. '|' .. objective.need
         end
 
@@ -1099,13 +1157,30 @@ function Module:ObjectiveText(objective, questName)
     end
 end
 
-function Module:AddLine(frame, text, size)
+function Module:AddLine(frame, text, size, waypointFunc)
     local label = AceGUI:Create('Label')
     label:SetFont(self.font, size or Addon.db.profile.general.text.fontSize, Addon.db.profile.general.text.fontStyle)
-    label:SetFullWidth(true)
     label:SetText(text)
     label.label:SetWordWrap(false)
-    frame:AddChild(label)
+
+    if waypointFunc ~= nil then
+        local rowGroup = AceGUI:Create('SimpleGroup')
+        rowGroup:SetLayout('LabelWithButton')
+        rowGroup:SetFullWidth(true)
+        rowGroup:SetHeight(12) -- way too tall without this
+
+        local button = AceGUI:Create('Icon')
+        button:SetImage("interface\\minimap\\minimap-waypoint-mappin-untracked", 0.2, 0.8, 0.2, 0.8)
+        button:SetImageSize(16, 16)
+        button:SetCallback('OnClick', waypointFunc)
+
+        rowGroup:AddChild(label)
+        rowGroup:AddChild(button)
+        frame:AddChild(rowGroup)
+    else
+        label:SetFullWidth(true)
+        frame:AddChild(label)
+    end
 end
 
 function Module:GetCachedItem(itemId)

@@ -5,6 +5,7 @@ local Module = Addon:NewModule(
     {
         autoAccept = {},
         dungeons = {},
+        events = {},
         pois = {},
         quests = {},
         questPaths = {},
@@ -18,6 +19,8 @@ local Module = Addon:NewModule(
 local CAPI_GetAreaPOIInfo = C_AreaPoiInfo.GetAreaPOIInfo
 local CCI_GetCurrencyInfo = C_CurrencyInfo.GetCurrencyInfo
 local CDAT_GetSecondsUntilWeeklyReset = C_DateAndTime.GetSecondsUntilWeeklyReset
+local CES_GetScheduledEvents = C_EventScheduler.GetScheduledEvents
+local CES_RequestEvents = C_EventScheduler.RequestEvents
 local CI_GetItemCount = C_Item.GetItemCount
 local CI_GetItemNameByID = C_Item.GetItemNameByID
 local CI_IsItemDataCachedByID = C_Item.IsItemDataCachedByID
@@ -56,6 +59,7 @@ local OVERCHARGED_WIDGETS = {
 
 function Module:OnEnable()
     self:RegisterEvent('CURRENCY_DISPLAY_UPDATE')
+    self:RegisterEvent('EVENT_SCHEDULER_UPDATE')
     self:RegisterEvent('QUEST_ACCEPTED')
     self:RegisterEvent('QUEST_REMOVED')
     self:RegisterEvent('QUEST_TURNED_IN')
@@ -118,6 +122,7 @@ function Module:OnEnteringWorld()
 
     C_Timer.After(5, function() self:ScanCurrencies() end)
     C_Timer.After(5, function() self:ScanGilded() end)
+    C_Timer.After(5, function() CES_RequestEvents() end)
 
     local item = Item:CreateFromItemID(CHETT_LIST_ID)
     item:ContinueOnItemLoad(function() self:ScanChett() end)
@@ -132,6 +137,25 @@ function Module:CURRENCY_DISPLAY_UPDATE(_, currencyId)
     if currencyId == 3290 then
         C_Timer.After(2, function() self:ScanGilded() end)
     end
+end
+
+function Module:EVENT_SCHEDULER_UPDATE()
+    local eventInfos = CES_GetScheduledEvents()
+    if eventInfos == nil or #eventInfos == 0 then return end
+
+    wipe(self.events)
+
+    for _, eventInfo in ipairs(eventInfos) do
+        if eventInfo.areaPoiID then
+            if not self.events[eventInfo.areaPoiID] then
+                self.events[eventInfo.areaPoiID] = {}
+            end
+
+            tinsert(self.events[eventInfo.areaPoiID], { eventInfo.startTime, eventInfo.endTime })
+        end
+    end
+
+    self:SendMessage('ChoreTracker_Data_Updated', 'events')
 end
 
 function Module:QUEST_ACCEPTED(_, questId)
@@ -568,10 +592,10 @@ function Module:UpdateQuest(questId, week, forceStatus)
 
                     if objective.type == 'progressbar' then
                         -- Naigtal quests lie about the progress bar percent, cool
-                        objectiveData.have = math.max(
+                        objectiveData.have = math.floor(math.max(
                             GetQuestProgressBarPercent(questId),
                             objective.numFulfilled or 0
-                        )
+                        ))
                         objectiveData.need = 100
                     elseif (
                         objective.numFulfilled == 1 and 
