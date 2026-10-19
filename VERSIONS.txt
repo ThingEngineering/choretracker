@@ -1,3 +1,11 @@
+v12.1.5.1
+---------
+- Added Aqir Invasion chore.
+- Added Aqir Invasion timer.
+- Added Sparks of War: The Coiled Isle to Sparks chore.
+- Fixed missing "category:midsummer" string.
+- Updated TOC for 12.1.5.
+
 v12.1.0.6
 ---------
 - Added "Ancient Foe" chore.
