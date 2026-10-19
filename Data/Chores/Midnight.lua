@@ -11,6 +11,18 @@ Addon.data.chores.choresMidnight = {
     minimumLevel = 80,
     categories = {
         {
+            key = 'patch_12_1_5',
+            quests = {
+                {
+                    key = 'aqirInvasion',
+                    minimumLevel = 90,
+                    entries = {
+                        { quest = 97456 }, -- HQT for weekly completion
+                    }
+                },
+            },
+        },
+        {
             key = 'patch_12_1_0',
             quests = {
                 {
