@@ -49,6 +49,7 @@ Addon.data.chores.choresPvp = {
                         { quest = 93424 }, -- Sparks of War: Zul'Aman
                         { quest = 93425 }, -- Sparks of War: Harandar
                         { quest = 93426 }, -- Sparks of War: Voidstorm
+                        { quest = 96808 }, -- Sparks of War: The Coiled Isle
                     },
                 }
             },
