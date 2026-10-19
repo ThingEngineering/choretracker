@@ -354,6 +354,7 @@ L['timer:surgePricing'] = '[Um] Surge Pricing'
 L['timer:theaterTroupe'] = 'Theater Troupe'
 
 -- Midnight
+L['timer:aqirInvasion'] = 'Aqir Invasion'
 L['timer:curseSurge'] = 'Curse Surge'
 
 L['objective:defeat_x'] = 'Defeat %s'

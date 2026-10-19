@@ -7,6 +7,13 @@ Addon.data.timers.midnight = {
     name = EXPANSION_NAME11,
     timers = {
         {
+            key = 'aqirInvasion',
+            minimumLevel = 90,
+            interval = 60 * 60,
+            duration = 15 * 60,
+            offset = 0,
+        },
+        {
             key = 'curseSurge',
             minimumLevel = 90,
             interval = 30 * 60,
