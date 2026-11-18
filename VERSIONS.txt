@@ -1,3 +1,8 @@
+v12.1.5.2
+---------
+- Added 22nd Anniversary holiday ID.
+- Changed The Originals/Timely Gate Crashers to not be account-wide.
+
 v12.1.5.1
 ---------
 - Added Aqir Invasion chore.
