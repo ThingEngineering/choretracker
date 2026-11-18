@@ -78,7 +78,6 @@ Addon.data.chores.choresAnniversary = {
                 },
                 {
                     key = 'timely',
-                    anniversaryAccount = true,
                     requiredEventIds = anniversaryIds,
                     entries = {
                         { quest = 47253 }, -- The Originals [A]
