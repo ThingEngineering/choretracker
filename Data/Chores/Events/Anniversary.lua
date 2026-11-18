@@ -2,7 +2,7 @@ local _, Addon = ...
 local L = Addon.L
 
 
-local anniversaryIds = { 590, 1500, 1501, 1509, 1587, 1588, 1589, 1590, 1592, 1593, 1594, 1595 }
+local anniversaryIds = { 590, 1500, 1501, 1509, 1587, 1588, 1589, 1590, 1592, 1593, 1594, 1595, 1808 }
 
 local CUA_GetPlayerAuraBySpellID = C_UnitAuras.GetPlayerAuraBySpellID
 
